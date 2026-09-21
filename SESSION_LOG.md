@@ -56,3 +56,27 @@ Notion MCP 커넥터(`plugin:engineering:notion`)가 이 세션 내내 연결 �
 - Last File: `edu/why-ai-bots/why-ai-bots.html`, `narration.json`, `SOURCES.md`, `slide-visible-copy.md`
 - Active Errors: 없음 (27개 상태 캡처 금지어 0건, 문서 스크롤 0, node --check 통과)
 - 푸시하지 않음 — 원격 반영은 사용자 확인 후
+
+## 📅 세션 백업: 2026-09-21 (최종 비판 검토 반영)
+
+### ✅ 완료 작업
+- Opus·Codex 두 검토자의 최종 콘텐츠 비판 결과를 병렬 초안 → 패치 검증 → 일괄 적용 방식으로 반영. 나레이션 26클립 수정, 총 8,943자(약 31.2분, 287자/분 가정 추정)
+- 화면·음성 불일치 정정: 13장 "이 주 무료"→"2주 무료 체험", 13장 베타 공개일 "팔월 십일"→"십일일"(Notion 원장 2026-08-11 기준), 16장 요금 "지역과 계정에 따라 다릅니다" 복원
+- 잠금 서사 정리: 작성자용 지시문 전부 제거, 17장 Sentinel 정정(승인 UI 아님), 07장 화면 단계형→병렬 카드형, "Meta Muse"→"Muse", 자가호스팅 명칭 통일
+- TTS 준비: 영문 약어 한글 독음, 100자 초과 문장 분할
+- `assets/photos/CREDITS.md` 장 번호 정정, `SOURCES.md`에 13~25장 출처 추적 부록 추가(1차 URL 없는 항목 명시)
+
+### 🚧 진행 중
+- 없음. 렌더 검증(격리 헤드리스 Chrome, 27개 상태·세 뷰포트·창 크기 왕복) 통과: Critical/Major 0, Minor 4(표지 1920 하단 구분선 접촉, 12~13px 소형 라벨, 19장 ≠ 원 간격, 7장 카드 하단 여백) — 오디오 실재생은 미확인
+
+### ⏭️ 다음 세션 즉시 실행 항목
+1. 사용자 결정: "열광 근거" 방향(수치 1건 편입 / 현재 프레이밍 유지)
+2. TTS 목소리 결정 후 전체 재합성, `ffprobe` 실측
+3. Grok Bot 베타 공개일·15장 90%/100% 인용·SpaceXAI 표기를 x.ai 발표문으로 직접 대조
+4. Notion 승인본 콜아웃의 글자 수(8,771자·약 30.6분)를 최신 값으로 갱신(사용자 확인 후)
+
+### 🧩 런타임 스냅샷
+- Branch: `worktree-botstory-visuals`
+- Path: `edu/why-ai-bots/`
+- Last File: `narration.json`, `why-ai-bots.html`, `slide-visible-copy.md`, `SOURCES.md`, `assets/photos/CREDITS.md`, `PROGRESS.md`
+- Active Errors: 없음(narration↔html 정합·금지어·문장 길이 점검 통과)

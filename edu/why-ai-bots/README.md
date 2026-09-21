@@ -19,10 +19,6 @@ Notion 대본 22클립을 **슬라이드(장표) 레이아웃** HTML + 나레이
 2. **16장 4행 비교표** — 실행 환경 / 자동 통제 / 사람 승인 / 운영 주의 (+ Network Controls). Auto Review ≠ Sentinel.
 3. **설정값 세 개 (20장)** — 네트워크 정책 · 로컬 Never · 오프보딩.
 
-## Notion
-- **사실 원장**: https://app.notion.com/p/3dfb44a2dd2e81c7b2a7eb9c36ff01e2
-- **교육본 (20장 개정)**: https://app.notion.com/p/3deb44a2dd2e814c9324dfcaddde0c5e
-
 ## 미리보기
 ```bash
 cd edu/why-ai-bots

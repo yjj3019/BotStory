@@ -19,4 +19,4 @@ python3 -m http.server 8765
 자세한 가드·구성은 [edu/why-ai-bots/README.md](edu/why-ai-bots/README.md)를 보세요.
 
 ## 문서
-- 서사 잠금: 병행 세 경로 · 16장 4행 비교 · 설정값 세 개 — 상세는 `edu/why-ai-bots/README.md`
+- 서사 잠금: 병행 세 경로 · 19장 4행 비교 · 설정값 세 개 — 상세는 `edu/why-ai-bots/README.md`

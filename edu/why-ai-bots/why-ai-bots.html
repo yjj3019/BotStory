@@ -141,7 +141,7 @@
   }
   .slide-body.has-foot { grid-template-rows: minmax(0, 1fr) auto; }
   .slide-foot {
-    margin: 0; color: var(--muted); font-size: 12px; line-height: 1.3;
+    margin: 0; color: var(--muted); font-size: max(14px, 1.9vh); line-height: 1.3;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
 
@@ -603,6 +603,11 @@
     font-size: max(24px, 3.6vh); line-height: 1.35; color: var(--ink); font-weight: 700;
   }
   .v-lanes.dense .lane li { font-size: max(21px, 3vh); }
+  .v-lanes.wide4 .lane h3 { font-size: max(22px, 3.4vh); }
+  .v-lanes.wide4 .lane-head { padding: .8rem 1rem .6rem; }
+  .v-lanes.wide4 .lane ul { padding: .7rem .8rem; gap: .5rem; }
+  .v-lanes.wide4 .lane li { font-size: max(16px, 2.7vh); max-height: none; padding: .35rem .6rem; gap: .5rem; }
+  .v-lanes.wide4 .lane-badge { margin: 0 .8rem .9rem; font-size: max(16px, 2.4vh); }
   .lane.tone-statement li { --card-line: var(--muted-line); }
   .lane.tone-interp li { --card-line: var(--pending); border-style: dashed; }
   .lane li::before {
@@ -1173,7 +1178,7 @@
       </figure>
       <div class="op-panel">
         <h3>제품 목록이 아니라 위임의 길을 따라갑니다</h3>
-        <div id="op-route" class="dg op-route" role="group" aria-label="오늘의 여정 지도. 시작점 미완의 위임에서 출발해 병행 세 경로, 증거 둘 Grok Bot과 Muse, 격리와 승인으로 이어진다. 현재 위치는 첫 번째 시작점이다."></div>
+        <div id="op-route" class="dg op-route" role="group" aria-label="오늘의 여정 지도. 시작점과 배경에서 출발해 병행 세 경로, 증거 둘 Grok Bot과 Muse, 격리와 승인으로 이어진다. 현재 위치는 첫 번째 시작점이다."></div>
         <p class="op-note">설명 약 30분 · 질의 없음</p>
       </div>
     </div>
@@ -1227,8 +1232,8 @@
 
 <script>
 // OPENING/ENDING은 SCENES 밖에 두고 extract_narration.py 상수와 동기화한다.
-const OPENING_TEXT = '안녕하세요. 오늘은 제품 이름표를 나열하는 시간이 아닙니다. 사람들이 왜 AI 봇에 열광하는가만 천천히 따라가겠습니다. 시작점은 답이 남고 일이 끝나지 않던 한계입니다. 그다음 오픈소스와 에이전트 소셜이 연 길을 보고, Grok Bot과 Meta Muse를 증거의 두 갈래로 읽겠습니다. 설명은 삼십 분이고 질의와 토론 시간은 없습니다. 날짜와 요금은 확인된 범위만 쓰고, 스타 수나 가입 수 같은 미확인 수치는 넣지 않습니다. 마지막에는 격리와 승인, 위임 단위를 적는 습관으로 닫겠습니다. 화면의 로고보다, 위임이 어디서 멈추는지를 보는 시간이 되겠습니다. 오늘 따라갈 줄기는 왜 열광인가 하나뿐입니다.';
-const ENDING_TEXT = '오늘은 왜 열광하는가만 따라갔습니다. 제품 이름은 바뀌어도, 실행 환경과 승인 경계를 먼저 적는 습관이 남으면 됩니다. 위임은 편리함과 책임이 한 세트이고, 격리와 승인 없이 결과만 쫓으면 과열로 기울기 쉽습니다. 시작점의 미완의 위임에서 출발해, 진행과 열광, 두 증거를 거쳐 체크리스트까지 왔습니다. 제품 쇼핑 목록 대신, 실행 환경과 승인 경계를 적는 습관을 가져가시면 됩니다. 설명은 여기까지입니다. 들어 주셔서 감사합니다.';
+const OPENING_TEXT = '안녕하세요. 오늘은 제품 이름표를 나열하는 시간이 아닙니다. 사람들이 왜 AI 봇에 열광하는가만 천천히 따라가겠습니다. 시작점은 답이 남고 일이 끝나지 않던 한계입니다. 그 한계가 하루아침에 생긴 것이 아니라는 배경도 세 장으로 짚겠습니다. 그다음 오픈소스와 에이전트 소셜이 연 길을 보고, Grok Bot과 Meta Muse를 증거의 두 갈래로 읽겠습니다. 설명은 삼십 분이고 질의와 토론 시간은 없습니다. 날짜와 요금은 확인된 범위만 쓰고, 스타 수나 가입 수 같은 미확인 수치는 넣지 않습니다. 마지막에는 격리와 승인, 위임 단위를 적는 습관으로 닫겠습니다. 화면의 로고보다, 위임이 어디서 멈추는지를 보는 시간이 되겠습니다. 오늘 따라갈 줄기는 왜 열광인가 하나뿐입니다.';
+const ENDING_TEXT = '오늘은 왜 열광하는가만 따라갔습니다. 제품 이름은 바뀌어도, 실행 환경과 승인 경계를 먼저 적는 습관이 남으면 됩니다. 위임은 편리함과 책임이 한 세트이고, 격리와 승인 없이 결과만 쫓으면 과열로 기울기 쉽습니다. 시작점의 미완의 위임에서 출발해, 진행과 열광, 두 증거를 거쳐 체크리스트까지 왔습니다. 오늘은 배경 세 장과 연결 표준까지 함께 봤지만, 남는 습관은 하나입니다. 제품 쇼핑 목록 대신, 실행 환경과 승인 경계를 적는 습관을 가져가시면 됩니다. 설명은 여기까지입니다. 들어 주셔서 감사합니다.';
 
 const SCENES = [
   {
@@ -1237,7 +1242,7 @@ const SCENES = [
     message: 'AI Bot 시대, 왜 열광하는가를 위임·지속·실행 환경으로 본다',
     visual: {
       type: 'cover',
-      sub: '시작점 → 병행 세 경로 → Grok Bot·Muse',
+      sub: '시작점·배경 → 병행 세 경로 → Grok Bot·Muse',
       axes: [
         { g: 'check', t: '위임', d: '끝난 산출물' },
         { g: 'loop', t: '지속', d: '같은 동료에게 다시' },
@@ -1254,7 +1259,7 @@ const SCENES = [
     cover: true
   ,
     lines: [
-      '이천이십육년 십월 일일 교육 자료입니다. 제목은 AI Bot 시대, 사람들은 왜 열광하는가입니다. 부제는 시작점에서 오픈소스와 에이전트 소셜을 지나 Grok Bot과 Meta Muse로 오는 이야기입니다. 마케팅 문구와 확인되지 않은 수치는 넣지 않았습니다. 오늘은 카탈로그가 아니라 왜 열광인가가 본체이고, 제품은 그 증거로만 등장합니다. 학습 순서는 시작점, 진행, 현재 열광, 두 제품의 증거, 격리와 승인, 리스크와 전망, 체크리스트입니다. 발표 자료는 교육용이며 판매 피치가 아닙니다. 표지에서 약속하는 것은 기능 나열이 아니라, 열광의 이유를 끝까지 따라가는 일입니다.'
+      '이천이십육년 십월 일일 교육 자료입니다. 제목은 AI Bot 시대, 사람들은 왜 열광하는가입니다. 부제는 시작점에서 오픈소스와 에이전트 소셜을 지나 Grok Bot과 Meta Muse로 오는 이야기입니다. 마케팅 문구와 확인되지 않은 수치는 넣지 않았습니다. 오늘은 카탈로그가 아니라 왜 열광인가가 본체이고, 제품은 그 증거로만 등장합니다. 학습 순서는 시작점, 배경, 진행, 현재 열광, 두 제품의 증거, 격리와 승인, 연결 표준, 리스크와 전망, 체크리스트입니다. 발표 자료는 교육용이며 판매 피치가 아닙니다. 표지에서 약속하는 것은 기능 나열이 아니라, 열광의 이유를 끝까지 따라가는 일입니다.'
     ]
   },
   {
@@ -1263,7 +1268,7 @@ const SCENES = [
     message: '챗봇은 대답했고, 봇은 일을 맡기기 시작했다',
     visual: {
       type: 'stack',
-      aria: '오늘의 질문 도해. 학습 목표 세 가지, 열광의 시작점을 말한다, 병행 세 경로를 그린다, 위임·지속·실행 환경·접근성을 격리·승인에 연결한다. 오른쪽 여정 띠는 시작점, 병행 세 경로, 증거 둘, 격리·승인 네 구간이고 현재 위치는 시작점이다. 비교는 증거 뒤에 한다.',
+      aria: '오늘의 질문 도해. 학습 목표 세 가지, 열광의 시작점을 말한다, 병행 세 경로를 그린다, 위임·지속·실행 환경·접근성을 격리·승인에 연결한다. 오른쪽 여정 띠는 시작점과 배경, 병행 세 경로, 증거 둘, 격리·승인 네 구간이고 현재 위치는 시작점이다. 비교·연결 표준·리스크 이름은 증거 뒤에 한다.',
       parts: [
         { type: 'row', w: 1, cols: '58fr 42fr', parts: [
           { type: 'goals', items: [
@@ -1271,13 +1276,13 @@ const SCENES = [
             '병행 세 경로를 그린다',
             '위임·지속·실행 환경·접근성(과열 포함)을 격리·승인에 연결한다'
           ] },
-          { type: 'routepanel', caption: '비교는 증거 뒤에' }
+          { type: 'routepanel', caption: '비교·연결 표준·리스크 이름은 증거 뒤에' }
         ] }
       ]
     }
   ,
     lines: [
-      '오늘의 질문은 하나입니다. 챗봇은 대답했고, 봇은 일을 맡기기 시작했는데, 사람들은 왜 여기에 열광하는가. 학습 목표는 세 가지입니다. 첫째, 열광의 시작점인 미완의 위임을 말로 남깁니다. 둘째, 자가호스팅·에이전트 소셜·클라우드의 병행 세 경로를 그립니다. 셋째, 지금의 위임과 지속, 실행 환경, 접근성, 그리고 과열을 격리와 승인에 연결합니다. 제품 비교는 뒤로 미루고, 먼저 이 세 갈래를 고정하겠습니다. 비교표는 증거가 쌓인 뒤에야 의미가 있습니다. 세 목표를 놓치면 이 자료는 다시 제품 카탈로그로 떨어집니다.'
+      '오늘의 질문은 하나입니다. 챗봇은 대답했고, 봇은 일을 맡기기 시작했는데, 사람들은 왜 여기에 열광하는가. 학습 목표는 세 가지입니다. 첫째, 열광의 시작점인 미완의 위임을 말로 남깁니다. 둘째, 자가호스팅·에이전트 소셜·클라우드의 병행 세 경로를 그립니다. 셋째, 지금의 위임과 지속, 실행 환경, 접근성, 그리고 과열을 격리와 승인에 연결합니다. 제품 비교는 뒤로 미루고, 먼저 이 세 갈래를 고정하겠습니다. 여기에 배경 세 장과 연결 표준, 리스크 이름표를 덧붙여 스물다섯 장으로 갑니다. 비교표는 증거가 쌓인 뒤에야 의미가 있습니다. 세 목표를 놓치면 이 자료는 다시 제품 카탈로그로 떨어집니다.'
     ]
   },
   {
@@ -1328,11 +1333,84 @@ const SCENES = [
     }
   ,
     lines: [
-      '열광의 출발은 신기능이 아니라 미완의 위임입니다. 조사와 초안은 되는데, 툴에 반영하고 끝내는 일은 사람 몫으로 남았습니다. 세션이 바뀌면 맥락이 끊기고, 어제 맡긴 일을 오늘 다시 설명해야 했습니다. 도와준다와 맡긴다의 간극이 쌓였고, 사람들은 그 간극을 메울 도구를 찾기 시작했습니다. 모델이 나빠서가 아니라, 실행과 권한과 지속성이 한 패키지로 오지 않았던 문제입니다. 이 시작점만 먼저 고정하면, 뒤의 오픈소스와 클라우드 이야기도 같은 결핍에서 출발합니다.'
+      '열광의 출발은 신기능이 아니라 미완의 위임입니다. 조사와 초안은 되는데, 툴에 반영하고 끝내는 일은 사람 몫으로 남았습니다. 세션이 바뀌면 맥락이 끊기고, 어제 맡긴 일을 오늘 다시 설명해야 했습니다. 도와준다와 맡긴다의 간극이 쌓였고, 사람들은 그 간극을 메울 도구를 찾기 시작했습니다. 모델이 나빠서가 아니라, 실행과 권한과 지속성이 한 패키지로 오지 않았던 문제입니다. 이 시작점만 먼저 고정하면, 뒤의 오픈소스와 클라우드 이야기도 같은 결핍에서 출발합니다. 이 결핍이 언제부터 있었는지, 배경 세 장을 먼저 보겠습니다.'
     ]
   },
   {
-    year: '5장 · 진행',
+    year: '5장 · 배경①',
+    title: '대화는 있었지만, 일을 대신 해 줄 손이 없었다',
+    message: '대화는 있었지만, 일을 대신 해 줄 손이 없었다',
+    foot: '출처: Mind LIX-236(1950) · CACM 9-1(1966) · RFC 439(1972-09-18) · Weizenbaum 1976',
+    visual: {
+      type: 'stack',
+      aria: '배경 첫 장 도해. 1950년 튜링의 모방 게임 논문, 1966년 ELIZA와 DOCTOR 스크립트, 1972년 9월 18일 ARPANET으로 연결된 PARRY와 DOCTOR의 대화 기록 RFC 439, 1976년 바이첸바움의 경고를 네 장의 카드로 나란히 둔다. 서열이 아니라 배경이다. ELIZA 효과는 단순한 프로그램에 인간적 이해와 공감을 투사하는 경향을 가리킨다. 대화는 있었지만 일을 대신 해 줄 손은 없었다.',
+      parts: [
+        { type: 'cardrow', w: 1.3, items: [
+          { n: 1, t: '1950 · Turing', lines: [ 'Computing Machinery and Intelligence', '“imitation game” — 뒤에 튜링 테스트로 불림' ] },
+          { n: 2, t: '1966 · ELIZA', lines: [ 'DOCTOR 스크립트 — 키워드·패턴 치환', '사람들은 이해받는다고 느꼈다' ] },
+          { n: 3, t: '1972-09-18 · 두 프로그램', lines: [ 'ARPANET으로 연결된 PARRY ↔ DOCTOR', '대화 기록 = RFC 439' ] },
+          { n: 4, t: '1976 · 만든 사람의 경고', tone: 'risk', lines: [ { t: '계산할 수 있다 ≠ 판단을 맡겨도 된다', tone: 'risk' } ] }
+        ] },
+        { type: 'reads', w: .7, items: [
+          { k: 'ELIZA 효과', t: '단순한 프로그램에 인간적 이해·공감을 투사하는 경향' }
+        ] },
+        { type: 'banner', w: .4, text: '대화는 있었다 · 없던 것은 일을 대신 해 줄 손' }
+      ]
+    }
+  ,
+    lines: [
+      '잠깐 시간을 거슬러 올라가겠습니다. 천구백오십년 튜링은 논문에서 모방 게임을 제안했고, 이것이 나중에 튜링 테스트라고 불립니다. 천구백육십육년 바이첸바움의 ELIZA는 DOCTOR 스크립트로 상담사를 흉내 냈습니다. 키워드와 패턴 치환뿐이었는데도 사람들은 이해받는다고 느꼈습니다. 단순한 프로그램에 인간적 이해와 공감을 투사하는 이 경향을 ELIZA 효과라고 부릅니다. 천구백칠십이년 구월 십팔일에는 ARPANET으로 연결된 두 프로그램, 스탠퍼드의 PARRY와 MIT의 DOCTOR가 서로 대화했고 그 기록이 RFC 사백삼십구로 남아 있습니다. 정작 ELIZA를 만든 바이첸바움은 천구백칠십육년 저서에서, 계산할 수 있다는 것과 판단을 맡겨도 된다는 것은 다르다고 경고했습니다. 대화는 여기서 이미 있었습니다. 다만 일을 대신 해 줄 손이 없었습니다.'
+    ]
+  },
+  {
+    year: '6장 · 배경②',
+    title: '지능은 빨리 자랐고, 실행은 사람 몫으로 남았다',
+    message: '지능은 빨리 자랐고, 실행은 사람 몫으로 남았다',
+    foot: '출처: arXiv 1706.03762 · arXiv 2210.03629 · OpenAI 2022-11-30 · 각 프로젝트 GitHub 저장소 기록',
+    visual: {
+      type: 'matrix',
+      headers: [ '시점', '무엇이 나왔나', '공개 방식·상태' ],
+      widths: [ '20%', '46%', '34%' ],
+      rows: [
+        [ '2017-06', 'Transformer — Attention Is All You Need', 'arXiv 논문 공개' ],
+        [ '2022', 'ReAct — 추론과 행동을 결합한 대표적 연구 패턴', 'arXiv 논문' ],
+        [ '2022-11-30', 'ChatGPT', '무료 리서치 프리뷰 공개' ],
+        { cells: [ '2023-03~04', 'AutoGPT · BabyAGI — 자율 에이전트 실험', '초기 형태 · 지금은 그대로가 아님' ], hi: true }
+      ],
+      bracket: { from: 0, to: 3, label: '실행은 아직 사람 몫' }
+    }
+  ,
+    lines: [
+      '손이 없던 자리에서 먼저 자란 것은 지능이었습니다. 이천십칠년 육월 Attention Is All You Need가 arXiv에 공개되며 Transformer 구조가 나왔습니다. 이천이십이년에는 ReAct가 추론과 행동을 결합해 외부 정보를 끌어오는 방식을 제시했습니다. 흔히 생각과 행동과 관찰의 루프로 요약되지만, 그것은 업계의 통상적 요약입니다. 이천이십이년 십일월 삼십일에는 ChatGPT가 무료 리서치 프리뷰로 공개됐습니다. 이듬해 삼월과 사월에는 AutoGPT와 BabyAGI가 잇따라 나오며 자율 에이전트 실험이 번졌습니다. 두 프로젝트 모두 지금은 초기 형태가 아닙니다. 지능은 좋아졌지만, 실행은 여전히 사람 몫이었습니다.'
+    ]
+  },
+  {
+    year: '7장 · 배경③',
+    title: '도구 사용에서 화면 조작으로, 실행이 넘어오기 시작했다',
+    message: '도구 사용에서 화면 조작으로, 실행이 넘어오기 시작했다',
+    foot: '출처: Anthropic 2024-10-22 발표 (Claude 3.5 모델 소식과 동일 게시물)',
+    visual: {
+      type: 'stack',
+      aria: '배경 셋째 장 도해. 문장 생성, 도구 사용, 컴퓨터 조작 세 단계 가운데 세 번째가 2024년 10월 22일 API 퍼블릭 베타로 열렸다. 발표문 자체가 아직 실험적이며 때로는 번거롭고 오류가 잦다고 밝혔다. 자동화 범위가 넓어질 가능성으로 읽고, 모든 화면 시스템이 곧 자동화 대상이라고 읽지 않는다. 2026년 시점에는 현재 기능이 아니라 전환점이다.',
+      parts: [
+        { type: 'steps', w: 1.15,
+          items: [ { t: '문장 생성' }, { t: '도구 사용' }, { t: '컴퓨터 조작' } ],
+          brackets: [ { from: 3, to: 3, label: '2024-10-22 · API 퍼블릭 베타' } ] },
+        { type: 'row', w: 1.1, cols: 'repeat(3, minmax(0, 1fr))', parts: [
+          { type: 'reads', items: [ { k: '발표문이 함께 밝힌 것', t: '실험적 · 때로는 번거롭고 오류가 잦음', tone: 'risk' } ] },
+          { type: 'reads', items: [ { k: '이렇게 읽는다', t: '자동화 범위가 넓어질 가능성' } ] },
+          { type: 'reads', items: [ { k: '이렇게 읽지 않는다', t: '모든 화면 시스템이 곧 자동화 대상', tone: 'risk' } ] }
+        ] },
+        { type: 'banner', w: .4, text: '2026년 시점에는 현재 기능이 아니라 전환점' }
+      ]
+    }
+  ,
+    lines: [
+      '실행이 넘어오기 시작한 지점이 그다음입니다. 처음에는 문장을 생성했고, 다음에는 정해진 도구를 호출했습니다. 그리고 이천이십사년 십월 이십이일, Anthropic이 computer use를 API 퍼블릭 베타로 공개했습니다. 화면을 보고 커서를 움직이고 버튼을 누르고 글자를 입력하도록 지시할 수 있게 된 것입니다. 눈여겨볼 대목은 발표문 자체가 이 기능을 아직 실험적이며 때로는 번거롭고 오류가 잦다고 밝혔다는 점입니다. 그래서 모든 화면이 곧바로 자동화 대상이 되었다기보다, 자동화의 범위가 넓어질 가능성이 열렸다고 읽는 편이 맞습니다. 이천이십육년 지금 보면 이미 이 년 전 일이고, 현재 기능이 아니라 전환점으로 두는 편이 정확합니다. 문장에서 도구로, 도구에서 화면 조작으로. 앞에서 본 결핍이 메워지기 시작한 경로가 여기까지입니다. 이제 그 흐름이 어떻게 갈라졌는지 보겠습니다.'
+    ]
+  },
+  {
+    year: '8장 · 진행',
     title: 'BOT 수요 반응이 하나의 발전사가 아니라 세 경로로 병행됐다',
     message: 'BOT 수요 반응이 하나의 발전사가 아니라 세 경로로 병행됐다',
     visual: {
@@ -1357,11 +1435,11 @@ const SCENES = [
     }
   ,
     lines: [
-      '앞장에서 미완의 위임, 곧 BOT 수요를 봤습니다. 이제 그 수요에 대한 반응이 하나의 발전사가 아니라 세 경로로 병행됐음을 봅니다. 첫째 자가호스팅으로 OpenClaw와 Hermes처럼 실행 환경을 스스로 쥐는 길, 둘째 Moltbook 같은 에이전트 소셜, 셋째 Grok Bot과 Muse 같은 클라우드 제품입니다. OpenClaw는 초창 사례일 뿐 모든 BOT의 시작이라고 말하지 않습니다. 명칭 이력은 공식 블로그와 lore에 출처를 붙일 때만 짧게 언급하고, Hermes 출시 일자는 공식 랜딩에 없어 단정하지 않습니다. 스타 수와 가입 수는 말하지 않습니다.'
+      '앞에서 미완의 위임과 그 배경, 곧 BOT 수요를 봤습니다. 이제 그 수요에 대한 반응이 하나의 발전사가 아니라 세 경로로 병행됐음을 봅니다. 첫째 자가호스팅으로 OpenClaw와 Hermes처럼 실행 환경을 스스로 쥐는 길, 둘째 Moltbook 같은 에이전트 소셜, 셋째 Grok Bot과 Muse 같은 클라우드 제품입니다. OpenClaw는 초창 사례일 뿐 모든 BOT의 시작이라고 말하지 않습니다. 명칭 이력은 공식 블로그와 lore에 출처를 붙일 때만 짧게 언급하고, Hermes 출시 일자는 공식 랜딩에 없어 단정하지 않습니다. 스타 수와 가입 수는 말하지 않습니다.'
     ]
   },
   {
-    year: '6장 · 열광①',
+    year: '9장 · 열광①',
     title: '답이 아니라 결과를 맡긴다',
     message: '답이 아니라 결과를 맡긴다',
     visual: {
@@ -1383,7 +1461,7 @@ const SCENES = [
     ]
   },
   {
-    year: '7장 · 열광②',
+    year: '10장 · 열광②',
     title: '세션이 끊겨도 맥락이 남는다',
     message: '세션이 끊겨도 맥락이 남는다',
     visual: {
@@ -1415,7 +1493,7 @@ const SCENES = [
     ]
   },
   {
-    year: '8장 · 열광③',
+    year: '11장 · 열광③',
     title: '위임의 실행 기반이 제품이 되었다',
     message: '위임의 실행 기반이 제품이 되었다',
     visual: {
@@ -1441,7 +1519,7 @@ const SCENES = [
     ]
   },
   {
-    year: '9장 · 열광④',
+    year: '12장 · 열광④',
     title: '가까워질수록 기대와 과열이 같이 커진다',
     message: '가까워질수록 기대와 과열이 같이 커진다',
     visual: {
@@ -1461,7 +1539,7 @@ const SCENES = [
     ]
   },
   {
-    year: '10장 · Grok 개요',
+    year: '13장 · Grok 개요',
     title: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
     message: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
     visual: {
@@ -1486,7 +1564,7 @@ const SCENES = [
     ]
   },
   {
-    year: '11장 · Grok 구조',
+    year: '14장 · Grok 구조',
     title: '격리는 computer만이 아니다 · 로컬·네트워크를 같이 본다',
     message: '격리는 computer만이 아니다 · 로컬·네트워크를 같이 본다',
     visual: {
@@ -1509,7 +1587,7 @@ const SCENES = [
     ]
   },
   {
-    year: '12장 · Grok 지향',
+    year: '15장 · Grok 지향',
     title: '인용은 전망으로 읽고 SLA로 읽지 않는다',
     message: '인용은 전망으로 읽고 SLA로 읽지 않는다',
     visual: {
@@ -1532,7 +1610,7 @@ const SCENES = [
     ]
   },
   {
-    year: '13장 · Muse 개요',
+    year: '16장 · Muse 개요',
     title: 'Muse는 개인 agent를 Secure VM 위에 둔 미국 롤아웃이다',
     message: 'Muse는 개인 agent를 Secure VM 위에 둔 미국 롤아웃이다',
     visual: {
@@ -1557,7 +1635,7 @@ const SCENES = [
     ]
   },
   {
-    year: '14장 · Muse 안전',
+    year: '17장 · Muse 안전',
     title: 'Sentinel은 승인 UI가 아니라 egress·커널 중개 계층이다',
     message: 'Sentinel은 승인 UI가 아니라 egress·커널 중개 계층이다',
     visual: {
@@ -1587,7 +1665,7 @@ const SCENES = [
     ]
   },
   {
-    year: '15장 · Muse 전망',
+    year: '18장 · Muse 전망',
     title: '기업 발언·사실·해석을 표로 가른다',
     message: '기업 발언·사실·해석을 표로 가른다',
     visual: {
@@ -1616,7 +1694,7 @@ const SCENES = [
     ]
   },
   {
-    year: '16장 · 비교',
+    year: '19장 · 비교',
     title: '실행 환경 / 자동 통제 / 사람 승인 / 운영 주의로만 겹친다',
     message: '실행 환경 / 자동 통제 / 사람 승인 / 운영 주의로만 겹친다',
     visual: {
@@ -1638,7 +1716,7 @@ const SCENES = [
     ]
   },
   {
-    year: '17장 · 공통 뼈대',
+    year: '20장 · 공통 뼈대',
     title: '제품 이름 전에 다섯 뼈대를 본다',
     message: '제품 이름 전에 다섯 뼈대를 본다',
     visual: {
@@ -1660,11 +1738,38 @@ const SCENES = [
     }
   ,
     lines: [
-      '오픈소스든 클라우드든 위임형 봇의 뼈대는 비슷합니다. 실행 환경, 커넥터, 기억, 루틴, 사람 승인. 이 다섯이 조직 체크리스트의 뼈대입니다. 자가호스팅의 메신저 채널도, 클라우드의 Auto Review나 Sentinel도, 결국 환경과 연결과 승인으로 환원됩니다. 제품 이름이 바뀌어도 이 다섯 질문은 남습니다. 무엇을 어디서 돌리고, 무엇에 연결하고, 무엇을 기억하며, 언제 반복하고, 언제 사람에게 물을지입니다. 다섯 뼈대를 체크리스트로 옮겨 두면, 새 제품이 나와도 같은 양식으로 비교할 수 있습니다.'
+      '오픈소스든 클라우드든 위임형 봇의 뼈대는 비슷합니다. 실행 환경, 커넥터, 기억, 루틴, 사람 승인. 이 다섯이 조직 체크리스트의 뼈대입니다. 자가호스팅의 메신저 채널도, 클라우드의 Auto Review나 Sentinel도, 결국 환경과 연결과 승인으로 환원됩니다. 제품 이름이 바뀌어도 이 다섯 질문은 남습니다. 무엇을 어디서 돌리고, 무엇에 연결하고, 무엇을 기억하며, 언제 반복하고, 언제 사람에게 물을지입니다. 다섯 뼈대를 체크리스트로 옮겨 두면, 새 제품이 나와도 같은 양식으로 비교할 수 있습니다. 이 중 커넥터가 어떻게 표준이 되어 가는지를 다음 장에서 보겠습니다.'
     ]
   },
   {
-    year: '18장 · 리스크',
+    year: '21장 · 연결 표준',
+    title: '거버넌스가 재단으로 넘어가며 표준화가 진행 중이다',
+    message: '거버넌스가 재단으로 넘어가며 표준화가 진행 중이다',
+    foot: '출처: MCP · A2A · AG-UI · ACP · AP2 각 프로토콜의 공식 발표 및 문서',
+    visual: {
+      type: 'lanes',
+      lanes: [
+        { title: 'MCP', sub: '에이전트 ↔ 도구·데이터', tone: 'fact',
+          points: [ '2024-11-25 오픈 표준 공개', '경쟁 진영 공식 문서도 MCP 연동 안내' ],
+          badge: { t: '2025-12-09 AAIF(리눅스 재단) 이관 · 벤더 중립 거버넌스', tone: 'blue' } },
+        { title: 'A2A', sub: '에이전트 ↔ 에이전트', tone: 'fact',
+          points: [ '2025-04-09 Google, 오픈 프로토콜 발표', '2026-08-27 Agentic AI Foundation 합류' ],
+          badge: { t: 'MCP와 같은 재단 아래', tone: 'blue' } },
+        { title: 'AG-UI', sub: '에이전트 ↔ 사용자',
+          points: [ 'CopilotKit · 2025년 5월', 'LangGraph, CrewAI와 초기 파트너십에서 출발' ],
+          badge: { t: '단일 벤더 주도 · MIT 오픈소스', tone: 'pending' } },
+        { title: 'ACP · AP2', sub: '에이전트 ↔ 결제 · 2025-09 발표',
+          points: [ 'ACP · 구매자가 주문, 배송, 결제를 확인한 뒤 구매 완료', 'AP2 · 사전 서명한 Intent Mandate' ],
+          badge: { t: 'ACP 토큰은 1회용 · 최대 금액과 만료로 제한', tone: 'pending' } }
+      ]
+    }
+  ,
+    lines: [
+      '이어서 뼈대의 연결 층입니다. 이천이십사년 십일월 이십오일 Anthropic이 MCP를 오픈 표준으로 공개했습니다. MCP는 이천이십오년 십이월 구일 리눅스 재단 산하 Agentic AI Foundation으로 이관돼 벤더 중립 거버넌스에 들어갔고, 경쟁 진영의 공식 문서들도 각자 MCP 연동을 안내합니다. 표준으로 확정됐다기보다, 표준화가 MCP를 중심으로 진행 중입니다. Google이 이천이십오년 사월 구일 발표한 A2A도 이천이십육년 팔월 같은 재단에 합류했습니다. 사람과 잇는 쪽에는 CopilotKit이 이천이십오년 오월에 낸 AG-UI가 있고, 이쪽은 단일 벤더 주도입니다. 결제 쪽 ACP에서는 구매자가 주문과 배송과 결제를 확인한 뒤 구매가 완료되고, 일회용 토큰은 최대 금액과 만료 시각에 묶입니다. AP2는 미리 서명해 둔 Intent Mandate로 조건부 위임까지 다룹니다.'
+    ]
+  },
+  {
+    year: '22장 · 리스크',
     title: '위임이 커질수록 리스크도 커진다 · 완화 한 줄을 붙인다',
     message: '위임이 커질수록 리스크도 커진다 · 완화 한 줄을 붙인다',
     visual: {
@@ -1691,11 +1796,35 @@ const SCENES = [
     }
   ,
     lines: [
-      '위임이 커질수록 리스크도 커집니다. 자격증명은 최소 권한과 오프보딩으로, 오작동은 저위험 업무와 사람 승인으로 완화합니다. Auto Review는 최소 권한을 대체하지 않습니다. Muse 쪽에서는 Secure VM에서 운영 접근을 기술적으로 막지 않는다는 공식 한계와, Confidential VM이 그 간극을 메우려는 예정을 같이 말합니다. Network Controls는 Enterprise 전용이고 없으면 전체 허용이 기본이며, 로컬 실행은 Never를 권고합니다. 수치화된 사고 통계는 만들지 않습니다.'
+      '위임이 커질수록 리스크도 커집니다. 자격증명은 최소 권한과 오프보딩으로, 오작동은 저위험 업무와 사람 승인으로 완화합니다. Auto Review는 최소 권한을 대체하지 않습니다. Muse 쪽에서는 Secure VM에서 운영 접근을 기술적으로 막지 않는다는 공식 한계와, Confidential VM이 그 간극을 메우려는 예정을 같이 말합니다. Network Controls는 Enterprise 전용이고 없으면 전체 허용이 기본이며, 로컬 실행은 Never를 권고합니다. 수치화된 사고 통계는 만들지 않습니다. 이 다섯 줄에 바깥에서 붙인 이름이 있는지 이어서 보겠습니다.'
     ]
   },
   {
-    year: '19장 · 전망',
+    year: '23장 · 리스크 이름',
+    title: '리스크에 이름을 붙이면 점검 항목이 된다',
+    message: '리스크에 이름을 붙이면 점검 항목이 된다',
+    foot: '출처: OWASP GenAI Security Project · Top 10 for Agentic Applications 2026 (2025-12-09 발행)',
+    visual: {
+      type: 'matrix',
+      headers: [ '앞에서 본 리스크', '가까운 ASI 항목', '읽는 법' ],
+      widths: [ '28%', '40%', '32%' ],
+      tones: [ 'risk', '', '' ],
+      rows: [
+        [ '자격증명·잔존 로그인', 'ASI03 Identity & Privilege Abuse', '권한이 사람보다 오래 남는 경우' ],
+        { cells: [ '오작동·과도 위임', 'ASI01 Agent Goal Hijack · ASI02 Tool Misuse', '목표와 도구가 틀어지는 경우' ], hi: true },
+        [ '로컬 실행·책임', 'ASI05 Unexpected Code Execution', '실행이 내 PC로 내려오는 경우' ],
+        { cells: [ '과도한 신뢰', 'ASI09 Human-Agent Trust Exploitation', 'ELIZA 효과와 맞닿는 지점' ], hi: true },
+        [ '오늘 표에 행이 없는 것', 'ASI04 · ASI06 · ASI07 · ASI08 · ASI10', '목록으로만 남긴다' ]
+      ],
+      bracket: { from: 0, to: 3, label: '대응은 오늘 자료의 해석' }
+    }
+  ,
+    lines: [
+      '앞장의 다섯 줄에 바깥에서 붙인 이름이 있습니다. 이천이십오년 십이월 구일 OWASP GenAI Security Project가 OWASP Top 10 for Agentic Applications 이천이십육년판을 냈습니다. 에이전트 애플리케이션의 위험 열 가지를 ASI 영일부터 ASI 십까지 번호로 정리한 목록입니다. 우리 표의 자격증명과 잔존 로그인은 ASI 영삼 Identity and Privilege Abuse에 가깝습니다. 오작동과 과도 위임은 ASI 영일 Agent Goal Hijack과 ASI 영이 Tool Misuse 쪽입니다. 앞서 본 과도한 신뢰, 그리고 배경에서 본 ELIZA 효과는 ASI 영구 Human-Agent Trust Exploitation과 맞닿습니다. 이 연결은 공식 대응표가 아니라 오늘 자료의 해석입니다. 이름이 붙으면 점검 항목으로 옮기기가 쉬워집니다.'
+    ]
+  },
+  {
+    year: '24장 · 전망',
     title: '예측이 아니라 관찰 포인트 세 갈래다',
     message: '예측이 아니라 관찰 포인트 세 갈래다',
     foot: '국내 출시 일자 — 확인 불가',
@@ -1725,7 +1854,7 @@ const SCENES = [
     ]
   },
   {
-    year: '20장 · 그래서 우리는',
+    year: '25장 · 그래서 우리는',
     title: '도입 선언보다 설정값 세 개를 익힌다',
     message: '도입 선언보다 설정값 세 개를 익힌다',
     foot: 'Galaxy 2026-09-15~17 (일정)',
@@ -1758,7 +1887,7 @@ const SCENES = [
 ];
 
 const AUDIO_DIR = 'audio/';
-const sceneCount = SCENES.length; // 20 → ending id = 21-ending
+const sceneCount = SCENES.length; // 25 → ending id = 26-ending
 
 function clipName(idx) {
   if (idx === 0) return '00-opening';
@@ -1840,7 +1969,7 @@ function buildMatrix(v) {
 // lanes: { lanes: [{ title, sub?, tone?: 'fact'|'statement'|'interp', points: [text | {t, badge:{t,tone}}], badge?:{t,tone} }] }
 function buildLanes(v) {
   const dense = (v.lanes || []).some(l => (l.points || []).length > 2);
-  const wrap = el('div', 'v-lanes' + (dense ? ' dense' : ''));
+  const wrap = el('div', 'v-lanes' + (dense ? ' dense' : '') + ((v.lanes || []).length > 3 ? ' wide4' : ''));
   wrap.style.setProperty('--n', String((v.lanes || []).length));
   (v.lanes || []).forEach(l => {
     const lane = el('div', 'lane' + (l.tone ? ' tone-' + l.tone : ''));
@@ -2155,7 +2284,7 @@ function glyph(name) {
 }
 
 // route: four stops on one connected route, first stop marked as the current position (shared by opening and the goals slide)
-const ROUTE_STAGES = [ '시작점 · 미완의 위임', '병행 세 경로', '증거 둘 · Grok Bot · Muse', '격리 · 승인' ];
+const ROUTE_STAGES = [ '시작점 · 배경', '병행 세 경로', '증거 둘 · Grok Bot · Muse', '격리 · 승인' ];
 const ROUTE_HERE = '오늘 여기서 출발';
 function buildRoute(v) {
   const ol = el('ol', 'dg-route' + (v && v.size === 'sm' ? ' sm' : ''));

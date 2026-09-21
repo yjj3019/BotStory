@@ -3,11 +3,7 @@
 경로: `edu/why-ai-bots/`
 
 ## 다이어그램 (본문)
-- `diagrams/03-terminology-path.png` (+ `-dense`) — 용어 경로 (chatbot→…→persistent bot)
-- `diagrams/05-progress-path.png` (+ `-dense`) — 병행 세 경로 (자가호스팅·에이전트 소셜·클라우드)
-- `diagrams/08-runtime-computer-vs-secure-vm.png` (+ `-dense`) — 실행 환경 비교
-- `diagrams/16-isolation-auto-review-sentinel.png` (+ `-dense`) — 격리·승인 (Auto Review ≠ Sentinel)
-- `diagrams/17-common-skeleton-five.png` (+ `-dense`) — 공통 뼈대 5
+- PNG 다이어그램(`diagrams/`)은 폐기했다. 03·16장은 `matrix`, 05·08·14·17장은 HTML/CSS 컴포넌트(`paths`·`runtime`·`boundary`·`skeleton`)로 why-ai-bots.html 안에서 그린다.
 
 ## 장표 배경 (16:9 · 1920×1080)
 - `assets/bg/20-bg-cover-light.png` — 표지 밝은 배경 (우상단 아크)

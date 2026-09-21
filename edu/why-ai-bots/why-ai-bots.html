@@ -151,18 +151,6 @@
   }
   .visual > * { width: 100%; }
 
-  /* Diagram */
-  .diagram {
-    margin: 0; border-radius: 14px; overflow: hidden;
-    border: 1px solid var(--line); background: #fff;
-    display: flex; flex-direction: column; height: 100%;
-  }
-  .diagram img {
-    display: block; width: 100%; flex: 1 1 auto; min-height: 0;
-    object-fit: contain; background: #F8FAFF; padding: .5rem;
-  }
-  .diagram figcaption { display: none !important; }
-
   /* Cards / structured visuals */
   .v-cards {
     display: grid; gap: .75rem; height: 100%;
@@ -546,29 +534,6 @@
     justify-content: stretch;
   }
   .visual > * { width: 100%; min-height: 0; }
-  .diagram {
-    height: 100%;
-    display: flex; flex-direction: column;
-    border-radius: 14px; overflow: hidden;
-    border: 1px solid var(--line); background: #fff;
-  }
-  .diagram img {
-    flex: 1 1 auto; min-height: 0; width: 100%;
-    object-fit: contain; background: #F8FAFF; padding: .35rem;
-  }
-  .v-diagram-table {
-    height: 100%;
-    display: grid;
-    grid-template-rows: minmax(0, .42fr) minmax(0, .58fr);
-    gap: .45rem;
-  }
-  .v-diagram-table .diagram {
-    min-height: 0;
-  }
-  .v-diagram-table .v-table {
-    min-height: 0;
-    height: 100%;
-  }
   .v-table table { font-size: clamp(.78rem, 1.2vw, .9rem); }
   .v-table th, .v-table td { padding: .55rem .7rem; }
   .v-cards { gap: .55rem; }
@@ -689,11 +654,201 @@
     object-fit: cover; object-position: var(--pos, 50% 50%);
   }
   .photo-credit {
-    position: absolute; right: .5rem; bottom: .5rem; max-width: calc(100% - 1rem);
-    background: color-mix(in srgb, var(--ink) 70%, transparent); color: #fff;
-    font-size: 11px; line-height: 1.35; padding: .25rem .65rem; border-radius: 10px; text-align: right;
+    position: absolute; right: .5rem; bottom: .5rem; max-width: calc(100% - 1rem); overflow: hidden;
+    background: color-mix(in srgb, var(--ink) 72%, transparent); color: #fff;
+    font-size: 12px; line-height: 1.35; padding: .25rem .65rem; border-radius: 10px; text-align: right;
   }
+  .photo-credit > span { display: block; }
   .split-main { flex: 1 1 0; min-width: 0; }
+  .mx-table th, .mx-table td, .lane li, .lane h3 { text-wrap: balance; }
+
+  /* —— Diagram components (paths / runtime / boundary / skeleton): HTML boxes + CSS lines, scale with viewport height —— */
+  .dg {
+    --f1: max(16px, 2.8vh); --f2: max(16px, 2.25vh); --f3: max(22px, 3.7vh); --g: .8rem;
+    --dg-line: 3px;
+    height: 100%; min-height: 0; display: flex; flex-direction: column; gap: var(--g);
+    font-size: var(--f1); line-height: 1.35; color: var(--ink); text-wrap: balance;
+  }
+  .nb { white-space: nowrap; }
+  .dg h3, .dg dl, .dg dd, .dg dt, .dg p, .dg ol, .dg li { margin: 0; padding: 0; }
+  .dg ol, .dg ul { list-style: none; }
+  .dg-box {
+    display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 0;
+    padding: .4rem .8rem; border: 2.5px solid var(--s-blue); border-radius: 12px; background: #fff;
+    font-size: var(--f1); font-weight: 800; color: var(--s-blue-deep);
+  }
+  .dg-box small { display: block; font-size: var(--f2); font-weight: 700; color: var(--ink-2); }
+  .dg-box.t-risk { border-color: var(--risk); background: var(--risk-bg); color: var(--risk-ink); }
+  .dg-box.t-human { border-color: var(--human); background: color-mix(in srgb, var(--human) 9%, #fff); color: var(--human); }
+  .dg-box.t-pending { border-color: var(--pending); border-style: dashed; background: var(--pending-bg); color: var(--pending-ink); }
+  .dg-box.t-muted { border-color: var(--muted-line); background: var(--muted-bg); color: var(--ink-2); }
+  .dg-box.t-solid { border-color: var(--s-blue); background: var(--s-blue); color: #fff; }
+  .dg-box.t-solid small { color: #fff; }
+  .dg-title { font-size: var(--f3); font-weight: 800; color: var(--s-blue-deep); line-height: 1.25; }
+  .dg-title small { display: block; font-size: var(--f2); font-weight: 700; color: var(--muted); line-height: 1.3; }
+
+  /* paths (05): three parallel lanes on one base bar */
+  .dg-bracket { flex: 0 0 auto; display: flex; height: calc(var(--f1) * 1.9); }
+  .dg-bracket::before, .dg-bracket::after {
+    content: ""; flex: 1 1 0; margin-top: calc(var(--f1) * .95); border-top: var(--dg-line) solid var(--s-blue);
+  }
+  .dg-bracket::before { border-left: var(--dg-line) solid var(--s-blue); border-top-left-radius: 12px; margin-right: .6rem; }
+  .dg-bracket::after { border-right: var(--dg-line) solid var(--s-blue); border-top-right-radius: 12px; margin-left: .6rem; }
+  .dg-bracket span {
+    flex: 0 0 auto; align-self: center; font-size: var(--f3); font-weight: 800; color: var(--s-blue-deep); line-height: 1.3;
+  }
+  .dg-cols { flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--g); }
+  .dg-lane {
+    position: relative; min-height: 0; display: flex; flex-direction: column; gap: .5rem; padding: .65rem .8rem .75rem;
+    border: 4px solid var(--s-blue); border-radius: 16px; background: var(--s-blue-wash);
+  }
+  .dg-lane.ls-dashed { border-style: dashed; background: #fff; }
+  .dg-lane.ls-double { border-style: double; border-width: 6px; background: var(--s-blue-soft); padding: calc(.65rem - 2px) calc(.8rem - 2px) calc(.75rem - 2px); }
+  .dg-lane::after {
+    content: ""; position: absolute; left: 50%; bottom: calc(-1 * var(--g) - 4px); width: 6px; height: calc(var(--g) + 4px);
+    margin-left: -3px; background: var(--s-blue);
+  }
+  .dg-lane header { display: flex; align-items: center; gap: .7rem; flex: 0 0 auto; }
+  .dg-num {
+    flex: 0 0 auto; width: 1.7em; height: 1.7em; border-radius: 50%; display: grid; place-items: center;
+    background: var(--s-blue); color: #fff; font-size: var(--f3); font-weight: 800; line-height: 1.3;
+  }
+  .dg-lane h3 { font-size: var(--f3); font-weight: 800; color: var(--s-blue-deep); line-height: 1.3; }
+  .dg-lane dl { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; gap: .45rem; }
+  .dg-row {
+    flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; justify-content: center;
+    padding: .2rem .8rem; background: #fff; border: 1.5px solid var(--line); border-radius: 10px;
+  }
+  .dg-row dt { font-size: var(--f2); font-weight: 700; color: var(--muted); line-height: 1.3; }
+  .dg-row dd { font-size: var(--f1); font-weight: 700; color: var(--ink); line-height: 1.3; }
+  .dg-base {
+    flex: 0 0 auto; padding: .75rem 1.2rem; border-radius: 14px; background: var(--s-blue); color: #fff;
+    font-size: var(--f1); font-weight: 800; text-align: center;
+  }
+
+  /* runtime (08): two stacks + local-execution bar */
+  .dg-rt-top { flex: 0 0 auto; text-align: center; font-size: var(--f1); font-weight: 800; color: var(--ink-2); }
+  .dg-stacks { flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .dg-stack { min-height: 0; display: flex; flex-direction: column; gap: .5rem; }
+  .dg-layers {
+    flex: 1 1 0; min-height: 0; display: flex; flex-direction: column;
+    border: var(--dg-line) solid var(--s-blue); border-radius: 14px; overflow: hidden; background: #fff;
+  }
+  .dg-bots { flex: 1.3 1 0; min-height: 0; display: flex; align-items: flex-end; gap: .6rem; padding: .6rem .7rem 0; background: var(--s-blue-wash); }
+  .dg-bots .dg-box { flex: 1 1 0; height: 74%; border-bottom: 0; border-radius: 10px 10px 0 0; padding: .2rem .3rem; }
+  .dg-layer {
+    flex: 1 1 0; min-height: 0; display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: .3rem .8rem; font-size: var(--f1); font-weight: 800; border-top: var(--dg-line) solid var(--s-blue);
+    background: var(--s-blue-soft); color: var(--s-blue-deep);
+  }
+  .dg-layer.t-solid { background: var(--s-blue); color: #fff; border-top-width: 2px; }
+  .dg-note {
+    flex: 0 0 auto; align-self: center; padding: .25rem .9rem; border: 2px solid var(--risk); border-radius: 999px;
+    background: var(--risk-bg); color: var(--risk-ink); font-size: var(--f1); font-weight: 800; text-align: center;
+  }
+  .dg-frame {
+    flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; gap: .5rem; padding: .5rem .8rem .8rem;
+    border: var(--dg-line) solid var(--s-blue); border-radius: 14px; background: var(--s-blue-wash);
+  }
+  .dg-frame > b { align-self: flex-start; font-size: var(--f2); font-weight: 800; color: var(--s-blue-deep); }
+  .dg-frame > .dg-box { flex: 1 1 0; }
+  .dg-edge {
+    flex: 0 0 auto; padding: .45rem .8rem; border-radius: 10px; background: var(--s-blue-deep); color: #fff;
+    text-align: center; font-size: var(--f1); font-weight: 800;
+  }
+  .dg-vline { flex: 0 0 .6rem; align-self: center; border-left: 4px solid var(--s-blue-deep); }
+  .dg-out { flex: 0 0 auto; }
+  .dg-bar {
+    flex: 0 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch;
+    border: var(--dg-line) solid var(--risk); border-radius: 12px; background: var(--risk-bg); overflow: hidden;
+  }
+  .dg-bar > span {
+    display: flex; align-items: center; justify-content: center; text-align: center; padding: .45rem .8rem;
+    font-size: var(--f1); font-weight: 800; color: var(--risk-ink);
+  }
+  .dg-bar > span + span { border-left: 2px solid var(--risk); }
+
+  /* boundary (14): three zones split by two vertical boundary lines */
+  .dg-bd {
+    --c1: 1.1; --c2: .8;
+    flex: 1 1 0; min-height: 0; display: grid; row-gap: 1.5rem;
+    grid-template-columns: 1.1fr .8fr 1.1fr .8fr 1.3fr; grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .dg-zone {
+    min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: .5rem; padding: .7rem;
+    border-radius: 16px; background: var(--s-blue-wash); border: var(--dg-line) solid var(--s-blue);
+  }
+  .dg-zone.z-gate { background: var(--s-blue-soft); }
+  .dg-zone.z-out { background: var(--muted-bg); border-color: var(--muted-line); }
+  .dg-zone > b { font-size: var(--f2); font-weight: 800; color: var(--s-blue-deep); text-align: center; }
+  .dg-zone .dg-box { flex: 0 0 auto; min-height: 50%; padding: .8rem .6rem; font-size: var(--f3); }
+  .dg-zone .dg-box small { font-size: var(--f1); margin-top: .3rem; }
+  .dg-cross { position: relative; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; }
+  .dg-cross::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 50%; margin-left: -3px;
+    border-left: 6px solid var(--ink-2); border-radius: 3px;
+  }
+  .dg-alabel {
+    position: relative; z-index: 1; display: flex; align-items: center; justify-content: center;
+    min-height: calc(var(--f2) * 2.7 + .4rem); padding: .2rem .5rem; background: #fff; border: 1.5px solid var(--s-blue); border-radius: 8px;
+    font-size: var(--f2); font-weight: 800; color: var(--s-blue-deep); text-align: center;
+  }
+  .dg-arrow { position: relative; z-index: 1; align-self: stretch; height: 1.1rem; color: var(--s-blue); }
+  .dg-arrow::before { content: ""; position: absolute; left: 0; right: 12px; top: 50%; height: 5px; margin-top: -2.5px; background: currentColor; }
+  .dg-arrow::after {
+    content: ""; position: absolute; right: 0; top: 50%; margin-top: -.55rem; border-left: 14px solid currentColor;
+    border-top: .55rem solid transparent; border-bottom: .55rem solid transparent;
+  }
+  .dg-human {
+    grid-column: 1 / 3; grid-row: 2; position: relative; margin-right: 1rem; padding: .55rem .8rem; border: var(--dg-line) solid var(--human);
+    border-radius: 12px; background: color-mix(in srgb, var(--human) 9%, #fff); color: var(--human);
+    font-size: var(--f1); font-weight: 700; text-align: center; align-self: start;
+  }
+  .dg-human strong { font-weight: 800; }
+  .dg-human::before {
+    content: ""; position: absolute; left: calc(50% * var(--c1) / (var(--c1) + var(--c2))); bottom: 100%; height: 1.5rem; margin-left: -2px;
+    border-left: 4px dashed var(--human);
+  }
+  .dg-pend { grid-column: 3 / 6; grid-row: 2; display: flex; flex-direction: column; gap: .4rem; }
+  .dg-pend .dg-box { flex-direction: row; justify-content: center; }
+  .dg-pend p { font-size: var(--f2); font-weight: 600; color: var(--ink-2); text-align: center; }
+
+  /* skeleton (17): five-layer stack + two-row comparison linked by curves */
+  .dg-sk { flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: minmax(0, 34fr) 5rem minmax(0, 66fr); }
+  .dg-stack5 {
+    min-height: 0; display: flex; flex-direction: column-reverse;
+    border: var(--dg-line) solid var(--s-blue); border-radius: 14px; overflow: hidden; background: #fff;
+  }
+  .dg-stack5 li {
+    flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding: .2rem 1.1rem;
+    background: var(--muted-bg); color: var(--ink-2);
+  }
+  .dg-stack5 li:not(:first-child) { border-bottom: 2px solid var(--muted-line); }
+  .dg-stack5 li > b { font-size: var(--f3); font-weight: 800; line-height: 1.35; }
+  .dg-stack5 li > span { font-size: var(--f1); font-weight: 600; line-height: 1.3; }
+  .dg-stack5 li.l-blue { background: var(--s-blue-soft); color: var(--s-blue-deep); box-shadow: inset 8px 0 0 var(--s-blue); padding-left: 1.5rem; }
+  .dg-stack5 li.l-human { background: color-mix(in srgb, var(--human) 9%, #fff); color: var(--human); box-shadow: inset 8px 0 0 var(--human); padding-left: 1.5rem; }
+  .dg-link { width: 100%; height: 100%; display: block; overflow: visible; }
+  .dg-link path { fill: none; stroke-width: 4; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+  .dg-link .lk-blue { stroke: var(--s-blue); }
+  .dg-link .lk-human { stroke: var(--human); }
+  .dg-sk-right { min-height: 0; display: flex; flex-direction: column; }
+  .dg-sk-right > .sp0 { flex: .5 1 0; }
+  .dg-cmpbox { flex: 4 1 0; min-height: 0; position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
+  .dg-cmp { width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; font-size: var(--f1); line-height: 1.3; }
+  .dg-cmp th, .dg-cmp td { padding: .3rem .9rem; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); color: var(--ink); font-weight: 700; }
+  .dg-cmp tr > :last-child { border-right: 0; }
+  .dg-cmp tbody tr:last-child > * { border-bottom: 0; }
+  .dg-cmp thead th { height: 20%; background: var(--s-blue); color: #fff; font-weight: 800; }
+  .dg-cmp tbody tr { height: 40%; }
+  .dg-cmp th[scope="row"] { background: var(--s-blue-soft); color: var(--s-blue-deep); font-weight: 800; }
+  .dg-cmp th[scope="row"].r-human { background: color-mix(in srgb, var(--human) 9%, #fff); color: var(--human); }
+  .dg-cap {
+    flex: 1 1 0; min-height: 0; display: flex; align-items: center; justify-content: center; text-align: center;
+    padding: 0 .5rem; font-size: var(--f1); font-weight: 700; color: var(--ink-2);
+  }
+  .dg-sk-right > .sp1 { flex: .5 1 0; }
+
 
   @media (max-width: 820px) {
     .v-split, .v-split.side-right { flex-direction: column; }
@@ -913,8 +1068,24 @@ const SCENES = [
     message: 'BOT 수요 반응이 하나의 발전사가 아니라 세 경로로 병행됐다',
     bullets: [ '① 자가호스팅 (OpenClaw · Hermes) — 격리=내 서버 · 승인은 직접 구현', '② 에이전트 소셜 (Moltbook)', '③ 클라우드 제품 (Grok Bot · Muse)' ],
     visual: {
-      type: 'diagram',
-      src: 'diagrams/05-progress-path.png'
+      type: 'paths',
+      aria: '병행 세 경로 도해. 미완의 위임이라는 하나의 출발점에서 자가호스팅, 에이전트 소셜, 클라우드 제품 세 갈래가 동시에 열렸다.',
+      bracket: '동시에 열린 세 갈래',
+      base: '출발점 · 미완의 위임 — 답만 주고 일이 끝나지 않던 한계',
+      lanes: [
+        { n: 1, name: '자가호스팅', style: 'solid', rows: [
+          [ '사례', 'OpenClaw · Hermes Agent' ],
+          [ '한 줄', '실행 환경을 스스로 쥠 · 메신저/지속 메모리' ],
+          [ '핵심', '격리 = 내 서버 · 승인은 직접 구현' ] ] },
+        { n: 2, name: '에이전트 소셜', style: 'dashed', rows: [
+          [ '사례', 'Moltbook' ],
+          [ '한 줄', '에이전트가 게시·투표, 사람은 관찰' ],
+          [ '주소', 'moltbook.com' ] ] },
+        { n: 3, name: '클라우드 제품', style: 'double', rows: [
+          [ '사례', 'Grok Bot · Muse' ],
+          [ '한 줄', '환경이 제품화된 현재형' ],
+          [ '이어서', '뒤 장에서 증거로' ] ] }
+      ]
     }
   ,
     lines: [
@@ -991,8 +1162,21 @@ const SCENES = [
     message: '위임의 실행 기반이 제품이 되었다',
     bullets: [ 'Grok: 사용자당 cloud computer (봇마다 전용 PC는 오해)', 'Muse: 개인별 Secure VM', '로컬 실행은 클라우드 Auto Review와 별도 · Never 권고' ],
     visual: {
-      type: 'diagram',
-      src: 'diagrams/08-runtime-computer-vs-secure-vm.png'
+      type: 'split',
+      photo: {
+        src: 'assets/photos/s08-server-rack.jpg',
+        alt: '어두운 배경의 서버 랙 후면, 케이블과 표시등',
+        credit: '사진: Abigor · CC BY-SA 3.0',
+        side: 'left', width: '26%', position: '50% 55%', cropped: true
+      },
+      main: {
+        type: 'runtime',
+        aria: '실행 기반 비교 도해. Grok Bot은 사용자 단위 cloud computer 하나를 Bot A, B, C가 공유하고, Muse는 개인 agent를 Secure VM 안에 두며 Sentinel이 VM과 인터넷 사이의 경계를 맡는다. 아래에 로컬 실행 주의가 따로 있다.',
+        top: '브라우저·파일로 실제 앱에서 작업 · 기기를 꺼도 클라우드에서 지속',
+        shared: { title: '사용자 단위 cloud computer', sub: 'Grok Bot', bots: [ 'Bot A', 'Bot B', 'Bot C' ], mid: '브라우저 · 파일 · 로그인', base: '클라우드 실행 환경', note: '봇마다 전용 PC = 오해' },
+        vm: { title: '개인별 Secure VM', sub: 'Muse', frame: 'Secure VM', agent: '개인 agent', edge: 'Sentinel — 인터넷 접근 통제', out: '인터넷' },
+        bar: [ '로컬 실행 — 데스크톱 앱 → 실제 PC', '클라우드 Auto Review와 별도 통제', '기본 Ask · Never 권고' ]
+      }
     }
   ,
     lines: [
@@ -1152,31 +1336,25 @@ const SCENES = [
     message: 'Sentinel은 승인 UI가 아니라 egress·커널 중개 계층이다',
     bullets: [ 'Secure VM · Sentinel(커넥터·네트워크 egress)', 'surrogate 토큰 · 비밀값은 경계에서 주입', 'Confidential VM: later this year · 미출시 · 신뢰 간극을 메우려는 예정', '[보도]는 태그로만 · 본문 단정 금지' ],
     visual: {
-      type: 'cards',
-      cols: 2,
-      items: [
-        {
-          badge: '경계',
-          t: 'Secure VM',
-          d: 'Sentinel = egress·커널 중개',
-          hi: true
-        },
-        {
-          badge: '비밀',
-          t: 'surrogate 토큰',
-          d: '비밀값은 경계에서 주입'
-        },
-        {
-          badge: '예정',
-          t: 'Confidential VM',
-          d: 'later this year · 미출시 · 신뢰 간극'
-        },
-        {
-          badge: '공식 한계',
-          t: 'Secure VM',
-          d: 'Meta 지원·보안·운영 접근은 기술적으로 차단되지 않음'
-        }
-      ]
+      type: 'split',
+      photo: {
+        src: 'assets/photos/s14-turnstile.jpg',
+        alt: '항만 출입구의 회전식 개찰구와 차단기',
+        credit: '사진: W.carter · CC BY-SA 4.0',
+        side: 'right', width: '22%', position: '100% 50%', cropped: true
+      },
+      main: {
+        type: 'boundary',
+        aria: 'Muse 경계 도해. Secure VM 안의 agent가 surrogate 토큰으로 Sentinel에 요청하고, 커넥터와 네트워크 egress 권한을 단독으로 가진 Sentinel이 경계에서 비밀값을 주입해 외부 인터넷과 연결한다. 사람 승인은 메일 발송과 구매 전 확인으로, agent 쪽에 붙은 별도 요소다. Confidential VM은 later this year로 안내된 미출시 항목이다.',
+        zones: [
+          { title: 'agent', tag: 'Secure VM 안', kind: 'agent' },
+          { title: 'Sentinel', sub: '커넥터 · 네트워크 egress 단독 권한', kind: 'gate' },
+          { title: '외부 인터넷 · 커넥터', kind: 'out' }
+        ],
+        arrows: [ 'surrogate 토큰', '비밀값은 경계에서 주입' ],
+        human: '사람 승인 — 메일 발송 · 구매 전 확인',
+        pending: { t: 'Confidential VM — later this year · 미출시', note: '공식 한계: Secure VM에서 Meta 지원·보안·운영 접근은 기술적으로 차단되지 않음' }
+      }
     }
   ,
     lines: [
@@ -1228,7 +1406,7 @@ const SCENES = [
         [ '사람 승인', '민감 · 로그인 · 2FA · 결제', '메일 · 구매 등' ],
         { cells: [ '운영 주의', 'Bot 간 공유 · 오프보딩 · Network Controls=Enterprise(없으면 allow-all) · 로컬 Never', 'Confidential VM 미출시(신뢰 간극) · 미국 롤아웃' ], tone: 'risk' },
         [ '출시', '2026-08-11 beta · Enterprise 2026-09-03', '2026-09-08 미국' ],
-        [ '요금', '번들·플랜명 + URL', '공식 Help 기준 · 무료 한도 + $20 / $100' ]
+        [ '요금', '번들·플랜 안내 기준', '공식 Help 기준 · 무료 한도 + $20 / $100' ]
       ]
     }
   ,
@@ -1242,8 +1420,21 @@ const SCENES = [
     message: '제품 이름 전에 다섯 뼈대를 본다',
     bullets: [ '위임 · 지속 · 실행 기반 · 격리 단위 · 승인', '자가호스팅 선행: 격리=내 서버 · 승인은 사용자가 구현', '클라우드 제품은 같은 뼈대의 다른 구현' ],
     visual: {
-      type: 'diagram',
-      src: 'diagrams/17-common-skeleton-five.png'
+      type: 'skeleton',
+      aria: '공통 뼈대 도해. 아래에서 위로 실행 환경, 커넥터, 기억, 루틴, 사람 승인의 다섯 층이 쌓여 있고, 그중 실행 환경과 사람 승인만 자가호스팅, Grok Bot, Muse 세 열로 대조한다.',
+      layers: [
+        { t: '실행 환경', q: '무엇을 어디서 돌리나', link: 'blue' },
+        { t: '커넥터', q: '무엇에 연결하나' },
+        { t: '기억', q: '무엇을 기억하나' },
+        { t: '루틴', q: '언제 반복하나' },
+        { t: '사람 승인', q: '언제 사람에게 묻나', link: 'human' }
+      ],
+      cols: [ '자가호스팅', 'Grok Bot', 'Muse' ],
+      rows: [
+        { t: '사람 승인', tone: 'human', cells: [ '직접 구현', '민감 · 로그인 · 2FA · 결제', '메일 · 구매 등' ] },
+        { t: '실행 환경', cells: [ '내 서버', '사용자당 cloud computer', '개인별 Secure VM' ] }
+      ],
+      caption: '자가호스팅 — 격리 = 내 서버 · 승인은 사용자가 직접 구현'
     }
   ,
     lines: [
@@ -1260,8 +1451,8 @@ const SCENES = [
       photo: {
         src: 'assets/photos/s18-valves.jpg',
         alt: '녹슨 차단 밸브 여러 개가 나란히 달린 배관',
-        credit: '사진: Grunpfnul · CC BY-SA 4.0 · Wikimedia Commons',
-        side: 'left', width: '28%', position: '100% 45%', cropped: true
+        credit: '사진: Grunpfnul · CC BY-SA 4.0',
+        side: 'left', width: '24%', position: '100% 45%', cropped: true
       },
       main: {
         type: 'matrix',
@@ -1409,7 +1600,7 @@ function buildMatrix(v) {
       const afterMarker = row.marker && row.marker.after + 1 === ci;
       const c = el(first ? 'th' : 'td', (first ? 'rowh ' : '') + (tones[ci] ? 'tone-' + tones[ci] : '') + (afterMarker ? ' after-marker' : ''));
       if (first) c.scope = 'row';
-      c.textContent = cell;
+      dgFill(c, cell);
       if (row.marker && row.marker.after === ci) c.appendChild(el('span', 'mx-marker', row.marker.text || '≠'));
       tr.appendChild(c);
     });
@@ -1460,6 +1651,142 @@ function buildLanes(v) {
   return wrap;
 }
 
+// text with no-break glue: "word ·" stays together (no line starting with a separator) and Latin product names stay whole
+const DG_GLUE = /((?:Auto Review|Secure VM|Grok Bot|cloud computer|Confidential VM|Network Controls|CC BY(?:-SA)? [0-9.]+|\(일부 잘라 표시\))\S*(?: ·(?= ))?|\S+ ·(?= ))/g;
+function dgFill(n, text) {
+  const h = document.createElement('span'); // one inline holder so flex/grid parents keep spaces
+  text.split(DG_GLUE).forEach((part, i) => {
+    if (!part) return;
+    if (i % 2) { const s = el('span', 'nb'); s.textContent = part; h.appendChild(s); } else h.appendChild(document.createTextNode(part));
+  });
+  n.appendChild(h);
+  return n;
+}
+function dgEl(tag, cls, text) { return dgFill(el(tag, cls), text); }
+function dgRoot(v, cls) {
+  const d = el('div', 'dg ' + cls);
+  d.setAttribute('role', 'group'); d.setAttribute('aria-label', v.aria);
+  return d;
+}
+function dgBox(text, tone, sub) {
+  const b = dgEl('div', 'dg-box' + (tone ? ' t-' + tone : ''), text);
+  if (sub) b.appendChild(dgEl('small', '', sub));
+  return b;
+}
+
+// paths: { aria, bracket, base, lanes: [{ n, name, style: 'solid'|'dashed'|'double', rows: [[label, text]] }] } — parallel lanes on one base bar
+function buildPaths(v) {
+  const wrap = dgRoot(v, 'dg-paths');
+  const br = el('div', 'dg-bracket'); br.appendChild(dgEl('span', '', v.bracket)); wrap.appendChild(br);
+  const cols = el('div', 'dg-cols');
+  (v.lanes || []).forEach(l => {
+    const lane = el('section', 'dg-lane ls-' + l.style);
+    const head = document.createElement('header');
+    head.appendChild(dgEl('span', 'dg-num', String(l.n))); head.appendChild(dgEl('h3', '', l.name));
+    lane.appendChild(head);
+    const dl = document.createElement('dl');
+    l.rows.forEach(r => {
+      const row = el('div', 'dg-row'); row.appendChild(dgEl('dt', '', r[0])); row.appendChild(dgEl('dd', '', r[1])); dl.appendChild(row);
+    });
+    lane.appendChild(dl); cols.appendChild(lane);
+  });
+  wrap.appendChild(cols); wrap.appendChild(dgEl('div', 'dg-base', v.base));
+  return wrap;
+}
+
+// runtime: { aria, top, shared: { title, sub, bots, mid, base, note }, vm: { title, sub, frame, agent, edge, out }, bar: [text] }
+function buildRuntime(v) {
+  const wrap = dgRoot(v, 'dg-runtime');
+  wrap.appendChild(dgEl('p', 'dg-rt-top', v.top));
+  const stacks = el('div', 'dg-stacks');
+  const s = v.shared, m = v.vm;
+  const left = el('div', 'dg-stack');
+  const lt = dgEl('div', 'dg-title', s.title); lt.appendChild(dgEl('small', '', s.sub)); left.appendChild(lt);
+  const layers = el('div', 'dg-layers');
+  const bots = el('div', 'dg-bots'); s.bots.forEach(b => bots.appendChild(dgBox(b)));
+  layers.appendChild(bots); layers.appendChild(dgEl('div', 'dg-layer', s.mid)); layers.appendChild(dgEl('div', 'dg-layer t-solid', s.base));
+  left.appendChild(layers); left.appendChild(dgEl('div', 'dg-note', s.note));
+  const right = el('div', 'dg-stack');
+  const rt = dgEl('div', 'dg-title', m.title); rt.appendChild(dgEl('small', '', m.sub)); right.appendChild(rt);
+  const frame = el('div', 'dg-frame'); frame.appendChild(dgEl('b', '', m.frame)); frame.appendChild(dgBox(m.agent));
+  right.appendChild(frame); right.appendChild(dgEl('div', 'dg-edge', m.edge)); right.appendChild(el('div', 'dg-vline'));
+  const out = dgBox(m.out, 'muted'); out.classList.add('dg-out'); right.appendChild(out);
+  stacks.appendChild(left); stacks.appendChild(right); wrap.appendChild(stacks);
+  const bar = el('div', 'dg-bar'); v.bar.forEach(t => bar.appendChild(dgEl('span', '', t))); wrap.appendChild(bar);
+  return wrap;
+}
+
+// boundary: { aria, zones: [{ title, sub?, tag?, kind: 'agent'|'gate'|'out' }] x3, arrows: [label] x2, human, pending: { t, note } }
+function buildBoundary(v) {
+  const wrap = dgRoot(v, 'dg-boundary');
+  const grid = el('div', 'dg-bd');
+  const zoneCls = { agent: '', gate: ' z-gate', out: ' z-out' };
+  const boxTone = { agent: '', gate: 'solid', out: 'muted' };
+  const zone = z => {
+    const d = el('div', 'dg-zone' + zoneCls[z.kind]);
+    if (z.tag) d.appendChild(dgEl('b', '', z.tag));
+    d.appendChild(dgBox(z.title, boxTone[z.kind], z.sub));
+    return d;
+  };
+  const cross = label => {
+    const c = el('div', 'dg-cross'); c.appendChild(dgEl('div', 'dg-alabel', label)); c.appendChild(el('div', 'dg-arrow')); return c;
+  };
+  grid.appendChild(zone(v.zones[0])); grid.appendChild(cross(v.arrows[0]));
+  grid.appendChild(zone(v.zones[1])); grid.appendChild(cross(v.arrows[1]));
+  grid.appendChild(zone(v.zones[2]));
+  const human = el('div', 'dg-human');
+  const cut = v.human.indexOf(' — ');
+  human.appendChild(dgEl('strong', '', v.human.slice(0, cut))); human.appendChild(dgEl('span', '', v.human.slice(cut)));
+  grid.appendChild(human);
+  const pend = el('div', 'dg-pend');
+  pend.appendChild(dgBox(v.pending.t, 'pending')); pend.appendChild(dgEl('p', '', v.pending.note));
+  grid.appendChild(pend);
+  wrap.appendChild(grid);
+  return wrap;
+}
+
+// skeleton: { aria, layers: [{ t, q, link?: 'blue'|'human' }] (bottom to top), cols, rows: [{ t, tone?, cells }] (top row links to top stack layer), caption }
+function buildSkeleton(v) {
+  const wrap = dgRoot(v, 'dg-skeleton');
+  const grid = el('div', 'dg-sk');
+  const ol = el('ol', 'dg-stack5');
+  v.layers.forEach(l => {
+    const li = el('li', l.link ? 'l-' + l.link : '');
+    li.appendChild(dgEl('b', '', l.t)); li.appendChild(dgEl('span', '', l.q)); ol.appendChild(li);
+  });
+  grid.appendChild(ol);
+  const NS = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'dg-link'); svg.setAttribute('viewBox', '0 0 100 100');
+  svg.setAttribute('preserveAspectRatio', 'none'); svg.setAttribute('aria-hidden', 'true');
+  [['lk-human', 'M0 10 C60 10 40 35 100 35'], ['lk-blue', 'M0 90 C60 90 40 61.7 100 61.7']].forEach(p => {
+    const path = document.createElementNS(NS, 'path'); path.setAttribute('class', p[0]); path.setAttribute('d', p[1]); svg.appendChild(path);
+  });
+  grid.appendChild(svg);
+  const right = el('div', 'dg-sk-right');
+  right.appendChild(el('div', 'sp0'));
+  const box = el('div', 'dg-cmpbox');
+  const table = el('table', 'dg-cmp');
+  const cg = document.createElement('colgroup');
+  ['20%', '26.66%', '26.67%', '26.67%'].forEach(w => { const c = document.createElement('col'); c.style.width = w; cg.appendChild(c); });
+  table.appendChild(cg);
+  const thead = document.createElement('thead'), hr = document.createElement('tr');
+  const corner = el('th'); corner.scope = 'col'; corner.appendChild(el('span', 'sr-only', '구분')); hr.appendChild(corner);
+  v.cols.forEach(c => { const th = dgEl('th', '', c); th.scope = 'col'; hr.appendChild(th); });
+  thead.appendChild(hr); table.appendChild(thead);
+  const tb = document.createElement('tbody');
+  v.rows.forEach(r => {
+    const tr = document.createElement('tr');
+    const th = dgEl('th', r.tone ? 'r-' + r.tone : '', r.t); th.scope = 'row'; tr.appendChild(th);
+    r.cells.forEach(c => tr.appendChild(dgEl('td', '', c)));
+    tb.appendChild(tr);
+  });
+  table.appendChild(tb); box.appendChild(table); right.appendChild(box);
+  right.appendChild(dgEl('p', 'dg-cap', v.caption)); right.appendChild(el('div', 'sp1'));
+  grid.appendChild(right); wrap.appendChild(grid);
+  return wrap;
+}
+
 // split: { photo: {src, alt, credit, side?, width?, position?, cropped?}, main: <any visual> }
 function buildSplit(v) {
   const p = v.photo || {};
@@ -1471,7 +1798,8 @@ function buildSplit(v) {
   img.src = p.src; img.alt = p.alt || '';
   fig.appendChild(img);
   const cr = el('figcaption', 'photo-credit');
-  cr.textContent = (p.credit || '') + (p.cropped ? ' (일부 잘라 표시)' : '');
+  cr.appendChild(dgEl('span', '', p.credit || ''));
+  cr.appendChild(dgEl('span', '', p.cropped ? 'Wikimedia Commons (일부 잘라 표시)' : 'Wikimedia Commons'));
   fig.appendChild(cr);
   const main = el('div', 'visual split-main');
   buildVisual({ visual: v.main }, main);
@@ -1484,41 +1812,10 @@ function buildVisual(s, mount) {
   if (v.type === 'matrix') { mount.appendChild(buildMatrix(v)); return; }
   if (v.type === 'lanes') { mount.appendChild(buildLanes(v)); return; }
   if (v.type === 'split') { mount.appendChild(buildSplit(v)); return; }
-  if (v.type === 'diagram') {
-    const fig = el('figure', 'diagram');
-    const img = document.createElement('img');
-    img.src = v.src;
-    img.alt = '';
-    img.loading = 'lazy';
-    fig.appendChild(img);
-    mount.appendChild(fig);
-    return;
-  }
-  if (v.type === 'diagram-table') {
-    const wrap = el('div', 'v-diagram-table');
-    const fig = el('figure', 'diagram');
-    const img = document.createElement('img');
-    img.src = v.src;
-    img.alt = '';
-    img.loading = 'lazy';
-    fig.appendChild(img);
-    wrap.appendChild(fig);
-    const tw = el('div', 'v-table');
-    const table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const hr = document.createElement('tr');
-    (v.headers || []).forEach(h => { const th = document.createElement('th'); th.textContent = h; hr.appendChild(th); });
-    thead.appendChild(hr); table.appendChild(thead);
-    const tb = document.createElement('tbody');
-    (v.rows || []).forEach(r => {
-      const tr = document.createElement('tr');
-      r.forEach(cell => { const td = document.createElement('td'); td.textContent = cell; tr.appendChild(td); });
-      tb.appendChild(tr);
-    });
-    table.appendChild(tb); tw.appendChild(table); wrap.appendChild(tw);
-    mount.appendChild(wrap);
-    return;
-  }
+  if (v.type === 'paths') { mount.appendChild(buildPaths(v)); return; }
+  if (v.type === 'runtime') { mount.appendChild(buildRuntime(v)); return; }
+  if (v.type === 'boundary') { mount.appendChild(buildBoundary(v)); return; }
+  if (v.type === 'skeleton') { mount.appendChild(buildSkeleton(v)); return; }
   if (v.type === 'cover') {
     const box = el('div', 'cover-body');
     box.innerHTML = '';

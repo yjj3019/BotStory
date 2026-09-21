@@ -9,7 +9,6 @@ Notion 대본 22클립을 **슬라이드(장표) 레이아웃** HTML + 나레이
 ## 최소 구성 (기록 범위)
 - `why-ai-bots.html` — 오프닝 + 20장 + 엔딩
 - `narration.json` — 22클립 나레이션 (`lines[]` 유지)
-- `diagrams/` — 03·05·08·16·17 (dense twins 포함)
 - `slide-visible-copy.md` — 보이는 층 카피 (PASS)
 
 실행에 필요한 `assets/bg`·`assets/cards`(클린 셸)는 HTML 배경용으로 함께 둡니다. 로고·인물 초상·제품 UI 스크린샷·미PASS 수치는 넣지 않습니다.

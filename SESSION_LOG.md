@@ -8,7 +8,7 @@
 
 ### ✅ 완료 작업
 - 잘못 클론된 AIStory 템플릿(BotStory 폴더 오클론)을 실제 `yjj3019/BotStory` 저장소로 교체
-- `edu/why-ai-bots/why-ai-bots.html`의 `<title>`/커버 킥커에 남아 있던 "S-Core"/"AIStory" 템플릿 브랜딩 잔재 제거 → "BotStory · Education track"
+- `edu/why-ai-bots/why-ai-bots.html`의 `<title>`/커버 킥커에 남아 있던 이전 템플릿 브랜딩 잔재 제거 → "BotStory · Education track"
 - 22클립 나레이션을 4,266자 → 6,401자로 확장(사용자가 제공한 Notion 사실 원장 기반 30분 보강 대본 반영). `narration.json`과 HTML `SCENES[].lines`/`OPENING_TEXT`/`ENDING_TEXT` 동기화 — 텍스트 바이트 단위 일치 검증, `node --check`로 JS 문법 통과
 - `edu/why-ai-bots/PROGRESS.md` 신설 — 상태/다음 우선순위/결정 사항 기록
 - GitHub PR #1 (`worktree-botstory-content` 브랜치) 생성·커밋 2건 푸시: https://github.com/yjj3019/BotStory/pull/1

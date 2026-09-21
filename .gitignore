@@ -1,0 +1,18 @@
+# TTS / generated audio (keep out of git)
+*.mp3
+*.wav
+*.m4a
+*.ogg
+audio/
+
+# backups / agent dumps
+*.bak
+*.qa-bak
+bak-pre-dense/
+notion-pass-script.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~

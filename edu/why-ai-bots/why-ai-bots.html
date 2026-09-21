@@ -582,7 +582,9 @@
     display: flex; flex-direction: column; min-height: 0; overflow: hidden;
     background: var(--s-blue-wash); border: 1.5px solid var(--line); border-radius: 14px;
   }
-  .lane.tone-fact { background: #fff; border: 2.5px solid var(--s-blue); box-shadow: 0 0 0 3px var(--s-blue-soft); }
+  .lane.tone-fact { background: #fff; border: 3px solid var(--s-blue); box-shadow: 0 0 0 3px var(--s-blue-soft); }
+  .lane.tone-early { border: 3px dashed var(--pending); }
+  .lane.tone-early .lane-head { border-bottom: 2px dashed var(--pending); }
   .lane.tone-statement { --accent: var(--muted); background: var(--muted-bg); border-color: var(--muted-line); }
   .lane.tone-interp { --accent: var(--pending); background: var(--pending-bg); border: 2.5px dashed var(--pending); }
   .lane-head { padding: 1.05rem 1.3rem .85rem; border-bottom: 1px solid var(--line); }
@@ -606,7 +608,7 @@
   .v-lanes.wide4 .lane h3 { font-size: max(22px, 3.4vh); }
   .v-lanes.wide4 .lane-head { padding: .8rem 1rem .6rem; }
   .v-lanes.wide4 .lane ul { padding: .7rem .8rem; gap: .5rem; }
-  .v-lanes.wide4 .lane li { font-size: max(16px, 2.7vh); max-height: none; padding: .35rem .6rem; gap: .5rem; }
+  .v-lanes.wide4 .lane li { font-size: max(16px, 2.7vh); max-height: none; padding: .3rem .6rem; gap: .5rem; line-height: 1.25; }
   .v-lanes.wide4 .lane-badge { margin: 0 .8rem .9rem; font-size: max(16px, 2.4vh); }
   .lane.tone-statement li { --card-line: var(--muted-line); }
   .lane.tone-interp li { --card-line: var(--pending); border-style: dashed; }
@@ -615,7 +617,7 @@
   }
   .tone-badge {
     display: inline-block; vertical-align: middle; border-radius: 10px; padding: .1rem .6rem;
-    font-size: max(15px, 2.1vh); font-weight: 800; line-height: 1.4; border: 1.5px solid transparent;
+    font-size: max(16px, 2.1vh); font-weight: 800; line-height: 1.4; border: 1.5px solid transparent;
   }
   .tone-badge.tone-blue { background: var(--s-blue); color: #fff; }
   .tone-badge.tone-risk { background: var(--risk-bg); color: var(--risk-ink); border-color: var(--risk); }
@@ -856,7 +858,7 @@
   .dg-steps li.t-human { --tone: var(--human); }
   .dg-steps .st-n {
     flex: 0 0 auto; width: 1.55em; height: 1.55em; border-radius: 50%; display: grid; place-items: center;
-    background: #fff; color: var(--tone); font-size: .9em; font-weight: 800; line-height: 1;
+    background: #fff; color: var(--tone); font-size: max(16px, .9em); font-weight: 800; line-height: 1;
   }
   .dg-stbr { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); }
   .dg-stbr > div {
@@ -1359,7 +1361,7 @@ const SCENES = [
     }
   ,
     lines: [
-      '잠깐 시간을 거슬러 올라가겠습니다. 천구백오십년 튜링은 논문에서 모방 게임을 제안했고, 이것이 나중에 튜링 테스트라고 불립니다. 천구백육십육년 바이첸바움의 ELIZA는 DOCTOR 스크립트로 상담사를 흉내 냈습니다. 키워드와 패턴 치환뿐이었는데도 사람들은 이해받는다고 느꼈습니다. 단순한 프로그램에 인간적 이해와 공감을 투사하는 이 경향을 ELIZA 효과라고 부릅니다. 천구백칠십이년 구월 십팔일에는 ARPANET으로 연결된 두 프로그램, 스탠퍼드의 PARRY와 MIT의 DOCTOR가 서로 대화했고 그 기록이 RFC 사백삼십구로 남아 있습니다. 정작 ELIZA를 만든 바이첸바움은 천구백칠십육년 저서에서, 계산할 수 있다는 것과 판단을 맡겨도 된다는 것은 다르다고 경고했습니다. 대화는 여기서 이미 있었습니다. 다만 일을 대신 해 줄 손이 없었습니다.'
+      '잠깐 시간을 거슬러 올라가겠습니다. 천구백오십년 튜링은 논문에서 모방 게임을 제안했고, 이것이 나중에 튜링 테스트라고 불립니다. 천구백육십육년 바이첸바움의 ELIZA는 DOCTOR 스크립트로 상담사를 흉내 냈습니다. 키워드와 패턴 치환뿐이었는데도 사람들은 이해받는다고 느꼈습니다. 단순한 프로그램에 인간적 이해와 공감을 투사하는 이 경향을 ELIZA 효과라고 부릅니다. 천구백칠십이년 구월 십팔일에는 ARPANET으로 연결된 두 프로그램, 스탠퍼드의 PARRY와 MIT의 DOCTOR가 서로 대화했고 그 기록이 RFC 사백삼십구로 남아 있습니다. 정작 ELIZA를 만든 바이첸바움은 천구백칠십육년 저서에서, 계산할 수 있다는 것과 판단을 맡겨도 된다는 것은 다르다고 경고한 것으로 전해집니다. 대화는 여기서 이미 있었습니다. 다만 일을 대신 해 줄 손이 없었습니다.'
     ]
   },
   {
@@ -1406,7 +1408,7 @@ const SCENES = [
     }
   ,
     lines: [
-      '실행이 넘어오기 시작한 지점이 그다음입니다. 처음에는 문장을 생성했고, 다음에는 정해진 도구를 호출했습니다. 그리고 이천이십사년 십월 이십이일, Anthropic이 computer use를 API 퍼블릭 베타로 공개했습니다. 화면을 보고 커서를 움직이고 버튼을 누르고 글자를 입력하도록 지시할 수 있게 된 것입니다. 눈여겨볼 대목은 발표문 자체가 이 기능을 아직 실험적이며 때로는 번거롭고 오류가 잦다고 밝혔다는 점입니다. 그래서 모든 화면이 곧바로 자동화 대상이 되었다기보다, 자동화의 범위가 넓어질 가능성이 열렸다고 읽는 편이 맞습니다. 이천이십육년 지금 보면 이미 이 년 전 일이고, 현재 기능이 아니라 전환점으로 두는 편이 정확합니다. 문장에서 도구로, 도구에서 화면 조작으로. 앞에서 본 결핍이 메워지기 시작한 경로가 여기까지입니다. 이제 그 흐름이 어떻게 갈라졌는지 보겠습니다.'
+      '실행이 넘어오기 시작한 지점이 그다음입니다. 모델은 처음에는 문장을 생성했고, 다음에는 정해진 도구를 호출했습니다. 그리고 이천이십사년 십월 이십이일, Anthropic이 computer use를 API 퍼블릭 베타로 공개했습니다. 화면을 보고 커서를 움직이고 버튼을 누르고 글자를 입력하도록 지시할 수 있게 된 것입니다. 눈여겨볼 대목은 발표문 자체가 이 기능을 아직 실험적이며 때로는 번거롭고 오류가 잦다고 밝혔다는 점입니다. 그래서 모든 화면이 곧바로 자동화 대상이 되었다기보다, 자동화의 범위가 넓어질 가능성이 열렸다고 읽는 편이 맞습니다. 이천이십육년 지금 보면 약 이 년 전 일이고, 현재 기능이 아니라 전환점으로 두는 편이 정확합니다. 문장에서 도구로, 도구에서 화면 조작으로. 앞에서 본 결핍이 메워지기 시작한 경로가 여기까지입니다. 이제 그 흐름이 어떻게 갈라졌는지 보겠습니다.'
     ]
   },
   {
@@ -1670,6 +1672,7 @@ const SCENES = [
     message: '기업 발언·사실·해석을 표로 가른다',
     visual: {
       type: 'lanes',
+      aria: 'Muse 전망 도해. 기업 발언, 사실, 해석 세 칸으로 가른다. 기업 발언은 personal superintelligence 같은 장기 방향, 사실은 2026-09-08 미국 롤아웃과 Secure VM, Sentinel, 요금은 공식 Help 기준이며 Confidential VM은 later this year로 미출시, 해석은 소셜·글라스 결합 가능성과 사내 배포 형태로 확인 불가이다.',
       lanes: [
         { title: '기업 발언', tone: 'statement', points: [ 'personal superintelligence 등 장기 방향' ] },
         {
@@ -1748,6 +1751,7 @@ const SCENES = [
     foot: '출처: MCP · A2A · AG-UI · ACP · AP2 각 프로토콜의 공식 발표 및 문서',
     visual: {
       type: 'lanes',
+      aria: '연결 표준 도해. 네 프로토콜을 같은 높이의 칸으로 놓되 거버넌스 성숙도가 다르다. 실선 파란 테두리의 MCP와 A2A는 벤더 중립 재단 Agentic AI Foundation 아래에 있다. 점선 테두리의 AG-UI는 단일 벤더 주도 MIT 오픈소스이고, ACP와 AP2는 결제 위임을 다룬다. ACP는 구매자가 주문, 배송, 결제를 확인한 뒤 구매가 완료되며 토큰은 1회용이고 최대 금액과 만료로 제한된다. 정산과 환불 책임은 판매자와 결제사에 있다. AP2는 사전 서명한 Intent Mandate를 쓴다.',
       lanes: [
         { title: 'MCP', sub: '에이전트 ↔ 도구·데이터', tone: 'fact',
           points: [ '2024-11-25 오픈 표준 공개', '경쟁 진영 공식 문서도 MCP 연동 안내' ],
@@ -1755,17 +1759,17 @@ const SCENES = [
         { title: 'A2A', sub: '에이전트 ↔ 에이전트', tone: 'fact',
           points: [ '2025-04-09 Google, 오픈 프로토콜 발표', '2026-08-27 Agentic AI Foundation 합류' ],
           badge: { t: 'MCP와 같은 재단 아래', tone: 'blue' } },
-        { title: 'AG-UI', sub: '에이전트 ↔ 사용자',
+        { title: 'AG-UI', sub: '에이전트 ↔ 사용자', tone: 'early',
           points: [ 'CopilotKit · 2025년 5월', 'LangGraph, CrewAI와 초기 파트너십에서 출발' ],
           badge: { t: '단일 벤더 주도 · MIT 오픈소스', tone: 'pending' } },
-        { title: 'ACP · AP2', sub: '에이전트 ↔ 결제 · 2025-09 발표',
-          points: [ 'ACP · 구매자가 주문, 배송, 결제를 확인한 뒤 구매 완료', 'AP2 · 사전 서명한 Intent Mandate' ],
+        { title: 'ACP · AP2', sub: '에이전트 ↔ 결제', tone: 'early',
+          points: [ 'ACP · 구매자가 주문·배송·결제를 확인한 뒤 구매 완료', 'ACP · 정산·환불 책임은 판매자와 결제사', 'AP2 · 사전 서명한 Intent Mandate' ],
           badge: { t: 'ACP 토큰은 1회용 · 최대 금액과 만료로 제한', tone: 'pending' } }
       ]
     }
   ,
     lines: [
-      '이어서 뼈대의 연결 층입니다. 이천이십사년 십일월 이십오일 Anthropic이 MCP를 오픈 표준으로 공개했습니다. MCP는 이천이십오년 십이월 구일 리눅스 재단 산하 Agentic AI Foundation으로 이관돼 벤더 중립 거버넌스에 들어갔고, 경쟁 진영의 공식 문서들도 각자 MCP 연동을 안내합니다. 표준으로 확정됐다기보다, 표준화가 MCP를 중심으로 진행 중입니다. Google이 이천이십오년 사월 구일 발표한 A2A도 이천이십육년 팔월 같은 재단에 합류했습니다. 사람과 잇는 쪽에는 CopilotKit이 이천이십오년 오월에 낸 AG-UI가 있고, 이쪽은 단일 벤더 주도입니다. 결제 쪽 ACP에서는 구매자가 주문과 배송과 결제를 확인한 뒤 구매가 완료되고, 일회용 토큰은 최대 금액과 만료 시각에 묶입니다. AP2는 미리 서명해 둔 Intent Mandate로 조건부 위임까지 다룹니다.'
+      '뼈대의 연결 층입니다. 이천이십사년 십일월 이십오일 Anthropic이 MCP를 오픈 표준으로 공개했고, 규격과 SDK, 참조 서버 구현을 함께 공개했습니다. MCP는 이천이십오년 십이월 구일 리눅스 재단 산하 Agentic AI Foundation, 약자로 에이에이아이에프로 이관돼 벤더 중립 거버넌스에 들어갔고, 경쟁 진영 문서도 MCP 연동을 안내합니다. 표준으로 확정됐다기보다, 표준화가 MCP를 중심으로 진행 중입니다. Google이 이천이십오년 사월 구일 발표한 A2A도 이천이십육년 팔월 같은 재단에 합류했습니다. 사람과 잇는 AG-UI는 CopilotKit이 이천이십오년 오월에 냈고 단일 벤더 주도입니다. 결제 쪽 ACP에서는 구매자가 주문과 배송과 결제를 확인한 뒤 구매가 완료되고, 일회용 토큰은 최대 금액과 만료 시각에 묶입니다. AP2는 미리 서명해 둔 Intent Mandate로 조건부 위임까지 다룹니다.'
     ]
   },
   {
@@ -1806,7 +1810,7 @@ const SCENES = [
     foot: '출처: OWASP GenAI Security Project · Top 10 for Agentic Applications 2026 (2025-12-09 발행)',
     visual: {
       type: 'matrix',
-      headers: [ '앞에서 본 리스크', '가까운 ASI 항목', '읽는 법' ],
+      headers: [ '오늘 다룬 리스크', '가까운 ASI 항목', '읽는 법' ],
       widths: [ '28%', '40%', '32%' ],
       tones: [ 'risk', '', '' ],
       rows: [
@@ -1820,7 +1824,7 @@ const SCENES = [
     }
   ,
     lines: [
-      '앞장의 다섯 줄에 바깥에서 붙인 이름이 있습니다. 이천이십오년 십이월 구일 OWASP GenAI Security Project가 OWASP Top 10 for Agentic Applications 이천이십육년판을 냈습니다. 에이전트 애플리케이션의 위험 열 가지를 ASI 영일부터 ASI 십까지 번호로 정리한 목록입니다. 우리 표의 자격증명과 잔존 로그인은 ASI 영삼 Identity and Privilege Abuse에 가깝습니다. 오작동과 과도 위임은 ASI 영일 Agent Goal Hijack과 ASI 영이 Tool Misuse 쪽입니다. 앞서 본 과도한 신뢰, 그리고 배경에서 본 ELIZA 효과는 ASI 영구 Human-Agent Trust Exploitation과 맞닿습니다. 이 연결은 공식 대응표가 아니라 오늘 자료의 해석입니다. 이름이 붙으면 점검 항목으로 옮기기가 쉬워집니다.'
+      '바깥에는 이미 그런 이름표가 있습니다. 이천이십오년 십이월 구일 OWASP GenAI Security Project가 OWASP Top 10 for Agentic Applications 이천이십육년판을 냈습니다. 에이전트 애플리케이션의 위험 열 가지를 에이에스아이 일번부터 십번까지 번호로 정리한 목록입니다. 우리 표의 자격증명과 잔존 로그인은 삼번 Identity and Privilege Abuse에 가깝습니다. 오작동과 과도 위임은 일번 Agent Goal Hijack과 이번 Tool Misuse 쪽입니다. 앞서 본 과도한 신뢰, 그리고 배경에서 본 ELIZA 효과는 구번 Human-Agent Trust Exploitation과 맞닿습니다. 이 연결은 공식 대응표가 아니라 오늘 자료의 해석입니다. 이름이 붙으면 점검 항목으로 옮기기가 쉬워집니다.'
     ]
   },
   {
@@ -1830,6 +1834,7 @@ const SCENES = [
     foot: '국내 출시 일자 — 확인 불가',
     visual: {
       type: 'lanes',
+      aria: '전망 도해. 예측이 아니라 관찰 포인트 세 갈래이다. 개인 비서 대중화는 지원 국가와 채널 확대, Help 요금과 한도 변화를 본다. 기업 디지털 인력은 Enterprise 감사와 Network Controls 채택, 조직 Enable을 본다. 규제와 신뢰의 속도 조절은 법제와 가이드라인, Confidential VM 출시 여부를 본다.',
       lanes: [
         {
           title: '개인 비서 대중화', sub: '관찰 신호',
@@ -1966,32 +1971,35 @@ function buildMatrix(v) {
   return wrap;
 }
 
-// lanes: { lanes: [{ title, sub?, tone?: 'fact'|'statement'|'interp', points: [text | {t, badge:{t,tone}}], badge?:{t,tone} }] }
+// lanes: { aria, lanes: [{ title, sub?, tone?: 'fact'|'statement'|'interp'|'early', points: [text | {t, badge:{t,tone}}], badge?:{t,tone} }] }
 function buildLanes(v) {
   const dense = (v.lanes || []).some(l => (l.points || []).length > 2);
-  const wrap = el('div', 'v-lanes' + (dense ? ' dense' : '') + ((v.lanes || []).length > 3 ? ' wide4' : ''));
+  const wide = (v.lanes || []).length > 3;
+  const wrap = el('div', 'v-lanes' + (dense ? ' dense' : '') + (wide ? ' wide4' : ''));
+  wrap.setAttribute('role', 'group'); wrap.setAttribute('aria-label', v.aria);
   wrap.style.setProperty('--n', String((v.lanes || []).length));
+  const fill = (n, t) => { if (wide) dgFill(n, t); else n.textContent = t; }; // 4 narrow lanes: keep "word ·" together
   (v.lanes || []).forEach(l => {
     const lane = el('div', 'lane' + (l.tone ? ' tone-' + l.tone : ''));
     const head = el('div', 'lane-head');
-    const h3 = el('h3'); h3.textContent = l.title;
+    const h3 = el('h3'); fill(h3, l.title);
     head.appendChild(h3);
-    if (l.sub) { const sub = el('div', 'lane-sub'); sub.textContent = l.sub; head.appendChild(sub); }
+    if (l.sub) { const sub = el('div', 'lane-sub'); fill(sub, l.sub); head.appendChild(sub); }
     lane.appendChild(head);
     const ul = document.createElement('ul');
     (l.points || []).forEach(p => {
       const pt = typeof p === 'string' ? { t: p } : p;
       const li = document.createElement('li');
-      const txt = el('span'); txt.textContent = pt.t;
+      const txt = el('span'); fill(txt, pt.t);
       if (pt.badge) {
-        const b = el('span', 'tone-badge tone-' + (pt.badge.tone || 'gray')); b.textContent = pt.badge.t;
+        const b = el('span', 'tone-badge tone-' + (pt.badge.tone || 'gray')); fill(b, pt.badge.t);
         txt.appendChild(document.createTextNode(' ')); txt.appendChild(b);
       }
       li.appendChild(txt); ul.appendChild(li);
     });
     lane.appendChild(ul);
     if (l.badge) {
-      const b = el('div', 'tone-badge lane-badge tone-' + (l.badge.tone || 'gray')); b.textContent = l.badge.t;
+      const b = el('div', 'tone-badge lane-badge tone-' + (l.badge.tone || 'gray')); fill(b, l.badge.t);
       lane.appendChild(b);
     }
     wrap.appendChild(lane);

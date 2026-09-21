@@ -11,7 +11,7 @@ Notion 대본 22클립을 **슬라이드(장표) 레이아웃** HTML + 나레이
 - `narration.json` — 22클립 나레이션 (`lines[]` 유지)
 - `slide-visible-copy.md` — 보이는 층 카피 (PASS)
 
-실행에 필요한 `assets/bg`·`assets/cards`(클린 셸)는 HTML 배경용으로 함께 둡니다. 로고·인물 초상·제품 UI 스크린샷·미PASS 수치는 넣지 않습니다.
+실행에 필요한 `assets/bg`(배경 1종)와 `assets/photos`(CC 사진, 크레딧은 `assets/photos/CREDITS.md`)를 함께 둡니다. 로고·인물 초상·제품 UI 스크린샷·미PASS 수치는 넣지 않습니다.
 
 ## 서사 잠금 (기획·작가)
 1. **병행 세 경로** — 자가호스팅 · 에이전트 소셜 · 클라우드 (단일 발전사/필연 순서 금지). 05장 다이어그램 주비주얼.

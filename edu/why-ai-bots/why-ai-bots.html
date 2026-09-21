@@ -299,24 +299,31 @@
 
   /* Cover body layout */
   .cover-body {
-    height: 100%;
-    display: grid; grid-template-rows: auto 1fr auto;
-    gap: 1rem; padding: .25rem;
+    height: 100%; min-height: 0;
+    display: grid; grid-template-columns: minmax(0, 1fr) 42%; grid-template-rows: minmax(0, 1fr);
+    gap: 1.2rem; padding: .25rem;
   }
+  .cv-main { min-height: 0; display: flex; flex-direction: column; gap: 1rem; }
   .cover-body .hero-title {
-    font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800;
+    font-size: max(28px, min(4.6vh, 2.5rem)); font-weight: 800; line-height: 1.25;
     color: var(--s-blue); margin: 0; letter-spacing: -0.02em;
   }
-  .cover-body .hero-sub { margin: .4rem 0 0; color: var(--ink-2); font-size: 1.05rem; }
-  .cover-meta {
-    display: flex; gap: .6rem; align-items: center; flex-wrap: wrap;
-    margin-top: auto; padding: .35rem 0 .15rem;
+  .cover-body .hero-sub { margin: .5rem 0 0; color: var(--ink-2); font-size: max(20px, 3.2vh); font-weight: 700; }
+  .cv-axes {
+    flex: 1 1 0; min-height: 0; margin: 0; padding: 0; list-style: none;
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: .8rem;
   }
-  .cover-meta .pill {
-    background: #334155; color: #fff; border-radius: 999px;
-    padding: .28rem .7rem; font-size: .8rem; font-weight: 600;
+  .cv-axes li {
+    min-height: 0; display: flex; align-items: center; gap: .9rem; padding: .5rem 1rem;
+    background: rgba(255,255,255,.94); border: 2px solid var(--line); border-radius: 14px;
   }
-  .cover-meta .date { color: var(--ink-2); font-size: .9rem; font-weight: 700; letter-spacing: .02em; }
+  .cv-axes .ico {
+    flex: 0 0 auto; width: max(60px, 10vh); height: max(60px, 10vh); border-radius: 50%; display: grid; place-items: center;
+    background: var(--s-blue-soft); color: var(--s-blue);
+  }
+  .cv-axes .ico svg { width: 62%; height: 62%; display: block; }
+  .cv-axes b { display: block; font-size: max(26px, 4.6vh); font-weight: 800; color: var(--s-blue-deep); line-height: 1.25; }
+  .cv-axes span.cap { display: block; font-size: max(18px, 2.7vh); font-weight: 700; color: var(--ink-2); line-height: 1.3; }
 
   /* Closing */
   #closing {
@@ -338,20 +345,22 @@
   }
   #closing .shell-foot .pill, #opening-slide .shell-foot .pill {
     background: #334155; color: #fff; border-radius: 999px;
-    padding: .28rem .7rem; font-size: .78rem; font-weight: 600;
+    padding: .28rem .7rem; font-size: 1rem; font-weight: 600;
   }
   #closing .shell-foot .date, #opening-slide .shell-foot .date {
-    color: var(--ink-2); font-size: .85rem; font-weight: 700;
+    color: var(--ink-2); font-size: 1rem; font-weight: 700;
   }
   #closing .slide-head { background: var(--s-blue); }
   #closing .end-body {
-    flex: 1; display: grid; place-items: center; padding: 1.5rem;
+    flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 34%; gap: 1.2rem; align-items: center;
+    padding: 1.25rem 1.25rem 3.4rem;
   }
+  #closing .end-photo { align-self: stretch; }
   #closing .end-card {
-    width: min(900px, 100%);
+    min-width: 0;
     background: rgba(255,255,255,.94);
     border: 1px solid var(--line); border-radius: 16px;
-    padding: 1.75rem 2rem; text-align: left;
+    padding: min(1.75rem, 3vh) 2rem; text-align: left;
     box-shadow: 0 12px 36px rgba(15,23,42,.06);
   }
   #closing .recap {
@@ -360,7 +369,7 @@
   }
   #closing .recap li {
     counter-increment: recap; position: relative; padding-left: 2.6rem;
-    color: var(--ink); font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 800;
+    color: var(--ink); font-size: clamp(1.15rem, min(2.2vw, 3.7vh), 1.9rem); font-weight: 800;
     line-height: 1.4; letter-spacing: -0.01em;
   }
   #closing .recap li::before {
@@ -375,7 +384,7 @@
   }
   #closing .check li {
     position: relative; padding-left: 2rem; color: var(--ink-2);
-    font-size: clamp(.95rem, 1.6vw, 1.1rem); line-height: 1.45;
+    font-size: max(16px, min(1.5vw, 2.4vh, 1.5rem)); line-height: 1.45;
   }
   #closing .check li::before {
     content: ""; position: absolute; left: 0; top: .2em;
@@ -417,28 +426,20 @@
     position: relative;
   }
   #opening-slide .op-body {
-    flex: 1; display: grid; grid-template-columns: 1.1fr .9fr;
-    gap: 1rem; padding: 1.25rem; min-height: 0;
+    flex: 1; display: grid; grid-template-columns: 40% minmax(0, 1fr);
+    gap: 1.2rem; padding: 1.25rem 1.25rem 3.4rem; min-height: 0;
   }
-  #opening-slide .op-left {
+  #opening-slide .op-panel {
+    min-height: 0; min-width: 0; display: flex; flex-direction: column; gap: .7rem;
     background: rgba(255,255,255,.94); border-radius: 16px;
-    border: 1px solid var(--line); padding: 1.4rem 1.5rem;
-    display: flex; flex-direction: column; justify-content: center; gap: .7rem;
+    border: 1px solid var(--line); padding: 1.1rem 1.5rem 1rem;
   }
-  #opening-slide .op-left h2 {
-    margin: 0; color: var(--s-blue); font-size: clamp(1.35rem, 2.8vw, 1.9rem);
-    font-weight: 800; letter-spacing: -0.02em;
+  #opening-slide .op-panel h3 {
+    flex: 0 0 auto; margin: 0; color: var(--s-blue); font-size: max(22px, 3.7vh);
+    font-weight: 800; letter-spacing: -0.02em; line-height: 1.3;
   }
-  #opening-slide .op-left p { margin: 0; color: var(--ink-2); font-size: .98rem; }
-  #opening-slide .op-right {
-    display: grid; gap: .65rem; align-content: center;
-  }
-  #opening-slide .op-chip {
-    background: rgba(255,255,255,.94); border: 1px solid var(--line);
-    border-radius: 12px; padding: .85rem 1rem;
-  }
-  #opening-slide .op-chip strong { color: var(--s-blue); display: block; margin-bottom: .2rem; font-size: .85rem; }
-  #opening-slide .op-chip span { color: var(--ink-2); font-size: .9rem; }
+  #opening-slide .op-route { flex: 1 1 0; min-height: 0; }
+  #opening-slide .op-note { flex: 0 0 auto; margin: 0; color: var(--muted); font-size: max(16px, 2.3vh); font-weight: 700; }
 
   @media (max-width: 820px) {
     #intro .cover-grid { grid-template-columns: 1fr; }
@@ -468,12 +469,12 @@
     color: #fff;
     border-radius: 999px;
     padding: .35rem .85rem;
-    font-size: .78rem;
+    font-size: 1rem;
     font-weight: 600;
   }
   #story .shell-foot .date {
     color: #5b6570;
-    font-size: .78rem;
+    font-size: 1rem;
     font-weight: 600;
   }
 
@@ -490,12 +491,11 @@
     color: #fff;
     border-radius: 999px;
     padding: .35rem .9rem;
-    font-size: .78rem;
+    font-size: 1rem;
     font-weight: 600;
   }
-  /* Bottom is only the single foot pill (교육 자료 · date); the in-body meta row would overlap it */
-  #story .page.cover-slide .cover-meta { display: none; }
-  #story .page.cover-slide .cover-body { padding-bottom: 2.6rem; }
+  /* Bottom is only the single foot pill (교육 자료 · date); keep the body clear of it */
+  #story .page.cover-slide .cover-body { padding-bottom: 3.6rem; }
 
   /* —— Density redesign: message + full-height visual —— */
   .slide-head h2 {
@@ -961,6 +961,165 @@
     font-size: var(--f1); font-weight: 800; text-align: center; white-space: nowrap;
   }
 
+  /* glyphs: simple inline SVG, colour from currentColor */
+  .ico svg { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* route (opening, 02): four stops on one connected route, first stop = current position */
+  .dg-route { --rd: max(40px, 6.2vh); flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; }
+  .dg-route li { position: relative; flex: 1 1 0; min-height: 0; display: flex; align-items: center; gap: 1rem; }
+  .dg-route li:not(:last-child)::before {
+    content: ""; position: absolute; left: calc(var(--rd) / 2 - 2px); top: 50%; height: 100%; border-left: 4px dashed var(--s-blue);
+  }
+  .rt-dot {
+    position: relative; z-index: 1; flex: 0 0 var(--rd); width: var(--rd); height: var(--rd); border-radius: 50%; display: grid; place-items: center;
+    background: var(--paper); border: 3px solid var(--s-blue); color: var(--s-blue-deep); font-size: max(18px, 2.8vh); font-weight: 800; line-height: 1;
+  }
+  .dg-route li.here .rt-dot { background: var(--s-blue); color: var(--paper); box-shadow: 0 0 0 6px var(--s-blue-soft); }
+  .rt-txt { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: .25rem; }
+  .rt-name { font-size: var(--f3); font-weight: 800; color: var(--ink); line-height: 1.3; }
+  .dg-route li.here .rt-name { color: var(--s-blue-deep); }
+  .rt-here { padding: .05rem .8rem; border-radius: 999px; background: var(--s-blue); color: var(--paper); font-size: var(--f2); font-weight: 800; }
+  .dg-route.sm { --rd: max(36px, 5.4vh); }
+  .dg-route.sm .rt-name { font-size: max(22px, 3.3vh); }
+  .dg-rpanel {
+    display: flex; flex-direction: column; gap: var(--g); padding: .9rem 1.2rem;
+    border: var(--dg-line) solid var(--s-blue); border-radius: 16px; background: var(--s-blue-wash);
+  }
+  .dg-rpanel > .dg-banner { flex: 0 0 auto; padding: .5rem 1rem; font-size: var(--f1); }
+
+  /* goals (02): large numbered learning goals */
+  .dg-goals { display: flex; flex-direction: column; gap: var(--g); }
+  .dg-goals li {
+    flex: 1 1 0; min-height: 0; display: flex; align-items: center; gap: 1.1rem; padding: .5rem 1.2rem;
+    border: var(--dg-line) solid var(--s-blue); border-radius: 16px; background: var(--s-blue-wash);
+  }
+  .gd-n {
+    flex: 0 0 auto; width: max(46px, 7.4vh); height: max(46px, 7.4vh); border-radius: 50%; display: grid; place-items: center;
+    background: var(--s-blue); color: var(--paper); font-size: var(--f3); font-weight: 800; line-height: 1;
+  }
+  .gd-t { min-width: 0; font-size: max(22px, 3.5vh); font-weight: 800; color: var(--ink); line-height: 1.35; }
+
+  /* segbars (06): same four segments, filled = done, hatched = left to the person */
+  .dg-sbars { display: flex; flex-direction: column; gap: var(--g); }
+  .dg-sbar {
+    flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; gap: .4rem; padding: .6rem 1rem .7rem;
+    border: 1.5px solid var(--line); border-radius: 14px; background: var(--s-blue-wash);
+  }
+  .dg-sbar > b { flex: 0 0 auto; font-size: var(--f3); font-weight: 800; color: var(--s-blue-deep); line-height: 1.25; }
+  .dg-segs { flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: .5rem; }
+  .dg-seg {
+    display: flex; align-items: center; justify-content: center; text-align: center; padding: .2rem .4rem; border-radius: 10px;
+    border: 2.5px solid var(--s-blue); background: var(--s-blue); color: var(--paper); font-size: var(--f3); font-weight: 800; line-height: 1.25;
+  }
+  .dg-seg.off {
+    border: 2.5px dashed var(--human); color: var(--human);
+    background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--human) 14%, var(--paper)) 0 7px, var(--paper) 7px 14px);
+  }
+  .dg-sbar .dg-stbr { flex: 0 0 auto; gap: .5rem; }
+  .dg-sbar .dg-stbr > div { margin: 0; }
+  .dg-ladder {
+    display: flex; flex-direction: column; justify-content: center; padding: 1rem;
+    border: var(--dg-line) solid var(--s-blue); border-radius: 16px; background: var(--s-blue-wash);
+  }
+  .dg-ladder .dg-flow { flex: 0 1 60%; }
+
+  /* persist (07): session chain with gaps vs. persistent chain with badges */
+  .dg-persist { display: flex; flex-direction: column; gap: var(--g); }
+  .dg-prow {
+    flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1rem; padding: .6rem 1rem;
+    border: 1.5px solid var(--line); border-radius: 14px; background: var(--s-blue-wash);
+  }
+  .dg-prow.hi { border: var(--dg-line) solid var(--s-blue); background: var(--paper); }
+  .dg-prow > h3 { font-size: var(--f3); font-weight: 800; color: var(--s-blue-deep); line-height: 1.25; }
+  .pr-body { min-width: 0; display: flex; flex-direction: column; gap: 1.5rem; }
+  .pr-chain { display: flex; align-items: center; }
+  .pr-chain .cn { flex: 1 1 0; min-width: 1.2rem; display: flex; align-items: center; }
+  .cn.solid { height: 0; border-top: 5px solid var(--s-blue); }
+  .cn .seg { flex: 1 1 0; height: 0; border-top: 5px dashed var(--muted); }
+  .cn .gap { flex: 0 0 1.5rem; height: 2.2rem; position: relative; }
+  .cn .gap::before, .cn .gap::after {
+    content: ""; position: absolute; top: 0; bottom: 0; width: 5px; border-radius: 3px; background: var(--risk); transform: skewX(-22deg);
+  }
+  .cn .gap::before { left: .3rem; }
+  .cn .gap::after { right: .3rem; }
+  .dg-bub {
+    position: relative; flex: 0 0 auto; padding: .45rem .85rem; border: 2.5px solid var(--s-blue); border-radius: 16px; background: var(--paper);
+    font-size: var(--f3); font-weight: 800; color: var(--s-blue-deep); line-height: 1.25; white-space: nowrap;
+  }
+  .dg-bub::before, .dg-bub::after { content: ""; position: absolute; left: 14px; border-style: solid; border-color: transparent; }
+  .dg-bub::after { bottom: -12px; border-width: 12px 10px 0; border-top-color: var(--s-blue); }
+  .dg-bub::before { bottom: -8px; z-index: 1; margin-left: 3px; border-width: 9px 7px 0; border-top-color: var(--paper); }
+  .pr-badges { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+  .pr-badges > span {
+    padding: .1rem .5rem; border: 2px solid var(--s-blue); border-radius: 999px; background: var(--paper); color: var(--s-blue-deep);
+    font-size: var(--f1); font-weight: 800; text-align: center; line-height: 1.35;
+  }
+  .dg-riskbox {
+    display: flex; flex-direction: column; justify-content: center; gap: .7rem; padding: .8rem 1rem;
+    border: 2.5px solid var(--risk); border-radius: 14px; background: var(--risk-bg);
+  }
+  .dg-riskbox > b { font-size: var(--f3); font-weight: 800; color: var(--risk-ink); line-height: 1.25; }
+  .dg-riskbox p {
+    padding: .35rem .7rem; border: 1.5px solid var(--risk); border-radius: 10px; background: var(--paper);
+    color: var(--risk-ink); font-size: var(--f1); font-weight: 800; line-height: 1.3;
+  }
+
+  /* dates (10): equal-spaced date timeline, last marker emphasised */
+  .dg-dates {
+    --dd: 2.2rem; position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); column-gap: var(--g);
+  }
+  .dg-dates::before {
+    content: ""; position: absolute; top: calc(var(--dd) / 2 - 2px); left: calc((100% - 2 * var(--g)) / 6); right: calc((100% - 2 * var(--g)) / 6);
+    border-top: 4px solid var(--s-blue);
+  }
+  .dt { min-height: 0; display: flex; flex-direction: column; align-items: center; gap: .6rem; }
+  .dt-dot {
+    position: relative; z-index: 1; flex: 0 0 auto; width: var(--dd); height: var(--dd); border-radius: 50%;
+    background: var(--paper); border: 4px solid var(--s-blue);
+  }
+  .dt.hi .dt-dot { background: var(--s-blue); box-shadow: 0 0 0 6px var(--s-blue-soft); }
+  .dt-card {
+    flex: 1 1 0; min-height: 0; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem;
+    padding: .5rem .8rem; text-align: center; border: 2.5px solid var(--line); border-radius: 14px; background: var(--s-blue-wash);
+  }
+  .dt.hi .dt-card { border: var(--dg-line) solid var(--s-blue); background: var(--paper); box-shadow: 0 0 0 4px var(--s-blue-soft); }
+  .dt-card b { font-size: max(28px, 4.6vh); font-weight: 800; color: var(--s-blue-deep); line-height: 1.2; }
+  .dt-t { font-size: var(--f3); font-weight: 800; color: var(--ink); line-height: 1.3; }
+  .dt-badge { padding: 0 .9rem; border-radius: 999px; background: var(--s-blue); color: var(--paper); font-size: var(--f1); font-weight: 800; }
+  .dt-note {
+    padding: .1rem .8rem; border: 2px solid var(--s-blue); border-radius: 999px; background: var(--s-blue-soft); color: var(--s-blue-deep);
+    font-size: var(--f1); font-weight: 800; line-height: 1.3;
+  }
+  .dg-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--g); }
+  .dg-fact {
+    min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: .3rem; padding: .5rem 1.1rem;
+    border: var(--dg-line) solid var(--s-blue); border-radius: 14px; background: var(--s-blue-wash);
+  }
+  .dg-fact .k { font-size: var(--f1); font-weight: 800; color: var(--ink-2); }
+  .dg-fact .v { font-size: max(26px, 4.4vh); font-weight: 800; color: var(--s-blue-deep); line-height: 1.25; }
+  .dg-foot { font-size: var(--f2); font-weight: 700; color: var(--ink-2); text-align: center; line-height: 1.35; }
+
+  /* channels + stairs (13): text tiles with generic glyphs, three-step price staircase */
+  .dg-chan { display: flex; flex-direction: column; gap: var(--g); }
+  .dg-chan > .dg-box { flex: 0 0 auto; font-size: var(--f3); padding: .5rem 1rem; }
+  .dg-tiles { flex: 1 1 0; min-height: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: var(--g); }
+  .dg-tile {
+    min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3rem; padding: .4rem .6rem;
+    border: var(--dg-line) solid var(--s-blue); border-radius: 14px; background: var(--s-blue-wash);
+    font-size: var(--f3); font-weight: 800; color: var(--s-blue-deep); line-height: 1.25;
+  }
+  .dg-tile .ico { flex: 0 0 auto; width: max(40px, 6.5vh); height: max(40px, 6.5vh); display: grid; place-items: center; color: var(--s-blue); }
+  .dg-tile .ico svg { width: 100%; height: 100%; }
+  .dg-stairs { display: flex; flex-direction: column; gap: .6rem; }
+  .dg-stairs > .dg-foot { font-size: var(--f1); }
+  .st-steps { flex: 1 1 0; min-height: 0; display: flex; align-items: flex-end; gap: .6rem; }
+  .st-step {
+    --h: 40%; flex: 1 1 0; height: var(--h); min-width: 0; display: flex; align-items: flex-start; justify-content: center; text-align: center;
+    padding: .9rem .5rem; border: 2.5px solid var(--s-blue); border-radius: 12px 12px 0 0; background: var(--s-blue-soft); color: var(--s-blue-deep);
+    font-size: var(--f3); font-weight: 800; line-height: 1.25;
+  }
+  .st-step.s2 { --h: 68%; background: var(--s-blue); color: var(--paper); }
+  .st-step.s3 { --h: 96%; background: var(--s-blue-deep); border-color: var(--s-blue-deep); color: var(--paper); }
 
   @media (max-width: 820px) {
     .v-split, .v-split.side-right { flex-direction: column; }
@@ -1008,16 +1167,14 @@
       <h2>왜 AI 봇에 열광하는가 — 카탈로그가 아닌 경로</h2>
     </div>
     <div class="op-body">
-      <div class="op-left">
-        <h2>제품 목록이 아니라 위임의 길을 따라갑니다</h2>
-        <p>시작점 → 오픈소스·에이전트 소셜 → 클라우드 증거 → 격리·승인 설계</p>
-        <p style="color:var(--muted);font-size:.88rem;">설명 약 30분 · 질의 없음</p>
-      </div>
-      <div class="op-right">
-        <div class="op-chip"><strong>01 시작점</strong><span>답만 남고 일이 끝나지 않던 한계</span></div>
-        <div class="op-chip"><strong>02 병행 경로</strong><span>자가호스팅 · 에이전트 소셜 · 클라우드</span></div>
-        <div class="op-chip"><strong>03 증거</strong><span>Grok Bot · Meta Muse</span></div>
-        <div class="op-chip"><strong>04 설계</strong><span>격리 · 승인 · 위임 습관</span></div>
+      <figure class="split-photo" style="--pos: 50% 50%">
+        <img src="assets/photos/opening-sunrise-road.jpg" alt="이른 아침 햇살이 안개 낀 나무 터널 사이로 비치고, 앞으로 곧게 뻗은 아스팔트 길">
+        <figcaption class="photo-credit"><span>사진: Dietmar Rabich · CC BY-SA 4.0</span><span>Wikimedia Commons (일부 잘라 표시)</span></figcaption>
+      </figure>
+      <div class="op-panel">
+        <h3>제품 목록이 아니라 위임의 길을 따라갑니다</h3>
+        <div id="op-route" class="dg op-route" role="group" aria-label="오늘의 여정 지도. 시작점 미완의 위임에서 출발해 병행 세 경로, 증거 둘 Grok Bot과 Muse, 격리와 승인으로 이어진다. 현재 위치는 첫 번째 시작점이다."></div>
+        <p class="op-note">설명 약 30분 · 질의 없음</p>
       </div>
     </div>
     <div class="shell-foot" aria-hidden="true">
@@ -1048,6 +1205,10 @@
           <li><strong>오프보딩</strong> — 루틴 정지 → 웹 로그아웃 → 커넥터 해지 → 작업 파일 삭제</li>
         </ul>
       </div>
+      <figure class="split-photo end-photo" style="--pos: 62% 50%">
+        <img src="assets/photos/ending-fog-road.jpg" alt="눈 덮인 나무들 사이로 안개 속으로 이어지는 이른 아침의 도로">
+        <figcaption class="photo-credit"><span>사진: Pudelek · CC BY-SA 4.0</span><span>Wikimedia Commons (크기 조정·일부 잘라 표시)</span></figcaption>
+      </figure>
     </div>
     <div class="shell-foot" aria-hidden="true">
       <span class="pill">교육 자료</span>
@@ -1074,12 +1235,21 @@ const SCENES = [
     year: '1장 · 표지',
     title: 'AI Bot 시대, 사람들은 왜 열광하는가',
     message: 'AI Bot 시대, 왜 열광하는가를 위임·지속·실행 환경으로 본다',
-    bullets: [ '시작점 → 병행 세 경로 → Grok Bot·Muse 증거', '제품 카탈로그가 아니라 “왜”가 본체', '설명 30분 · 질의 없음', '과장·미확인 수치 배제' ],
     visual: {
       type: 'cover',
       sub: '시작점 → 병행 세 경로 → Grok Bot·Muse',
-      date: '2026.10.01',
-      chips: [ '교육 자료' ]
+      axes: [
+        { g: 'check', t: '위임', d: '끝난 산출물' },
+        { g: 'loop', t: '지속', d: '같은 동료에게 다시' },
+        { g: 'layers', t: '실행 기반', d: '클라우드 computer · Secure VM' },
+        { g: 'bubble', t: '접근성', d: '이름·앱·번들' }
+      ],
+      photo: {
+        src: 'assets/photos/cover-fog-road.jpg',
+        alt: '안개 속으로 이어지는 흙길과 그 옆에 선 잎 진 커다란 나무, 흑백 사진',
+        credit: '사진: Dietmar Rabich · CC BY-SA 4.0',
+        position: '70% 50%', cropped: true
+      }
     },
     cover: true
   ,
@@ -1091,23 +1261,18 @@ const SCENES = [
     year: '2장 · 오늘의 질문',
     title: '챗봇은 대답했고, 봇은 일을 맡기기 시작했다',
     message: '챗봇은 대답했고, 봇은 일을 맡기기 시작했다',
-    bullets: [ '시작점: 미완의 위임', '병행 세 경로: 자가호스팅 · 에이전트 소셜 · 클라우드', '현재: 위임·지속·실행환경·접근성(+과열) ↔ 격리·승인', '비교는 증거 뒤에' ],
     visual: {
-      type: 'three',
-      items: [
-        {
-          t: '미완의 위임',
-          d: '열광의 시작점'
-        },
-        {
-          t: '병행 세 경로',
-          d: '자가호스팅 · 소셜 · 클라우드',
-          hi: true
-        },
-        {
-          t: '격리·승인',
-          d: '지금의 위임을 설계로'
-        }
+      type: 'stack',
+      aria: '오늘의 질문 도해. 학습 목표 세 가지, 열광의 시작점을 말한다, 병행 세 경로를 그린다, 위임·지속·실행 환경·접근성을 격리·승인에 연결한다. 오른쪽 여정 띠는 시작점, 병행 세 경로, 증거 둘, 격리·승인 네 구간이고 현재 위치는 시작점이다. 비교는 증거 뒤에 한다.',
+      parts: [
+        { type: 'row', w: 1, cols: '58fr 42fr', parts: [
+          { type: 'goals', items: [
+            '열광의 시작점(답만 주는 한계)을 말한다',
+            '병행 세 경로를 그린다',
+            '위임·지속·실행 환경·접근성(과열 포함)을 격리·승인에 연결한다'
+          ] },
+          { type: 'routepanel', caption: '비교는 증거 뒤에' }
+        ] }
       ]
     }
   ,
@@ -1119,7 +1284,6 @@ const SCENES = [
     year: '3장 · 용어',
     title: '같은 “봇”이라도 실행·지속·권한이 다르다',
     message: '같은 “봇”이라도 실행·지속·권한이 다르다',
-    bullets: [ '챗봇 ≠ 위임형 agent', '용어를 가른 뒤 시작점으로' ],
     visual: {
       type: 'matrix',
       headers: [ '', '실행', '지속성', '권한', '결과' ],
@@ -1141,7 +1305,6 @@ const SCENES = [
     year: '4장 · 시작점',
     title: '답만 주고 일이 끝나지 않았다',
     message: '답만 주고 일이 끝나지 않았다',
-    bullets: [ '조사·초안은 됨 · 툴 반영·마무리는 사람 몫', '세션이 바뀌면 맥락이 끊김', '“도와준다” ≠ “맡긴다”', '결핍: 실행 · 권한 · 지속성 패키지' ],
     visual: {
       type: 'split',
       photo: {
@@ -1172,7 +1335,6 @@ const SCENES = [
     year: '5장 · 진행',
     title: 'BOT 수요 반응이 하나의 발전사가 아니라 세 경로로 병행됐다',
     message: 'BOT 수요 반응이 하나의 발전사가 아니라 세 경로로 병행됐다',
-    bullets: [ '① 자가호스팅 (OpenClaw · Hermes) — 격리=내 서버 · 승인은 직접 구현', '② 에이전트 소셜 (Moltbook)', '③ 클라우드 제품 (Grok Bot · Muse)' ],
     visual: {
       type: 'paths',
       aria: '병행 세 경로 도해. 미완의 위임이라는 하나의 출발점에서 자가호스팅, 에이전트 소셜, 클라우드 제품 세 갈래가 동시에 열렸다.',
@@ -1202,27 +1364,17 @@ const SCENES = [
     year: '6장 · 열광①',
     title: '답이 아니라 결과를 맡긴다',
     message: '답이 아니라 결과를 맡긴다',
-    bullets: [ '문장 생성이 아니라 일 위임', '저위험부터 · 사람 승인 게이트', '과도 위임이 곧 리스크' ],
     visual: {
-      type: 'cards',
-      cols: 3,
-      items: [
-        {
-          badge: '위임',
-          t: '일 위임',
-          d: '문장 생성이 아니라 끝난 산출물',
-          hi: true
-        },
-        {
-          badge: '게이트',
-          t: '저위험부터',
-          d: '사람 승인 게이트'
-        },
-        {
-          badge: '주의',
-          t: '과도 위임',
-          d: '곧 리스크'
-        }
+      type: 'stack',
+      aria: '위임 도해. 조사, 초안, 툴 반영, 마무리 네 구간 중 답변까지는 앞의 둘만 채워지고 나머지는 사람이 마무리한다. 위임 단위로 맡기면 네 구간이 모두 채워져 끝난 산출물이 된다. 오른쪽은 저위험 업무부터 시작해 사람 승인 게이트를 두는 두 단계다.',
+      parts: [
+        { type: 'row', w: 1, cols: '60fr 40fr', parts: [
+          { type: 'sbars', bars: [
+            { label: '답변까지', segs: [ '조사', '초안', '툴 반영', '마무리' ], on: 2, cap: { t: '사람이 마무리', from: 3, to: 4, tone: 'human' } },
+            { label: '위임 단위로 맡김', segs: [ '조사', '초안', '툴 반영', '마무리' ], on: 4, cap: { t: '끝난 산출물', from: 1, to: 4 } }
+          ] },
+          { type: 'ladder', items: [ { t: '저위험 업무부터' }, { t: '사람 승인 게이트', tone: 'human' } ] }
+        ] }
       ]
     }
   ,
@@ -1234,28 +1386,28 @@ const SCENES = [
     year: '7장 · 열광②',
     title: '세션이 끊겨도 맥락이 남는다',
     message: '세션이 끊겨도 맥락이 남는다',
-    bullets: [ '메모리·루틴·파일', '어제 일을 오늘 다시 설명하지 않음', '지속 = 편의이자 잔존 자격증명 주의' ],
     visual: {
-      type: 'cards',
-      cols: 3,
-      items: [
-        {
-          badge: '지속',
-          t: '메모리·루틴·파일',
-          d: '같은 동료에게 다시 맡김',
-          hi: true
-        },
-        {
-          badge: '편의',
-          t: '맥락 유지',
-          d: '어제 일을 다시 설명하지 않음'
-        },
-        {
-          badge: '주의',
-          t: '잔존 자격증명',
-          d: '지속 = 편의이자 리스크'
-        }
-      ]
+      type: 'split',
+      photo: {
+        src: 'assets/photos/s07-desk-notebook.jpg',
+        alt: '나무 책상 위에 펼쳐 둔 수첩과 그 위에 놓인 안경, 볼펜 두 자루',
+        credit: '사진: Shixart1985 · CC BY 2.0',
+        side: 'left', width: '26%', position: '58% 50%', cropped: true
+      },
+      main: {
+        type: 'stack',
+        aria: '지속성 도해. 세션형은 대화 1, 2, 3이 끊겨 이어지지 않는다. 지속형은 같은 세 대화가 하나로 이어지고 메모리, 루틴, 파일이 뒷받침한다. 오른쪽 위험 상자는 남는 것, 연결한 메일·드라이브와 로그와 로그인을 뜻한다. 편의와 잔존 자격증명은 함께 온다.',
+        parts: [
+          { type: 'row', w: 1, cols: 'minmax(0, 1.75fr) minmax(0, 1fr)', parts: [
+            { type: 'persist', bubbles: [ '대화 1', '대화 2', '대화 3' ], rows: [
+              { label: '세션형', kind: 'gap' },
+              { label: '지속형', kind: 'joined', hi: true, badges: [ '메모리', '루틴', '파일' ] }
+            ] },
+            { type: 'riskbox', title: '남는 것', items: [ '연결한 메일·드라이브', '로그', '로그인' ] }
+          ] },
+          { type: 'banner', w: .2, text: '편의와 잔존 자격증명은 함께 온다' }
+        ]
+      }
     }
   ,
     lines: [
@@ -1266,7 +1418,6 @@ const SCENES = [
     year: '8장 · 열광③',
     title: '위임의 실행 기반이 제품이 되었다',
     message: '위임의 실행 기반이 제품이 되었다',
-    bullets: [ 'Grok: 사용자당 cloud computer (봇마다 전용 PC는 오해)', 'Muse: 개인별 Secure VM', '로컬 실행은 클라우드 Auto Review와 별도 · Never 권고' ],
     visual: {
       type: 'split',
       photo: {
@@ -1293,7 +1444,6 @@ const SCENES = [
     year: '9장 · 열광④',
     title: '가까워질수록 기대와 과열이 같이 커진다',
     message: '가까워질수록 기대와 과열이 같이 커진다',
-    bullets: [ '채널·앱·메신저로 진입 장벽↓', '과열 ≠ 근거' ],
     visual: {
       type: 'matrix',
       headers: [ '요인', '도움', '과열' ],
@@ -1314,32 +1464,20 @@ const SCENES = [
     year: '10장 · Grok 개요',
     title: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
     message: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
-    bullets: [ '2026-08-11 beta · SpaceXAI / Cursor 클라우드', '사용자 단위 computer · 동일 사용자 Bot 간 파일·브라우저·로그인 공유', '삭제 ≠ 자격증명 회수', 'Enterprise: 2026-09-03 출시 (웨이팅 아님) · access/network/audit' ],
     visual: {
-      type: 'cards',
-      cols: 2,
-      items: [
-        {
-          badge: '출시',
-          t: '2026-08-11 beta',
-          d: 'SpaceXAI / Cursor 클라우드'
-        },
-        {
-          badge: 'computer',
-          t: '사용자 단위',
-          d: 'Bot 간 파일·브라우저·로그인 공유',
-          hi: true
-        },
-        {
-          badge: '삭제',
-          t: '삭제 ≠ 회수',
-          d: '자격증명은 별도 오프보딩'
-        },
-        {
-          badge: 'Enterprise',
-          t: '2026-09-03 출시',
-          d: '웨이팅 아님 · access/network/audit'
-        }
+      type: 'stack',
+      aria: 'Grok Bot 개요 도해. 2026-08-11 beta 공개, 2026-08-26 접근 플랜 확대, 2026-09-03 Enterprise 출시 순의 날짜 타임라인이며 마지막 출시에는 2주 무료 체험과 조직 초대가 붙는다. 제품과 발표는 SpaceXAI, 실행은 Cursor 클라우드의 사용자별 computer다. 접근은 SuperGrok와 Cursor 유료 플랜 등과 번들이고 요금은 플랜 안내 기준이다.',
+      parts: [
+        { type: 'dates', w: 1.35, items: [
+          { d: '2026-08-11', t: 'beta 공개' },
+          { d: '2026-08-26', t: '접근 플랜 확대' },
+          { d: '2026-09-03', t: 'Enterprise 출시', hi: true, badge: '출시', note: '2주 무료 체험 · 조직 초대' }
+        ] },
+        { type: 'pair', w: .8, items: [
+          { k: '제품·발표', v: 'SpaceXAI' },
+          { k: '실행', v: 'Cursor 클라우드 · 사용자별 computer' }
+        ] },
+        { type: 'foot', w: 0, text: '접근은 SuperGrok·Cursor 유료 플랜 등과 번들 · 요금은 플랜 안내 기준' }
       ]
     }
   ,
@@ -1351,7 +1489,6 @@ const SCENES = [
     year: '11장 · Grok 구조',
     title: '격리는 computer만이 아니다 · 로컬·네트워크를 같이 본다',
     message: '격리는 computer만이 아니다 · 로컬·네트워크를 같이 본다',
-    bullets: [ 'Auto Review: 모델 기반 위험 평가 · 최소권한·명시 경계 대체 금지', 'Network Controls: Enterprise 전용 · 없으면 allow-all', '로컬 실행: 데스크톱 앱→실제 PC · 기본 Never 권고', '사람 승인: 민감·로그인·2FA·결제' ],
     visual: {
       type: 'stack',
       aria: 'Grok Bot 통제 구조 도해. 사용자 단위 cloud computer 위에서 조사, 검증, 작성 역할 Bot이 서로 일을 넘긴다. 봇을 지워도 파일과 로그인은 남을 수 있다. 통제는 한 겹이 아니어서 Auto Review, 사람 승인, Network Controls, 로컬 실행 네 카드가 나란히 놓인다. 카드 사이에 순서는 없다.',
@@ -1375,7 +1512,6 @@ const SCENES = [
     year: '12장 · Grok 지향',
     title: '인용은 전망으로 읽고 SLA로 읽지 않는다',
     message: '인용은 전망으로 읽고 SLA로 읽지 않는다',
-    bullets: [ 'Roman Ugarte 인용 카드(초상 없음)', 'Galaxy: 2026-09-15~17 일정만', '요금: 번들·플랜+URL · 단독 정가 단정 금지', 'docs: computer-and-apps · security-faq 병기' ],
     visual: {
       type: 'stack',
       aria: 'Grok Bot 지향 도해. Roman Ugarte 인용 90% / 100%는 제품이 겨냥하는 방향으로 읽고 보장 수치나 SLA로 읽지 않는다. 개인 비서 한 명이 아니라 작은 팀 위임이며, 조사에서 검증, 작성으로 일을 넘기고 병렬 작업과 그룹 조율을 한다.',
@@ -1399,32 +1535,20 @@ const SCENES = [
     year: '13장 · Muse 개요',
     title: 'Muse는 개인 agent를 Secure VM 위에 둔 미국 롤아웃이다',
     message: 'Muse는 개인 agent를 Secure VM 위에 둔 미국 롤아웃이다',
-    bullets: [ '2026-09-08 발표 · iOS/Android/WhatsApp 등', '요금: 무료 한도 + Power/Maximum — Help URL만', 'Muse Spark · Link(Stripe) 1회용 카드(승인 서사)', '사내 배포 방식은 발표문에 없음' ],
     visual: {
-      type: 'cards',
-      cols: 2,
-      items: [
-        {
-          badge: '발표',
-          t: '2026-09-08',
-          d: '미국 롤아웃 · iOS·Android·muse.ai·WhatsApp'
-        },
-        {
-          badge: '요금',
-          t: '공식 Help 기준',
-          d: '무료 한도 + Power $20 / Maximum $100 · 지역·계정별 상이',
-          hi: true
-        },
-        {
-          badge: '미정',
-          t: 'coming soon',
-          d: '출시일 없음'
-        },
-        {
-          badge: '범위',
-          t: '사내 배포',
-          d: '방식은 발표문에 없음'
-        }
+      type: 'stack',
+      aria: 'Muse 개요 도해. 2026-09-08 발표, 미국 롤아웃이며 채널은 iOS, Android, muse.ai, WhatsApp이다. 요금은 무료 한도, Power 20달러, Maximum 100달러의 세 단계이고 공식 Help 기준이며 지역과 계정별로 다르다. 글라스는 coming soon으로 출시일이 없고, 사내 배포 방식은 발표문에 없다.',
+      parts: [
+        { type: 'row', w: 1, cols: '46fr 54fr', parts: [
+          { type: 'channels', badge: '2026-09-08 발표 · 미국 롤아웃', items: [
+            { g: 'phone', t: 'iOS' }, { g: 'phone', t: 'Android' }, { g: 'browser', t: 'muse.ai' }, { g: 'chat', t: 'WhatsApp' }
+          ] },
+          { type: 'stairs', items: [ '무료 한도', 'Power $20', 'Maximum $100' ], caption: '공식 Help 기준 · 지역·계정별 상이' }
+        ] },
+        { type: 'row', w: 0, cols: '1fr 1fr', parts: [
+          { type: 'box', t: '글라스 — coming soon (출시일 없음)', tone: 'pending' },
+          { type: 'box', t: '사내 배포 방식 — 발표문에 없음', tone: 'pending' }
+        ] }
       ]
     }
   ,
@@ -1436,7 +1560,6 @@ const SCENES = [
     year: '14장 · Muse 안전',
     title: 'Sentinel은 승인 UI가 아니라 egress·커널 중개 계층이다',
     message: 'Sentinel은 승인 UI가 아니라 egress·커널 중개 계층이다',
-    bullets: [ 'Secure VM · Sentinel(커넥터·네트워크 egress)', 'surrogate 토큰 · 비밀값은 경계에서 주입', 'Confidential VM: later this year · 미출시 · 신뢰 간극을 메우려는 예정', '[보도]는 태그로만 · 본문 단정 금지' ],
     visual: {
       type: 'split',
       photo: {
@@ -1467,7 +1590,6 @@ const SCENES = [
     year: '15장 · Muse 전망',
     title: '기업 발언·사실·해석을 표로 가른다',
     message: '기업 발언·사실·해석을 표로 가른다',
-    bullets: [],
     visual: {
       type: 'lanes',
       lanes: [
@@ -1497,7 +1619,6 @@ const SCENES = [
     year: '16장 · 비교',
     title: '실행 환경 / 자동 통제 / 사람 승인 / 운영 주의로만 겹친다',
     message: '실행 환경 / 자동 통제 / 사람 승인 / 운영 주의로만 겹친다',
-    bullets: [ 'Auto Review(모델) ≠ Sentinel(egress/커널)' ],
     visual: {
       type: 'matrix',
       headers: [ '', 'Grok Bot', 'Muse' ],
@@ -1520,7 +1641,6 @@ const SCENES = [
     year: '17장 · 공통 뼈대',
     title: '제품 이름 전에 다섯 뼈대를 본다',
     message: '제품 이름 전에 다섯 뼈대를 본다',
-    bullets: [ '위임 · 지속 · 실행 기반 · 격리 단위 · 승인', '자가호스팅 선행: 격리=내 서버 · 승인은 사용자가 구현', '클라우드 제품은 같은 뼈대의 다른 구현' ],
     visual: {
       type: 'skeleton',
       aria: '공통 뼈대 도해. 아래에서 위로 실행 환경, 커넥터, 기억, 루틴, 사람 승인의 다섯 층이 쌓여 있고, 그중 실행 환경과 사람 승인만 자가호스팅, Grok Bot, Muse 세 열로 대조한다.',
@@ -1547,7 +1667,6 @@ const SCENES = [
     year: '18장 · 리스크',
     title: '위임이 커질수록 리스크도 커진다 · 완화 한 줄을 붙인다',
     message: '위임이 커질수록 리스크도 커진다 · 완화 한 줄을 붙인다',
-    bullets: [],
     visual: {
       type: 'split',
       photo: {
@@ -1579,7 +1698,6 @@ const SCENES = [
     year: '19장 · 전망',
     title: '예측이 아니라 관찰 포인트 세 갈래다',
     message: '예측이 아니라 관찰 포인트 세 갈래다',
-    bullets: [],
     foot: '국내 출시 일자 — 확인 불가',
     visual: {
       type: 'lanes',
@@ -1610,7 +1728,6 @@ const SCENES = [
     year: '20장 · 그래서 우리는',
     title: '도입 선언보다 설정값 세 개를 익힌다',
     message: '도입 선언보다 설정값 세 개를 익힌다',
-    bullets: [ '네트워크 정책 — Enterprise 전용 · 없으면 전체 허용이 기본', '로컬 실행 정책 — Never 권고', '오프보딩 — 루틴 정지 → 웹 로그아웃 → 커넥터 해지 → 작업 파일 삭제' ],
     foot: 'Galaxy 2026-09-15~17 (일정)',
     visual: {
       type: 'split',
@@ -1943,12 +2060,13 @@ function buildSteps(v) {
   return wrap;
 }
 
-// flow: { items: [text], tone?, size?: 'sm' } — role boxes with hand-off chevrons between them only
+// flow: { items: [text | { t, tone? }], tone?, size?: 'sm' } — role boxes with hand-off chevrons between them only
 function buildFlow(v) {
   const f = el('div', 'dg-flow' + (v.size === 'sm' ? ' sm' : ''));
-  v.items.forEach((t, i) => {
+  v.items.forEach((it, i) => {
     if (i) { const h = el('span', 'dg-hand'); h.setAttribute('aria-hidden', 'true'); f.appendChild(h); }
-    f.appendChild(dgBox(t, v.tone));
+    const b = typeof it === 'string' ? { t: it, tone: v.tone } : it;
+    f.appendChild(dgBox(b.t, b.tone || v.tone));
   });
   return f;
 }
@@ -2022,15 +2140,149 @@ function buildStrip(v) {
   return w;
 }
 
+// glyphs: generic monochrome icons (no brand marks), 48x48 stroke paths
+const GLYPHS = {
+  check: '<path d="M12 5h16l9 9v29H12z"/><path d="M28 5v9h9"/><path d="M18 29l5 5 9-11"/>',
+  loop: '<path d="M39 20a15 15 0 0 0-27-7"/><path d="M11 5v9h9"/><path d="M9 28a15 15 0 0 0 27 7"/><path d="M37 43v-9h-9"/>',
+  layers: '<path d="M24 6l18 9-18 9-18-9z"/><path d="M6 24l18 9 18-9"/><path d="M6 33l18 9 18-9"/>',
+  bubble: '<path d="M8 9h32a2 2 0 0 1 2 2v21a2 2 0 0 1-2 2H22l-9 8v-8H8a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2z"/><path d="M15 19h18M15 26h11"/>',
+  chat: '<path d="M8 9h32a2 2 0 0 1 2 2v21a2 2 0 0 1-2 2H22l-9 8v-8H8a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2z"/><circle cx="16" cy="21.5" r="1.6"/><circle cx="24" cy="21.5" r="1.6"/><circle cx="32" cy="21.5" r="1.6"/>',
+  phone: '<rect x="14" y="4" width="20" height="40" rx="4"/><path d="M21 38h6"/>',
+  browser: '<rect x="5" y="9" width="38" height="30" rx="4"/><path d="M5 18h38"/><path d="M11 13.5h.1M16 13.5h.1"/>'
+};
+function glyph(name) {
+  return el('span', 'ico', '<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">' + GLYPHS[name] + '</svg>');
+}
+
+// route: four stops on one connected route, first stop marked as the current position (shared by opening and the goals slide)
+const ROUTE_STAGES = [ '시작점 · 미완의 위임', '병행 세 경로', '증거 둘 · Grok Bot · Muse', '격리 · 승인' ];
+const ROUTE_HERE = '오늘 여기서 출발';
+function buildRoute(v) {
+  const ol = el('ol', 'dg-route' + (v && v.size === 'sm' ? ' sm' : ''));
+  ROUTE_STAGES.forEach((t, i) => {
+    const li = el('li', i === 0 ? 'here' : '');
+    li.appendChild(el('span', 'rt-dot', String(i + 1)));
+    const txt = el('div', 'rt-txt'); txt.appendChild(dgEl('span', 'rt-name', t));
+    if (i === 0) txt.appendChild(dgEl('span', 'rt-here', ROUTE_HERE));
+    li.appendChild(txt); ol.appendChild(li);
+  });
+  return ol;
+}
+
+// routepanel: { caption } — the route as a vertical progress strip with a caption bar
+function buildRoutePanel(v) {
+  const w = el('div', 'dg-rpanel'); w.appendChild(buildRoute({ size: 'sm' })); w.appendChild(dgEl('div', 'dg-banner', v.caption));
+  return w;
+}
+
+// goals: { items: [text] } — large numbered learning goals
+function buildGoals(v) {
+  const ol = el('ol', 'dg-goals');
+  v.items.forEach((t, i) => {
+    const li = el('li'); li.appendChild(el('span', 'gd-n', String(i + 1))); li.appendChild(dgEl('span', 'gd-t', t)); ol.appendChild(li);
+  });
+  return ol;
+}
+
+// sbars: { bars: [{ label, segs: [text], on, cap?: { t, from, to, tone? } }] } — same segments per bar, first `on` filled, rest hatched (left to the person)
+function buildSbars(v) {
+  const w = el('div', 'dg-sbars');
+  v.bars.forEach(b => {
+    const bar = el('div', 'dg-sbar'); bar.appendChild(dgEl('b', '', b.label));
+    const segs = el('div', 'dg-segs'); segs.style.setProperty('--n', String(b.segs.length));
+    b.segs.forEach((t, i) => segs.appendChild(dgEl('span', 'dg-seg' + (i < b.on ? '' : ' off'), t)));
+    bar.appendChild(segs);
+    if (b.cap) {
+      const br = el('div', 'dg-stbr'); br.style.setProperty('--n', String(b.segs.length));
+      const d = dgEl('div', b.cap.tone ? 't-' + b.cap.tone : '', b.cap.t); d.style.gridColumn = b.cap.from + ' / ' + (b.cap.to + 1); br.appendChild(d); bar.appendChild(br);
+    }
+    w.appendChild(bar);
+  });
+  return w;
+}
+
+// ladder: { items: [{ t, tone? }] } — short horizontal two-step sequence in a panel
+function buildLadder(v) {
+  const w = el('div', 'dg-ladder'); w.appendChild(buildFlow({ items: v.items })); return w;
+}
+
+// persist: { bubbles: [text], rows: [{ label, kind: 'gap'|'joined', hi?, badges? }] } — chat bubbles with broken vs. solid connectors
+function buildPersist(v) {
+  const w = el('div', 'dg-persist');
+  v.rows.forEach(r => {
+    const row = el('div', 'dg-prow' + (r.hi ? ' hi' : '')); row.appendChild(dgEl('h3', '', r.label));
+    const body = el('div', 'pr-body'), chain = el('div', 'pr-chain');
+    v.bubbles.forEach((t, i) => {
+      if (i) {
+        const cn = el('span', r.kind === 'gap' ? 'cn' : 'cn solid'); cn.setAttribute('aria-hidden', 'true');
+        if (r.kind === 'gap') { cn.appendChild(el('i', 'seg')); cn.appendChild(el('i', 'gap')); cn.appendChild(el('i', 'seg')); }
+        chain.appendChild(cn);
+      }
+      chain.appendChild(dgEl('span', 'dg-bub', t));
+    });
+    body.appendChild(chain);
+    if (r.badges) { const bd = el('div', 'pr-badges'); r.badges.forEach(t => bd.appendChild(dgEl('span', '', t))); body.appendChild(bd); }
+    row.appendChild(body); w.appendChild(row);
+  });
+  return w;
+}
+
+// riskbox: { title, items: [text] } — risk-tone box listing what remains
+function buildRiskbox(v) {
+  const w = el('div', 'dg-riskbox'); w.appendChild(dgEl('b', '', v.title));
+  v.items.forEach(t => w.appendChild(dgEl('p', '', t)));
+  return w;
+}
+
+// dates: { items: [{ d, t, hi?, badge?, note? }] } — equal-spaced date timeline, `hi` marker emphasised
+function buildDates(v) {
+  const w = el('div', 'dg-dates');
+  v.items.forEach(it => {
+    const dt = el('div', 'dt' + (it.hi ? ' hi' : ''));
+    const dot = el('span', 'dt-dot'); dot.setAttribute('aria-hidden', 'true'); dt.appendChild(dot);
+    const card = el('div', 'dt-card');
+    if (it.badge) card.appendChild(dgEl('span', 'dt-badge', it.badge));
+    card.appendChild(dgEl('b', '', it.d)); card.appendChild(dgEl('span', 'dt-t', it.t));
+    if (it.note) card.appendChild(dgEl('span', 'dt-note', it.note));
+    dt.appendChild(card); w.appendChild(dt);
+  });
+  return w;
+}
+
+// pair: { items: [{ k, v }] } — two labelled fact blocks side by side
+function buildPair(v) {
+  const w = el('div', 'dg-pair');
+  v.items.forEach(it => { const f = el('div', 'dg-fact'); f.appendChild(dgEl('span', 'k', it.k)); f.appendChild(dgEl('span', 'v', it.v)); w.appendChild(f); });
+  return w;
+}
+
+function buildFoot(v) { return dgEl('p', 'dg-foot', v.text); }
+function buildBox(v) { return dgBox(v.t, v.tone); }
+
+// channels: { badge, items: [{ g, t }] } — badge above text tiles with generic glyphs
+function buildChannels(v) {
+  const w = el('div', 'dg-chan'); w.appendChild(dgBox(v.badge, 'solid'));
+  const tiles = el('div', 'dg-tiles');
+  v.items.forEach(it => { const t = el('div', 'dg-tile'); t.appendChild(glyph(it.g)); t.appendChild(dgEl('span', '', it.t)); tiles.appendChild(t); });
+  w.appendChild(tiles); return w;
+}
+
+// stairs: { items: [text] (low to high), caption } — ascending price steps
+function buildStairs(v) {
+  const w = el('div', 'dg-stairs'), steps = el('div', 'st-steps');
+  v.items.forEach((t, i) => steps.appendChild(dgEl('div', 'st-step s' + (i + 1), t)));
+  w.appendChild(steps); w.appendChild(dgEl('p', 'dg-foot', v.caption)); return w;
+}
+
 const DG_PARTS = {
   row: buildRow, steps: buildSteps, flow: buildFlow, bracket: buildBracketPart, roster: buildRoster, cardrow: buildCardrow,
-  broken: buildBroken, missing: buildMissing, banner: buildBanner, quote: buildQuote, reads: buildReads, strip: buildStrip
+  broken: buildBroken, missing: buildMissing, banner: buildBanner, quote: buildQuote, reads: buildReads, strip: buildStrip,
+  routepanel: buildRoutePanel, goals: buildGoals, sbars: buildSbars, ladder: buildLadder, persist: buildPersist, riskbox: buildRiskbox,
+  dates: buildDates, pair: buildPair, foot: buildFoot, box: buildBox, channels: buildChannels, stairs: buildStairs
 };
 
-// split: { photo: {src, alt, credit, side?: 'left'|'right'|'top', width?, height?, position?, cropped?, resized?}, main: <any visual> }
-function buildSplit(v) {
-  const p = v.photo || {};
-  const wrap = el('div', 'v-split' + (p.side === 'right' ? ' side-right' : p.side === 'top' ? ' side-top' : ''));
+// photo: { src, alt, credit, width?, height?, position?, cropped?, resized? } — CSS-framed image with a credit pill
+function buildPhoto(p) {
   const fig = el('figure', 'split-photo');
   if (p.width) fig.style.setProperty('--pw', p.width);
   if (p.height) fig.style.setProperty('--ph', p.height);
@@ -2043,6 +2295,14 @@ function buildSplit(v) {
   const notes = [p.resized ? '크기 조정' : '', p.cropped ? '일부 잘라 표시' : ''].filter(Boolean);
   cr.appendChild(dgEl('span', '', 'Wikimedia Commons' + (notes.length ? ' (' + notes.join('·') + ')' : '')));
   fig.appendChild(cr);
+  return fig;
+}
+
+// split: { photo: {src, alt, credit, side?: 'left'|'right'|'top', width?, height?, position?, cropped?, resized?}, main: <any visual> }
+function buildSplit(v) {
+  const p = v.photo || {};
+  const wrap = el('div', 'v-split' + (p.side === 'right' ? ' side-right' : p.side === 'top' ? ' side-top' : ''));
+  const fig = buildPhoto(p);
   const main = el('div', 'visual split-main');
   buildVisual({ visual: v.main }, main);
   wrap.appendChild(fig); wrap.appendChild(main);
@@ -2060,29 +2320,23 @@ function buildVisual(s, mount) {
   if (v.type === 'skeleton') { mount.appendChild(buildSkeleton(v)); return; }
   if (v.type === 'stack') { mount.appendChild(buildStack(v)); return; }
   if (v.type === 'cover') {
+    // cover: { sub, axes: [{ g, t, d }], photo } — title + four axis glyphs on the left, CSS-framed photo on the right
     const box = el('div', 'cover-body');
-    box.innerHTML = '';
+    const main = el('div', 'cv-main');
     const ht = el('div');
     const h = el('h2', 'hero-title');
     h.textContent = s.title;
     const sub = el('p', 'hero-sub');
     sub.textContent = v.sub || '';
     ht.appendChild(h); ht.appendChild(sub);
-    const mid = el('div', 'v-cards cols-4');
-    (s.bullets || []).forEach((b, i) => {
-      const c = el('div', 'card' + (i === 1 ? ' hi' : ''));
-      c.innerHTML = '<span class="badge">0' + (i + 1) + '</span><h3></h3>';
-      c.querySelector('h3').textContent = b;
-      mid.appendChild(c);
+    const axes = el('ul', 'cv-axes');
+    (v.axes || []).forEach(a => {
+      const li = el('li'); li.appendChild(glyph(a.g));
+      const txt = el('div'); txt.appendChild(dgEl('b', '', a.t)); txt.appendChild(dgEl('span', 'cap', a.d));
+      li.appendChild(txt); axes.appendChild(li);
     });
-    const metaRow = el('div', 'cover-meta');
-    (v.chips || ['교육 자료']).forEach(t => {
-      const p = el('span', 'pill'); p.textContent = t; metaRow.appendChild(p);
-    });
-    if (v.date) {
-      const d = el('span', 'date'); d.textContent = v.date; metaRow.appendChild(d);
-    }
-    box.appendChild(ht); box.appendChild(mid); box.appendChild(metaRow);
+    main.appendChild(ht); main.appendChild(axes);
+    box.appendChild(main); box.appendChild(buildPhoto(v.photo || {}));
     mount.appendChild(box);
     return;
   }
@@ -2364,6 +2618,7 @@ document.getElementById('next').addEventListener('click', () => {
 });
 
 buildPages();
+document.getElementById('op-route').appendChild(buildRoute({}));
 
 // QA: ?scene=0 opening, 1..20 scenes, 21 ending — skip intro for screenshots
 (function qaJump() {

@@ -7,7 +7,7 @@
 ## 📅 세션 백업: 2026-09-21 (Notion MCP 미연결)
 
 ### ✅ 완료 작업
-- 잘못 클론된 AIStory 템플릿(BotStory 폴더 오클론)을 실제 `yjj3019/BotStory` 저장소로 교체
+- 잘못 클론된 다른 템플릿 저장소를 실제 `yjj3019/BotStory` 저장소로 교체
 - `edu/why-ai-bots/why-ai-bots.html`의 `<title>`/커버 킥커에 남아 있던 이전 템플릿 브랜딩 잔재 제거 → "BotStory · Education track"
 - 22클립 나레이션을 4,266자 → 6,401자로 확장(사용자가 제공한 Notion 사실 원장 기반 30분 보강 대본 반영). `narration.json`과 HTML `SCENES[].lines`/`OPENING_TEXT`/`ENDING_TEXT` 동기화 — 텍스트 바이트 단위 일치 검증, `node --check`로 JS 문법 통과
 - `edu/why-ai-bots/PROGRESS.md` 신설 — 상태/다음 우선순위/결정 사항 기록
@@ -24,7 +24,7 @@
 4. Notion MCP 재연결 시: 이 블록을 Work Space 프로젝트 페이지에 동기화하고 사실 원장/교육본 Notion 문서에도 이번 변경 사항 반영
 
 ### 🧩 런타임 스냅샷
-- Branch: `worktree-botstory-content` (worktree: `C:\AI-Codding\claude\BotStory\.claude\worktrees\botstory-content`)
+- Branch: `worktree-botstory-content` (작업용 git worktree)
 - Path: `edu/why-ai-bots/`
 - Last File: `edu/why-ai-bots/why-ai-bots.html`, `edu/why-ai-bots/narration.json`
 - Active Errors: 없음 (JS 문법 통과, 텍스트 동기화 검증 통과)
@@ -38,8 +38,8 @@ Notion MCP 커넥터(`plugin:engineering:notion`)가 이 세션 내내 연결 �
 ### ✅ 완료 작업
 - 화면 재구성 배치 1~5 완료: 본문 불릿 폐지, matrix/lanes/steps/cardrow 컴포넌트화, PNG 다이어그램·미사용 에셋 삭제, CC 사진 9장 적용(크레딧 표기)
 - 신규 5장 삽입(5·6·7 배경, 21 연결 표준, 23 리스크 이름) + 기존 클립 8건 보정 + 재번호 → 25장·27클립, 나레이션 8,771자(약 30.6분, 287자/분 가정 추정)
-- 사실 검증 결과를 로 정리, 문장 단위 검증 지적 반영(23장 ASI 낭독, 21장 ACP 책임 범위 등)
-- 미사용 렌더러 삭제,  자동 재생성, README·PROGRESS 갱신
+- 사실 검증 결과를 `SOURCES.md`로 정리, 문장 단위 검증 지적 반영(23장 ASI 낭독, 21장 ACP 책임 범위 등)
+- 미사용 렌더러 삭제, `slide-visible-copy.md` 재생성, README·PROGRESS 갱신
 
 ### 🚧 진행 중
 - 없음 (나레이션 작성자용 문구 정리는 보류 항목으로 PROGRESS.md에 기록)
@@ -51,7 +51,7 @@ Notion MCP 커넥터(`plugin:engineering:notion`)가 이 세션 내내 연결 �
 4. Notion 승인본 페이지 갱신은 수정 내용을 사용자에게 보여 준 뒤 확인받고 진행(MCP 재연결 시 이 블록도 동기화)
 
 ### 🧩 런타임 스냅샷
-- Branch: `worktree-botstory-visuals` (worktree: `C:\AI-Codding\claude\BotStory\.claude\worktrees\botstory-visuals`)
+- Branch: `worktree-botstory-visuals` (작업용 git worktree)
 - Path: `edu/why-ai-bots/`
 - Last File: `edu/why-ai-bots/why-ai-bots.html`, `narration.json`, `SOURCES.md`, `slide-visible-copy.md`
 - Active Errors: 없음 (27개 상태 캡처 금지어 0건, 문서 스크롤 0, node --check 통과)

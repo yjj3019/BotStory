@@ -127,3 +127,28 @@
 반영: 8장(구성) 화면 lanes '사례' 행과 나레이션에 "이후에도 이 경로는 끊기지 않았다"는 한 문장으로 추가 — 자가호스팅이 클라우드 제품 출시 이후에도 병행 경로로 계속 이어졌다는 근거로 사용(잠금 규칙 1: 병렬 경로 강화, 선형 서사 아님). 이 프로젝트들은 커뮤니티가 만든 비공식 소프트웨어이며, 이 교육 자료는 사용을 권고하지 않고 존재만 사실로 전달한다.
 - 제외한 것: Rakazo·OpenMausBot·OpenGrokBot이 각각 "xAI"를 언급하는 문구는 있으나 SpaceXAI 표기와의 관계는 확인하지 않았다 — 별도 검증 항목(위 발표 직전 재확인 체크리스트)과 무관.
 - GitHub 검색 결과에 동일 저장소의 여러 포크(예: cachacon-ai/rakazo, DaveVoyles/rakazo)가 있어, 위 URL은 검색 결과에서 가장 먼저 확인한 저장소를 대표로 썼다. 원저작자 여부는 확인하지 않았다.
+
+## 1차 출처 직접 확인 (2026-09-22, 사용자가 본문 텍스트 제공)
+
+사용자가 x.ai·Cursor 공식 페이지 5건의 전체 텍스트를 직접 열어 제공했다(이 환경의 도메인 차단을 우회). 열람일 2026-09-22.
+
+| 사실 | 상태 | 근거(짧은 인용) | 출처 |
+|---|---|---|---|
+| Grok Bot 베타 공개일 2026-08-11 | **VERIFIED** | "We launched Grok Bot in beta on August 11" | x.ai/news/grok-bot-more-plans |
+| Enterprise 2주 무료 체험·조직 초대(좌석 없는 사람 포함) | **VERIFIED** | "free usage for the next two weeks, and can invite their whole organization, including people without an existing seat" | x.ai/news/grok-bot-for-enterprise |
+| Enterprise access·network·audit 통제 추가 | **VERIFIED** | "adds access, network, and audit controls" | x.ai/news/grok-bot-for-enterprise |
+| "봇마다 전용 컴퓨터"는 오해 — 계정(사용자)당 컴퓨터 1대를 모든 Bot이 공유 | **VERIFIED(강한 확인)** | "Every Bot on your account uses the same computer… The computer is assigned to your user account, not an individual Bot." | docs.x.ai/grok-bot/computer-and-apps |
+| Auto Review는 Cursor(Grok Bot) 쪽 승인 모델, Muse의 Sentinel과 별개 시스템 | **VERIFIED** — 잠금 규칙 2(Auto Review ≠ Sentinel) 근거 강화 | "Human approval gates. Sensitive actions require user approval, evaluated by an independent review model called Auto Review." | cursor.com/docs/grok-bot/teams |
+| Network Controls — Enterprise 전용, 정책 없으면 전체 허용(allow-all) 기본 | **VERIFIED(문구 거의 일치)** | "Restricts which destinations team computers can reach… Teams without a policy default to allow-all… Available on the Enterprise plan." | cursor.com/docs/grok-bot/teams |
+| 로컬 실행 — 기본 Ask · Never 권고 | **VERIFIED(취지 일치)** | 팀 기본값은 "Always allow"(구성원에게 위임)이고 구성원 개인 기본값이 "Ask every time"이다. 권장 구성은 "Set Execution on Local Computer to Never allow unless Bots need to act on member machines"다 — 우리 표현("기본 Ask · Never 권고")은 이 두 계층을 압축한 것으로 취지는 맞다 | cursor.com/docs/grok-bot/teams |
+| Grok Bot·Cursor 유료 플랜(SuperGrok, Cursor Pro 등) 번들 | **VERIFIED(내용)** · 날짜(08-26)는 본문에 표시 안 됨 | "Grok Bot is now included with all SuperGrok, Cursor Pro, and Cursor Teams plans." | x.ai/news/grok-bot-more-plans |
+| Enterprise 출시일 2026-09-03 | 정황 일치(본문에 날짜 표시 없음) | 페이지 자체에는 발행일이 보이지 않음, 원장 날짜에 의존 | x.ai/news/grok-bot-for-enterprise |
+| "SpaceXAI" 표기 | **미확인 — 다섯 페이지 어디에도 등장하지 않음** | 다섯 페이지 모두 "Grok Bot", "Cursor", "xAI"(도메인)만 쓰고 "SpaceXAI"라는 표기는 한 번도 나오지 않는다 | 5개 페이지 전체 |
+| Auto Review는 메모리·대부분 설정 미검토, 최소 권한 대체 안 함(세부 조항) | 여전히 근거 없음(이 5개 페이지에는 없음) | — | — |
+
+### 참고 — 사용하지 않은 내용(잠금 규칙 위반 방지)
+- "[millions] of bots created in the past few weeks", "Thousands of organizations have adopted Grok Bot… Legora, Supermicro, ServiceTitan" — 사용량·고객 로고 언급. 잠금 규칙(3)(5) 위반이라 반영하지 않았다.
+- x.ai/news/grok-bot-more-plans의 "Enterprise users can join a waitlist as we ramp access for larger team and company rollouts" — 이건 일반 Enterprise 가입이 아니라 **대규모 팀·회사 롤아웃**에 한정된 별도 대기 절차다. 우리 자료는 "Enterprise 대기명단" 표현을 쓰지 않으므로 직접 충돌은 없으나, 구두 질의응답이 있다면 "대규모 롤아웃은 별도 확장 절차가 있다"는 점은 사실로 존재한다.
+
+### 남은 확인 필요
+**"SpaceXAI" 표기를 어떻게 할지 결정이 필요하다.** 현재 표지·13·19장 등 여러 곳에 반복해서 쓰이는데, 방금 확인한 5개 공식 페이지 어디에도 이 표기가 없다. Notion 원장에서 가져온 표기이며, 원장 자체의 근거는 확인하지 않았다.

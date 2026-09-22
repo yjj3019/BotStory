@@ -151,4 +151,4 @@
 - x.ai/news/grok-bot-more-plans의 "Enterprise users can join a waitlist as we ramp access for larger team and company rollouts" — 이건 일반 Enterprise 가입이 아니라 **대규모 팀·회사 롤아웃**에 한정된 별도 대기 절차다. 우리 자료는 "Enterprise 대기명단" 표현을 쓰지 않으므로 직접 충돌은 없으나, 구두 질의응답이 있다면 "대규모 롤아웃은 별도 확장 절차가 있다"는 점은 사실로 존재한다.
 
 ### 남은 확인 필요
-**"SpaceXAI" 표기를 어떻게 할지 결정이 필요하다.** 현재 표지·13·19장 등 여러 곳에 반복해서 쓰이는데, 방금 확인한 5개 공식 페이지 어디에도 이 표기가 없다. Notion 원장에서 가져온 표기이며, 원장 자체의 근거는 확인하지 않았다.
+~~**"SpaceXAI" 표기를 어떻게 할지 결정이 필요하다.**~~ **해결(2026-09-22)**: 사용자 확인 후 전부 "xAI"로 정정했다(narration.json·why-ai-bots.html·slide-visible-copy.md, 13-scene 나레이션·표 셀·aria 포함). Notion 원장의 "SpaceXAI" 표기는 5개 공식 페이지 어디에도 없어 근거로 채택하지 않았다.

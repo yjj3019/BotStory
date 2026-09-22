@@ -112,3 +112,18 @@
 - Notion 사실 원장·교육본 기준으로만 남은 항목: 나머지 대부분(URL 없음). 원장 페이지 자체를 이번 조사에서 다시 열어 문장을 대조하지 않았으므로, 표의 "원장" 표기는 작업 기록의 서술에 근거한 것이다.
 - 근거 없음: Reuters 출시 지연 보도, 90%/100%의 정의, Galaxy의 정의, "Never 권고"의 권고 주체, Help·공식 발표 URL 전반(가격·롤아웃·미출시 상태 포함).
 - 정정 완료: Grok Bot 베타 공개일은 원장 기준 2026-08-11로 통일(나레이션 8/10 오기 수정).
+
+## 8장 추가 — OpenClaw 계열 파생·Grok Bot 비공식 대안 (2026-09-22 추가)
+
+사용자가 제시한 프로젝트명 4건을 WebSearch·WebFetch로 각 프로젝트의 GitHub README/공식 페이지에서 직접 확인했다. 전부 실존하며, 스스로 "비공식(unofficial)"·"xAI와 무관"임을 명시하고 있다. 별점·다운로드 수 등 인기 지표는 쓰지 않았다(잠금 규칙 3).
+
+| 사실 | 1차 출처 URL | 열람일 | 상태 |
+|---|---|---|---|
+| NanoClaw — OpenClaw의 경량 대안, 컨테이너 격리, MIT 라이선스. OpenClaw는 약 50만 줄·설정파일 53개·의존성 70개 이상이라는 문제의식에서 출발했다고 README에 명시 | https://github.com/vhforbes/nanoclaw | 2026-09-22 | VERIFIED(README 직접 열람) |
+| Rakazo — "Open-source Grok Bot alternative"로 자체 표기, Apache-2.0 라이선스, 모델·샌드박스를 직접 선택하는 셀프호스팅 AI 팀원 플랫폼 | https://github.com/elie222/rakazo | 2026-09-22 | VERIFIED(README 직접 열람) |
+| OpenMausBot — "An independent, open-source project inspired by Grok Bot", "Not affiliated with xAI"를 README에 명시, Apache-2.0(enterprise 폴더는 별도 라이선스) | https://github.com/milind-soni/OpenMausBot | 2026-09-22 | VERIFIED(README 직접 열람) |
+| OpenGrokBot — "Unofficial. Not affiliated with, endorsed by, or connected to xAI or the OpenClaw Foundation"을 README에 명시, MIT 라이선스, 유료 Grok Bot 서비스를 자기 하드웨어에서 구현한다고 소개 | https://github.com/wolfqing/OpenGrokBot | 2026-09-22 | VERIFIED(README 직접 열람) |
+
+반영: 8장(구성) 화면 lanes '사례' 행과 나레이션에 "이후에도 이 경로는 끊기지 않았다"는 한 문장으로 추가 — 자가호스팅이 클라우드 제품 출시 이후에도 병행 경로로 계속 이어졌다는 근거로 사용(잠금 규칙 1: 병렬 경로 강화, 선형 서사 아님). 이 프로젝트들은 커뮤니티가 만든 비공식 소프트웨어이며, 이 교육 자료는 사용을 권고하지 않고 존재만 사실로 전달한다.
+- 제외한 것: Rakazo·OpenMausBot·OpenGrokBot이 각각 "xAI"를 언급하는 문구는 있으나 SpaceXAI 표기와의 관계는 확인하지 않았다 — 별도 검증 항목(위 발표 직전 재확인 체크리스트)과 무관.
+- GitHub 검색 결과에 동일 저장소의 여러 포크(예: cachacon-ai/rakazo, DaveVoyles/rakazo)가 있어, 위 URL은 검색 결과에서 가장 먼저 확인한 저장소를 대표로 썼다. 원저작자 여부는 확인하지 않았다.

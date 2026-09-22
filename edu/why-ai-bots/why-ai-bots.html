@@ -1394,7 +1394,7 @@ const SCENES = [
     message: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
     visual: {
       type: 'stack',
-      aria: 'Grok Bot 개요 도해. 2026-08-11 beta 공개, 2026-08-26 접근 플랜 확대, 2026-09-03 Enterprise 출시 순의 날짜 타임라인이며 마지막 항목에는 2주 무료 체험과 조직 초대가 붙는다. 제품과 발표는 xAI, 실행은 Cursor 클라우드의 사용자별 computer다. 접근은 SuperGrok와 Cursor 유료 플랜 등과 번들이고 요금은 플랜 안내 기준이다.',
+      aria: 'Grok Bot 개요 도해. 2026-08-11 beta 공개, 2026-08-26 접근 플랜 확대, 2026-09-03 Enterprise 출시 순의 날짜 타임라인이며 마지막 항목에는 2주 무료 체험과 조직 초대가 붙는다. 제품과 발표는 SpaceXAI, 실행은 Cursor 클라우드의 사용자별 computer다. 접근은 SuperGrok와 Cursor 유료 플랜 등과 번들이고 요금은 플랜 안내 기준이다.',
       parts: [
         { type: 'dates', w: 1.35, items: [
           { d: '2026-08-11', t: 'beta 공개' },
@@ -1402,7 +1402,7 @@ const SCENES = [
           { d: '2026-09-03', t: 'Enterprise', hi: true, badge: '출시', note: '2주 무료 체험 · 조직 초대' }
         ] },
         { type: 'pair', w: .8, items: [
-          { k: '제품·발표', v: 'xAI' },
+          { k: '제품·발표', v: 'SpaceXAI' },
           { k: '실행', v: 'Cursor 클라우드 · 사용자별 computer' }
         ] },
         { type: 'foot', w: 0, text: '접근은 SuperGrok·Cursor 유료 플랜 등과 번들 · 요금은 플랜 안내 기준' }
@@ -1410,7 +1410,7 @@ const SCENES = [
     }
   ,
     lines: [
-      '증거로 Grok Bot을 봅니다. 제품과 발표는 xAI이고, 실행 환경은 Cursor 클라우드의 사용자별 컴퓨터이며, 접근은 SuperGrok와 Cursor 유료 플랜 등에 번들로 붙습니다. 공개는 이천이십육년 팔월 십일일 베타였습니다. 팔월 이십육일에는 Cursor Pro 등으로 접근 플랜이 넓어졌습니다. Enterprise는 이천이십육년 구월 삼일에 출시됐습니다. 접근과 네트워크, 감사 통제가 추가됩니다. Grok와 Cursor Enterprise 고객은 2주 무료 체험 기간 동안 조직을 초대할 수 있습니다. 요금은 플랜 안내 기준으로 읽습니다.'
+      '증거로 Grok Bot을 봅니다. 제품과 발표는 SpaceXAI이고, 실행 환경은 Cursor 클라우드의 사용자별 컴퓨터이며, 접근은 SuperGrok와 Cursor 유료 플랜 등에 번들로 붙습니다. 공개는 이천이십육년 팔월 십일일 베타였습니다. 팔월 이십육일에는 Cursor Pro 등으로 접근 플랜이 넓어졌습니다. Enterprise는 이천이십육년 구월 삼일에 출시됐습니다. 접근과 네트워크, 감사 통제가 추가됩니다. Grok와 Cursor Enterprise 고객은 2주 무료 체험 기간 동안 조직을 초대할 수 있습니다. 요금은 플랜 안내 기준으로 읽습니다. 봇 사용량은 별도로 집계돼 기존 플랜 사용량을 깎지 않습니다.'
     ]
   },
   {
@@ -1442,10 +1442,10 @@ const SCENES = [
     message: '인용은 전망으로 읽고 SLA로 읽지 않는다',
     visual: {
       type: 'stack',
-      aria: 'Grok Bot 지향 도해. Roman Ugarte 인용 90% / 100%는 제품이 겨냥하는 방향으로 읽고 보장 수치나 SLA로 읽지 않는다. 개인 비서 한 명이 아니라 작은 팀 위임이며, 조사에서 검증, 작성으로 일을 넘기고 병렬 작업과 그룹 조율을 한다.',
+      aria: 'Grok Bot 지향 도해. Roman(Product) 인용 90% / 100%는 제품이 겨냥하는 방향으로 읽고 보장 수치나 SLA로 읽지 않는다. 개인 비서 한 명이 아니라 작은 팀 위임이며, 조사에서 검증, 작성으로 일을 넘기고 병렬 작업과 그룹 조율을 한다.',
       parts: [
         { type: 'row', w: 3, cols: '46fr 54fr', parts: [
-          { type: 'quote', q: '「90% / 100%」', who: 'Roman Ugarte · Product', src: 'x.ai/news/introducing-grok-bot' },
+          { type: 'quote', q: '「90% / 100%」', who: 'Roman · Product', src: 'x.ai/news/introducing-grok-bot' },
           { type: 'reads', items: [
             { k: '이렇게 읽는다', t: '제품이 겨냥하는 방향(철학)' },
             { k: '이렇게 읽지 않는다', t: '보장 수치 · SLA', tone: 'risk' }
@@ -1456,7 +1456,7 @@ const SCENES = [
     }
   ,
     lines: [
-      'Grok Bot이 겨냥하는 은유는 개인 비서 한 명이 아니라 작은 팀 위임입니다. 병렬로 역할을 나누고, 그룹에서 조율하는 모습이 그 증거입니다. 제품 소개에 나오는 구십 퍼센트와 백 퍼센트 이야기는 철학의 인용이지, 서비스 수준 협약의 보장 수치가 아닙니다. 그 말의 출처는 x.ai의 Grok Bot 소개 페이지이고, 말한 사람은 제품 담당 Roman Ugarte입니다. 동료 팀이라는 은유는 조직도에 봇을 넣는다는 뜻이 아니라, 역할을 나누어 맡긴다는 설계 힌트입니다. 팀 위임이라는 축을 기억한 채, 이제 다른 갈래인 Muse로 넘어가겠습니다.'
+      'Grok Bot이 겨냥하는 은유는 개인 비서 한 명이 아니라 작은 팀 위임입니다. 병렬로 역할을 나누고, 그룹에서 조율하는 모습이 그 증거입니다. 제품 소개에 나오는 구십 퍼센트와 백 퍼센트 이야기는 철학의 인용이지, 서비스 수준 협약의 보장 수치가 아닙니다. 그 말의 출처는 x.ai의 Grok Bot 소개 페이지이고, 말한 사람은 제품 담당 Roman입니다. 동료 팀이라는 은유는 조직도에 봇을 넣는다는 뜻이 아니라, 역할을 나누어 맡긴다는 설계 힌트입니다. 팀 위임이라는 축을 기억한 채, 이제 다른 갈래인 Muse로 넘어가겠습니다.'
     ]
   },
   {

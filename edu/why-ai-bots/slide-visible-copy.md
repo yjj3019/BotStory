@@ -165,7 +165,7 @@
 - 2026-08-11 — beta 공개
 - 2026-08-26 — 접근 플랜 확대
 - 2026-09-03 — Enterprise — 출시 — 2주 무료 체험 · 조직 초대
-- 제품·발표 — xAI
+- 제품·발표 — SpaceXAI
 - 실행 — Cursor 클라우드 · 사용자별 computer
 - 접근은 SuperGrok·Cursor 유료 플랜 등과 번들 · 요금은 플랜 안내 기준
 
@@ -191,7 +191,7 @@
 
 ## 15장 · Grok 지향
 - **메시지** 인용은 전망으로 읽고 SLA로 읽지 않는다
-- 「90% / 100%」 — Roman Ugarte · Product
+- 「90% / 100%」 — Roman · Product
 - 출처: x.ai/news/introducing-grok-bot
 - 이렇게 읽는다 — 제품이 겨냥하는 방향(철학)
 - 이렇게 읽지 않는다 — 보장 수치 · SLA

@@ -151,4 +151,20 @@
 - x.ai/news/grok-bot-more-plans의 "Enterprise users can join a waitlist as we ramp access for larger team and company rollouts" — 이건 일반 Enterprise 가입이 아니라 **대규모 팀·회사 롤아웃**에 한정된 별도 대기 절차다. 우리 자료는 "Enterprise 대기명단" 표현을 쓰지 않으므로 직접 충돌은 없으나, 구두 질의응답이 있다면 "대규모 롤아웃은 별도 확장 절차가 있다"는 점은 사실로 존재한다.
 
 ### 남은 확인 필요
-~~**"SpaceXAI" 표기를 어떻게 할지 결정이 필요하다.**~~ **해결(2026-09-22)**: 사용자 확인 후 전부 "xAI"로 정정했다(narration.json·why-ai-bots.html·slide-visible-copy.md, 13-scene 나레이션·표 셀·aria 포함). Notion 원장의 "SpaceXAI" 표기는 5개 공식 페이지 어디에도 없어 근거로 채택하지 않았다.
+~~**"SpaceXAI" 표기를 어떻게 할지 결정이 필요하다.**~~ **정정의 정정(2026-09-22)**: 처음에는 "xAI"로 고쳤으나(위 커밋), 이후 사용자가 x.ai/news/introducing-grok-bot(Grok Bot 최초 발표문, 8월 11일)의 원문 전체를 제공해 "SpaceXAI"로 다시 되돌렸다. 이 페이지는 "How the SpaceXAI team is using Grok Bot"(섹션 제목), "Inside SpaceXAI, that already looks like…", "People inside SpaceXAI often run multiple Bots in parallel" 등 회사가 스스로를 "SpaceXAI"라고 4회 지칭한다. 앞서 대조한 5개 페이지(Enterprise·more-plans·teams·work·computer-and-apps)는 회사 자신을 지칭할 일이 없는 제품·정책 문서였을 뿐이라 "SpaceXAI"가 안 보인 것이지, 없는 표기라서가 아니었다. 즉 "부재의 증거"를 "부재하다는 증거"로 잘못 읽은 판단 오류였다. 최초 발표문(가장 권위 있는 자기 지칭 출처)을 기준으로 "SpaceXAI"를 복원했다.
+
+## x.ai/news/introducing-grok-bot 원문 직접 확인 (2026-09-22, 사용자가 본문 텍스트 제공)
+
+Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확인 결과:
+
+| 사실 | 상태 | 근거 | 반영 |
+|---|---|---|---|
+| 회사 자기 지칭 = "SpaceXAI" | VERIFIED | "How the SpaceXAI team is using Grok Bot", "Inside SpaceXAI…" 등 4회 | 13장 "제품·발표"를 "xAI"에서 "SpaceXAI"로 되돌림 |
+| 90%/100% 인용 화자 = "Roman"(성 없음), 직함 "Product" | VERIFIED — 원문은 성을 밝히지 않는다 | "— Roman, Product" | 15장 나레이션·화면·`slide-visible-copy.md`에서 "Ugarte" 삭제, "Roman"만 표기 |
+| 90%/100%의 의미 = 업무를 **끝까지 완결**하는가(정확도 아님) | VERIFIED | "There is a huge difference between 90% done and 100% done… Grok Bot can finish the swing" | 기존 나레이션이 이미 "철학의 인용"으로만 다뤄 방향이 맞았음. 수정 불필요 |
+| 봇 사용량은 플랜 사용량과 별도 집계 | VERIFIED — 신규 반영 | "Grok Bot comes with its own usage, separate from your Grok and Cursor plans, so anything you hand off to a Bot won't count against your existing usage." | 13장 나레이션·화면에 한 문장 추가 |
+| 베타 시점(8/11) Enterprise는 "waitlist" 상태였음, 9/3에 실제 출시로 전환 | VERIFIED — 참고용, 반영 안 함 | "Enterprise users can join a waitlist for future access"(이 페이지, 8/11 발표) vs "Grok Bot is now available for enterprises"(grok-bot-for-enterprise 페이지) | 우리 자료는 10/1 발표 시점 기준 "출시됨"만 말하므로 충돌 없음. 구두 질의 대비 참고만 |
+| 8/26 "플랜 확대"의 정확한 차이점 | 불확실 | 이 발표문(8/11)이 이미 SuperGrok/SuperGrok Plus/Heavy·Cursor Pro/Pro+/Ultra·Cursor Teams를 "beta 공개 당일부터" 포함한다고 적어, more-plans 페이지(8/26)가 정확히 무엇을 넓혔는지(플랫폼? 자기 서비스화?) 두 페이지만으로는 특정할 수 없다 | 화면·나레이션은 "접근 플랜이 넓어졌다"는 사실만 말해 이 불확실성과 충돌하지 않는다. 변경 없음 |
+
+### 사용하지 않은 내용
+이 페이지에는 실명 없는 직원 인용 다수(Fiona·Community, Vincent·Growth, Bennett·Sales, Emma·Operations)가 있다. 제품 만족도·효율성 체감을 말하는 증언형 인용이라 잠금 규칙(3)(근거 없는 고영향 주장·소유·가입 관련 과시 금지)의 취지에 어긋난다고 판단해 반영하지 않았다.

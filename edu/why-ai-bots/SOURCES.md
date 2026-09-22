@@ -168,3 +168,23 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 
 ### 사용하지 않은 내용
 이 페이지에는 실명 없는 직원 인용 다수(Fiona·Community, Vincent·Growth, Bennett·Sales, Emma·Operations)가 있다. 제품 만족도·효율성 체감을 말하는 증언형 인용이라 잠금 규칙(3)(근거 없는 고영향 주장·소유·가입 관련 과시 금지)의 취지에 어긋난다고 판단해 반영하지 않았다.
+
+## 8장 Moltbook — Meta 인수 및 운영 실태 (2026-09-22, 사용자 첨부 문서 검증)
+
+사용자가 전달한 검토 문서의 주장(Moltbook 2026-03-10 Meta 인수, 2026-02 자격증명 유출, 바이럴 일부 연출, OpenClaw 샌드박스 기본 꺼짐)을 WebSearch로 독립 교차 검증했다.
+
+| 사실 | 상태 | 근거 | 출처 |
+|---|---|---|---|
+| Meta가 2026-03-10 Moltbook 인수, 창업자 Matt Schlicht·Ben Parr가 Meta Superintelligence Labs로 합류 | VERIFIED — 복수 매체 일치 | "Meta gets into social networks for AI agents with acquisition of viral Moltbook platform" | CNBC(2026-03-10), Axios(2026-03-10), TechCrunch(2026-03-10) |
+| Moltbook은 2026-01-28 Matt Schlicht가 출시, 코드 대부분을 AI가 작성 | VERIFIED | "Moltbook launched on January 28, 2026" | CNBC(2026-03-10) |
+| Moltbook 보안 결함으로 사람이 에이전트인 척 게시 가능했음(바이럴 일부는 사람 개입) | VERIFIED — 단, "일부 화제 게시물"에 한정. "전체/모든 게시물"로 일반화하는 것은 과잉 | "very easy for human users to pose as AIs to make posts" | CNBC(2026-03-10) |
+| API 인증 토큰 약 150만·이메일 3.5만·비공개 메시지 약 4천 건이 Supabase 설정 오류로 노출(Wiz 발견) | VERIFIED | "exposed approximately 1.5 million API authentication tokens... 35,000 email addresses" | Wiz Blog, CPO Magazine, Techzine, Infosecurity Magazine(2026-02) |
+| OpenClaw 샌드박스는 기본(`agents.defaults.sandbox`) 꺼짐, "완벽한 보안 경계는 아니나 파일시스템·프로세스 접근을 실질적으로 제한" | VERIFIED(공식 문서 인용) | "Sandboxing is off by default... not a perfect security boundary, but it materially limits filesystem and process access" | docs.openclaw.ai/gateway/sandboxing |
+
+### 반영
+- 8장 나레이션·화면: "에이전트가 게시하고 투표하며 사람은 관찰합니다"(이제 사실과 어긋남)를 삭제하고, "게시·투표하는 방식을 내세웠다 + 2026-03-10 Meta 인수, 팀은 Meta Superintelligence Labs로 이동"으로 교체. **인수 사실만 서술**했고, "그래서 Muse와 기술적으로 통합됐다"거나 "세 경로가 결국 수렴한다"는 인과는 주장하지 않았다(잠금 규칙 1 유지).
+
+### 미해결 — 다음 검증에서 정밀화 필요
+- **API 토큰 150만 건 유출**(2026-02, Wiz 발견)과 사용자 첨부 문서가 별도로 언급한 "등록 에이전트 150만 = 실제 사람 1.7만 명 소유"라는 수치가 **같은 사건·같은 대상을 가리키는지, 우연히 겹치는 숫자인지** 구분되지 않았다. 두 수치를 섞어 쓰지 않는다.
+- ~~"2026-01-31 인증 우회 사건"과 "2026-02-02 자격증명 노출 사건"이 별개인지 미확정~~ **해결(2026-09-22, 독립 재검증)**: 동일한 단일 사건이다. Wiz가 2026-01-31 노출된 Supabase 공개 키를 발견(→인증 우회·에이전트 탈취 가능 상태), 1일 내 패치, 2026-02-02 블로그로 공개. "API 토큰 150만"과 "등록 에이전트 150만"도 같은 수치(발급 토큰 수=계정 수)이고, "1.7만"은 그중 고유 인간 소유자 수다. 출처: wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys, securityandtechnology.org/blog/lessons-from-moltbook.
+- 이 사실들을 실제로 발표(22·23장 리스크)에 구체 사례로 넣을지는 별도 결정 사항이다 — 잠금 규칙 4(미확인 수치·사고 통계 단정 금지)가 "검증되지 않은 통계"를 막기 위한 규칙이었는데, 이번 건은 다수 언론·보안업체가 일치하는 수치라 규칙의 취지와 배치되지 않을 수 있으나, 발표에 넣는 것 자체는 사용자 결정 사항으로 남겨둔다.

@@ -100,9 +100,10 @@
     - 사례 · OpenClaw · Hermes Agent · (이후) NanoClaw, Rakazo 등
     - 한 줄 · 실행 환경을 스스로 쥠 · 메신저/지속 메모리
     - 핵심 · 격리 = 내 서버 · 승인은 직접 구현
+    - 공식 자기평가 · OpenClaw: 완벽한 경계 아님 · blast radius 축소가 목표
   - 에이전트 소셜
     - 사례 · Moltbook
-    - 한 줄 · 에이전트가 게시·투표, 사람은 관찰
+    - 한 줄 · 게시·투표 표방 · 2026-03 Meta 인수
     - 주소 · moltbook.com
   - 클라우드 제품
     - 사례 · Grok Bot · Muse

@@ -206,3 +206,22 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 반영 안 함: Muse 측 동등 보강은 이번에 못 했다. `about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/`가 이 환경에서 여전히 연결 거부(ECONNREFUSED)로 막혀 있다. 사용자가 원문을 붙여넣어 주면 같은 방식으로 Muse 쪽도 보강할 수 있다.
 
 결과: 나레이션 9,501 → **10,008자**. 실측 레이트(382자/분) 기준 약 **26.2분**(이전 24.9분). 30분과의 차이는 약 5분에서 약 3.8분으로 줄었으나 완전히 메우지는 못했다.
+
+## 16·17·18장 보강 — Muse 공식 발표문 직접 확인(2026-09-23)
+
+사용자가 x.ai/Cursor 때와 같은 방식으로 `about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/` 전체 원문을 제공해, 이 환경의 도메인 차단을 우회했다. 열람일 2026-09-23.
+
+| 사실 | 상태 | 근거(원문) | 반영 |
+|---|---|---|---|
+| Muse를 구동하는 모델명 = Muse Spark | VERIFIED(신규) | "powered by Muse Spark, Meta's most capable model to date" | 16장 추가 |
+| 결제는 Stripe의 Link, 1회용 카드로 실제 카드번호 은닉, 파손·가격하락·무료반품 등 구매 보호 | VERIFIED(신규) | "checkout with Link built by Stripe... free coverage for damaged or lost items, price drops, no-fee returns, and a return guarantee" | 16장 추가 |
+| **Sentinel 정정** — 통제 계층이면서, 낯선 목적지로 나갈 때는 Sentinel 스스로 사람에게 허용을 묻기도 함(민감 행동에 대한 Muse의 별도 확인과는 구분됨) | **CORRECTED** — 기존 나레이션("승인 화면이 아니다·사람 승인은 별개")이 지나치게 단순화돼 있었음 | "Nothing Muse does reaches the internet unless the Sentinel approves it, **and it asks the person for permission when needed**" (Sentinel 행) vs "Muse checks with the person before sensitive actions like sending an email or making a purchase"(Muse 행 — 별도) | 17장 나레이션·화면 aria 정정 |
+| Confidential VM = 전체 VM을 사용자만 가진 키로 암호화, 메타도 접근 불가가 목표 | VERIFIED(신규, 상세화) | "the whole VM... is encrypted with a key only they hold, so not even Meta can access it" | 17장 추가 |
+| Muse는 자신이 한 일·하려는 일의 전체 감사 기록을 사람에게 보여줌 | VERIFIED(신규) | "Muse shows people a complete audit trail of everything it has done and plans to do" | 17장 추가 |
+| 대화는 광고 시스템과 공유 안 됨, 모델 학습 사용 거부 가능, 특정 기억을 "잊어라" 지시 가능 | VERIFIED(신규) | "doesn't share a person's conversations... with Meta's ad systems" / "can opt out of their interactions being used to train" / "always tell it to 'forget' specific things" | 17장 추가 |
+| "personal superintelligence"는 기업이 밝힌 장기 방향, Muse는 "첫걸음" | VERIFIED(기존 표기와 일치, 원문 확정) | "Meta thinks personal superintelligence will be one of the most transformative technologies of a lifetime. Muse is a first step" | 18장 기존 표기 유지(변경 불필요) |
+| 요금 "무료가 대부분, 더 하려면 구독" | VERIFIED하나 **미반영** | "It's free for most of what people need, with subscription plans for people who want to do more." | 잠금 규칙 8(Muse 가격 고정 문구)과 다른 프레이밍이라 추가하지 않음 |
+
+미반영: `ai.meta.com/muse/`는 사용자가 "별 내용 없다"고 확인해 추가 조사하지 않았다.
+
+결과: 나레이션 10,008 → **10,383자**. 실측 레이트(382자/분) 기준 약 **27.2분**. 30분과의 차이는 약 2.8분으로 좁혀졌다.

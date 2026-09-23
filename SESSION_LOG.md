@@ -80,3 +80,32 @@ Notion MCP 커넥터(`plugin:engineering:notion`)가 이 세션 내내 연결 �
 - Path: `edu/why-ai-bots/`
 - Last File: `narration.json`, `why-ai-bots.html`, `slide-visible-copy.md`, `SOURCES.md`, `assets/photos/CREDITS.md`, `PROGRESS.md`
 - Active Errors: 없음(narration↔html 정합·금지어·문장 길이 점검 통과)
+
+## 📅 세션 백업: 2026-09-22~23 (4개 첨부 문서 검토, 30분 목표 보강)
+
+### ✅ 완료 작업
+- 사용자가 전달한 4개 첨부 문서(20장·5막 재편 제안 3건 + 유머 톤 별도 대본 1건)를 병렬 서브에이전트(사실 검증·구조 타당성)로 검토. **전면 재편은 기각**(9일 일정 위험, 재편안 자체 시간 계산 신뢰 불가·검증 자산 소실 위험) — 상세 근거는 `SOURCES.md`
+- 정당한 지적 3건만 부분 반영: 14장 전환구, 01장·엔딩 질문 콜백, 8장 OpenClaw 공식 자기평가 인용
+- Moltbook 사실 재검증: Meta의 2026-03-10 인수(CNBC·Axios·TechCrunch 일치), 2026-01~02 보안 사고(단일 사건, Wiz 발견 — API 토큰·계정 150만·실소유자 1.7만). 8장(인수)·22장(사고 구체 사례)에 반영
+- "SpaceXAI" 표기: 5개 보조 페이지엔 없어 "xAI"로 고쳤다가, 사용자가 제공한 최초 발표문 원문("How the SpaceXAI team is using Grok Bot" 4회 자칭)으로 재확인해 "SpaceXAI" 최종 확정. 15장 인용 화자 "Roman Ugarte"→"Roman"(원문에 성 없음) 정정
+- "30분 목표 최대한 유지" 결정에 따라, 사용자가 제공한 Grok Bot/Cursor·Muse 공식 원문(총 6개 페이지)에서 검증된 미사용 소재를 채굴해 9·10·11·14·15·16·17·18장에 반영(루틴 한도, Firecracker microVM, "손 넘겨받기", 팀 규칙, 그룹 채팅, 시연 학습, Muse Spark 모델명, Stripe Link 결제, Confidential VM 목적, 감사 기록 등)
+- **17장 Sentinel 정정**: 이전 검토에서 "승인 화면 아님·사람 승인은 완전히 별개"로 단순화했던 것이, Muse 원문("Sentinel... asks the person for permission when needed")과 어긋나 있어 정정 — Sentinel도 낯선 목적지로 나갈 땐 사람에게 묻되, 메일·구매 같은 민감 행동 확인은 Muse 쪽 별도임을 나레이션·화면 aria 양쪽에 반영
+- 나레이션 8,943 → **10,383자**. 실측 레이트(edge-tts ko-KR-SunHiNeural, -10%, 382자/분) 기준 약 **27.2분** — 30분 목표와 약 2.8분 차이로 좁혀짐(이전 6~7분)
+
+### 🚧 진행 중
+- 30분 잔여 간극(약 2.8분) — 다음 후보 원문 제시함: Muse "How We Built Safety Into Muse"/"How We Designed Muse", Cursor "grok-bot/security"·"security-faq", OpenClaw 공식 배경(도메인 차단으로 직접 열람 불가, 사용자 붙여넣기 대기)
+
+### ⏭️ 다음 세션 즉시 실행 항목
+1. 30분 잔여 간극: 추가 원문 확보해 마저 채우거나, 현재 27.2분을 최종치로 받아들일지 결정
+2. TTS 목소리 결정은 `.html` 콘텐츠 완전 확정 후 진행(사용자 지시로 보류 중) — 현재 로컬 오디오(`audio/`, gitignore)는 구버전 텍스트 기준이라 최종 콘텐츠 확정 후 전량 재합성 필요
+3. 브라우저 최종 리허설(스크롤·오디오 폴백·1280x720/1920x1080)
+4. 발표 전 재확인 목록은 `SOURCES.md` 체크리스트 참고
+5. Notion 승인본 페이지 갱신 필요(구조 개정 콜아웃의 글자 수·분량을 10,383자·약 27.2분으로 갱신)
+
+### 🧩 런타임 스냅샷
+- Branch: `worktree-botstory-visuals`
+- Path: `edu/why-ai-bots/`
+- Last File: `narration.json`, `why-ai-bots.html`, `SOURCES.md`, `PROGRESS.md`
+- Last commit: `93fcfae` (원격과 동일, 작업 폴더 깨끗함)
+- PR #2(초안): https://github.com/yjj3019/BotStory/pull/2
+- Active Errors: 없음(narration↔html 정합 27건 전량 일치, 금지어 0, 렌더 검증 통과)

@@ -109,3 +109,29 @@ Notion MCP 커넥터(`plugin:engineering:notion`)가 이 세션 내내 연결 �
 - Last commit: `93fcfae` (원격과 동일, 작업 폴더 깨끗함)
 - PR #2(초안): https://github.com/yjj3019/BotStory/pull/2
 - Active Errors: 없음(narration↔html 정합 27건 전량 일치, 금지어 0, 렌더 검증 통과)
+
+## 📅 세션 백업: 2026-09-23 (PR #2 머지 후 — 외부 독립 검토 반영)
+
+### ✅ 완료 작업
+- PR #2 머지 완료(main `8bb4e9d`, 사용자가 직접 머지). 이후 사용자가 전달한 읽기 전용 독립 검토(기술 검증 전부 통과 + 사실 오류 4건·화면 정합 1건 지적)를 별도 브랜치 `fix/post-merge-verification`에서 재검증 후 반영
+- 서브에이전트로 4건 재검증: RFC 439 원문 확인 결과 PARRY-DOCTOR 대화의 DOCTOR는 MIT가 아니라 **BBN**에서 실행(5장 정정) · Galaxy는 실체 확인됨(xAI Grok Bot Galaxy, 2026-09-15~17, 샌프란시스코+온라인 3일 행사 — 단 잠금 규칙 10 때문에 화면 반영은 사용자 결정 대기) · "Take the Wheel"은 Cursor 공식 문서에서 확인 못 해 SOURCES.md에서 영문 기능명 삭제 · NanoClaw 원저장소는 `nanocoai/nanoclaw`(기존 인용 vhforbes/nanoclaw는 포크)로 정정
+- 13장 "8/26 Cursor Pro 확대" 표현이 8/11 베타 발표(이미 Cursor Pro 포함)와 모순돼 "접근 플랜 재정리"로 완화, 17장 화면 제목이 9/23 나레이션 정정 후에도 옛 문구로 남아 있던 것을 동기화
+- 10·14·15·16·24장 표현 보완 6건(루틴별 실행 기록 명확화, 시연 학습이 "초안 스킬"임을 명시, 공개 링크 공유 범위에 루틴 추가, "최신 모델"→"가장 뛰어난 모델", 구매 보호 "적격 구매에 한해", WhatsApp을 채널 확대 예시에서 제외) 반영
+- 문서 정리: PROGRESS.md의 모순된 옛 "미해결" 블록 취소선 처리, `extract_narration.py`를 가리키는 존재하지 않는 파일 참조 주석 정리, slide-visible-copy.md 확인일 갱신
+- 나레이션 10,383 → **10,403자**(실측 레이트 기준 약 27.2분, 변화 미미)
+
+### 🚧 진행 중
+- 렌더 검증(13·17·24장 화면 변경분 + 전체 27상태) — 백그라운드 진행 중, 결과 반영 전
+
+### ⏭️ 다음 세션 즉시 실행 항목
+1. **Galaxy 정의를 화면·나레이션에 추가할지 결정** — 실체는 확인됐으나 잠금 규칙 10("일정만")과 충돌해 보류 중
+2. 21장 "2025-12-09 이관" 표현·AG-UI 초기 파트너 "LangChain·CrewAI" — 이번 라운드에서 미검증, 후속 과제
+3. 16장 요금 막대 높이 비례 여부 — 디자인 이슈, 미확인
+4. TTS는 여전히 보류(사용자 지시) — 콘텐츠 확정 후 진행
+5. 30분 잔여 간극(약 2.8분)은 그대로 — 이번 라운드는 정확성 보완이 목적이었고 분량 확대는 없었음
+
+### 🧩 런타임 스냅샷
+- Branch: `fix/post-merge-verification` (main에서 분기, PR #2는 이미 머지되어 별도 브랜치로 작업 재개)
+- Path: `edu/why-ai-bots/`
+- Last File: `narration.json`, `why-ai-bots.html`, `SOURCES.md`, `PROGRESS.md`, `slide-visible-copy.md`
+- main 최신 커밋: `8bb4e9d`(머지 커밋)

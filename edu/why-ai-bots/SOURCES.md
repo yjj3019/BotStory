@@ -189,3 +189,20 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 
 ### 22장 반영 결정(2026-09-22)
 사용자가 "성의 없는 AI 콘텐츠처럼 보이지 않게, 장마다 풍성하고 흥미롭게" 구성해 달라고 명시적으로 요청해, 위 검증된 Moltbook 사고를 22장 나레이션 서두에 구체 사례로 추가했다(화면 matrix 표는 변경하지 않음 — "자격증명·잔존 로그인" 행의 기존 서술을 구체 일화로 보강하는 방식). 잠금 규칙 4(미확인 수치·사고 통계 단정 금지)는 "검증되지 않은" 수치를 막기 위한 규칙이고, 이 수치는 Wiz(보안 연구사)·CPO Magazine·Techzine·Infosecurity Magazine 등 복수 독립 매체가 일치해 규칙의 취지에 어긋나지 않는다고 판단했다. 8장에서 이미 소개한 Moltbook을 22장에서 다시 불러오는 구조라 서사적으로도 앞뒤가 연결된다.
+
+## 09·10·11·14·15장 보강 — Grok Bot/Cursor 원문 추가 채굴(2026-09-23)
+
+"30분 목표는 최대한 유지"라는 사용자 결정에 따라, 이미 사용자가 제공한 5개 원문(전부 SOURCES.md 상단 표에 열람일 2026-09-22로 기록됨)에서 아직 안 쓴 구체적 메커니즘을 추가로 찾아 반영했다. 새 출처 조사는 하지 않았다 — 전부 기존에 검증된 5개 페이지 범위 안이다.
+
+| 장 | 추가 내용 | 근거(원문) |
+|---|---|---|
+| 9 | 저위험 위임의 구체 예(정책 범위 안 환불은 봇이 스스로 처리) | "Handles all the routine refunds within your policy" — x.ai/news/grok-bot-for-enterprise |
+| 10 | 루틴 최대 50개·최근 실행 기록 20건 | "A Bot can own up to 50 routines with the 20 most recent run records each" — cursor.com/docs/grok-bot/work |
+| 11 | 사용자별 컴퓨터는 Firecracker 마이크로VM으로 하드웨어 수준 격리 | "Each user's work runs in a dedicated Firecracker microVM... hardware-level separation" — cursor.com/docs/grok-bot/teams |
+| 14 | "손 넘겨받기(Take the Wheel)" — 비밀번호·2FA·결제 단계만 사람이 처리 | "The Bot hands you the computer for passwords, passkeys, two-factor codes... Take control, complete only the blocked step" — cursor.com/docs/grok-bot/work |
+| 14 | 관리자 팀 규칙(Team Rules), 봇 공개 링크 공유 시 컴퓨터·로그인·대화 기록은 제외 | "Rules that every member's Bots follow" / "they never get your computer, logins, or conversation history" — cursor.com/docs/grok-bot/teams, /work |
+| 15 | 그룹 채팅 다중 봇 핸드오프, "한 번 보여주면 배우는" 시연 학습(Teach a task) | "Use a group when several Bots need one shared outcome" / "demonstrate a browser workflow once and let the Bot turn it into a draft skill" — cursor.com/docs/grok-bot/work |
+
+반영 안 함: Muse 측 동등 보강은 이번에 못 했다. `about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/`가 이 환경에서 여전히 연결 거부(ECONNREFUSED)로 막혀 있다. 사용자가 원문을 붙여넣어 주면 같은 방식으로 Muse 쪽도 보강할 수 있다.
+
+결과: 나레이션 9,501 → **10,008자**. 실측 레이트(382자/분) 기준 약 **26.2분**(이전 24.9분). 30분과의 차이는 약 5분에서 약 3.8분으로 줄었으나 완전히 메우지는 못했다.

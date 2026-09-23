@@ -1,6 +1,6 @@
 # 장표 카피 — 화면에 보이는 층
 
-화면 텍스트 기준 정리(SCENES에서 생성 후 보완) · 확인일 2026-09-21 · 근거: 사실 원장 · SOURCES.md. 나레이션은 narration.json. 장 번호는 25장 구성 기준.
+화면 텍스트 기준 정리(SCENES에서 생성 후 보완) · 확인일 2026-09-23 · 근거: 사실 원장 · SOURCES.md. 나레이션은 narration.json. 장 번호는 25장 구성 기준.
 
 ## 오프닝
 - **메시지** 왜 AI 봇에 열광하는가 — 카탈로그가 아닌 경로
@@ -218,7 +218,7 @@
 - 사내 배포 방식 — 발표문에 없음
 
 ## 17장 · Muse 안전
-- **메시지** Sentinel은 승인 UI가 아니라 egress·커널 중개 계층이다
+- **메시지** Sentinel은 통제 계층 — 낯선 목적지엔 사람에게 묻는다
 - 사진 크레딧: W.carter · CC BY-SA 4.0 · Wikimedia Commons (크기 조정·일부 잘라 표시)
 - 영역: agent (Secure VM 안) → Sentinel — 커넥터 · 네트워크 egress 단독 권한 → 외부 인터넷 · 커넥터
   - 화살표: surrogate 토큰

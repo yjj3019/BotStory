@@ -119,7 +119,7 @@
 
 | 사실 | 1차 출처 URL | 열람일 | 상태 |
 |---|---|---|---|
-| NanoClaw — OpenClaw의 경량 대안, 컨테이너 격리, MIT 라이선스. OpenClaw는 약 50만 줄·설정파일 53개·의존성 70개 이상이라는 문제의식에서 출발했다고 README에 명시 | https://github.com/vhforbes/nanoclaw | 2026-09-22 | VERIFIED(README 직접 열람) |
+| NanoClaw — OpenClaw의 경량 대안, 컨테이너 격리, MIT 라이선스. OpenClaw는 약 50만 줄·설정파일 53개·의존성 70개 이상이라는 문제의식에서 출발했다고 README에 명시 | https://github.com/nanocoai/nanoclaw (2026-09-23 정정 — 원 저장소. vhforbes/nanoclaw·redsquidleader/nanoclaw는 여기서 포크된 것으로 확인됨) | 2026-09-22/23 | VERIFIED(README 직접 열람 + 포크 관계 독립 검증) |
 | Rakazo — "Open-source Grok Bot alternative"로 자체 표기, Apache-2.0 라이선스, 모델·샌드박스를 직접 선택하는 셀프호스팅 AI 팀원 플랫폼 | https://github.com/elie222/rakazo | 2026-09-22 | VERIFIED(README 직접 열람) |
 | OpenMausBot — "An independent, open-source project inspired by Grok Bot", "Not affiliated with xAI"를 README에 명시, Apache-2.0(enterprise 폴더는 별도 라이선스) | https://github.com/milind-soni/OpenMausBot | 2026-09-22 | VERIFIED(README 직접 열람) |
 | OpenGrokBot — "Unofficial. Not affiliated with, endorsed by, or connected to xAI or the OpenClaw Foundation"을 README에 명시, MIT 라이선스, 유료 Grok Bot 서비스를 자기 하드웨어에서 구현한다고 소개 | https://github.com/wolfqing/OpenGrokBot | 2026-09-22 | VERIFIED(README 직접 열람) |
@@ -196,10 +196,10 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 
 | 장 | 추가 내용 | 근거(원문) |
 |---|---|---|
-| 9 | 저위험 위임의 구체 예(정책 범위 안 환불은 봇이 스스로 처리) | "Handles all the routine refunds within your policy" — x.ai/news/grok-bot-for-enterprise |
-| 10 | 루틴 최대 50개·최근 실행 기록 20건 | "A Bot can own up to 50 routines with the 20 most recent run records each" — cursor.com/docs/grok-bot/work |
+| 9 | 저위험 위임의 구체 예(정책 범위 안 환불은 봇이 스스로 처리) | "Handles all the routine refunds within your policy" — x.ai/news/grok-bot-more-plans("Jobs Bots are doing today" 목록. 2026-09-23 정정 — 원래 for-enterprise로 잘못 표기했었음) |
+| 10 | 루틴 최대 50개·최근 실행 기록 20건(루틴마다) | "A Bot can own up to 50 routines with the 20 most recent run records each" — cursor.com/docs/grok-bot/work |
 | 11 | 사용자별 컴퓨터는 Firecracker 마이크로VM으로 하드웨어 수준 격리 | "Each user's work runs in a dedicated Firecracker microVM... hardware-level separation" — cursor.com/docs/grok-bot/teams |
-| 14 | "손 넘겨받기(Take the Wheel)" — 비밀번호·2FA·결제 단계만 사람이 처리 | "The Bot hands you the computer for passwords, passkeys, two-factor codes... Take control, complete only the blocked step" — cursor.com/docs/grok-bot/work |
+| 14 | "손 넘겨받기" — 비밀번호·2FA·결제 단계만 사람이 처리 | "The Bot hands you the computer for passwords, passkeys, two-factor codes... Take control, complete only the blocked step" — cursor.com/docs/grok-bot/work (2026-09-23 정정 — "(Take the Wheel)"이라는 영문 기능명을 붙였었는데, 독립 검증에서 문서 어디에도 이 표현이 없는 것으로 확인돼 삭제함. 원문 표기는 "take control"/"Take over") |
 | 14 | 관리자 팀 규칙(Team Rules), 봇 공개 링크 공유 시 컴퓨터·로그인·대화 기록은 제외 | "Rules that every member's Bots follow" / "they never get your computer, logins, or conversation history" — cursor.com/docs/grok-bot/teams, /work |
 | 15 | 그룹 채팅 다중 봇 핸드오프, "한 번 보여주면 배우는" 시연 학습(Teach a task) | "Use a group when several Bots need one shared outcome" / "demonstrate a browser workflow once and let the Bot turn it into a draft skill" — cursor.com/docs/grok-bot/work |
 
@@ -225,3 +225,34 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 미반영: `ai.meta.com/muse/`는 사용자가 "별 내용 없다"고 확인해 추가 조사하지 않았다.
 
 결과: 나레이션 10,008 → **10,383자**. 실측 레이트(382자/분) 기준 약 **27.2분**. 30분과의 차이는 약 2.8분으로 좁혀졌다.
+
+## 외부 독립 검토 반영 (2026-09-23, PR #2 머지 후)
+
+사용자가 PR #2 머지 후 읽기 전용 독립 검토 결과를 전달했다. 4건은 자체 서브에이전트로 재검증 후 확정, 나머지는 원문 재대조로 확인했다.
+
+| 지적 | 판정 | 근거 | 반영 |
+|---|---|---|---|
+| 5장 "엠아이티의 DOCTOR" — RFC 439 원문은 BBN이라 함 | **CONFIRMED** | "PARRY was running at SAIL and DOCTOR at BBN Tenex" — datatracker.ietf.org/doc/html/rfc439(rfc-editor.org 직접 열람은 이번에도 실패, IETF datatracker 미러로 확인) | "엠아이티의"→"비비엔의" 정정 |
+| Galaxy 정의 근거 없음(9/22 표기) | **정정됨** — 실체 확인 | "Grok Bot Galaxy: three days of live builds", 2026-09-15~17, 샌프란시스코(The Howard)+온라인 — x.ai/galaxy, teslanorth.com, techtrendsnewsupdate.substack.com | 화면·나레이션 미변경(잠금 규칙 10 "일정만" 때문 — 사용자 결정 대기, PROGRESS.md 참고) |
+| "Take the Wheel"이 Cursor 공식 문서 표현이라는 2026-09-23 이전 SOURCES.md 표기 | **UNVERIFIED → 삭제** | 검색으로는 이 표현을 문서에서 찾지 못함("Open Agent Computer, take over... return control"만 확인). cursor.com 직접 열람은 이번에도 실패해 "확실히 없다"까지는 확인 못 했으나, "있다"는 근거도 없어 삭제 | SOURCES.md 인용에서 영문 기능명 제거(나레이션 "손 넘겨받기"는 원문 동작 설명과 일치해 유지) |
+| NanoClaw 원저장소가 vhforbes/nanoclaw라는 9/22 표기 | **CORRECTED** | nanocoai/nanoclaw는 포크 배너 없음, vhforbes·redsquidleader는 "forked from nanocoai/nanoclaw" 배너 확인 | SOURCES.md 출처 URL을 nanocoai/nanoclaw로 정정 |
+| 13장 "8/26 Cursor Pro 접근 확대" — Cursor Pro는 8/11 베타부터 이미 포함 | CONFIRMED(자체 원문 재대조) | 8/11 발표문: "available today for SuperGrok... Cursor Pro, Pro+, and Ultra..." — Cursor Pro가 이미 있었음. 8/26 more-plans 페이지가 정확히 뭘 넓혔는지는 두 페이지만으로 특정 불가(기존에 이미 기록된 불확실성) | "Cursor Pro 등으로 접근 플랜이 넓어졌다"→"공지로 포함 플랜이 다시 정리됐다"로 완화, 플랜명 제거 |
+| 17장 화면 제목이 9/23 나레이션 정정 후에도 "승인 UI가 아니라" 옛 문구로 남음 | CONFIRMED(직접 확인) | `why-ai-bots.html:1489-1490`의 title/message가 aria·나레이션과 불일치 | 제목·메시지를 "Sentinel은 통제 계층 — 낯선 목적지엔 사람에게 묻는다"로 동기화(slide-visible-copy.md도 함께) |
+| 10장 "실행 기록 스무 건"이 총량처럼 읽힘 | CONFIRMED | 원문 "20 most recent run records **each**"는 루틴별 | "루틴마다 최근 실행 기록 스무 건"으로 명확화 |
+| 15장 "한 번 보여주면 혼자 반복" 과장 | CONFIRMED | 원문: 학습 결과는 "draft skill"이며 "add decision rules... then test it on a safe input before scheduling" | "초안 스킬로 배우고, 검토를 거쳐야 반복"으로 완화 |
+| 14장 공개 링크 공유 시 "루틴" 누락 | CONFIRMED | 원문: "identity, description, skills, **and routines**" | "스킬"→"스킬, 루틴" |
+| 16장 "메타의 최신 모델"이 "most capable"의 오역 | CONFIRMED | 원문 "most capable model to date"는 성능 서열, 시기 아님 | "최신 모델"→"지금까지 낸 것 중 가장 뛰어난 모델" |
+| 16장 구매 보호 범위 미명시 | CONFIRMED(보수적 해석) | 원문 "a return guarantee on **eligible purchases**" — 앞선 항목들도 같은 범위일 가능성 | "적격 구매에 한해"를 전체 구매 보호 문장에 붙임(보수적으로 전체 적용) |
+| 24장 WhatsApp을 "채널 확대" 예시로 든 것이 오도적(이미 출시 채널) | CONFIRMED | 16장 나레이션 자체가 "WhatsApp을 공식 채널로 포함합니다"라고 이미 명시 | 화면·나레이션·aria에서 "WhatsApp 등" 예시 삭제, "지원 국가와 채널 확대"로만 |
+| HTML 주석이 저장소에 없는 `extract_narration.py`를 가리킴 | CONFIRMED | 저장소 전체 검색 결과 해당 파일 없음 | 주석을 "narration.json과 수동 동기화"로 수정 |
+| PROGRESS.md "미해결" 블록이 옛 수치(23.79분)로 최신 기록(27.2분)과 모순 | CONFIRMED | — | 옛 블록 취소선 처리, 최신 상태로 대체 |
+| SESSION_LOG.md의 "Opus·Codex" 같은 AI 도구명이 공개 저장소에 부적절할 수 있음 | 판단 보류 | 사실 오류가 아니라 공개 방침 문제 | **미반영** — 과거 기록을 지우는 것은 이력 훼손이라 사용자 결정 없이 하지 않음 |
+| 11·14장 "기본 Ask"가 개인 기본값이고 팀 관리자 기본값은 Always allow | 이미 알고 있던 뉘앙스(SOURCES.md 9/22 기록에 명시) | "팀 기본값은 Always allow... 구성원 개인 기본값이 Ask every time" | **미반영** — 화면·나레이션은 이미 "특별한 이유가 없으면 Never를 권고"라는 권장 프레이밍이라 오류로 보지 않음 |
+| 19장 "Sentinel=네트워크/egress 층" 구분이 지나침 | 검토자 스스로 "Auto Review≠Sentinel 결론 자체는 맞다"고 인정 | — | **미반영** — 19장은 요약 비교 표라 현재 수준의 단순화가 적절하다고 판단 |
+| 21장 "2025-12-09 이관" 표현, AG-UI 초기 파트너 "LangChain·CrewAI" | 미검증(이번 라운드에서 원문 재확인 안 함) | — | **미반영** — 추가 검증 필요, 후속 과제로 남김 |
+| 16장 요금 막대 높이가 비례하지 않음 | 미확인(디자인/CSS 이슈, 이번엔 확인 안 함) | — | **미반영** — 후속 과제 |
+
+결과: 나레이션 10,383 → **10,403자**. 실측 레이트(382자/분) 기준 약 **27.2분**(변화 미미).
+
+### 발표 전 재확인 최우선 1건
+**Galaxy 정의를 화면·나레이션에 넣을지** — 잠금 규칙 10과 충돌하는 유일한 항목이라 사용자 확인 필요(PROGRESS.md 참고).

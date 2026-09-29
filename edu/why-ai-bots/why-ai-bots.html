@@ -35,60 +35,70 @@
   }
   body { line-height: 1.5; overflow: hidden; word-break: keep-all; overflow-wrap: break-word; }
 
-  /* —— Intro —— */
+  /* —— Intro: one deep-blue stage. Concept: one start, three parallel paths (same rule as 8장: no numbers, no arrows between paths) —— */
   #intro {
-    height: 100vh; height: 100dvh; display: flex; flex-direction: column;
-    overflow: auto;
-    padding: 1.5rem; text-align: left;
-    background: #F5F7FB url("assets/bg/20-bg-cover-light.png") center / cover no-repeat;
-    position: relative;
+    position: relative; isolation: isolate; overflow: hidden; color: #fff; text-align: left;
+    height: 100vh; height: 100dvh;
+    display: grid; grid-template-rows: auto minmax(0, 1fr) auto; row-gap: clamp(.4rem, 2vh, 1.2rem);
+    padding: clamp(.9rem, 3.4vh, 2rem) clamp(1.1rem, 4.6vw, 3.6rem);
+    background:
+      radial-gradient(58% 72% at 76% 50%, rgba(92, 158, 255, .46), transparent 64%),
+      radial-gradient(46% 56% at 6% 2%, rgba(1, 86, 252, .6), transparent 70%),
+      linear-gradient(140deg, #020F44 0%, #032178 48%, #0148D8 100%);
   }
-  #intro .shell-foot {
-    position: absolute; left: 1.75rem; bottom: 2.1rem;
-    display: flex; gap: .55rem; align-items: center; z-index: 2;
+  #intro::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, .17) 1px, transparent 1.6px); background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(90% 90% at 66% 50%, #000 18%, transparent 78%); mask-image: radial-gradient(90% 90% at 66% 50%, #000 18%, transparent 78%);
   }
-  @media (max-height: 640px) {
-    #intro .shell-foot { position: static; margin-top: 1rem; }
-  }
-  #intro .shell-foot .pill {
-    background: #334155; color: #fff; border-radius: 999px;
-    padding: .28rem .75rem; font-size: .8rem; font-weight: 600;
-  }
-  #intro .shell-foot .date { color: var(--muted); font-size: .85rem; font-weight: 600; }
-  #intro .cover-panel {
-    width: min(920px, 100%); margin: auto;
-    background: rgba(255,255,255,.92);
-    border: 1px solid rgba(1,86,252,.12);
-    border-radius: 20px;
-    padding: 2.25rem 2.5rem 2rem;
-    box-shadow: 0 18px 50px rgba(15,23,42,.08);
-    backdrop-filter: blur(6px);
-  }
-  #intro .kicker {
-    color: var(--muted); letter-spacing: .06em; font-size: .82rem; font-weight: 600;
-    margin-bottom: .85rem;
-  }
-  #intro h1 {
-    font-size: clamp(1.7rem, 3.6vw, 2.55rem); margin: 0 0 .75rem;
-    color: var(--s-blue); font-weight: 800; letter-spacing: -0.02em; line-height: 1.25;
-  }
-  #intro .lede {
-    margin: 0 0 1.5rem; color: var(--ink-2); max-width: 36rem; font-size: 1.02rem;
-  }
-  #intro .cover-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-bottom: 1.5rem;
-  }
-  #intro .cover-chip {
-    background: var(--s-blue-wash); border: 1px solid var(--line);
-    border-radius: 12px; padding: .7rem .85rem; font-size: .86rem; color: var(--ink-2);
-  }
-  #intro .cover-chip strong { display: block; color: var(--s-blue); font-size: .78rem; margin-bottom: .2rem; }
+  .in-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .in-brand { display: flex; align-items: center; gap: .6rem; font-size: clamp(.95rem, 2.2vh, 1.5rem); letter-spacing: .02em; }
+  .in-brand b { font-weight: 800; }
+  .in-brand span { color: rgba(255, 255, 255, .62); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: .72rem; }
+  .in-mark { width: 30px; height: 22px; fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; }
+  .in-date { display: flex; align-items: center; gap: .6rem; padding: .3rem .9rem; border-radius: 999px; font-size: clamp(.82rem, 1.9vh, 1.3rem); font-weight: 700; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .22); }
+  .in-date span { color: rgba(255, 255, 255, .7); font-weight: 600; }
+  .in-main { min-height: 0; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); align-items: center; gap: clamp(1rem, 3vw, 3rem); }
+  .in-copy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: clamp(.6rem, 2.3vh, 1.4rem); }
+  .in-copy > *, .in-art { animation: inUp .8s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i, 0) * 110ms); }
+  #intro h1 { margin: 0; display: flex; flex-direction: column; font-size: clamp(2.05rem, min(5.3vw, 9.6vh), 7rem); line-height: 1.1; letter-spacing: -.035em; font-weight: 800; text-wrap: balance; }
+  #intro h1 .l1 { color: rgba(255, 255, 255, .74); font-weight: 700; }
+  #intro h1 em { font-style: normal; background: linear-gradient(100deg, #FFE7A8, #FFB84D 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .in-lede { margin: 0; max-width: min(34rem, 92%); font-size: clamp(.95rem, 2.5vh, 1.9rem); line-height: 1.55; color: rgba(255, 255, 255, .82); }
+  .in-chips { margin: 0; padding: 0; list-style: none; width: 100%; max-width: min(40rem, 100%); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+  .in-chips li { min-width: 0; padding: .65rem .85rem; border-radius: 14px; font-size: clamp(.8rem, 2.1vh, 1.5rem); line-height: 1.4; color: #fff; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .2); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .in-chips small { display: block; margin-bottom: .2rem; font-size: .7rem; font-weight: 800; letter-spacing: .12em; color: #A9C8FF; }
+  .in-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.4rem; margin-top: clamp(.1rem, 1vh, .6rem); }
   #start {
-    border: 0; cursor: pointer; padding: .9rem 1.7rem; border-radius: 999px; font-weight: 700;
-    color: #fff; background: var(--s-blue);
-    box-shadow: 0 8px 24px rgba(1,86,252,.28);
+    display: inline-flex; align-items: center; gap: .8rem; padding: .95rem 1.6rem .95rem 1.9rem; border: 0; border-radius: 999px; cursor: pointer;
+    font: inherit; font-weight: 800; font-size: clamp(1rem, 2.7vh, 2rem); letter-spacing: .02em; color: #032178; background: #fff;
+    box-shadow: 0 14px 34px rgba(0, 10, 60, .45), 0 0 0 6px rgba(255, 255, 255, .14);
+    transition: transform .2s ease, box-shadow .2s ease;
   }
-  #start:hover { background: var(--s-blue-deep); }
+  #start svg { width: 1.3em; height: 1.3em; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+  #start:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(0, 10, 60, .5), 0 0 0 9px rgba(255, 255, 255, .18); }
+  #start:hover svg { transform: translateX(4px); }
+  #start:focus-visible { outline: 3px solid #FFD27A; outline-offset: 4px; }
+  .in-note { font-size: clamp(.9rem, 2vh, 1.4rem); font-weight: 600; color: rgba(255, 255, 255, .72); }
+  .in-art { --i: 2; margin: 0; min-width: 0; min-height: 0; height: 100%; display: grid; place-items: center; }
+  .in-art svg { width: 100%; height: 100%; max-height: 100%; overflow: visible; }
+  .in-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .3rem 1.5rem; font-size: clamp(.84rem, 1.9vh, 1.3rem); color: rgba(255, 255, 255, .62); }
+  @keyframes inUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes inDraw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  .in-route { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; animation: inDraw 1.4s .45s cubic-bezier(.3, .6, .2, 1) both; }
+  .in-node { fill: rgba(255, 255, 255, .1); stroke: rgba(255, 255, 255, .9); stroke-width: 3; }
+  .in-node.dash { stroke-dasharray: 9 7; }
+  .in-ico { fill: none; stroke: #fff; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+  .in-lab { fill: #fff; font-size: 28px; font-weight: 800; }
+  .in-sub { fill: rgba(255, 255, 255, .74); font-size: 21px; font-weight: 600; }
+  @media (max-width: 900px) {
+    .in-main { grid-template-columns: minmax(0, 1fr); align-content: center; }
+    .in-art { height: 34vh; }
+    .in-chips { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-height: 560px) { .in-chips, .in-foot { display: none; } }
+  @media (max-height: 420px) { .in-art { display: none; } .in-main { grid-template-columns: minmax(0, 1fr); } }
+  @media (prefers-reduced-motion: reduce) { #intro *, #intro *::before { animation: none !important; transition: none !important; } }
 
   /* —— Stage / slides —— */
   #story {
@@ -296,7 +306,6 @@
   #opening-slide .op-note { flex: 0 0 auto; margin: 0; color: var(--muted); font-size: max(16px, 2.3vh); font-weight: 700; }
 
   @media (max-width: 820px) {
-    #intro .cover-grid { grid-template-columns: 1fr; }
     #opening-slide .op-body { grid-template-columns: 1fr; }
   }
 
@@ -1208,37 +1217,68 @@
     .v-lanes { grid-template-columns: 1fr; }
   }
 
-  /* Short viewports: keep the start button on the first screen */
-  @media (max-height: 460px) {
-    #intro { padding: .6rem; }
-    #intro .cover-panel { padding: .9rem 1.25rem .9rem; }
-    #intro .kicker { margin-bottom: .3rem; font-size: .75rem; }
-    #intro h1 { font-size: 1.35rem; margin-bottom: .4rem; }
-    #intro .lede { margin-bottom: .6rem; font-size: .85rem; }
-    #intro .cover-grid { display: none; }
-    #intro .shell-foot { display: none; }
-    #start { padding: .6rem 1.4rem; }
-  }
 
 </style>
 </head>
 <body>
-<section id="intro">
-  <div class="cover-panel">
-    <div class="kicker">BotStory · Education track</div>
-    <h1>AI Bot 시대, 사람들은 왜 열광하는가</h1>
-    <p class="lede">제품 카탈로그가 아니라, 미완의 위임에서 격리·승인·위임 설계까지. 약 30분 동안 그 길을 따라가는 교육 자료입니다.</p>
-    <div class="cover-grid">
-      <div class="cover-chip"><strong>경로</strong>자가호스팅 · 에이전트 소셜 · 클라우드</div>
-      <div class="cover-chip"><strong>증거</strong>Grok Bot · Muse</div>
-      <div class="cover-chip"><strong>닫기</strong>격리 · 승인 · 위임 설계</div>
+<section id="intro" aria-labelledby="intro-title">
+  <header class="in-top">
+    <div class="in-brand"><svg class="in-mark" viewBox="0 0 30 22" aria-hidden="true"><path d="M3 11h8c6 0 7-8 16-8M3 11h24M3 11h8c6 0 7 8 16 8"/></svg><b>BotStory</b><span>Education track</span></div>
+    <div class="in-date"><span>교육 자료</span><time datetime="2026-10-01">2026.10.01</time></div>
+  </header>
+  <div class="in-main">
+    <div class="in-copy">
+      <h1 id="intro-title" style="--i:1"><span class="l1">AI Bot 시대,</span><span class="l2">사람들은 왜 <em>열광</em>하는가</span></h1>
+      <p class="in-lede" style="--i:2">제품 카탈로그가 아니라, 미완의 위임에서 격리·승인·위임 설계까지. 약 30분 동안 그 길을 따라갑니다.</p>
+      <ul class="in-chips" style="--i:3">
+        <li><small>경로</small>자가호스팅 · 에이전트 소셜 · 클라우드</li>
+        <li><small>증거</small>Grok Bot · Muse</li>
+        <li><small>닫기</small>격리 · 승인 · 위임 설계</li>
+      </ul>
+      <div class="in-cta" style="--i:4">
+        <button id="start" type="button" autofocus><span>시작</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <span class="in-note">설명 약 30분 · 질의 없음</span>
+      </div>
     </div>
-    <button id="start" type="button">시작</button>
+    <figure class="in-art">
+      <svg id="in-art" viewBox="0 0 760 420" role="img" aria-label="출발점 하나 곁에 자가호스팅, 에이전트 소셜, 클라우드 세 경로가 순서 없이 나란히 놓인 그림">
+        <defs>
+          <radialGradient id="in-glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          <path id="in-p1" d="M126 210 C 240 210, 262 84, 400 84"/>
+          <path id="in-p2" d="M126 210 C 240 210, 300 210, 400 210"/>
+          <path id="in-p3" d="M126 210 C 240 210, 262 336, 400 336"/>
+        </defs>
+        <circle cx="84" cy="210" r="120" fill="url(#in-glow)"/>
+        <g>
+          <path class="in-route" pathLength="1" d="M126 210 C 240 210, 262 84, 400 84"/>
+          <path class="in-route" pathLength="1" d="M126 210 C 240 210, 300 210, 400 210"/>
+          <path class="in-route" pathLength="1" d="M126 210 C 240 210, 262 336, 400 336"/>
+        </g>
+        <g fill="#fff">
+          <circle r="5.5" opacity="0"><set attributeName="opacity" to="1" begin="1.8s" fill="freeze"/><animateMotion dur="7s" repeatCount="indefinite" begin="1.8s"><mpath href="#in-p1"/></animateMotion></circle>
+          <circle r="5.5" opacity="0"><set attributeName="opacity" to="1" begin="1.8s" fill="freeze"/><animateMotion dur="7s" repeatCount="indefinite" begin="1.8s"><mpath href="#in-p2"/></animateMotion></circle>
+          <circle r="5.5" opacity="0"><set attributeName="opacity" to="1" begin="1.8s" fill="freeze"/><animateMotion dur="7s" repeatCount="indefinite" begin="1.8s"><mpath href="#in-p3"/></animateMotion></circle>
+        </g>
+        <circle cx="84" cy="210" r="42" fill="#fff"/>
+        <g class="in-ico" transform="translate(62 188) scale(.6875)" style="stroke:#032178"><path d="M14 6v54"/><path d="M14 8h36l-8 12 8 12H14z" fill="#DCE8FF"/></g>
+        <text class="in-lab" x="84" y="282" text-anchor="middle" style="font-size:24px">출발점</text>
+        <text class="in-sub" x="84" y="310" text-anchor="middle" style="font-size:19px">미완의 위임</text>
+        <circle class="in-node" cx="440" cy="84" r="40"/>
+        <g class="in-ico" transform="translate(418 62) scale(.6875)"><rect x="7" y="9" width="50" height="18" rx="4"/><rect x="7" y="37" width="50" height="18" rx="4"/><path d="M16 18h.1M16 46h.1M24 18h.1M24 46h.1M37 18h12M37 46h12"/></g>
+        <text class="in-lab" x="494" y="82">자가호스팅</text>
+        <text class="in-sub" x="494" y="110">OpenClaw · Hermes Agent</text>
+        <circle class="in-node dash" cx="440" cy="210" r="40"/>
+        <g class="in-ico" transform="translate(418 188) scale(.6875)"><circle cx="32" cy="18" r="9"/><circle cx="10" cy="26" r="6"/><circle cx="54" cy="26" r="6"/><path d="M16 56c0-11 7-18 16-18s16 7 16 18z"/><path d="M2 50c0-7 3-11 8-12M62 50c0-7-3-11-8-12"/></g>
+        <text class="in-lab" x="494" y="208">에이전트 소셜</text>
+        <text class="in-sub" x="494" y="236">Moltbook</text>
+        <circle class="in-node" cx="440" cy="336" r="40"/><circle class="in-node" cx="440" cy="336" r="34" style="stroke-width:1.6;stroke:rgba(255,255,255,.6)"/>
+        <g class="in-ico" transform="translate(418 314) scale(.6875)"><path d="M18 48h29a10 10 0 0 0 2-19.8A16 16 0 0 0 18.5 25 12 12 0 0 0 18 48z"/></g>
+        <text class="in-lab" x="494" y="334">클라우드 제품</text>
+        <text class="in-sub" x="494" y="362">Grok Bot · Muse</text>
+      </svg>
+    </figure>
   </div>
-  <div class="shell-foot" aria-hidden="true">
-    <span class="pill">교육 자료</span>
-    <span class="date">2026.10.01</span>
-  </div>
+  <footer class="in-foot"><span>네 가지 관점: 위임 · 지속 · 실행 환경 · 접근성</span><span>제품 이름보다, 위임이 어디서 멈추는지를 봅니다</span></footer>
 </section>
 
 <section id="opening-slide" aria-label="오프닝">
@@ -3530,6 +3570,7 @@ document.getElementById('next').addEventListener('click', () => {
 });
 
 buildPages();
+if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { const ia = document.getElementById('in-art'); if (ia && ia.pauseAnimations) ia.pauseAnimations(); }
 document.getElementById('op-route').appendChild(buildRoute({}));
 
 // QA: ?scene=0 opening, 1..25 scenes, 26 ending — skip intro for screenshots

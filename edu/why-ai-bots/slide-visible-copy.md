@@ -164,23 +164,23 @@
 
 ## 8장 · 진행②
 - **메시지** OpenClaw는 자가호스팅 갈래의 대표 사례 — 이름은 바뀌어도 같은 프로젝트
-- 2025-11
+- 2025-11-24
 - Warelay
-- 만든 사람 Peter Steinberger가 공개
+- 만든 사람 Peter Steinberger가 처음 공개
 - 2026-01-27
 - Moltbot
-- Anthropic의 상표 요청(Claude와 겹침)으로 Clawdbot에서 변경
+- Anthropic의 상표 문제 제기 뒤 이름 변경
 - 2026-01-30
 - OpenClaw
 - 사흘 뒤 다시 이름 변경
 - 2026-02-14
 - 재단으로
-- 만든 사람의 OpenAI 합류 발표 · 프로젝트는 비영리 OpenClaw Foundation으로
-- 같은 주, 다른 갈래: 2026-01-28 Moltbook 공개 (에이전트 소셜)
-- OpenClaw Foundation
-- 프로젝트를 한 회사가 아니라 비영리 재단이 맡아 관리
+- 만든 사람의 OpenAI 합류 발표 · 프로젝트는 OpenClaw Foundation으로 옮기기로
+- 이름 이력: Warelay → Clawdis → Clawdbot → Moltbot → OpenClaw
+- 같은 주, 다른 갈래: 2026-01-28 Moltbook 공개
+- 2026-03-02 기준 GitHub 스타 약 24.7만 (Wikipedia가 인용한 GitHub 기록)
 - 이름은 여러 번 바뀌었지만, 같은 프로젝트다
-- **출처/각주** 출처: Forbes(2026-01-27 · 2026-02-16) · CNBC(2026-02-15) · TechCrunch(2026-02-15) 보도 · Warelay 공개 시기는 커뮤니티 정리 자료 기준
+- **출처/각주** 출처: Peter Steinberger 블로그(2026-02-14) · Wikipedia “OpenClaw”(이름 이력, GitHub 기록 기준일 2026-03-02) · TechCrunch(2026-02-15)
 
 ## 9장 · 열광①
 - **메시지** 답이 아니라 결과를 맡긴다
@@ -224,7 +224,7 @@
 - Bot C
 - 브라우저 · 파일 · 로그인
 - 클라우드 실행 환경
-- 봇마다 전용 PC = 오해
+- 문서 기준: 계정당 컴퓨터 1대를 봇들이 공유
 - 개인별 Secure VM
 - Muse
 - Secure VM
@@ -234,7 +234,7 @@
 - 로컬 실행 — 데스크톱 앱 → 실제 PC
 - 클라우드 Auto Review와 별도 통제
 - 기본 Ask · Never (본 자료 권고)
-- Grok Bot: 한 컴퓨터를 봇들이 함께 씀 · Muse: 개인 VM + 인터넷 출구 통제(Sentinel)
+- Grok Bot: 한 컴퓨터를 봇들이 함께 씀(문서 기준) · Muse: 개인 VM + 인터넷 출구 통제(Sentinel)
 - 사진 크레딧: Abigor · CC BY-SA 3.0 · Wikimedia Commons (크기 조정·일부 잘라 표시)
 - **쉽게 말하면(나레이션)** 쉽게 말하면, Grok Bot은 사용자 한 명의 클라우드 컴퓨터를 그 사람의 봇들이 함께 쓰고, Muse는 개인별 시큐어 브이엠에 인터넷으로 나가는 길목 통제가 붙습니다.
 
@@ -270,6 +270,7 @@
 - Cursor 클라우드 · 사용자별 computer
 - 접근은 SuperGrok·Cursor 유료 플랜 등과 번들 · 요금은 플랜 안내 기준
 - 베타로 시작해 기업용 출시까지 이어졌다
+- **출처/각주** 출처: x.ai/news/grok-bot-for-enterprise · x.ai/news/grok-bot-more-plans (게시일은 별도 확인 필요)
 
 ## 14장 · Grok 구조
 - **메시지** 격리는 computer만이 아니다 · 로컬·네트워크를 같이 본다

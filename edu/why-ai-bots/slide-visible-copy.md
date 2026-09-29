@@ -262,7 +262,7 @@
 - 실행
 - Cursor 클라우드 · 사용자별 computer
 - 접근은 SuperGrok·Cursor 유료 플랜 등과 번들 · 요금은 플랜 안내 기준
-- **출처/각주** 출처: x.ai/news/grok-bot-for-enterprise · x.ai/news/grok-bot-more-plans (게시일은 별도 확인 필요)
+- **출처/각주** 출처: x.ai/news/grok-bot-for-enterprise · x.ai/news/grok-bot-more-plans · 게시일 2026-09-03 / 2026-08-26
 
 ## 14장 · Grok 구조
 - **메시지** 격리는 computer 하나로 끝나지 않고 로컬과 네트워크까지 본다

@@ -3143,6 +3143,7 @@ function buildFan(v) {
   };
   if (window.ResizeObserver) new ResizeObserver(relink).observe(w);
   window.addEventListener('resize', relink);
+  requestAnimationFrame(relink);
   return w;
 }
 
@@ -3235,7 +3236,7 @@ function buildEmbed(v) {
 }
 
 function dgPart(p) {
-  const f = DG_PARTS[p.type];
+  const f = Object.prototype.hasOwnProperty.call(DG_PARTS, p.type) ? DG_PARTS[p.type] : null;
   if (!f) { console.error('unknown part type: ' + p.type); return dgEl('div', 'dg-bad', '⚠ unknown part: ' + p.type); }
   return f(p);
 }
@@ -3310,7 +3311,7 @@ function buildVisual(s, mount) {
     return;
   }
   const direct = { fan: buildFan, rmap: buildRmap, axes: buildAxes, iconrow: buildIconrow, timeline: buildTimeline, speccards: buildSpeccards, riskrows: buildRiskrows };
-  if (direct[v.type]) { mount.appendChild(direct[v.type](v)); return; }
+  if (Object.prototype.hasOwnProperty.call(direct, v.type)) { mount.appendChild(direct[v.type](v)); return; }
   console.error('unknown visual type: ' + v.type);
   mount.appendChild(dgEl('div', 'dg-bad', '⚠ unknown visual type: ' + v.type));
 }

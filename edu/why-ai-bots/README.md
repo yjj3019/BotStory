@@ -1,4 +1,4 @@
-# Why AI Bots — 교육 패키지 (AI Bot 시대)
+# Why AI Bots — 교육 패키지 (AI 대항해 시대)
 
 Notion 대본 28클립을 **슬라이드(장표) 레이아웃** HTML + 나레이션으로 묶은 교육 자료입니다.
 

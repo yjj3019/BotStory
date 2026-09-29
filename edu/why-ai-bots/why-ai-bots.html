@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Bot 시대, 사람들은 왜 열광하는가</title>
+<title>AI 대항해 시대, 사람들은 왜 AI Bot에 열광하는가</title>
 <style>
   :root {
     --s-blue: #0156FC;
@@ -61,7 +61,8 @@
   .in-main { min-height: 0; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr); align-items: center; gap: clamp(1rem, 3vw, 3rem); }
   .in-copy { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: clamp(.6rem, 2.3vh, 1.4rem); }
   .in-copy > *, .in-art { animation: inUp .8s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i, 0) * 110ms); }
-  #intro h1 { margin: 0; display: flex; flex-direction: column; font-size: clamp(2.05rem, min(5.3vw, 9.6vh), 7rem); line-height: 1.1; letter-spacing: -.035em; font-weight: 800; text-wrap: balance; }
+  #intro h1 { margin: 0; display: flex; flex-direction: column; font-size: clamp(2rem, min(4.5vw, 9vh), 6.4rem); line-height: 1.1; letter-spacing: -.035em; font-weight: 800; text-wrap: balance; }
+  #intro h1 .nb { white-space: nowrap; }
   #intro h1 .l1 { color: rgba(255, 255, 255, .74); font-weight: 700; }
   #intro h1 em { font-style: normal; background: linear-gradient(100deg, #FFE7A8, #FFB84D 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .in-lede { margin: 0; max-width: min(34rem, 92%); font-size: clamp(.95rem, 2.5vh, 1.9rem); line-height: 1.55; color: rgba(255, 255, 255, .82); }
@@ -1245,7 +1246,7 @@
   </header>
   <div class="in-main">
     <div class="in-copy">
-      <h1 id="intro-title" style="--i:1"><span class="l1">AI Bot 시대,</span><span class="l2">사람들은 왜 <em>열광</em>하는가</span></h1>
+      <h1 id="intro-title" style="--i:1"><span class="l1">AI 대항해 시대,</span><span class="l2">사람들은 왜 <span class="nb">AI Bot에 <em>열광</em>하는가</span></span></h1>
       <p class="in-lede" style="--i:2">제품 카탈로그가 아니라, 미완의 위임에서 격리·승인·위임 설계까지. 약 30분 동안 그 길을 따라갑니다.</p>
       <ul class="in-chips" style="--i:3">
         <li><small>경로</small>자가호스팅 · 에이전트 소셜 · 클라우드</li>
@@ -1365,14 +1366,14 @@
 
 <script>
 // OPENING/ENDING은 SCENES 밖에 두고 narration.json과 수동 동기화한다.
-const OPENING_TEXT = '안녕하세요. 오늘 이 시간에 제품 이름을 하나씩 늘어놓지는 않을 겁니다. 사람들이 왜 AI 봇에 열광하는지, 그 질문 하나만 천천히 따라가 보려고 하는데요. 출발점은 답은 남는데 일은 끝나지 않던 한계입니다. 이 한계가 하루아침에 생긴 건 아니었죠. 그래서 배경을 세 장에 걸쳐 짚어 봅니다. 그다음에는 오픈소스로 직접 돌리는 자가호스팅, 그리고 에이전트 소셜이 연 길을 살펴봅니다. Grok Bot과 Muse는 증거의 두 갈래로 읽겠습니다. 설명은 삼십 분이고, 질의와 토론 시간은 따로 없습니다. 날짜와 요금은 공식 발표와 공식 안내에 적힌 범위에서만 말씀드립니다. 마무리는 격리와 승인, 위임 단위를 적어 두는 습관입니다. 화면에 뜨는 로고보다는 위임이 어디서 멈추는지를 눈여겨봐 주시면 좋겠습니다.';
+const OPENING_TEXT = '안녕하세요. 오늘 이 시간에 제품 이름을 하나씩 늘어놓지는 않을 겁니다. 사람들이 왜 AI 봇에 열광하는지, 그 질문 하나만 천천히 따라가 보려고 하는데요. 제목의 대항해 시대는 이 발표에서 쓰는 비유입니다. 저마다 다른 항로로 낯선 바다에 나선 시기라는 뜻으로 붙였습니다. 출발점은 답은 남는데 일은 끝나지 않던 한계입니다. 이 한계가 하루아침에 생긴 건 아니었죠. 그래서 배경을 세 장에 걸쳐 짚어 봅니다. 그다음에는 오픈소스로 직접 돌리는 자가호스팅, 그리고 에이전트 소셜이 연 길을 살펴봅니다. Grok Bot과 Muse는 증거의 두 갈래로 읽겠습니다. 설명은 삼십 분이고, 질의와 토론 시간은 따로 없습니다. 날짜와 요금은 공식 발표와 공식 안내에 적힌 범위에서만 말씀드립니다. 마무리는 격리와 승인, 위임 단위를 적어 두는 습관입니다. 화면에 뜨는 로고보다는 위임이 어디서 멈추는지를 눈여겨봐 주시면 좋겠습니다.';
 const ENDING_TEXT = '오늘은 왜 열광하는가, 이 질문 하나만 따라왔습니다. 시작점의 미완의 위임에서 출발했고요, 진행과 열광을 보고, Grok Bot과 Muse라는 두 증거를 거쳐 체크리스트까지 왔습니다. 중간에 배경 세 장과 연결 표준도 함께 봤죠. 위임은 편리함과 책임이 한 세트입니다. 격리와 승인 없이 결과만 쫓으면 과열로 기울기 쉽고요. 처음 던진 질문으로 돌아가 보면, 답은 위임과 실행 환경, 승인 경계에 있었습니다. 제품 이름은 앞으로도 계속 바뀔 텐데요. 새 제품을 보실 때 쇼핑 목록부터 만들기보다, 실행 환경과 승인 경계를 먼저 적어 보시면 좋겠습니다. 오늘 준비한 설명은 여기까지입니다. 끝까지 들어 주셔서 감사합니다.';
 
 const SCENES = [
   {
     year: '1장 · 표지',
-    title: 'AI Bot 시대, 사람들은 왜 열광하는가',
-    message: 'AI Bot 시대, 왜 열광하는가를 위임·지속·실행 환경으로 본다',
+    title: 'AI 대항해 시대, 사람들은 왜 AI Bot에 열광하는가',
+    message: 'AI 대항해 시대, 왜 AI Bot에 열광하는가를 위임·지속·실행 환경으로 본다',
     visual: {
         type: 'cover',
         sub: '시작점·배경 → 병행 세 경로 → Grok Bot·Muse',
@@ -1394,7 +1395,7 @@ const SCENES = [
     cover: true
   ,
     lines: [
-      '이천이십육년 시월 일일 교육 자료입니다. 제목은 AI Bot 시대, 사람들은 왜 열광하는가인데요. 부제는 시작점에서 출발해 자가호스팅과 에이전트 소셜을 지나 Grok Bot과 Muse로 오는 이야기입니다. 표지에는 네 축을 적었습니다. 위임, 지속, 실행 기반, 접근성이죠. 오늘의 본체는 왜 열광하는가이고, 제품은 그 증거로만 나옵니다. 학습 순서는 시작점, 배경, 진행, 현재 열광, 두 제품의 증거로 이어집니다. 그 뒤로 격리와 승인, 연결 표준, 리스크와 전망을 보고 체크리스트로 끝냅니다. 이 자료는 교육용이고, 판매 피치는 아닙니다. 열광의 이유를 끝까지 따라가 보겠습니다.'
+      '이천이십육년 시월 일일 교육 자료입니다. 제목은 AI 대항해 시대, 사람들은 왜 AI Bot에 열광하는가인데요. 부제는 시작점에서 출발해 자가호스팅과 에이전트 소셜을 지나 Grok Bot과 Muse로 오는 이야기입니다. 표지에는 네 축을 적었습니다. 위임, 지속, 실행 기반, 접근성이죠. 오늘의 본체는 왜 열광하는가이고, 제품은 그 증거로만 나옵니다. 학습 순서는 시작점, 배경, 진행, 현재 열광, 두 제품의 증거로 이어집니다. 그 뒤로 격리와 승인, 연결 표준, 리스크와 전망을 보고 체크리스트로 끝냅니다. 이 자료는 교육용이고, 판매 피치는 아닙니다. 열광의 이유를 끝까지 따라가 보겠습니다.'
     ]
   },
   {

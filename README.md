@@ -6,7 +6,7 @@
 
 | 패키지 | 경로 | 설명 |
 |--------|------|------|
-| **Why AI Bots** (AI Bot 시대) | [`edu/why-ai-bots/`](edu/why-ai-bots/) | 30분 설명형 HTML 장표 + 나레이션 (2026-10-01) |
+| **Why AI Bots** (AI 대항해 시대) | [`edu/why-ai-bots/`](edu/why-ai-bots/) | 30분 설명형 HTML 장표 + 나레이션 (2026-10-01) |
 
 미리보기:
 

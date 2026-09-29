@@ -341,3 +341,12 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 
 ### 이번에 사용하지 않은 것 (Wikipedia에 있으나 미검증·범위 밖)
 - Cisco AI 보안팀의 서드파티 스킬 분석(데이터 유출·프롬프트 주입), MoltMatch 사례, 중국 규제, 경쟁사 반응: 원문(Cisco 블로그 등)을 열람하지 않아 사용하지 않음. 리스크 장 보강이 필요하면 원문 텍스트 필요.
+
+## 글라스(AI 안경) 표기 정정 (2026-09-29, 17쪽 = 16장 Muse 개요)
+- 문제: 화면 박스 "글라스: coming soon (출시일 없음)"이 (1) 글라스가 무엇인지 설명하지 않고 (2) 안경 자체가 미출시인 것처럼 읽혔다.
+- 확인한 사실:
+  - Meta의 AI 안경은 **이미 판매 중**이다. 근거: 사용자가 제공한 Meta 코리아 "AI 안경 구매하기" 페이지 텍스트(meta.com/kr/ai-glasses/shop-all, Meta Glasses·Ray-Ban Meta(Gen 2·3)·Oakley Meta 판매 목록과 시작 가격, 발표 자료 열람 일자 2026-09-29). 웹 검색 결과 다수(9to5Mac 2026-09-23 등)도 Ray-Ban Meta Gen 3가 판매 중이라고 보도(2차 자료, 공식 페이지는 당시 네트워크 오류로 직접 열람하지 못함 [unverified]).
+  - **"coming soon"인 것은 안경 자체가 아니라 안경에서 쓰는 Muse**이다. 근거: 기존 검증 문구 "coming soon to AI glasses", "We're working on bringing Muse to our AI glasses"(위 VERIFIED 항목) + 검색 결과의 "in the coming months"(날짜 미발표).
+  - 같은 구매 페이지에 "Meta VR Glasses: 2027년 봄 출시 예정"이 있으나 이 발표의 범위(Muse·AI 안경)가 아니라 사용하지 않았다.
+- 반영: 화면 박스를 "Muse의 AI 안경(글라스) 탑재: coming soon (출시일 없음)"으로, 나레이션(17장)에 "글라스는 Ray-Ban Meta 같은 Meta의 AI 안경, 안경 자체는 이미 판매 중, 곧 나오는 것은 안경에서 Muse를 쓰는 기능, 출시일 없음"을 추가하고 "Muse의 국내 출시 일정"으로 대상을 명시(안경은 국내 판매 중이므로 오독 방지). 가격·모델별 사양은 발표에 넣지 않았다.
+- 발표 직전 재확인 대상: 안경에서의 Muse 출시 일정 발표 여부(부재 주장).

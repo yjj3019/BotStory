@@ -1,4 +1,4 @@
-# 출처 — AI Bot 시대, 사람들은 왜 열광하는가 (2026-10-01)
+# 출처 — AI 대항해 시대, 사람들은 왜 AI Bot에 열광하는가 (2026-10-01)
 
 신규 배경·연결 표준·리스크 이름 장(5·6·7·21·23장)에 쓰인 사실의 1차 출처. 열람일은 모두 2026-09-21. 장 번호는 25장 구성 기준이다.
 
@@ -256,3 +256,88 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 
 ### 발표 전 재확인 최우선 1건
 **Galaxy 정의를 화면·나레이션에 넣을지** — 잠금 규칙 10과 충돌하는 유일한 항목이라 사용자 확인 필요(PROGRESS.md 참고).
+
+## 시각 보강 — 용어 풀이·쉬운말·비유의 근거 (2026-09-29)
+
+이번 보강은 새 사실·수치·일자를 추가하지 않는다. 화면에 새로 생긴 "용어" 줄, "쉽게 말하면" 띠, 아이콘 그림의 근거를 아래에 남긴다. 표의 "근거"가 기존 화면·나레이션·출처 행이면 새 주장이 아니라 기존 내용을 풀어 쓴 것이다.
+
+| 장 | 새로 생긴 문구 | 근거 |
+|---|---|---|
+| 5 | RFC 439 = 그 대화가 기록으로 남은 문서 | 위 표 5장 RFC 439 행 |
+| 5 | ELIZA 효과 정의 | 위 표 5장 ELIZA 효과 행(정의만 사용) |
+| 6 | Transformer = 이 논문이 내놓은 모델 구조 | 위 표 6장 "Attention Is All You Need" 행 |
+| 6 | arXiv = 논문 공개 사이트 | **일반 정의(별도 출처 행 없음)** — 용어 풀이용. 이의가 있으면 삭제 대상 |
+| 8 | blast radius(피해 범위) | 8장 기존 나레이션 "피해 범위를 줄이는 목적" |
+| 12 | 과열 = 실제 근거보다 기대가 앞서 달아오른 상태 | **평이한 풀이(별도 출처 행 없음)** — 2장 "열광의 크기를 수치로 세지 않는다"와 09-21 결정의 "과열 ≠ 근거" 표현을 풀어 쓴 것 |
+| 15 | SLA = 서비스 수준 협약 — 지키기로 약속한 서비스 수준 | 15장 기존 나레이션 "서비스 수준 협약의 보장 수치" |
+| 17 | surrogate 토큰 = 진짜 비밀값 대신 쓰는 값(대리 토큰) | 17장 기존 나레이션 "대리 토큰으로 요청하고, 비밀값은 경계에서 주입" |
+| 17 | egress = 인터넷으로 나가는 길목 | 17장 기존 나레이션 "네트워크 이그레스, 곧 인터넷으로 나가는 길목" |
+| 17 | 회사 설명: 비밀값은 에이전트가 직접 보지 않게 설계 — 경계에서 붙여 준다 | 17장 기존 나레이션 "에이전트가 직접 보지 않도록 설계했다고 합니다"(귀속 유지) |
+| 11 | Grok Bot: 한 컴퓨터를 봇들이 함께 씀 · Muse: 개인 VM + 인터넷 출구 통제(Sentinel) | 11장 기존 도해·나레이션 |
+| 13 | "포함 플랜 확대" (8/26) | x.ai 공지 제목 "Grok Bot is now included with more plans"(웹 검색 확인). 8/26이라는 날짜 자체는 본문에 없어 재확인 대상. 2026-09-29에 "재정리"에서 되돌림 |
+| 21 | MCP와 A2A는 규칙을 관리하는 곳이 중립 재단으로 옮겨 갔다 | 위 표 21장 MCP(2025-12-09)·A2A(2026-08-27) 행. AG-UI·ACP·AP2는 재단 소속 여부를 말하지 않음 |
+| 22 | 헤더 "대응 · 남는 한계" | 22장 기존 셀 그대로. 한계(Meta 운영 접근이 기술적으로 차단되지 않음)는 위험 톤, Confidential VM은 미출시 톤으로 분리 |
+
+### 비유 (화면에 "비유" 태그 표시)
+- 3장: 챗봇은 안내 데스크, 에이전트는 맡긴 일을 실행해 보는 담당자 — 정확한 구분은 표의 네 항목이 기준.
+- 25장: 세 개의 밸브처럼 손이 닿는 곳에 두고 확인할 설정 세 개 — 사진(세 밸브)과 짝. 세 항목의 성격은 서로 다르며(정책·권고·절차) 순서를 뜻하지 않음.
+- 이전에 넣었던 11장 "빌려 쓰는 컴퓨터 / 잠긴 작업실" 비유는 독립 리뷰에서 실제 차이(컴퓨터 공유 여부, Sentinel의 출구 통제)를 가리고 보안 보증 인상을 준다는 지적을 받아 **삭제**하고 사실 문장으로 교체했다.
+
+### 시각 자료
+- 새 그림은 모두 직접 그린 일반 도형(범용 아이콘)이다. 로고·인물 초상·제품 UI 스크린샷 없음. 사진은 기존 CC 9장 그대로.
+
+### 2026-09-29 확정 수정 7건 (두 번째 외부 검토 반영)
+- 삭제: 25장 Galaxy 문장·각주, 8장 Hermes 출시일 문장, 2장 "열광의 크기를 수치로 세지 않습니다". (Galaxy의 실체 확인 기록은 위 표에 그대로 유지.)
+- "Never 권고"는 공식 문서가 아닌 본 자료의 권고이므로 화면(11·14·19·22·25장·엔딩)과 나레이션에 "(본 자료 권고)"/"이 자료는"을 표기.
+- Muse Spark "가장 뛰어난 모델"은 회사 주장이라 "메타에 따르면"을 붙임.
+- 쉽게 말하면 나레이션은 앞 문장을 되풀이한 9개 장(4·9·10·12·13·15·16·20·22)에서 제거. 화면 띠는 유지.
+- 글라스 시기: 웹 검색 결과 다수가 Meta 발표를 "coming months"로 요약하며 "하반기" 표현은 확인하지 못함 → 화면 "coming soon (출시일 없음)" 유지.
+- OpenGrokBot·Rakazo·OpenMausBot·NanoClaw 저장소 실재를 2026-09-29에 GitHub API로 재확인(삭제 불필요).
+
+## 8장② OpenClaw 사례 추가 (2026-09-29)
+
+이 환경에서는 1차 원문 열람이 막혀 있어 웹 검색 결과 요약(복수 매체 일치)으로 확인했다. 화면 각주에도 출처를 표기했다.
+
+| 사실 | 근거 | 상태 |
+|---|---|---|
+| 2026-01-27 Clawdbot → Moltbot 이름 변경. Anthropic이 "Clawdbot"·"Clawd"가 Claude와 상표상 겹친다며 변경을 요청 | Forbes 2026-01-27("Viral AI Sidekick 'Clawdbot' Changes Name To 'Moltbot'"), Laravel News, Trending Topics | 복수 매체 일치(2차) |
+| 2026-01-30 Moltbot → OpenClaw, 사흘 만에 재변경 | Forbes 2026-01-30("Moltbot Molts Again And Becomes OpenClaw"), 검색 요약 다수 | 복수 매체 일치(2차) |
+| 2026-02-14 만든 사람 Peter Steinberger가 OpenAI 합류를 발표, OpenClaw는 비영리 OpenClaw Foundation으로 이관되고 OpenAI가 계속 지원 | CNBC 2026-02-15, TechCrunch 2026-02-15, Forbes 2026-02-16, CGTN 2026-02-16 | 복수 매체 일치(2차) |
+| 2026-01-28 Moltbook 공개 | 위 "8장 Moltbook" 표(CNBC 2026-03-10) | VERIFIED(기존) |
+| 2025-11 Warelay라는 이름으로 공개 | openclaw.academy, Taskade 등 커뮤니티 정리 자료(2025-11-24) | **2차·커뮤니티 자료만** — 월만 표기하고 화면 각주에 명시 |
+
+**사용하지 않은 것**
+- GitHub 스타 수: 매체마다 수치와 기준일이 달라(25만·34만 등) 일관된 기준일·1차 출처를 확보하지 못함. 확보하면 "기준일·출처 병기"로 추가 가능.
+- Clawdis(2025-12-03) 중간 이름, 상표 분쟁의 세부 경위, Cisco 악성 스킬 분석, MoltMatch: 근거 미확인.
+- "OpenClaw가 열광의 진원지/모든 갈래의 기원"이라는 서술: 서사 잠금(병행 세 경로, 기원 선언 금지) 때문에 쓰지 않음. 이 장은 "자가호스팅 갈래의 대표 사례"로만 다룸.
+
+## Enterprise 2026-09-03 출시 근거 (2026-09-29)
+- 1차 URL은 아직 없다. 웹 검색으로 복수 매체·릴리스 노트 집계가 "2026-09-03, 접근·네트워크·감사 통제 추가, Grok·Cursor Enterprise 고객 2주 무료 체험"을 일치해서 보도함(AI Weekly, Superpower Daily, Releasebot의 xAI Release Notes 등). 초기 소개 페이지에는 Enterprise가 대기명단으로 남아 있을 수 있음 → **발표 전 x.ai 공식 공지 URL 확보 필요**.
+
+## 나레이션 표기 규칙 (2026-09-29)
+- TTS용으로 나레이션에만 영문을 한글로 풀었다: 뮤즈 닷 에이아이, 올해 안, 곧 출시, 오토 리뷰, 네트워크 컨트롤스, 사용 안 함(Never), 엔터프라이즈, 센티널, 엠시피·에이투에이. 화면 표기는 그대로.
+- 21장 ACP는 첫 등장에 "Agentic Commerce Protocol"로 풀어 씀(IBM의 Agent Communication Protocol과 구분).
+
+## 1차 원문 확인 (2026-09-29, 사용자가 본문 텍스트 제공)
+
+사용자가 x.ai·Meta·steipete.me·Wikipedia 페이지 5건의 본문을 직접 복사해 제공했다. 위 "8장② OpenClaw 사례 추가"·"Enterprise 출시 근거" 절의 2차 확인 항목을 아래로 대체한다.
+
+| 사실 | 원문 근거 | 상태·조치 |
+|---|---|---|
+| OpenClaw 이름 이력: Warelay(2025-11-24) → CLAWDIS(2025-12-03) → Clawdbot(2026-01-02) → Moltbot(2026-01-27) → OpenClaw(2026-01-30) | Wikipedia "OpenClaw" 정보 상자·본문("first published in November 2025 under the name Warelay") | **VERIFIED(백과 원문)** — 화면 이름 이력 상자·타임라인에 반영, "커뮤니티 자료 기준" 각주 삭제 |
+| 1-27 Moltbot 변경은 Anthropic의 상표 문제 제기 이후, 3일 뒤 OpenClaw("never quite rolled off the tongue") | 같은 문서 | VERIFIED |
+| Moltbook은 첫 개명과 같은 시기 공개(Matt Schlicht) | 같은 문서("At the same time as the first rebranding") | VERIFIED(기존 1-28 일자와 일치) |
+| GitHub 스타 247,000·포크 47,700 (2026-03-02 기준) | 같은 문서, GitHub 저장소 보관 페이지(2026-03-02) 인용 | **VERIFIED(기준일·출처 있음)** — 8장②에 "2026-03-02 기준 약 24.7만"으로 사용. 2장의 "수치로 세지 않는다" 프레이밍은 이미 삭제했으므로 충돌 없음 |
+| 2026-02-14 Steinberger가 OpenAI 합류 발표, OpenClaw는 재단으로 옮기며 열려 있고 독립적으로 남는다. OpenAI는 이미 프로젝트를 후원한다 | steipete.me "OpenClaw, OpenAI and the future"(2026-02-14): "OpenClaw will move to a foundation", "OpenAI … already sponsors the project", "I'm working on making it a foundation" | **VERIFIED(창작자 원문)**. **시제 정정**: 원문은 재단 이관을 "추진 중"이라 했으므로 "옮겨 갔다"(완료)를 "옮기기로/이어 가겠다고"로 수정. "비영리"는 Wikipedia 표현이라 화면에서 뺌 |
+| OpenClaw Foundation이 2026-08-30 OpenClaw 2.0(v2026.8.1) 발표 | Wikipedia(재단이 이후 실재) | 참고용, 화면 미사용 |
+| Enterprise 출시: "Grok Bot is now available for enterprises", Grok·Cursor Enterprise 고객 2주 무료·조직 전체 초대(좌석 없는 사람 포함), "access, network, and audit controls" 추가 | x.ai/news/grok-bot-for-enterprise 본문 | **VERIFIED(1차)** — 단 붙여넣은 본문에 **게시일이 없다**. "2026-09-03"은 여전히 복수 2차 보도 기준 → 페이지 게시일 확인 필요 |
+| 포함 플랜 확대: SuperGrok·Plus·Heavy, Cursor Pro·Pro+·Ultra, Cursor Teams; 봇 사용량은 별도; "Enterprise users can join a waitlist" | x.ai/news/grok-bot-more-plans 본문 | VERIFIED(1차) — 8/11 베타 언급은 있으나 **08-26이라는 날짜는 본문에 없음**. Enterprise 대기명단 문구는 이 글이 9/3 출시 이전이라는 뜻(앞선 검토의 "waitlist" 지적의 원인) |
+| 글라스: "coming soon to AI glasses", "We're working on bringing Muse to our AI glasses" (2026-09-23 글라스 블로그) | about.fb.com Muse 소개 글, meta.com 글라스 블로그 | **VERIFIED** — 화면 "coming soon (출시일 없음)" 유지가 정확. 앞선 "2026년 하반기 예정" 제안은 근거 없음 |
+| Muse Spark "Meta's most capable model to date", Sentinel이 인터넷 접근을 승인하고 "asks the person for permission when needed", 민감 행동(메일·구매) 전 확인, Confidential VM "Later this year", 미국 iOS·Android·muse.ai 롤아웃 | Muse 소개 글(2026-09-08) | VERIFIED(1차) — 기존 서술과 일치 |
+| Muse "free for most of what people need, with subscription plans" | 같은 글 | 무료+구독까지만 확인. **Power $20 / Maximum $100은 이 글에 없음** → Help 페이지 텍스트 필요 |
+
+### 공식 자료끼리 어긋나는 부분 (신규 발견)
+- **봇마다 전용 컴퓨터인가**: x.ai Enterprise 소개는 "Each Bot runs on its own computer in the cloud", 플랜 확대 글은 "They have their own computer in the cloud"라고 쓰지만, 기술 문서(위 140행)는 "Every Bot on your account uses the same computer"라고 설명한다. 기존 화면·나레이션의 "봇마다 전용 PC = 오해" 단정은 소개 글과 충돌하므로 **"문서 기준: 계정당 컴퓨터 1대를 봇들이 공유"**로 귀속을 붙여 바꿨다(11·14장).
+
+### 이번에 사용하지 않은 것 (Wikipedia에 있으나 미검증·범위 밖)
+- Cisco AI 보안팀의 서드파티 스킬 분석(데이터 유출·프롬프트 주입), MoltMatch 사례, 중국 규제, 경쟁사 반응: 원문(Cisco 블로그 등)을 열람하지 않아 사용하지 않음. 리스크 장 보강이 필요하면 원문 텍스트 필요.

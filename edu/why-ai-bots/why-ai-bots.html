@@ -1151,6 +1151,7 @@
     #story .tl-it .tl-s { font-size: var(--f1); }
     #story .tl-it .tl-y { font-size: max(22px, 3.4vh); }
     #story .tl-it { gap: .1rem; }
+    #story .dg-comp > .dg-box, #story .dg-cols2 > .dg-box { padding-top: .1rem; padding-bottom: .1rem; }
     #story .tl-it .tl-line { height: 1.3rem; }
     #story .tl-it .tl-txt { gap: .1rem; }
     #story .dg-spec.tiles .sp-head { flex-direction: row; text-align: left; padding-bottom: 0; }
@@ -1642,27 +1643,30 @@ const SCENES = [
     year: '8장 · 진행②',
     title: 'OpenClaw는 자가호스팅 갈래의 대표 사례 — 이름은 바뀌어도 같은 프로젝트',
     message: 'OpenClaw는 자가호스팅 갈래의 대표 사례 — 이름은 바뀌어도 같은 프로젝트',
-    foot: '출처: Forbes(2026-01-27 · 2026-02-16) · CNBC(2026-02-15) · TechCrunch(2026-02-15) 보도 · Warelay 공개 시기는 커뮤니티 정리 자료 기준',
+    foot: '출처: Peter Steinberger 블로그(2026-02-14) · Wikipedia “OpenClaw”(이름 이력, GitHub 기록 기준일 2026-03-02) · TechCrunch(2026-02-15)',
     visual: {
       type: 'stack',
-      aria: 'OpenClaw 사례 도해. 자가호스팅 갈래를 대표하는 OpenClaw의 이름 이력을 시간 순으로 잇는다. 2025년 11월 만든 사람 Peter Steinberger가 Warelay라는 이름으로 공개. 2026년 1월 27일 Anthropic이 Claude와 겹친다며 Clawdbot 이름의 변경을 요청해 Moltbot으로 변경. 사흘 뒤인 1월 30일 OpenClaw로 다시 변경. 2월 14일 만든 사람이 OpenAI 합류를 밝혔고 프로젝트는 비영리 OpenClaw Foundation으로 옮겨 간다. 같은 주인 1월 28일에는 에이전트 소셜 갈래의 Moltbook이 공개됐다. 이름은 여러 번 바뀌었지만 같은 프로젝트다.',
+      aria: 'OpenClaw 사례 도해. 자가호스팅 갈래를 대표하는 OpenClaw의 이력을 시간 순으로 잇는다. 2025년 11월 24일 만든 사람 Peter Steinberger가 Warelay라는 이름으로 처음 공개. 2026년 1월 27일 Anthropic의 상표 문제 제기 뒤 Moltbot으로 변경. 사흘 뒤인 1월 30일 OpenClaw로 다시 변경. 2월 14일 만든 사람이 OpenAI 합류를 발표하며 프로젝트를 재단 OpenClaw Foundation으로 옮기기로 했다. 이름 이력은 Warelay, Clawdis, Clawdbot, Moltbot, OpenClaw 순이다. 같은 주인 1월 28일에는 에이전트 소셜 갈래의 Moltbook이 공개됐다. 2026년 3월 2일 기준 GitHub 스타는 약 24.7만이다. 이름은 여러 번 바뀌었지만 같은 프로젝트다.',
       parts: [
         {
-          type: 'timeline', w: 3.4,
+          type: 'timeline', w: 3.1,
           items: [
-            { y: '2025-11', t: 'Warelay', ic: 'server', s: '만든 사람 Peter Steinberger가 공개' },
-            { y: '2026-01-27', t: 'Moltbot', ic: 'contract', s: 'Anthropic의 상표 요청(Claude와 겹침)으로 Clawdbot에서 변경' },
+            { y: '2025-11-24', t: 'Warelay', ic: 'server', s: '만든 사람 Peter Steinberger가 처음 공개' },
+            { y: '2026-01-27', t: 'Moltbot', ic: 'contract', s: 'Anthropic의 상표 문제 제기 뒤 이름 변경' },
             { y: '2026-01-30', t: 'OpenClaw', ic: 'flag', s: '사흘 뒤 다시 이름 변경' },
-            { y: '2026-02-14', t: '재단으로', ic: 'team', hi: true, s: '만든 사람의 OpenAI 합류 발표 · 프로젝트는 비영리 OpenClaw Foundation으로' }
+            { y: '2026-02-14', t: '재단으로', ic: 'team', hi: true, s: 'OpenAI 합류 발표 · 프로젝트는 OpenClaw Foundation으로' }
           ]
         },
-        { type: 'box', w: 0, t: '같은 주, 다른 갈래: 2026-01-28 Moltbook 공개 (에이전트 소셜)', tone: 'muted' },
-        { type: 'gloss', w: 0, items: [ { k: 'OpenClaw Foundation', v: '프로젝트를 한 회사가 아니라 비영리 재단이 맡아 관리' } ] },
+        { type: 'row', w: 0, cols: '1fr 1fr', parts: [
+          { type: 'box', t: '이름 이력: Warelay → Clawdis → Clawdbot → Moltbot → OpenClaw', tone: 'muted' },
+          { type: 'box', t: '같은 주, 다른 갈래: 2026-01-28 Moltbook 공개', tone: 'muted' }
+        ] },
+        { type: 'box', w: 0, t: '2026-03-02 기준 GitHub 스타 약 24.7만 (Wikipedia가 인용한 GitHub 기록)', tone: 'pending' },
         { type: 'easy', w: 0, look: 'bubble', ic: 'link', t: '이름은 여러 번 바뀌었지만, 같은 프로젝트다' }
       ]
     },
     lines: [
-      '자가호스팅 갈래를 대표하는 OpenClaw의 이야기를 조금 더 보겠습니다. 만든 사람은 Peter Steinberger이고, 이천이십오년 십일월 웨어레이라는 이름으로 공개됐다고 정리됩니다. 이천이십육년 일월 이십칠일에는 Anthropic이 클라우드봇이라는 이름이 자사 Claude와 상표상 겹친다며 변경을 요청했고, 프로젝트는 몰트봇으로 이름을 바꿨습니다. 사흘 뒤인 일월 삼십일에 다시 OpenClaw가 됐습니다. 그 사이인 일월 이십팔일에는 에이전트 소셜 갈래의 Moltbook이 공개됐습니다. 자가호스팅과 에이전트 소셜, 두 갈래가 같은 주에 나란히 움직인 셈입니다. 이월 십사일에는 만든 사람이 OpenAI 합류를 밝혔고, 프로젝트는 비영리 OpenClaw Foundation으로 옮겨 갔습니다. OpenAI는 이 프로젝트를 계속 지원하겠다고 밝혔습니다. 이름은 여러 번 바뀌었지만 같은 프로젝트입니다.'
+      '자가호스팅 갈래를 대표하는 OpenClaw의 이야기를 조금 더 보겠습니다. 만든 사람은 Peter Steinberger이고, 이천이십오년 십일월 이십사일 웨어레이라는 이름으로 처음 공개했습니다. 이름은 클라우디스와 클라우드봇을 거쳐, 이천이십육년 일월 이십칠일 Anthropic이 상표 문제를 제기한 뒤 몰트봇이 됐습니다. 사흘 뒤인 일월 삼십일에 다시 OpenClaw가 됐습니다. 그 사이인 일월 이십팔일에는 에이전트 소셜 갈래의 Moltbook이 공개됐습니다. 자가호스팅과 에이전트 소셜, 두 갈래가 같은 주에 나란히 움직인 셈입니다. 이천이십육년 삼월 이일 기준으로 깃허브 스타는 약 이십사만 칠천 개였다고 정리됩니다. 이월 십사일에 만든 사람은 OpenAI 합류를 밝히면서, 프로젝트는 재단으로 옮겨 열린 상태로 독립적으로 이어 가겠다고 했습니다. 본인 글에 따르면 OpenAI는 이미 이 프로젝트를 후원하고 있습니다. 이름은 여러 번 바뀌었지만 같은 프로젝트입니다.'
     ]
   },
   {
@@ -1780,7 +1784,7 @@ const SCENES = [
                   bots: [ 'Bot A', 'Bot B', 'Bot C' ],
                   mid: '브라우저 · 파일 · 로그인',
                   base: '클라우드 실행 환경',
-                  note: '봇마다 전용 PC = 오해'
+                  note: '문서 기준: 계정당 컴퓨터 1대를 봇들이 공유'
                 },
                 vm: {
                   title: '개인별 Secure VM',
@@ -1798,14 +1802,14 @@ const SCENES = [
               w: 0,
               look: 'bubble',
               ic: 'server',
-              t: 'Grok Bot: 한 컴퓨터를 봇들이 함께 씀 · Muse: 개인 VM + 인터넷 출구 통제(Sentinel)'
+              t: 'Grok Bot: 한 컴퓨터를 봇들이 함께 씀(문서 기준) · Muse: 개인 VM + 인터넷 출구 통제(Sentinel)'
             }
           ]
         }
       }
   ,
     lines: [
-      '셋째는 실행 기반, 곧 런타임입니다. 클라우드 컴퓨터와 시큐어 브이엠이 위임의 실행 기반이 됐습니다. 브라우저와 파일로 실제 앱에서 일하고, 기기를 꺼도 클라우드에서 작업이 이어집니다. Grok Bot 컴퓨터는 사용자 단위여서 봇끼리 공유하고, 봇마다 전용 컴퓨터가 있다는 말은 오해입니다. Muse는 개인별 시큐어 브이엠 안에 에이전트를 두고, 인터넷으로 나가는 길목에 통제 계층을 둡니다. 데스크톱 앱으로 실제 피씨에서 명령을 돌리는 로컬 실행은 별도 통제이며, 이 자료는 사용 안 함을 권고합니다. 각 사용자의 컴퓨터는 파이어크래커라는 경량 가상 머신으로 하드웨어 수준까지 분리됩니다. 같은 사용자의 봇끼리는 공유하지만, 다른 사용자 사이는 넘나들 수 없습니다.',
+      '셋째는 실행 기반, 곧 런타임입니다. 클라우드 컴퓨터와 시큐어 브이엠이 위임의 실행 기반이 됐습니다. 브라우저와 파일로 실제 앱에서 일하고, 기기를 꺼도 클라우드에서 작업이 이어집니다. Grok Bot 컴퓨터는 사용자 단위여서 봇끼리 공유하고, 소개 글에는 봇마다 자기 컴퓨터가 있다고 적혀 있지만, 기술 문서는 계정당 한 대를 봇들이 함께 쓴다고 설명합니다. 이 자료는 문서 기준을 따릅니다. Muse는 개인별 시큐어 브이엠 안에 에이전트를 두고, 인터넷으로 나가는 길목에 통제 계층을 둡니다. 데스크톱 앱으로 실제 피씨에서 명령을 돌리는 로컬 실행은 별도 통제이며, 이 자료는 사용 안 함을 권고합니다. 각 사용자의 컴퓨터는 파이어크래커라는 경량 가상 머신으로 하드웨어 수준까지 분리됩니다. 같은 사용자의 봇끼리는 공유하지만, 다른 사용자 사이는 넘나들 수 없습니다.',
       '쉽게 말하면, Grok Bot은 사용자 한 명의 클라우드 컴퓨터를 그 사람의 봇들이 함께 쓰고, Muse는 개인별 시큐어 브이엠에 인터넷으로 나가는 길목 통제가 붙습니다.'
     ]
   },
@@ -1840,6 +1844,7 @@ const SCENES = [
     year: '13장 · Grok 개요',
     title: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
     message: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
+    foot: '출처: x.ai/news/grok-bot-for-enterprise · x.ai/news/grok-bot-more-plans (게시일은 별도 확인 필요)',
     visual: {
         type: 'stack',
         aria: 'Grok Bot 개요 도해. 2026-08-11 beta 공개, 2026-08-26 포함 플랜 확대, 2026-09-03 Enterprise 출시 순의 날짜 타임라인이며 마지막 항목에는 2주 무료 체험과 조직 초대가 붙는다. 제품과 발표는 SpaceXAI, 실행은 Cursor 클라우드의 사용자별 computer다. 접근은 SuperGrok와 Cursor 유료 플랜 등과 번들이고 요금은 플랜 안내 기준이다.',

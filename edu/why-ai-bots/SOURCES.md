@@ -293,3 +293,27 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 - 쉽게 말하면 나레이션은 앞 문장을 되풀이한 9개 장(4·9·10·12·13·15·16·20·22)에서 제거. 화면 띠는 유지.
 - 글라스 시기: 웹 검색 결과 다수가 Meta 발표를 "coming months"로 요약하며 "하반기" 표현은 확인하지 못함 → 화면 "coming soon (출시일 없음)" 유지.
 - OpenGrokBot·Rakazo·OpenMausBot·NanoClaw 저장소 실재를 2026-09-29에 GitHub API로 재확인(삭제 불필요).
+
+## 8장② OpenClaw 사례 추가 (2026-09-29)
+
+이 환경에서는 1차 원문 열람이 막혀 있어 웹 검색 결과 요약(복수 매체 일치)으로 확인했다. 화면 각주에도 출처를 표기했다.
+
+| 사실 | 근거 | 상태 |
+|---|---|---|
+| 2026-01-27 Clawdbot → Moltbot 이름 변경. Anthropic이 "Clawdbot"·"Clawd"가 Claude와 상표상 겹친다며 변경을 요청 | Forbes 2026-01-27("Viral AI Sidekick 'Clawdbot' Changes Name To 'Moltbot'"), Laravel News, Trending Topics | 복수 매체 일치(2차) |
+| 2026-01-30 Moltbot → OpenClaw, 사흘 만에 재변경 | Forbes 2026-01-30("Moltbot Molts Again And Becomes OpenClaw"), 검색 요약 다수 | 복수 매체 일치(2차) |
+| 2026-02-14 만든 사람 Peter Steinberger가 OpenAI 합류를 발표, OpenClaw는 비영리 OpenClaw Foundation으로 이관되고 OpenAI가 계속 지원 | CNBC 2026-02-15, TechCrunch 2026-02-15, Forbes 2026-02-16, CGTN 2026-02-16 | 복수 매체 일치(2차) |
+| 2026-01-28 Moltbook 공개 | 위 "8장 Moltbook" 표(CNBC 2026-03-10) | VERIFIED(기존) |
+| 2025-11 Warelay라는 이름으로 공개 | openclaw.academy, Taskade 등 커뮤니티 정리 자료(2025-11-24) | **2차·커뮤니티 자료만** — 월만 표기하고 화면 각주에 명시 |
+
+**사용하지 않은 것**
+- GitHub 스타 수: 매체마다 수치와 기준일이 달라(25만·34만 등) 일관된 기준일·1차 출처를 확보하지 못함. 확보하면 "기준일·출처 병기"로 추가 가능.
+- Clawdis(2025-12-03) 중간 이름, 상표 분쟁의 세부 경위, Cisco 악성 스킬 분석, MoltMatch: 근거 미확인.
+- "OpenClaw가 열광의 진원지/모든 갈래의 기원"이라는 서술: 서사 잠금(병행 세 경로, 기원 선언 금지) 때문에 쓰지 않음. 이 장은 "자가호스팅 갈래의 대표 사례"로만 다룸.
+
+## Enterprise 2026-09-03 출시 근거 (2026-09-29)
+- 1차 URL은 아직 없다. 웹 검색으로 복수 매체·릴리스 노트 집계가 "2026-09-03, 접근·네트워크·감사 통제 추가, Grok·Cursor Enterprise 고객 2주 무료 체험"을 일치해서 보도함(AI Weekly, Superpower Daily, Releasebot의 xAI Release Notes 등). 초기 소개 페이지에는 Enterprise가 대기명단으로 남아 있을 수 있음 → **발표 전 x.ai 공식 공지 URL 확보 필요**.
+
+## 나레이션 표기 규칙 (2026-09-29)
+- TTS용으로 나레이션에만 영문을 한글로 풀었다: 뮤즈 닷 에이아이, 올해 안, 곧 출시, 오토 리뷰, 네트워크 컨트롤스, 사용 안 함(Never), 엔터프라이즈, 센티널, 엠시피·에이투에이. 화면 표기는 그대로.
+- 21장 ACP는 첫 등장에 "Agentic Commerce Protocol"로 풀어 씀(IBM의 Agent Communication Protocol과 구분).

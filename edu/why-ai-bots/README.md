@@ -1,14 +1,14 @@
 # Why AI Bots — 교육 패키지 (AI Bot 시대)
 
-Notion 대본 27클립을 **슬라이드(장표) 레이아웃** HTML + 나레이션으로 묶은 교육 자료입니다.
+Notion 대본 28클립을 **슬라이드(장표) 레이아웃** HTML + 나레이션으로 묶은 교육 자료입니다.
 
 - **형식**: 설명 30분 · 질의 없음
 - **날짜**: 2026-10-01 education material
 - **경로**: `edu/why-ai-bots/`
 
 ## 최소 구성 (기록 범위)
-- `why-ai-bots.html` — 오프닝 + 25장 + 엔딩
-- `narration.json` — 27클립 나레이션 (`lines[]` 유지)
+- `why-ai-bots.html` — 오프닝 + 25장(8장에 OpenClaw 사례 1화면 추가, 총 26화면) + 엔딩
+- `narration.json` — 28클립 나레이션 (`lines[]` 유지)
 - `slide-visible-copy.md` — 화면에 보이는 층 카피 (SCENES에서 자동 생성)
 - `SOURCES.md` — 신규 배경·연결 표준·리스크 이름 장의 1차 출처와 미사용 항목
 

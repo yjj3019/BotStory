@@ -419,3 +419,10 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 - 조치: 화면은 **우리말 이름을 크게, 영어 원제와 ASI 번호를 작게**(예: ASI03 · 신원·권한 오남용 / Identity & Privilege Abuse), 세 번째 열을 "읽는 법"에서 **"쉽게 말하면"**으로 바꿔 일상어로 풀었다. 나레이션은 영어 이름과 번호 낭독을 없애고 우리말 이름으로 말한 뒤 "영어 원제와 번호는 화면에서 확인하세요"로 안내한다.
 - 우리말 이름은 OWASP 영어 원제를 옮긴 **이 자료의 번역**이다(Identity and Privilege Abuse → 신원·권한 오남용, Agent Goal Hijack → 목표 가로채기, Tool Misuse → 도구 오용, Unexpected Code Execution → 예기치 못한 코드 실행, Human-Agent Trust Exploitation → 사람의 신뢰 악용). OWASP 공식 한국어 명칭이 아니므로 화면 메모에 "대응과 우리말 이름은 오늘 자료의 해석·번역, OWASP 공식 대응표 아님"을 명시했다. 대응 자체(어느 위험이 어느 ASI 항목에 가까운지)는 이전과 같은 이 자료의 해석이다.
 - 근거 출처는 그대로: OWASP GenAI Security Project · Top 10 for Agentic Applications 2026(2025-12-09 발행).
+
+## 2026-09-30 발표 전 재확인 (읽기 전용, 화면·나레이션 미변경)
+- 결과: 6개 항목 전부 **수정 필요 0건**. 새 사실·수치 추가 없음, 서사 잠금 유지.
+- 일치 확인: Muse 9/8 미국 롤아웃·Power $20 / Maximum $100·Confidential VM "later this year"(미출시) / 안경 Muse "In the coming months"(9/23 Connect) / Grok Bot Enterprise 2026-09-03(x.ai 글은 "free usage for the next two weeks", 자료는 출시 당시 프로모션으로 과거형) / Network Controls Enterprise 전용·정책 없으면 allow-all / 게시일 09-03·08-26·08-11과 "SpaceXAI" 표기 / 15장 "90% done vs 100% done — Roman, Product" / OpenAI dots(2026-09-29) "own cloud computer"·always-on.
+- 주의: docs FAQ는 Enterprise를 "rolling out"으로 적어 뉴스의 "available"과 표현이 다르다 → "x.ai 발표 글 기준" 귀속 유지.
+- 열람 한계: about.fb.com·x.ai·cursor.com은 직접 접속 불가(ECONNREFUSED), openai.com 403 → Exa로 대체 열람, 일부 페이지는 앞부분 전문·나머지 발췌. Meta Help 요금표 전체, Secure VM "Meta 접근 차단 안 됨" 문장의 Meta 원문, dots 도움말 승인 절, 14장 Auto Review 한계 서술은 이번에 재열람하지 못함(각각 2차 인용 또는 기존 전문 열람 기록에 의존).
+- 발표 당일 아침 선택 점검: Meta 뉴스룸/Help의 안경 Muse 출시 공지 유무(9/24 이후 출시 보도 미검색 — 부재 증명은 아님), dots 도움말 승인 절 전문.

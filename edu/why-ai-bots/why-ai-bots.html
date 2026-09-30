@@ -3444,7 +3444,7 @@ function showScene(n) {
     story.classList.add('visible');
     const elp = document.getElementById('scene-' + n);
     if (elp) elp.classList.add('active');
-    meta.textContent = n + ' / ' + sceneCount + ' · ' + (SCENES[n - 1].year || '');
+    meta.textContent = n + '쪽 / ' + sceneCount + '쪽 · ' + (SCENES[n - 1].year || ''); // 쪽 = 화면 순번, 장 = 장 번호(8장②가 한 쪽을 더 차지해 9장부터 1 어긋남)
   } else if (n === sceneCount + 1) {
     closing.classList.add('show');
     meta.textContent = '엔딩';

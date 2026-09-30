@@ -413,3 +413,9 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 
 **새로 확인했으나 발표에 쓰지 않은 것**: Muse Mac 데스크톱 앱, 커넥터 확대(Walmart·Notion·GitHub 등), Muse Charm(연말 출시 예정), Meta Glasses 하드웨어의 9/23 한국 출시(Muse 국내 출시와 무관), Grok 4.7, dots 첫 dot 무료·첫 달 사용량 미산정, OpenAI 요금 개편(Pro $100/$200/$500 3단계, Pro $200 허용량 10/30부터 하향 — Implicator·AA·Pulse2 등 매체 기준, 공식 help 요금 문서 미열람 [unverified]). Muse 웹 결제가 $16/$80이라는 주장(layer3labs)은 공식 확인 안 됨.
 **발표 당일 아침 재확인**: dots 도움말 원문 문구, Muse Help 요금표, Confidential VM·안경 Muse 출시 여부.
+
+## 24쪽(23장 리스크 이름) 쉬운 표기 (2026-09-30)
+- 사용자 지적: "내용이 너무 어렵다". 화면은 `ASI03 Identity & Privilege Abuse`처럼 영어 원제와 코드가 앞에 나오고, 나레이션은 영어 이름을 그대로 읽고 있었다.
+- 조치: 화면은 **우리말 이름을 크게, 영어 원제와 ASI 번호를 작게**(예: ASI03 · 신원·권한 오남용 / Identity & Privilege Abuse), 세 번째 열을 "읽는 법"에서 **"쉽게 말하면"**으로 바꿔 일상어로 풀었다. 나레이션은 영어 이름과 번호 낭독을 없애고 우리말 이름으로 말한 뒤 "영어 원제와 번호는 화면에서 확인하세요"로 안내한다.
+- 우리말 이름은 OWASP 영어 원제를 옮긴 **이 자료의 번역**이다(Identity and Privilege Abuse → 신원·권한 오남용, Agent Goal Hijack → 목표 가로채기, Tool Misuse → 도구 오용, Unexpected Code Execution → 예기치 못한 코드 실행, Human-Agent Trust Exploitation → 사람의 신뢰 악용). OWASP 공식 한국어 명칭이 아니므로 화면 메모에 "대응과 우리말 이름은 오늘 자료의 해석·번역, OWASP 공식 대응표 아님"을 명시했다. 대응 자체(어느 위험이 어느 ASI 항목에 가까운지)는 이전과 같은 이 자료의 해석이다.
+- 근거 출처는 그대로: OWASP GenAI Security Project · Top 10 for Agentic Applications 2026(2025-12-09 발행).

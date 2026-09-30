@@ -367,3 +367,20 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 | 5장 "전해집니다" 단정 | 보류 | 저서 논지의 요약 문장이라 귀속 유지 |
 | 장 번호 "8장 진행①·②" | 표기 선택 사항 | 미변경. 화면 하단 "N/26"과 장 번호가 1씩 어긋남(17쪽=16장) — 발표자 결정 |
 | 나레이션 분량 "약 8,900자, 23~27분" | 기준 차이. 저희 집계는 공백 포함 11,694자(공백 제외 약 9,000자). 실측 시간은 TTS 합성 후 확인 필요 [unverified] | — |
+
+## OpenAI dots (2026-09-29 발표) 반영 근거 (2026-09-30 조사)
+**열람 한계**: OpenAI 공식 발표(`openai.com/index/introducing-dots`)와 도움말(`help.openai.com/en/articles/20001529-dots-privacy-security-and-safety-faqs`)은 HTTP 403, 언론 사이트는 네트워크 오류로 **원문을 직접 열람하지 못했다**. 아래는 검색 결과에 나온 복수 매체 요약을 교차한 것이며 [unverified] 표시가 없는 항목은 3개 이상 매체가 일치한 사실이다.
+
+| 사실 | 근거(복수 일치) | 상태 | 발표 반영 |
+|---|---|---|---|
+| OpenAI가 DevDay(2026-09-29, 미국 기준 화요일)에서 "dots"(에이전트 하나는 "a dot")를 발표하고 ChatGPT에서 제공 시작 | TechCrunch·Quartz·CBS·CNBC·Slashdot·PYMNTS·Fortune 등 검색 결과 | 다수 일치, 원문 미열람 | 24장 전망 "새 사례", 24장·엔딩 나레이션 |
+| 항상 켜져 있는(always-on) 에이전트, 각 dot이 **자기 클라우드 컴퓨터**(브라우저 포함)를 가지고 계속 일함 | TNW·SiliconANGLE·Datacamp·Quartz, "according to OpenAI" 표기 | 다수 일치 | 나레이션 "자기 클라우드 컴퓨터에서 계속 일하는 에이전트" (OpenAI 발표 귀속) |
+| 위험한 행동에는 승인 규칙이 붙음(기본 규칙, 사용자 Custom Rules, 비밀번호 변경·영구 삭제 등 고위험은 명시 동의, 저장 카드 구매는 승인 필요, 안전 문제 감지 시 일시 정지 가능) | 도움말 "Dots privacy, security, and safety FAQs" 요약을 인용한 Datacamp·dragapp·pasquale 등 | 도움말 요약 기준, 원문 미열람 [unverified] | 나레이션에는 "위험한 행동에는 승인 규칙이 붙어요"까지만 |
+| 대상: ChatGPT Pro와 Business Premium, 지원 시장 한정(Pro는 EEA·스위스·영국 제외), 첫 dot은 추가 비용 없음, 이후 한 달간 dot 사용량은 플랜 한도에 미포함 | TechCrunch·Quartz 요약 | 다수 일치 | **발표에 쓰지 않음**(요금·지역 세부는 바뀔 수 있고 이 발표의 논지와 무관) |
+| 모델 GPT-6 Astra, 4,000개 이상 앱 연결, 접근 경로 ChatGPT·문자·Slack·Teams·전화 | 다수 매체 | 일치하나 세부 수치라 | 쓰지 않음 |
+| Meta Muse·Grok Bot의 경쟁 제품으로 보도 | Yahoo Finance·MacRumors·The Decoder·iPhone in Canada 등 | 매체 해석 | 쓰지 않음(비교는 이 자료의 해석이 되므로 "같은 방향의 새 사례"까지만) |
+| "$500 월 구독 티어" 동시 발표 | Bloomberg·Fortune·Pulse2 보도 | **불일치**: 별도 검색에서 요금 페이지에는 나타나지 않음 [unverified] | 쓰지 않음 |
+| 안전성 논란 | NBC "amid safety questions" 등 | 매체 논조, 세부 미확인 | 쓰지 않음 |
+
+- **반영 원칙**: 서사 잠금 유지(병행 세 경로, Grok Bot/Muse 두 증거, Auto Review≠Sentinel). dots는 별도 화면을 만들지 않고 24장 "관찰 포인트"의 새 사례 한 항목과 엔딩의 "제품 이름은 바뀐다" 근거 한 문장으로만 넣었다. dots의 "Auto-review"(dots 자체 기능 이름)는 Grok Bot의 오토 리뷰와 이름이 비슷하므로 발표에서 언급하지 않는다.
+- **발표 직전 재확인**: 공식 발표문과 도움말 원문(가능하면 사용자가 텍스트를 붙여 넣어 대조), 특히 ① 승인 규칙 문구 ② 대상 플랜 ③ "always-on/자기 클라우드 컴퓨터" 표현.

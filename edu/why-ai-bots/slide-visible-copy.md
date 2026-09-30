@@ -457,25 +457,29 @@
 ## 23장 · 리스크 이름
 - **메시지** 리스크에 이름을 붙이면 점검 항목이 된다
 - 오늘 다룬 리스크
-- 가까운 ASI 항목
-- 읽는 법
+- 바깥에서 붙인 이름 (OWASP)
+- 쉽게 말하면
 - 자격증명 · 잔존 로그인
 - ASI03
+- 신원·권한 오남용
 - Identity & Privilege Abuse
-- 권한이 사람보다 오래 남는 경우
+- 사람은 떠났는데 권한과 로그인만 남아 있는 경우
 - 오작동 · 과도 위임
 - ASI01 · 02
+- 목표 가로채기 · 도구 오용
 - Agent Goal Hijack · Tool Misuse
-- 목표와 도구가 틀어지는 경우
+- 봇이 엉뚱한 목표를 따르거나 도구를 잘못 쓰는 경우
 - 로컬 실행 · 책임
 - ASI05
+- 예기치 못한 코드 실행
 - Unexpected Code Execution
-- 실행이 내 PC로 내려오는 경우
+- 봇의 실행이 내 PC까지 내려오는 경우
 - 과도한 신뢰
 - ASI09
+- 사람의 신뢰 악용
 - Human-Agent Trust Exploitation
-- ELIZA 효과와 맞닿는 지점
-- 대응은 오늘 자료의 해석, OWASP 공식 대응표 아님
+- 봇을 너무 믿게 되는 경우 (ELIZA 효과와 맞닿음)
+- 대응과 우리말 이름은 오늘 자료의 해석·번역, OWASP 공식 대응표 아님
 - ASI04 · ASI06 · ASI07 · ASI08 · ASI10은 오늘 표에 행 없이 목록으로만
 - **출처/각주** 출처: OWASP GenAI Security Project · Top 10 for Agentic Applications 2026 (2025-12-09 발행)
 

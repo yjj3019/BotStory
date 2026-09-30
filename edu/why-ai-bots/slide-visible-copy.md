@@ -165,7 +165,7 @@
 - 만든 사람 Peter Steinberger가 처음 공개
 - 2026-01-27
 - Moltbot
-- Anthropic의 상표 문제 제기 뒤 이름 변경
+- Clawdbot이 Anthropic의 상표 문제 제기를 받아 이름 변경
 - 2026-01-30
 - OpenClaw
 - 사흘 뒤 다시 이름 변경
@@ -314,7 +314,7 @@
 - 무료 한도
 - Power $20
 - Maximum $100
-- 공식 Help 기준 · 지역·계정별 상이
+- 공식 Help 기준 · 지역·계정별 상이 · 막대 높이는 금액에 비례
 - Muse의 AI 안경(글라스) 탑재: coming soon (출시일 없음)
 - 사내 배포 방식: 발표문에 없음
 - 앱·웹·메신저에서 만나는 개인 agent, 지금은 미국에서 시작된 롤아웃

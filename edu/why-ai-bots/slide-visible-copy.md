@@ -343,6 +343,7 @@
 - **메시지** 기업 발언·사실·해석을 표로 가른다
 - 기업 발언
 - personal superintelligence 등 장기 방향
+- 안경에서 Muse: 앞으로 몇 달 안 (출시일 없음)
 - 사실
 - 2026-09-08 미국 롤아웃
 - Secure VM · Sentinel

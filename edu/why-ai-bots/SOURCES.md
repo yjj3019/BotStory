@@ -391,3 +391,25 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 - **조치**: 새 사실 없이, 이전 원고에서 검증돼 있던 연도·날짜 21곳을 이야기의 뼈대가 되는 것만 자연스럽게 복원했다(5장 1972·1976, 6장 2017·2022·11-30·2023, 7장 2024-10-22, 8장② 2025-11-24·2026-01-27/30/28·02-14, 13장 8-11·8-26, 16·18장 9-8, 21장 MCP·AAIF·A2A 일자, 23장 발행 시기, 25장 오프보딩 네 단계 이름). 사용자가 "딱딱하다"고 한 날짜 나열 전체를 되돌린 것은 아니다.
 - **결과**: 나레이션 11,844 → **12,075자**. 382자/분 기준 **31.6분**(30분 하한까지 여유 615자). 30분이 되는 손익분기 속도는 약 **402자/분**이다. 음성이 이보다 빠르면(420자/분이면 28.8분) 합성 후 추가 보완이 필요하다. 남은 보완 후보: 3차에서 압축한 용어 풀이·예시, 이미 있는 비유의 부연.
 - 토큰 검사(`check.js`)에서 새 토큰 없음(전부 기존 검증 값), 감사 1280×720 0건, 콘솔 에러 0.
+
+## 발표 직전 사실 재확인 (2026-09-30, 발표 전날)
+**방법**: 검색과 Exa fetch로 확인. 본문을 **전문 열람**한 공식 페이지: `x.ai/news/grok-bot-for-enterprise`, `x.ai/bot`, `docs.x.ai/grok-bot/*`(teams-and-enterprises, security, security-faq, approvals-security-and-privacy), `openai.com/index/devday-2026-recap/`. **발췌만** 본 것: `about.fb.com` Muse 소개, `research.meta.ai` 보안 글, `meta.com` Connect 요약·구독 Help. **미열람**: `help.openai.com` dots 문서, `x.ai/news/grok-bot-more-plans`, 8/11 Introducing 글.
+
+| 항목 | 결과 |
+|---|---|
+| Muse 9/8 미국 롤아웃, 채널, 요금(Power $20/월·Maximum $100/월, 일부 지역 미제공) | 일치(발췌 기준) |
+| Muse Confidential VM "later this year", 미출시 | 일치 |
+| Muse 안경 "In the coming months we're bringing Muse to our AI glasses"(Connect 9/23), 날짜 없음 | 일치 → 나레이션에 "Meta는 앞으로 몇 달 안에…" 귀속 반영 |
+| Muse Secure VM에서 Meta 접근 차단 안 됨(공식 "does not prevent Meta from accessing data when necessary to support, secure or operate the service") | 일치 |
+| Grok Bot Enterprise 9/3, "free usage for the next two weeks", 조직 전체 초대 | 일치(전문). **2주 무료는 9/17경 종료 추정** → 현재형을 "출시 때는 … 제공됐어요"로 정정 |
+| Network Controls Enterprise 전용·정책 없으면 allow-all, Auto Review 한계(메모리·대부분의 설정 미검토, 최소 권한 대체 불가), 계정당 컴퓨터 공유 | 일치(전문) |
+| "SpaceXAI" 표기 | 확인: 뉴스 페이지 제목 "Grok Bot for Enterprise \| SpaceXAI", x.ai/bot 본문 "The SpaceXAI team runs on Grok Bot" (docs 4개는 거의 안 씀) |
+| OpenAI dots: always-on, 자기 클라우드 컴퓨터, Pro·Business Premium, 승인 규칙(Custom Rules·auto-review·Activity View, 민감 작업은 사용자) | 핵심 일치. '기본 규칙'·'고위험 명시 동의'라는 **공식 명칭은 미확인**(발표에서는 풀어 쓰기만 함). 한국 공식 지원 여부 확인불가 |
+
+**공식 채널 간 불일치(발표에서 한쪽만 단정하지 않음)**
+1. 컴퓨터: 뉴스 9/3 "Each Bot runs on its own computer in the cloud", x.ai/bot "Bots have their own computer" ↔ docs "All ... Bots share the same computer". 이 자료는 문서 기준(이미 귀속됨).
+2. Enterprise 상태: 뉴스 "available" ↔ docs 가용성 표 "Rolling out. Contact your Cursor account team". 잠금 규칙(엔터프라이즈는 출시, 대기명단 아님)은 뉴스 기준으로 유지하되 docs 표현은 이 항목에 기록.
+3. 포함 플랜 목록: 8/26 뉴스(SuperGrok·Cursor Pro 포함) ↔ docs(8/20~22 갱신)의 더 좁은 목록. 발표는 "SuperGrok와 Cursor 유료 플랜 등"으로 일반화해 충돌 없음.
+
+**새로 확인했으나 발표에 쓰지 않은 것**: Muse Mac 데스크톱 앱, 커넥터 확대(Walmart·Notion·GitHub 등), Muse Charm(연말 출시 예정), Meta Glasses 하드웨어의 9/23 한국 출시(Muse 국내 출시와 무관), Grok 4.7, dots 첫 dot 무료·첫 달 사용량 미산정, OpenAI 요금 개편(Pro $100/$200/$500 3단계, Pro $200 허용량 10/30부터 하향 — Implicator·AA·Pulse2 등 매체 기준, 공식 help 요금 문서 미열람 [unverified]). Muse 웹 결제가 $16/$80이라는 주장(layer3labs)은 공식 확인 안 됨.
+**발표 당일 아침 재확인**: dots 도움말 원문 문구, Muse Help 요금표, Confidential VM·안경 Muse 출시 여부.

@@ -225,7 +225,7 @@
     min-width: 0;
     background: rgba(255,255,255,.94);
     border: 1px solid var(--line); border-radius: 16px;
-    padding: min(1.75rem, 3vh) 2rem; text-align: left;
+    padding: min(2.4rem, 4vh) 2.4rem; text-align: left;
     box-shadow: 0 12px 36px rgba(15,23,42,.06);
   }
   #closing .recap {
@@ -234,8 +234,8 @@
   }
   #closing .recap li {
     counter-increment: recap; position: relative; padding-left: 2.6rem;
-    color: var(--ink); font-size: clamp(1.15rem, min(2.2vw, 3.7vh), 1.9rem); font-weight: 800;
-    line-height: 1.4; letter-spacing: -0.01em;
+    color: var(--ink); font-size: clamp(1.15rem, min(2.5vw, 4.2vh), 2.5rem); font-weight: 800;
+    line-height: 1.4; letter-spacing: -0.01em; text-wrap: balance;
   }
   #closing .recap li::before {
     content: counter(recap); position: absolute; left: 0; top: .1em;
@@ -249,7 +249,7 @@
   }
   #closing .check li {
     position: relative; padding-left: 2rem; color: var(--ink-2);
-    font-size: max(16px, min(1.5vw, 2.4vh, 1.5rem)); line-height: 1.45;
+    font-size: max(17px, min(1.7vw, 3vh, 1.9rem)); line-height: 1.45; text-wrap: balance;
   }
   #closing .check li::before {
     content: ""; position: absolute; left: 0; top: .2em;
@@ -594,7 +594,9 @@
     border: var(--dg-line) solid var(--s-blue); border-radius: 14px; background: var(--s-blue-wash);
   }
   .dg-frame > b { align-self: flex-start; font-size: var(--f2); font-weight: 800; color: var(--s-blue-deep); }
-  .dg-frame > .dg-box { flex: 1 1 0; }
+  /* a single inner box no longer stretches over the whole frame: it keeps a readable size and the label + box sit together in the middle */
+  .dg-frame { justify-content: center; }
+  .dg-frame > .dg-box:only-of-type { flex: 0 1 62%; }
   .dg-edge {
     flex: 0 0 auto; padding: .45rem .8rem; border-radius: 10px; background: var(--s-blue-deep); color: #fff;
     text-align: center; font-size: var(--f1); font-weight: 800;
@@ -1061,10 +1063,11 @@
   .dg-irow.compact .tx > .s { font-size: var(--f1); font-weight: 700; color: var(--ink-2); line-height: 1.3; }
 
   /* timeline: dots on one line, icon above, label below; `rise` lifts later stops */
-  .dg-tl { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); }
+  /* the whole timeline is one block, centred in the free height (a stretched 1fr row left big empty bands above and below) */
+  .dg-tl { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); grid-template-rows: auto; align-content: center; align-content: safe center; }
   .tl-it { --tone: var(--s-blue-deep); --edge: var(--s-blue); min-width: 0; min-height: 0; display: flex; flex-direction: column; align-items: center; gap: .35rem; padding: 0 .4rem; }
   .tl-it.t-risk { --tone: var(--risk-ink); --edge: var(--risk); }
-  .tl-it .tl-top { flex: 1 1 0; min-height: 0; display: flex; align-items: flex-end; justify-content: center; padding-top: calc(var(--i, 0) * 0px); }
+  .tl-it .tl-top { flex: 0 0 auto; min-height: 0; display: flex; align-items: flex-end; justify-content: center; padding-top: calc(var(--i, 0) * 0px); }
   .tl-it .tl-line { position: relative; align-self: stretch; height: 1.7rem; flex: 0 0 auto; }
   .tl-it .tl-line::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; margin-top: -2px; border-top: 4px solid var(--s-blue); }
   .tl-it:first-child .tl-line::before { left: 50%; }
@@ -1074,7 +1077,7 @@
   .tl-it .tl-y { font-size: max(24px, 4vh); font-weight: 800; color: var(--tone); line-height: 1.15; }
   .tl-it .tl-t { font-size: var(--f3); font-weight: 800; color: var(--ink); line-height: 1.25; }
   .tl-it .tl-s { font-size: var(--f1); font-weight: 700; color: var(--ink-2); line-height: 1.3; }
-  .tl-it .tl-txt { flex: 1.15 1 0; min-height: 0; display: flex; flex-direction: column; align-items: center; gap: .25rem; text-align: center; }
+  .tl-it .tl-txt { flex: 0 0 auto; min-height: 0; display: flex; flex-direction: column; align-items: center; gap: .25rem; text-align: center; }
   .dg-tl.rise .tl-it { padding-top: calc((var(--n) - 1 - var(--i)) * 2.2vh); }
 
   /* fan: one common start, three parallel branches (no arrows, no numbers between branches) */
@@ -1221,7 +1224,7 @@
   #scene-1 .cv-axes li:not(:first-child) .ic-disc { display: none; }
   #scene-13 .sp-head b { font-size: max(34px, 5.6vh); }
   #scene-6 .tl-top { display: none; }
-  #scene-6 .tl-it { justify-content: flex-start; padding-top: 11vh; gap: .5rem; }
+  #scene-6 .tl-it { justify-content: flex-start; padding-top: 0; gap: .5rem; }
   #scene-6 .tl-it .tl-txt { flex: 0 0 auto; }
   #scene-6 .tl-y { font-size: max(30px, 5.2vh); }
   #scene-6 .tl-t { font-size: max(28px, 4.6vh); }
@@ -1756,7 +1759,7 @@ const SCENES = [
                 type: 'iconrow',
                 look: 'compact',
                 dir: 'col',
-                items: [ { ic: 'sprout', t: '저위험 업무부터' }, { vs: '→' }, { ic: 'gate', t: '사람 승인 게이트', tone: 'human' } ]
+                items: [ { ic: 'sprout', t: '저위험 업무부터', s: '예: 환불 처리 봇은 정책 범위 안이면 스스로 끝냄' }, { vs: '→' }, { ic: 'gate', t: '사람 승인 게이트', s: '범위를 벗어나면 사람에게 넘김', tone: 'human' } ]
               }
             ]
           },
@@ -1897,21 +1900,21 @@ const SCENES = [
     foot: '출처: x.ai/news/grok-bot-for-enterprise · x.ai/news/grok-bot-more-plans · 게시일 2026-09-03 / 2026-08-26',
     visual: {
         type: 'stack',
-        aria: 'Grok Bot 개요 도해. 2026-08-11 beta 공개, 2026-08-26 포함 플랜 확대, 2026-09-03 Enterprise 출시 순의 날짜 타임라인이며 마지막 항목에는 2주 무료 체험과 조직 초대가 붙는다. 제품과 발표는 SpaceXAI, 실행은 Cursor 클라우드의 사용자별 computer다. 접근은 SuperGrok와 Cursor 유료 플랜 등과 번들이고 요금은 플랜 안내 기준이다.',
+        aria: 'Grok Bot 개요 도해. 2026-08-11 beta 공개, 2026-08-26 포함 플랜 확대, 2026-09-03 Enterprise 출시 순의 날짜 타임라인이며 마지막 항목에는 출시 당시 제공된 2주 무료 사용과 조직 초대가 적혀 있다. 제품과 발표는 SpaceXAI, 실행은 Cursor 클라우드의 사용자별 computer다. 접근은 SuperGrok와 Cursor 유료 플랜 등과 번들이고 요금은 플랜 안내 기준이다.',
         parts: [
           {
             type: 'timeline',
-            w: 2.5,
+            w: 3,
             items: [
               { y: '2026-08-11', t: 'beta 공개', ic: 'flag' },
               { y: '2026-08-26', t: '포함 플랜 확대', ic: 'steps' },
-              { y: '2026-09-03', t: 'Enterprise 출시', ic: 'shield', hi: true, s: '2주 무료 체험 · 조직 초대' }
+              { y: '2026-09-03', t: 'Enterprise 출시', ic: 'shield', hi: true, s: '출시 당시 2주 무료 사용 · 조직 초대' }
             ]
           },
           {
             type: 'iconrow',
             look: 'compact',
-            w: 1.1,
+            w: 0.8,
             items: [
               { ic: 'mega', t: '제품·발표', s: 'SpaceXAI' },
               { ic: 'cloud', t: '실행', s: 'Cursor 클라우드 · 사용자별 computer' }
@@ -1922,7 +1925,7 @@ const SCENES = [
       }
   ,
     lines: [
-      '이제 증거를 볼 차례예요. 먼저 Grok Bot을 만나 볼게요. 제품과 발표 주체는 SpaceXAI이고요. 실행 환경은 Cursor 클라우드의 사용자별 컴퓨터예요. 접근은 SuperGrok와 Cursor 유료 플랜 등에 번들로 붙어요. 팔월 십일일에 베타로 공개됐고, 팔월 이십육일 공지로 포함되는 플랜이 늘었죠. 엔터프라이즈는 이천이십육년 구월 삼일에 출시됐는데요. 접근과 네트워크, 감사 통제가 추가돼요. Grok와 Cursor 엔터프라이즈 고객은 두 주 무료 체험 동안 조직을 초대할 수 있습니다. 요금은 플랜 안내 기준으로 읽으세요. 봇 사용량은 따로 집계돼서 기존 플랜 사용량을 깎지 않아요.'
+      '이제 증거를 볼 차례예요. 먼저 Grok Bot을 만나 볼게요. 제품과 발표 주체는 SpaceXAI이고요. 실행 환경은 Cursor 클라우드의 사용자별 컴퓨터예요. 접근은 SuperGrok와 Cursor 유료 플랜 등에 번들로 붙어요. 팔월 십일일에 베타로 공개됐고, 팔월 이십육일 공지로 포함되는 플랜이 늘었죠. 엔터프라이즈는 이천이십육년 구월 삼일에 출시됐는데요. 접근과 네트워크, 감사 통제가 추가됐어요. 출시 때는 Grok와 Cursor 엔터프라이즈 고객이 두 주 동안 무료로 쓰고 조직을 초대할 수 있었어요. 요금은 플랜 안내 기준으로 읽으세요. 봇 사용량은 따로 집계돼서 기존 플랜 사용량을 깎지 않아요.'
     ]
   },
   {
@@ -2016,7 +2019,7 @@ const SCENES = [
     message: 'Muse는 개인 agent를 Secure VM 위에 둔 미국 롤아웃이다',
     visual: {
         type: 'stack',
-        aria: 'Muse 개요 도해. 2026-09-08 발표, 미국 롤아웃이며 채널은 iOS, Android, muse.ai, WhatsApp이다. 요금은 무료 한도, Power 20달러, Maximum 100달러의 세 단계이고 공식 Help 기준이며 지역과 계정별로 다르다. Muse의 AI 안경(글라스) 탑재는 coming soon으로 출시일이 없고, 사내 배포 방식은 발표문에 없다.',
+        aria: 'Muse 개요 도해. 2026-09-08 발표, 미국 롤아웃이며 채널은 iOS, Android, muse.ai, WhatsApp이다. 요금은 무료 한도, Power 20달러, Maximum 100달러의 세 단계이고 공식 Help 기준이며 지역과 계정별로 다르다. Muse의 AI 안경(글라스) 탑재는 Meta가 앞으로 몇 달 안이라고 밝혔고 출시일은 없으며, 사내 배포 방식은 발표문에 없다.',
         parts: [
           {
             type: 'row',
@@ -2041,7 +2044,7 @@ const SCENES = [
             w: 0,
             cols: '1fr 1fr',
             parts: [
-              { type: 'box', t: 'Muse의 AI 안경(글라스) 탑재: coming soon (출시일 없음)', tone: 'pending' },
+              { type: 'box', t: 'Muse의 AI 안경(글라스) 탑재: 앞으로 몇 달 안 · 출시일 없음', tone: 'pending' },
               { type: 'box', t: '사내 배포 방식: 발표문에 없음', tone: 'pending' }
             ]
           },
@@ -2050,7 +2053,7 @@ const SCENES = [
       }
   ,
     lines: [
-      '이번엔 다른 축의 증거, Muse예요. Muse를 움직이는 모델은 Muse Spark입니다. 메타에 따르면 지금까지 낸 것 중 가장 뛰어난 모델이라고 하죠. 구월 팔일 발표와 함께 미국부터 롤아웃, 곧 차례로 내놓기 시작했어요. 공식 채널은 iOS와 안드로이드, 뮤즈 닷 에이아이, WhatsApp이에요. 요금은 공식 Help 기준으로 무료 한도가 있고, Power 이십 달러, Maximum 백 달러예요. 지역과 계정마다 달라요. 글라스는 Ray-Ban Meta 같은 Meta의 AI 안경이에요. 안경 자체는 이미 판매되고 있고, 그 안경에서 Muse를 쓰게 하는 기능이 곧 나온다는 것만 확인돼요. 출시일은 아직 없습니다. 사내 배포 방식은 발표문에 없고, Muse의 국내 출시 일정도 확인되지 않았어요. 결제는 Stripe가 만든 Link로 해요. 실제 카드 번호 대신 일회용 카드를 쓰는 방식이죠. 파손·분실 보상, 가격 하락 보전, 무료 반품 같은 구매 보호도 적격 구매에 한해 Link 기준으로 적용돼요. 여기서 확인된 사실은 미국 롤아웃과 네 개의 공식 채널까지입니다.'
+      '이번엔 다른 축의 증거, Muse예요. Muse를 움직이는 모델은 Muse Spark입니다. 메타에 따르면 지금까지 낸 것 중 가장 뛰어난 모델이라고 하죠. 구월 팔일 발표와 함께 미국부터 롤아웃, 곧 차례로 내놓기 시작했어요. 공식 채널은 iOS와 안드로이드, 뮤즈 닷 에이아이, WhatsApp이에요. 요금은 공식 Help 기준으로 무료 한도가 있고, Power 이십 달러, Maximum 백 달러예요. 지역과 계정마다 달라요. 글라스는 Ray-Ban Meta 같은 Meta의 AI 안경이에요. 안경 자체는 이미 판매되고 있고, Meta는 구월 이십삼일 커넥트에서, 앞으로 몇 달 안에 자사 AI 안경에서 Muse를 쓰게 하겠다고 밝혔어요. 어느 안경인지와 출시일은 아직 없습니다. 사내 배포 방식은 발표문에 없고, Muse의 국내 출시 일정도 확인되지 않았어요. 결제는 Stripe가 만든 Link로 해요. 실제 카드 번호 대신 일회용 카드를 쓰는 방식이죠. 파손·분실 보상, 가격 하락 보전, 무료 반품 같은 구매 보호도 적격 구매에 한해 Link 기준으로 적용돼요. 여기서 확인된 사실은 미국 롤아웃과 네 개의 공식 채널까지입니다.'
     ]
   },
   {

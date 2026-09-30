@@ -426,3 +426,11 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 - 주의: docs FAQ는 Enterprise를 "rolling out"으로 적어 뉴스의 "available"과 표현이 다르다 → "x.ai 발표 글 기준" 귀속 유지.
 - 열람 한계: about.fb.com·x.ai·cursor.com은 직접 접속 불가(ECONNREFUSED), openai.com 403 → Exa로 대체 열람, 일부 페이지는 앞부분 전문·나머지 발췌. Meta Help 요금표 전체, Secure VM "Meta 접근 차단 안 됨" 문장의 Meta 원문, dots 도움말 승인 절, 14장 Auto Review 한계 서술은 이번에 재열람하지 못함(각각 2차 인용 또는 기존 전문 열람 기록에 의존).
 - 발표 당일 아침 선택 점검: Meta 뉴스룸/Help의 안경 Muse 출시 공지 유무(9/24 이후 출시 보도 미검색 — 부재 증명은 아님), dots 도움말 승인 절 전문.
+
+## 2026-09-30 나레이션 교차 검토 반영 — 새로 확인한 사실 (WebSearch 요약 기준, 원문 직접 열람 아님)
+| 장 | 주장 | 출처 | 확인일 | 상태 |
+|---|---|---|---|---|
+| 6 | OpenAI가 2023-06-13 API에 function calling 공개(모델이 부를 함수를 JSON 형식으로 알려 줌) — 6장 타임라인 한 점·나레이션 한 문장 | https://openai.com/index/function-calling-and-other-api-updates/ | 2026-09-30 | VERIFIED(검색 요약). 새 화면 항목은 이 한 줄뿐 |
+| 5 | RFC 439 문서 발행 1973-01-21, 기록된 대화는 1972-09-18(BBN의 PARRY, 스탠퍼드의 DOCTOR) — 출처 줄을 "RFC 439(1973-01 발행 · 대화 1972-09-18)"로 정정 | https://www.rfc-editor.org/info/rfc439/ | 2026-09-30 | VERIFIED(검색 요약) |
+| 21 | A2A는 2025-06-23 Linux Foundation으로 이관(Google Cloud 기증) — 이전 "일자 미확인" 해소. 화면·나레이션에는 쓰지 않음(현재 서술은 "첫 재단 이전"이라고 하지 않음) | https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents | 2026-09-30 | VERIFIED(검색 요약), 미사용 |
+- 이번 반영으로 바뀐 낭독의 근거(위 표 이전 행에 이미 있음): OpenClaw 샌드박스 기본 꺼짐(182행), Auto Review는 사람 승인을 대체하지 않음(141행), Muse 요금 월 단위(재확인 절), 로컬 실행 기본값 팀 Always allow·개인 Ask every time(143행).

@@ -3487,8 +3487,11 @@ function getClip(id) {
       if (next >= exts.length) { done(false); return; }
       a.src = AUDIO_DIR + id + exts[next++];
     };
-    const timer = setTimeout(() => done(false), 1500);
+    // 1.5s was too tight on slow disks / busy laptops and silently switched a clip to the robotic browser voice.
+    // A missing file still fails fast through the 'error' event, so a longer wait only matters for genuinely slow loads.
+    const timer = setTimeout(() => done(false), 12000);
     a.preload = 'auto';
+    a.addEventListener('canplay', () => done(true));
     a.addEventListener('canplaythrough', () => done(true));
     a.addEventListener('error', tryNext);
     tryNext();

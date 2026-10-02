@@ -445,13 +445,92 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 | 11 (실행 환경이 제품이 됨) | "공식 문서는 봇을 나눈 것을 보안 경계로 쓰지 말라고도 안내" 한 문장 추가(같은 계정 봇들이 한 컴퓨터를 공유한다는 기존 서술을 보강) | https://docs.x.ai/grok-bot/approvals-security-and-privacy · https://docs.x.ai/grok-bot/faq — "Do not use separate Bots as a security boundary" | 발췌 | VERIFIED |
 
 ### 확인했으나 쓰지 않은 것 (사유)
-- **dots 세부**: 기반 모델 GPT-6 Astra, 개인 Pro 100/200/500(18세 초과, EEA·영국·스위스 제외), Business Premium·Enterprise 순차 제공(Enterprise 기본 비활성), 클라우드 작업은 기기가 꺼져도 지속·로컬 연결 작업은 컴퓨터 온라인+앱 열림 필요, auto-review와 Custom Rules — https://learn.chatgpt.com/docs/dots · https://help.openai.com/en/articles/20001554-manage-dots-in-chatgpt-workspaces · https://chatgpt.com/features/dots/ **VERIFIED(발췌)**. 서사 잠금(별도 화면 금지, 최소 반영)과 시점·지역·가격이 바뀌는 항목이라 **덱에는 넣지 않음**.
+- [후속 2026-10-02: 아래 "Dots·세 제품 병렬 증거 확장" 절에서 덱에 반영됨 — 아래 "쓰지 않음"은 낡음] **dots 세부**: 기반 모델 GPT-6 Astra, 개인 Pro 100/200/500(18세 초과, EEA·영국·스위스 제외), Business Premium·Enterprise 순차 제공(Enterprise 기본 비활성), 클라우드 작업은 기기가 꺼져도 지속·로컬 연결 작업은 컴퓨터 온라인+앱 열림 필요, auto-review와 Custom Rules — https://learn.chatgpt.com/docs/dots · https://help.openai.com/en/articles/20001554-manage-dots-in-chatgpt-workspaces · https://chatgpt.com/features/dots/ **VERIFIED(발췌)**. 서사 잠금(별도 화면 금지, 최소 반영)과 시점·지역·가격이 바뀌는 항목이라 **덱에는 넣지 않음**.
 - **Muse 구독 한도**: Power 월 $20=주 5억 토큰, Maximum 월 $100=주 30억 토큰 — https://www.meta.com/help/subscriptions/1021145227643680/ (전문) **VERIFIED**. 덱의 요금 서술과 충돌 없음, 주당 토큰은 덱에 불필요. 무료 "주 1억 토큰"은 Help가 아니라 2차 보도에만 있어 쓰지 말 것.
-- **Reuters 3건**: 2026-09-08 Meta 에이전트 출시(내부 테스트에서 민감 데이터 노출·중단/모니터링 실패), 2026-09-22 휴먼 컨시어지 시험(직원 대상, 일부 통화를 계약직이 처리, 고지 문제, 기능 회수), 2026-09-28 OpenAI 미공개 GPT-6.1 Astra 출시 보류(Reuters "scrapped", WIRED "cancelled" — 리포트의 "보류"보다 취소에 가까움) — **VERIFIED(발췌, 9/22는 신디케이션 사본)**. 새 화면·클립이 필요하고 현재 제품의 실패율을 뜻하지 않아 **쓰지 않음**.
+- [후속 2026-10-02: 25장에 "현재 제품 실패율이 아님" 단서와 함께 반영] **Reuters 3건**: 2026-09-08 Meta 에이전트 출시(내부 테스트에서 민감 데이터 노출·중단/모니터링 실패), 2026-09-22 휴먼 컨시어지 시험(직원 대상, 일부 통화를 계약직이 처리, 고지 문제, 기능 회수), 2026-09-28 OpenAI 미공개 GPT-6.1 Astra 출시 보류(Reuters "scrapped", WIRED "cancelled" — 리포트의 "보류"보다 취소에 가까움) — **VERIFIED(발췌, 9/22는 신디케이션 사본)**. 새 화면·클립이 필요하고 현재 제품의 실패율을 뜻하지 않아 **쓰지 않음**.
 - **Grok Bot 가격 경로**: Cursor Pro $20·SuperGrok $30은 공식 요금 페이지 미열람(2차 보도만) → **쓰지 않음**. 접근 자격은 x.ai 8/26 공지 "included with all SuperGrok, Cursor Pro, and Cursor Teams plans"로 일치. docs.x.ai FAQ는 아직 더 좁은 목록이라 13장 "플랜 안내 기준으로 읽으세요" 문구를 유지.
 - **Work·Codex 사용량 구분, Ultrafast 8배·차감률(8x/6x)**: OpenAI 1차 원문 미열람, 2차 인용만 → **[unverified], 쓰지 않음**.
-- **리포트의 3제품 비교표·도입 체크리스트·시장 해석**: 덱은 두 제품(Grok Bot·Muse)을 증거로 쓰는 서사 잠금이라 **구조상 반영하지 않음**. 해석(수수료 구조, 플랫폼 영향)은 근거가 확정되지 않았다고 리포트도 밝힘.
+- [후속 2026-10-02: 사용자가 잠금을 해제해 21장 3열 비교로 반영됨] **리포트의 3제품 비교표·도입 체크리스트·시장 해석**: 덱은 두 제품(Grok Bot·Muse)을 증거로 쓰는 서사 잠금이라 **구조상 반영하지 않음**. 해석(수수료 구조, 플랫폼 영향)은 근거가 확정되지 않았다고 리포트도 밝힘.
 
 ### 기록 갱신
 - 위 "OpenAI dots (2026-09-29 발표) 반영 근거" 절의 "공식 발표·도움말 HTTP 403, 원문 미열람" 문구는 낡았다. 2026-10-02에 learn.chatgpt.com·help.openai.com 일부를 발췌로 열람할 수 있었다(위 dots 세부 참고).
 - 현재 덱과의 어긋남 점검: Grok 공유 컴퓨터(11·14장), 번들·8/11·8/26(13장), Muse 요금·Confidential VM 미출시(17·22장)는 공식 문서와 일치. 리포트에 "봇마다 독립 컴퓨터" 표현이 있다면 덱(계정당 한 대 공유)이 맞다.
+
+## 2026-10-02 Dots·세 제품 병렬 증거 확장 — 화면·낭독 근거
+
+범위: 19장 Dots 개요, 20장 Dots 구조, 21장 3열 비교, 25장 확인된 사건과 Grok Bot·Muse 보강. 열람 범위: 공식 원문은 직접 열리지 않은 곳이 있어 Exa 발췌·검색 요약 대조 (아래 표의 F·V 번호는 해당 조사 기록 기준). 확인하지 못한 항목(가격 $20/$30, Work·Codex 사용량 구분)은 쓰지 않았다.
+
+### 19·20장 (Dots)
+
+# sources_dots.md (화면 요소·문장 ↔ 근거)
+| 화면 | 요소·문장 | 근거 |
+|---|---|---|
+| A | 발표 주체·날짜(미국 기준 9/29), dot 명칭 (낭독·aria) | F1 (공식 원문 직접 열람 못 함, 다수 매체 일치) |
+| A | 기반 모델 GPT-6 Astra | F2 |
+| A | 클라우드 컴퓨터·브라우저 | F3 |
+| A | 기기가 꺼져도 클라우드 작업 이어짐 | F5 |
+| A | 승인 규칙(위험한 행동) | F7 |
+| A | speccards 개인·Business Premium·Enterprise·EEA 제외·Enterprise 기본 비활성 | F4 |
+| A | 한국 "제외 목록에 없음 / 계정별 확인 필요" | F4 괄호 한계 |
+| A | easy 띠, "왜 중요한가"(승인 경계 먼저) | 해석(출처 없는 권고, 사실 주장 아님) |
+| B | 클라우드 vs 연결 컴퓨터 조건 | F5 |
+| B | 자동 심사 대조 대상, Custom Rules로 핵심 안전 요건 못 끔 | F6 |
+| B | 비밀번호 변경·영구 삭제 명시 동의, 저장 카드 승인, 일시 정지 감지 | F7 (공식 명칭 미확인, 풀어쓰기) |
+| B | Enterprise 기본 비활성·관리자가 켬 | F4 |
+| B | 일시 정지 행: 주 작업만 멈춤, 위임 작업 중단·예약 취소는 따로 | V2 (verified_addendum, VERIFIED) |
+| B | 타 제품과 구조가 다르다는 낭독·easy 문장 | 병렬 증거 규칙(common_brief 4). 사실 주장 아닌 읽기 지침 |
+| B | 연결한 앱의 계정·권한 안에서 일함, 클라우드 브라우저 로그인은 내 컴퓨터와 따로 | V1 |
+| B | 완료 표시 ≠ 요청 결과 달성·전달 확인, 결과 검토 | V3 |
+| B | 한 dot이 백그라운드 에이전트들에게 일을 나눠 병렬 진행 | V4 (닷츠 쪽만, 타 제품 비교 없음) |
+
+열람 한계: V1~V5 근거는 learn.chatgpt.com 문서 전문·발췌(Exa/WebFetch)이며 help.openai.com은 403으로 열람 실패. V1의 "자체 계정 아님" 부정 문장, V5 수치·Work/Codex 구분은 사용하지 않음.
+
+### 21·25장 (비교·확인된 사건)
+
+# sources_t2 — 화면·문장 근거 (F번호는 facts_verified.md)
+
+## 3열 비교 (scene_compare3.js, narration NEW-C)
+| 내용 | 근거 |
+|---|---|
+| Grok Bot 사용자당 cloud computer(공유) | F21 |
+| Grok Bot Auto Review(모델 기반·최소권한 대체 금지), 사람 승인(민감·로그인·2FA·결제), Bot 간 공유·오프보딩·로컬 Never(본 자료 권고) | 기존 덱 19장 문구를 그대로 유지(새 사실 아님). 공식 문서 근거 F21(공유·경계) 외 승인 항목은 기존 덱 근거 |
+| Grok Bot Network Controls Enterprise 전용·없으면 allow-all | F20 |
+| Muse 개인별 Secure VM, Sentinel, Confidential VM 미출시 | F13 |
+| Muse 승인(메일·구매 등) | 기존 덱 문구 유지 |
+| Muse 미국 롤아웃(9/8 기준) | F10 (9/29 미국·캐나다 F12는 Small Business 제품 범위라 일반 Muse에는 쓰지 않음) |
+| Dots 각 dot의 클라우드 자기 컴퓨터·브라우저 | F3 |
+| Dots 자동 심사 + Custom Rules, 핵심 안전 요건은 못 끔 | F6 |
+| Dots 고위험 명시 동의·저장 카드 구매 승인 | F7 (공식 FAQ 명칭 미확인 → 풀어 씀) |
+| Dots 로컬 연결 작업: 컴퓨터 켜짐+앱 열림, 클라우드 작업은 기기 꺼져도 계속 | F5 |
+| Dots Enterprise 기본 비활성·관리자 활성화 | F4 |
+| gloss: Auto Review·자동 심사 / Sentinel / Custom Rules | F6, F13, 기존 덱 (화면 용어 풀이만, 새 사실 없음) |
+| 제외한 것: 기존 "출시"·"요금" 두 행 | Dots 가격·출시 사실 시트에 없음(F4는 요금제 이름만). 날짜 행은 순서로 읽힐 위험 |
+
+## 확인된 사건 (scene_incidents.js, narration NEW-D)
+| 내용 | 근거 |
+|---|---|
+| 9/8 내부 테스트의 작업 중단·민감 데이터 무단 노출 | F30 / factcheck2 C7-a: "Internal tests showed the product stalling and unauthorized exposure of sensitive data, Reuters found" |
+| 9/22 직원 대상 시험, 계약직 통화 대신 처리, 고지 문제, 기능 회수 | F31 / C7-b: "…contractor-placed calls without proper disclosures… rolled back this feature for now" |
+| 9/28 GPT-6.1 Astra 출시 계획 취소(scrapped), 안전 시험 결과 때문 | F32 / C7-c. WIRED는 "cancelled" |
+| GPT-6.1 Astra는 Dots 기반 모델(GPT-6 Astra)과 다른 모델 | F32, F2 |
+| Muse 현재 구조(운영 정책으로 접근 제한)·Confidential VM 올해 안 계획 미출시 | F13 |
+| 각 행의 "뜻하지 않는 것" 문구 | F30·F31·F32에 명시된 한계(현재 전체 제품 실패율 아님) + 해석 한계 표기 |
+
+## 패치 (patch_24_25.json)
+24장 dots 서술 정리, 이용 대상·지역(F4), 기업 활성화(F4). 25장 Custom Rules(F6), 클라우드/로컬 연결 구분(F5).
+
+### 추가 검증 (V)
+
+# verified_addendum.md (2026-10-02, Dots 추가 검증)
+열람: learn.chatgpt.com 페이지는 WebFetch 요약 + Exa 전문(fetch) 교차. help.openai.com은 403(열람 실패).
+
+| # | 판정 | 근거 URL / 범위 | 원문 인용 | T1이 써도 되는 문장 |
+|---|---|---|---|---|
+| V1 | VERIFIED (단 "자체 계정" 부정 부분은 문서에 없음, 쓰지 말 것) | learn.chatgpt.com/docs/dots (Exa 전문), /docs/dots/computers-and-apps (WebFetch 발췌) | "Your dot can use supported plugins installed and enabled for your account, with their connected accounts and existing permissions." / "The cloud browser has its own sessions, separate from the browser on your computer." / "Signing in to a website on your computer doesn't sign your dot in to that website." | 닷츠는 사용자가 연결한 앱의 계정·권한 안에서 일하고, 클라우드 브라우저의 로그인은 내 컴퓨터 브라우저와 따로입니다(문서 기준). |
+| V2 | VERIFIED | learn.chatgpt.com/docs/dots/controls (Exa 전문), /docs/dots (전문) | "Pause stops your dot's current main task. It doesn't stop every delegated task or cancel future scheduled runs." / "Ending a voice call doesn't necessarily stop assigned work." / "Work you've assigned can continue after the call ends." | 일시 정지는 주 작업만 멈추고, 위임 작업 중단과 예약 작업 취소는 따로 해야 합니다. 통화를 끝내도 맡긴 일은 이어질 수 있습니다(문서 기준). |
+| V3 | VERIFIED | learn.chatgpt.com/docs/dots/tasks-and-memory (Exa 전문) | "Review the output and any reported errors even after a run completes. A completed run doesn't by itself confirm that the requested result was achieved or delivered." | 닷츠 문서는 작업이 '완료'로 표시돼도 요청한 결과가 달성·전달됐다는 뜻은 아니니 결과를 검토하라고 안내합니다. |
+| V4 | VERIFIED (닷츠 쪽만; Grok Bot과의 구조 비교는 이 문서로 검증 불가, 쓰지 말 것) | learn.chatgpt.com/docs/dots (전문), /docs/dots/tasks-and-memory (전문) | "Your dot can divide work among background agents that run in parallel and report back to it." | 하나의 닷은 백그라운드 에이전트들에게 일을 나눠 병렬로 진행하고 결과를 받아 정리합니다(문서 기준). |
+| V5 | 부분 일치 -> VERIFIED(문장 자체) | learn.chatgpt.com/docs/dots (Exa 검색 하이라이트 발췌) | "Conversations with your dot don't count toward your ChatGPT usage limits. Tasks your dot starts or manages in Work or Codex count toward those products' usage limits as usual." | 문서 기준, 닷츠와의 대화는 ChatGPT 사용 한도에 포함되지 않고, 닷츠가 시작·관리하는 Work·Codex 작업은 각 제품 한도에 평소처럼 포함됩니다. (출시 후 한 달 확대 한도, 이후 요금제별 조건은 미공개 -> 수치·기간 쓰지 말 것) |
+
+## 참고 (이차 출처, 쓰지 말 것)
+- 커뮤니티 글(2026-10-01)은 닷이 진행 중이라 답하고 실제 결과를 못 낸 사례를 보고. 개별 사용자 보고라 일반화 금지.

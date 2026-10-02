@@ -42,4 +42,4 @@ python3 -m http.server 8765
 - 인물 초상 없음 · 로고·앱 UI 스크린샷 없음
 
 ## TTS / 오디오
-`*.mp3` `*.wav` `*.m4a` `*.ogg` 및 `audio/`는 저장소 `.gitignore`로 제외합니다. 클립 파일명은 `clipName()` 규칙(`00-opening`, `NN-scene`, `30-ending`)을 따르므로, 장 번호가 바뀐 뒤에는 전체 재합성이 필요합니다.
+`*.mp3` `*.wav` `*.m4a` `*.ogg` 및 `audio/`는 저장소 `.gitignore`로 제외합니다. 클립 파일명은 `clipName()` 규칙(`00-opening`, `NN-scene`, `31-ending`)을 따르므로, 장 번호가 바뀐 뒤에는 전체 재합성이 필요합니다.

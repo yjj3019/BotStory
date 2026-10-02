@@ -537,11 +537,13 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 
 ## 2026-10-02 8장 · 배경④ (2025년 에이전트 발표) 근거
 
+※ 장 번호: 이 절 이전의 SOURCES 본문 장 번호는 2026-10-02 이전 번호 기준(구 8장 이상 = 현재 +1)이다.
+
 열람 한계: 모두 공식 페이지 본문 앞부분 발췌(전문 아님), 게시일 시간대 미표기.
 
 ### OpenAI 항목
 
-# OpenAI 검증 결과 (열람일 2026-10-02)
+#### OpenAI 검증 결과 (열람일 2026-10-02)
 열람 방식: openai.com 공식 페이지를 WebFetch(403 차단)로 실패 후 Exa web_fetch로 본문 앞부분(약 2,500자) 발췌 열람. 전문 아님.
 
 | 항목 | 날짜(발표일, 미국 기준) | 주체 | 한 줄 설명 | URL | 열람 | 판정 | 피해야 할 표현 |
@@ -551,7 +553,7 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 | ChatGPT agent 공개 | 2025-07-17 | OpenAI | Operator의 웹 조작 + deep research의 정보 종합 + ChatGPT를 합친 통합 에이전트. 자체 가상 컴퓨터 사용. Pro·Plus·Team이 agent mode로 사용 | https://openai.com/index/introducing-chatgpt-agent/ | 발췌 | VERIFIED | 벤치마크·성능 수치(미열람, 귀속 없이 불가), "사람처럼 일한다" 류 과장 |
 | Deep research | 2025-02-02 | OpenAI | ChatGPT 내 다단계 인터넷 리서치 에이전트 기능. o3 변형 기반, 수백 출처 종합 보고서. 당시 Pro 대상 | https://openai.com/index/introducing-deep-research/ | 발췌 | VERIFIED | "수 시간 걸릴 일을 수십 분에"(OpenAI 자체 주장, 귀속 필요), "애널리스트 수준"(자체 주장), "AGI로 가는 단계" |
 
-## 비고
+#### 비고
 - 추정 날짜와의 차이: 4건 모두 월 추정은 맞음. 정확한 일자는 위 표 기준(Operator 01-23, Deep research 02-02, Responses/SDK 03-11, agent 07-17). 시간순은 Operator(1/23) → Deep research(2/2) → Responses/SDK(3/11) → ChatGPT agent(7/17).
 - 날짜는 페이지 본문 표기 기준이며 미국 현지일 추정(시간대 미표기) [unverified].
 - Deep research 페이지는 이후 갱신 이력(2025-02-05 유럽 확대, 2025-02-25 Plus 확대, 2025-04-24 한도 확대, 2025-07-17 agent 통합)이 있음. 최초 발표 시점 정보와 혼용 금지.
@@ -559,7 +561,7 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 
 ### OpenAI 외 항목
 
-# 2025 에이전트 사실 검증 (OpenAI 외) — 열람일 2026-10-02
+#### 2025 에이전트 사실 검증 (OpenAI 외) — 열람일 2026-10-02
 
 | # | 항목 | 날짜(발표일) | 주체 | 한 줄 설명(과장 없이) | URL | 열람 방식 | 판정 | 피해야 할 표현 |
 |---|---|---|---|---|---|---|---|---|
@@ -570,16 +572,16 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 | 4 | Agent Skills | 2025-10-16 | Anthropic | "Skills are folders that include instructions, scripts, and resources that Claude can load when needed" | https://claude.com/blog/skills (anthropic.com/news/skills에서 308 리다이렉트) | WebFetch 발췌 | VERIFIED | 채택 수·성능 향상 수치. Claude Agent SDK는 이번에 검증하지 않음 |
 | 5 | MCP 2025 사실 vs SOURCES.md 17·18행 | 2025-12-09 이관 / 2025-11-25 스펙 | Anthropic·Linux Foundation / MCP 프로젝트 | 18행(2025-12-09 AAIF 이관): 일치. 원문 "Anthropic is donating MCP to the Agentic AI Foundation, a directed fund under the Linux Foundation"; 공동 설립 Anthropic·Block·OpenAI, 창립 프로젝트 MCP·goose·AGENTS.md. 17행(2024-11-25 공개)은 이번 범위 밖이라 재열람 안 함. 추가 사실: 스펙 2025-11-25 릴리스(Tasks, URL-mode elicitation, 확장 프레임워크 등) | https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/ · https://blog.modelcontextprotocol.io/posts/2025-11-25-first-mcp-anniversary/ | WebFetch 발췌 | 18행 VERIFIED, 어긋남 없음. 스펙 2025-11-25 VERIFIED(발췌) | 해당 글의 "97M 월 SDK 다운로드·활성 서버 10,000"은 자사 수치이며 SOURCES.md 39행이 이미 사용 금지 — 유지. "사실상 표준" 단정 금지(19행 유지) |
 
-## 어긋남 점검 결과
+#### 어긋남 점검 결과
 - SOURCES.md 18행과 충돌 없음. "리눅스 재단 산하"는 원문 "directed fund under the Linux Foundation"과 일치.
 - 보강 가능: 18행에 "Anthropic이 기증, Block·OpenAI와 공동 설립"을 덧붙일 수 있으나 필수 아님.
 - 2025-03-26·2025-06-18 스펙 개정 날짜는 사이트 연결 실패(ECONNREFUSED)로 미확인 — 쓰지 말 것.
 
-## 한계
+#### 한계
 - 모든 열람은 WebFetch의 요약기 경유 발췌이며 페이지 전문 직접 열람이 아님. 게시일 시간대(미국 태평양시 가능성) 미확인이라 "현지 기준"으로만 표기.
 - Manus는 1차 출처 미확보 — 채택 비권고.
 
 ### 8장 · 배경④에서 쓴 것과 쓰지 않은 것
-- **사용(날짜순 나열, 순서·우열 표현 금지)**: Operator 2025-01-23, Claude Code 연구 프리뷰 2025-02-24, Responses API·Agents SDK 2025-03-11, ChatGPT agent 2025-07-17, Gemini 2.5 Computer Use 2025-10-07. 전부 VERIFIED(공식 1차 발췌 열람). 날짜는 현지 발표일이며 시간대는 미확인 [unverified].
+- **사용(날짜순 나열, 순서·우열 표현 금지)**: Operator 2025-01-23, Claude Code 연구 프리뷰 2025-02-24, Responses API·Agents SDK 2025-03-11, ChatGPT agent 2025-07-17, Gemini 2.5 Computer Use 2025-10-07. 전부 VERIFIED(공식 1차 페이지 발췌, 요약기·Exa 경유, 전문 아님). 날짜는 현지 발표일이며 시간대는 미확인 [unverified].
 - **쓰지 않음**: Manus(공식 1차 미확보, 2차만 → 미확인), Deep research·Claude Code GA·Agent Skills(검증됐으나 장 분량상 제외), MCP 2025-12-09(24장 연결 표준에서 다룸), 벤치마크·성능·채택 수치, "최초" 표현.
 - 화면 용어 풀이(프리뷰, API·SDK)는 일반 설명이며 새 사실 주장이 아님.

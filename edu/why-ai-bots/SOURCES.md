@@ -431,7 +431,7 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 | 장 | 주장 | 출처 | 확인일 | 상태 |
 |---|---|---|---|---|
 | 6 | OpenAI가 2023-06-13 API에 function calling 공개(모델이 부를 함수를 JSON 형식으로 알려 줌) — 6장 타임라인 한 점·나레이션 한 문장 | https://openai.com/index/function-calling-and-other-api-updates/ | 2026-09-30 | VERIFIED(검색 요약). 새 화면 항목은 이 한 줄뿐 |
-| 5 | RFC 439 문서 발행 1973-01-21, 기록된 대화는 1972-09-18(BBN의 PARRY, 스탠퍼드의 DOCTOR) — 출처 줄을 "RFC 439(1973-01 발행 · 대화 1972-09-18)"로 정정 | https://www.rfc-editor.org/info/rfc439/ | 2026-09-30 | VERIFIED(검색 요약) |
+| 5 | RFC 439 문서 발행 1973-01-21, 기록된 대화는 1972-09-18(스탠퍼드(SAIL)의 PARRY, BBN의 DOCTOR) — 출처 줄을 "RFC 439(1973-01 발행 · 대화 1972-09-18)"로 정정 | https://www.rfc-editor.org/info/rfc439/ | 2026-09-30 | VERIFIED(검색 요약) |
 | 21 | A2A는 2025-06-23 Linux Foundation으로 이관(Google Cloud 기증) — 이전 "일자 미확인" 해소. 화면·나레이션에는 쓰지 않음(현재 서술은 "첫 재단 이전"이라고 하지 않음) | https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents | 2026-09-30 | VERIFIED(검색 요약), 미사용 |
 - 이번 반영으로 바뀐 낭독의 근거(위 표 이전 행에 이미 있음): OpenClaw 샌드박스 기본 꺼짐(182행), Auto Review는 사람 승인을 대체하지 않음(141행), Muse 요금 월 단위(재확인 절), 로컬 실행 기본값 팀 Always allow·개인 Ask every time(143행).
 
@@ -585,3 +585,10 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 - **사용(날짜순 나열, 순서·우열 표현 금지)**: Operator 2025-01-23, Claude Code 연구 프리뷰 2025-02-24, Responses API·Agents SDK 2025-03-11, ChatGPT agent 2025-07-17, Gemini 2.5 Computer Use 2025-10-07. 전부 VERIFIED(공식 1차 페이지 발췌, 요약기·Exa 경유, 전문 아님). 날짜는 현지 발표일이며 시간대는 미확인 [unverified].
 - **쓰지 않음**: Manus(공식 1차 미확보, 2차만 → 미확인), Deep research·Claude Code GA·Agent Skills(검증됐으나 장 분량상 제외), MCP 2025-12-09(24장 연결 표준에서 다룸), 벤치마크·성능·채택 수치, "최초" 표현.
 - 화면 용어 풀이(프리뷰, API·SDK)는 일반 설명이며 새 사실 주장이 아님.
+
+## 2026-10-03 HTML 전수조사 후속 — 사실 정정
+- **Muse 채널(17장)**: Meta 보도자료(about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/, Exa 전문 열람)에서 "rolling out in the US on iOS, Android, and muse.ai, and coming soon to AI glasses"로 롤아웃 채널은 3개. WhatsApp은 별도 문장 "talking to it works just like messaging another person, in the Muse app or directly in WhatsApp"(대화 방식)에만 등장 → 화면·낭독을 "롤아웃 3채널 + WhatsApp에서도 대화 가능"으로 정정. 부분 일치. Meta 도움말·muse.ai 본문은 열람 못 함 [unverified].
+- **로컬 실행 기본값(12·15장 화면)**: 위 143행 근거로 "기본값 팀 Always allow · 개인 Ask · 본 자료 권고 Never"로 정정.
+- **Moltbook 수치(25장 화면 foot)**: 위 181행(Wiz 2026-02-02 보도 기준) 근거를 화면 출처로 표시.
+- **9/22 휴먼 컨시어지 시험**: 보도 주체가 SOURCES에 기록돼 있지 않아 화면에 회사명을 넣지 않음.
+- **PARRY/DOCTOR(434행)**: RFC 439 원문은 "PARRY at SAIL(스탠퍼드), DOCTOR at BBN" — 434행의 "BBN의 PARRY, 스탠퍼드의 DOCTOR"는 뒤바뀐 서술이며 덱 낭독은 원문대로 맞음.

@@ -434,3 +434,24 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 | 5 | RFC 439 문서 발행 1973-01-21, 기록된 대화는 1972-09-18(BBN의 PARRY, 스탠퍼드의 DOCTOR) — 출처 줄을 "RFC 439(1973-01 발행 · 대화 1972-09-18)"로 정정 | https://www.rfc-editor.org/info/rfc439/ | 2026-09-30 | VERIFIED(검색 요약) |
 | 21 | A2A는 2025-06-23 Linux Foundation으로 이관(Google Cloud 기증) — 이전 "일자 미확인" 해소. 화면·나레이션에는 쓰지 않음(현재 서술은 "첫 재단 이전"이라고 하지 않음) | https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents | 2026-09-30 | VERIFIED(검색 요약), 미사용 |
 - 이번 반영으로 바뀐 낭독의 근거(위 표 이전 행에 이미 있음): OpenClaw 샌드박스 기본 꺼짐(182행), Auto Review는 사람 승인을 대체하지 않음(141행), Muse 요금 월 단위(재확인 절), 로컬 실행 기본값 팀 Always allow·개인 Ask every time(143행).
+
+## 2026-10-02 외부 종합 분석 리포트(Muse·Grok Bot·dots) 대조 반영
+사용자가 전달한 외부 리포트의 신규 주장을 공식·1차 출처로 확인한 뒤, 덱의 주제(격리·승인)와 기존 서술에 직접 걸리는 두 곳만 반영했다. 열람은 Exa 추출 기준이며 대부분 발췌다(전문은 Meta Help 2건).
+
+### 반영한 것 (나레이션만, 화면 문구는 그대로)
+| 장 | 반영 내용 | 근거 | 열람 | 상태 |
+|---|---|---|---|---|
+| 16 (Muse 개요) | 기존 "출시 범위는 미국 롤아웃과 네 개의 공식 채널로 읽고"가 **현재 범위처럼 읽혀 캐나다를 빠뜨림** → "9/29에 나온 소규모 사업자용 Muse는 미국과 캐나다에서 제공". 9/8 미국 롤아웃이라는 날짜별 서술은 그대로 | https://about.fb.com/news/2026/09/introducing-muse-small-business/ · https://muse.ai/business — "available in the US and Canada" | 발췌 | VERIFIED. 일반 Muse 구독의 국가 목록은 Help에 없음(범위를 "소규모 사업자용"으로 한정한 이유) |
+| 11 (실행 환경이 제품이 됨) | "공식 문서는 봇을 나눈 것을 보안 경계로 쓰지 말라고도 안내" 한 문장 추가(같은 계정 봇들이 한 컴퓨터를 공유한다는 기존 서술을 보강) | https://docs.x.ai/grok-bot/approvals-security-and-privacy · https://docs.x.ai/grok-bot/faq — "Do not use separate Bots as a security boundary" | 발췌 | VERIFIED |
+
+### 확인했으나 쓰지 않은 것 (사유)
+- **dots 세부**: 기반 모델 GPT-6 Astra, 개인 Pro 100/200/500(18세 초과, EEA·영국·스위스 제외), Business Premium·Enterprise 순차 제공(Enterprise 기본 비활성), 클라우드 작업은 기기가 꺼져도 지속·로컬 연결 작업은 컴퓨터 온라인+앱 열림 필요, auto-review와 Custom Rules — https://learn.chatgpt.com/docs/dots · https://help.openai.com/en/articles/20001554-manage-dots-in-chatgpt-workspaces · https://chatgpt.com/features/dots/ **VERIFIED(발췌)**. 서사 잠금(별도 화면 금지, 최소 반영)과 시점·지역·가격이 바뀌는 항목이라 **덱에는 넣지 않음**.
+- **Muse 구독 한도**: Power 월 $20=주 5억 토큰, Maximum 월 $100=주 30억 토큰 — https://www.meta.com/help/subscriptions/1021145227643680/ (전문) **VERIFIED**. 덱의 요금 서술과 충돌 없음, 주당 토큰은 덱에 불필요. 무료 "주 1억 토큰"은 Help가 아니라 2차 보도에만 있어 쓰지 말 것.
+- **Reuters 3건**: 2026-09-08 Meta 에이전트 출시(내부 테스트에서 민감 데이터 노출·중단/모니터링 실패), 2026-09-22 휴먼 컨시어지 시험(직원 대상, 일부 통화를 계약직이 처리, 고지 문제, 기능 회수), 2026-09-28 OpenAI 미공개 GPT-6.1 Astra 출시 보류(Reuters "scrapped", WIRED "cancelled" — 리포트의 "보류"보다 취소에 가까움) — **VERIFIED(발췌, 9/22는 신디케이션 사본)**. 새 화면·클립이 필요하고 현재 제품의 실패율을 뜻하지 않아 **쓰지 않음**.
+- **Grok Bot 가격 경로**: Cursor Pro $20·SuperGrok $30은 공식 요금 페이지 미열람(2차 보도만) → **쓰지 않음**. 접근 자격은 x.ai 8/26 공지 "included with all SuperGrok, Cursor Pro, and Cursor Teams plans"로 일치. docs.x.ai FAQ는 아직 더 좁은 목록이라 13장 "플랜 안내 기준으로 읽으세요" 문구를 유지.
+- **Work·Codex 사용량 구분, Ultrafast 8배·차감률(8x/6x)**: OpenAI 1차 원문 미열람, 2차 인용만 → **[unverified], 쓰지 않음**.
+- **리포트의 3제품 비교표·도입 체크리스트·시장 해석**: 덱은 두 제품(Grok Bot·Muse)을 증거로 쓰는 서사 잠금이라 **구조상 반영하지 않음**. 해석(수수료 구조, 플랫폼 영향)은 근거가 확정되지 않았다고 리포트도 밝힘.
+
+### 기록 갱신
+- 위 "OpenAI dots (2026-09-29 발표) 반영 근거" 절의 "공식 발표·도움말 HTTP 403, 원문 미열람" 문구는 낡았다. 2026-10-02에 learn.chatgpt.com·help.openai.com 일부를 발췌로 열람할 수 있었다(위 dots 세부 참고).
+- 현재 덱과의 어긋남 점검: Grok 공유 컴퓨터(11·14장), 번들·8/11·8/26(13장), Muse 요금·Confidential VM 미출시(17·22장)는 공식 문서와 일치. 리포트에 "봇마다 독립 컴퓨터" 표현이 있다면 덱(계정당 한 대 공유)이 맞다.

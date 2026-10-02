@@ -276,7 +276,7 @@
   }
   #credits .roll-track { padding-top: var(--rv, 60vh); line-height: 1.8; color: var(--ink-2); }
   #credits.in .roll-track { animation: rollUp 125s linear forwards; }
-  #credits .roll-view:hover .roll-track { animation-play-state: paused; }
+  #credits .roll-view:is(:hover, :focus-within) .roll-track { animation-play-state: paused; }
   @keyframes rollUp { from { transform: translateY(0); } to { transform: translateY(-100%); } }
   #credits .rl-title { font-size: max(24px, 3.6vh); font-weight: 800; color: var(--s-blue-deep); margin-bottom: 3rem; text-wrap: balance; line-height: 1.35; }
   #credits .rl-title small { display: block; margin-top: .6rem; font-size: max(15px, 1.9vh); font-weight: 600; color: var(--ink-2); }
@@ -488,7 +488,7 @@
   .lane h3 { margin: 0; color: var(--s-blue-deep); font-size: max(25px, 3.7vh); font-weight: 800; line-height: 1.35; }
   .lane.tone-statement h3 { color: var(--ink-2); }
   .lane.tone-interp h3 { color: var(--pending-ink); }
-  .lane-sub { margin-top: .2rem; color: var(--muted); font-size: max(16px, 2.3vh); font-weight: 700; }
+  .lane-sub { margin-top: .2rem; color: #55657C; font-size: max(16px, 2.3vh); font-weight: 700; }
   .lane ul {
     list-style: none; margin: 0; padding: 1rem 1.1rem; flex: 1 1 auto; min-height: 0;
     display: flex; flex-direction: column; justify-content: center; gap: .8rem;
@@ -1173,7 +1173,7 @@
 
   /* gloss: term -> plain meaning, small chips */
   .dg-gloss { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .7rem; padding: .3rem .9rem; border: 2px dashed var(--pending); border-radius: 12px; background: var(--pending-bg); }
-  .dg-gloss .g-k { flex: 0 0 auto; padding: .02rem .7rem; border-radius: 999px; background: var(--pending); color: #fff; font-size: var(--f2); font-weight: 800; }
+  .dg-gloss .g-k { flex: 0 0 auto; padding: .02rem .7rem; border-radius: 999px; background: #8A5A12; color: #fff; font-size: var(--f2); font-weight: 800; }
   .dg-gloss .g-i { font-size: var(--f2); font-weight: 700; color: var(--ink); line-height: 1.3; }
   .dg-gloss .g-i b { color: var(--pending-ink); font-weight: 800; }
 
@@ -1259,21 +1259,21 @@
     .rm-code, .rm-risk { padding-top: .1rem; padding-bottom: .1rem; }
   }
   /* De-templating (2026-09-29): the same blue icon disc on every card reads as generated. Keep meaningful colours (risk / human / pending); drop or shrink decorative blue discs per slide. */
-  :is(#scene-3, #scene-7, #scene-10, #scene-13, #scene-19, #scene-28, #scene-29) .ic-disc:not(.t-risk):not(.t-human):not(.t-pending):not(.t-solid) { display: none; }
-  #scene-24 .ic-disc { display: none; }
+  :is(#scene-3, #scene-7, #scene-11, #scene-14, #scene-20, #scene-29, #scene-30) .ic-disc:not(.t-risk):not(.t-human):not(.t-pending):not(.t-solid) { display: none; }
+  #scene-25 .ic-disc { display: none; }
   #scene-1 .cv-axes li:not(:first-child) .ic-disc { display: none; }
-  #scene-13 .sp-head b { font-size: max(34px, 5.6vh); }
+  #scene-14 .sp-head b { font-size: max(34px, 5.6vh); }
   #scene-6 .tl-top { display: none; }
   #scene-6 .tl-it { justify-content: flex-start; padding-top: 0; gap: .5rem; }
   #scene-6 .tl-it .tl-txt { flex: 0 0 auto; }
   #scene-6 .tl-y { font-size: max(30px, 5.2vh); }
   #scene-6 .tl-t { font-size: max(28px, 4.6vh); }
   #scene-6 .tl-s { font-size: max(21px, 3.4vh); }
-  #scene-14 .dg-irow .ic-disc { display: none; }
-  #scene-16 .dg-read .ic { display: none; }
-  #scene-17 .dg-tile:nth-child(-n+2) .ico { display: none; }
-  :is(#scene-5, #scene-9, #scene-14) .tl-it .ic-disc { --dsc: clamp(44px, 9vh, 80px); }
-  :is(#scene-7, #scene-24) .dg-irow .dg-icard:not(.hi) { border-width: 1.5px; }
+  #scene-15 .dg-irow .ic-disc { display: none; }
+  #scene-17 .dg-read .ic { display: none; }
+  #scene-18 .dg-tile:nth-child(-n+2) .ico { display: none; }
+  :is(#scene-5, #scene-10, #scene-15) .tl-it .ic-disc { --dsc: clamp(44px, 9vh, 80px); }
+  :is(#scene-7, #scene-25) .dg-irow .dg-icard:not(.hi) { border-width: 1.5px; }
   .photo-credit { background: color-mix(in srgb, var(--ink) 58%, transparent); }
   .dg-bad { display: flex; align-items: center; justify-content: center; padding: .5rem 1rem; border: 3px solid var(--risk); border-radius: 12px; background: var(--risk-bg); color: var(--risk-ink); font-weight: 800; }
 
@@ -1411,7 +1411,7 @@
       <h2>만든 과정과 도움 주신 분들</h2>
     </div>
     <div class="cr-body">
-      <div class="roll-view"><div class="roll-track"><div class='rl-title'>AI 대항해 시대, 사람들은 왜 AI Bot에 열광하는가<small>엔딩 크레딧 · BotStory Education track · 2026.10.01</small></div><div class='rl-sec'><h3>기획 · 총괄 · 최종 승인</h3><p>계속 “진행해줘”라고 말한 분</p></div><div class='rl-sec'><h3>원고 작성</h3><p>Claude<br><span class="rsub">AI가 쓴 AI Bot 이야기입니다.<br>이해충돌은 미리 고지합니다 — 필자의 제작사 이야기가 나오는 7장, 8장, 9장②, 24장은 그래서 더 꼼꼼히 출처를 달았습니다.</span></p></div><div class='rl-sec'><h3>팩트체크</h3><p>또 다른 Claude 여러 명과 웹 검색<br><span class="rsub">공식 페이지 몇 곳은 직접 열리지 않아 검색 요약으로 대조했고, 그 한계도 적어 두었습니다.</span></p></div><div class='rl-sec'><h3>적대적 리뷰</h3><p>Codex<br><span class="rsub">칭찬 대신 ‘실패하는 엣지 케이스 3개 이상’을 요구받았고, 성실하게 열아홉 건을 가져왔습니다.</span></p></div><div class='rl-sec'><h3>종합 평가</h3><p>Claude Opus<br><span class="rsub">당시 28클립을 빠짐없이 읽고 Critical 1건, Major 12건을 짚었습니다.<br>그중 하나가 “동시에 응답했죠”였습니다.</span></p></div><div class='rl-sec'><h3>낭독</h3><p>OmniVoice<br><span class="rsub">사람 목소리가 아니라 AI가 합성한 음성입니다.<br>이 PC의 CPU로 만들었고, 38분 낭독에 렌더링은 몇 시간이 걸렸습니다.<br>완성본은 음성 인식(Whisper 두 종류)이 다시 받아 적어 대조했습니다.</span></p></div><div class='rl-sec'><h3>촬영 협조 · 사진</h3><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Umland,_Sonnenaufgang_--_2012_--_8069.jpg' target='_blank' rel='noopener'>Dülmen, Umland, Sonnenaufgang -- 2012 -- 8069</a>” — Dietmar Rabich, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Leuste,_B%C3%A4ume_im_Nebel_--_2020_--_5042_(bw).jpg' target='_blank' rel='noopener'>Dülmen, Leuste, Bäume im Nebel -- 2020 -- 5042 (bw)</a>” — Dietmar Rabich, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Echafaudage_Tour_de_la_Lanterne_La_Rochelle.jpg' target='_blank' rel='noopener'>Echafaudage Tour de la Lanterne La Rochelle</a>” — Jebulon, <a href='https://creativecommons.org/publicdomain/zero/1.0' target='_blank' rel='noopener'>CC0 1.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Desk_with_notebook_pens_and_glasses.jpg' target='_blank' rel='noopener'>Desk with notebook pens and glasses</a>” — Shixart1985, <a href='https://creativecommons.org/licenses/by/2.0' target='_blank' rel='noopener'>CC BY 2.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Servers_in_a_Rack.jpg' target='_blank' rel='noopener'>Servers in a Rack</a>” — Abigor, <a href='https://creativecommons.org/licenses/by-sa/3.0' target='_blank' rel='noopener'>CC BY-SA 3.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Iron_maiden_turnstile_and_gate_at_the_entrance_of_Uddevalla_port.jpg' target='_blank' rel='noopener'>Iron maiden turnstile and gate at the entrance of Uddevalla port</a>” — W.carter, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:BE_SERAI_Different_valve_fittings_in_an_abandoned_fabric.jpg' target='_blank' rel='noopener'>BE SERAI Different valve fittings in an abandoned fabric</a>” — Grunpfnul, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Duisburg,_Landschaftspark_Duisburg-Nord_--_2020_--_7803-5.jpg' target='_blank' rel='noopener'>Duisburg, Landschaftspark Duisburg-Nord -- 2020 -- 7803-5</a>” — Dietmar Rabich, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Morning_fog_in_Upper_Silesia.jpg' target='_blank' rel='noopener'>Morning fog in Upper Silesia</a>” — Pudelek, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph rsub'>모든 사진은 크기를 줄이고 일부를 잘라 표시했으며, 색보정은 하지 않았습니다.</p></div><div class='rl-sec'><h3>편집 원칙</h3><p>확인하지 못한 것은 쓰지 않는다<br><span class="rsub">근거가 없으면 ‘확인 불가’라고 적었습니다.<br>(그래도 나레이션은 여러 번 고쳐 쓰였습니다)</span></p></div><div class='rl-sec'><h3>면책</h3><p>이 자료는 공개된 발표문과 문서를 바탕으로 재구성했습니다.<br><span class="rsub">날짜·요금·출시 상태는 2026-09-30 기준이며 바뀔 수 있습니다.<br>우리말 이름과 독음은 이 자료의 번역·해석이며 공식 명칭이 아닙니다.</span></p></div><div class='rl-sec'><h3>최신 사항의 출처</h3><p class='ph rsub'>변동이 잦은 2026년 사항은 아래 자료로 확인했습니다.</p><p class='ph'><a href='https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/' target='_blank' rel='noopener'>Meta, Introducing Muse</a></p><p class='ph'><a href='https://x.ai/news/introducing-grok-bot' target='_blank' rel='noopener'>x.ai, Introducing Grok Bot</a></p><p class='ph'><a href='https://x.ai/news/grok-bot-for-enterprise' target='_blank' rel='noopener'>x.ai, Grok Bot for Enterprise</a></p><p class='ph'><a href='https://cursor.com/docs/grok-bot/work' target='_blank' rel='noopener'>Cursor 문서, Grok Bot</a></p><p class='ph'><a href='https://www.anthropic.com/news/3-5-models-and-computer-use' target='_blank' rel='noopener'>Anthropic, Computer use 공개</a></p><p class='ph'><a href='https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/' target='_blank' rel='noopener'>MCP, Agentic AI Foundation 합류</a></p><p class='ph'><a href='https://a2a-protocol.org/latest/blog/2026/08/27/a-new-chapter-for-a2a-joining-the-agentic-ai-foundation/' target='_blank' rel='noopener'>A2A, Agentic AI Foundation 합류</a></p><p class='ph'><a href='https://openai.com/index/function-calling-and-other-api-updates/' target='_blank' rel='noopener'>OpenAI, Function calling</a></p><p class='ph'><a href='https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/' target='_blank' rel='noopener'>OWASP, Top 10 for Agentic Applications 2026</a></p><p class='ph'><a href='https://www.rfc-editor.org/info/rfc439/' target='_blank' rel='noopener'>RFC 439</a></p><p class='ph'><a href='https://chatgpt.com/features/dots/' target='_blank' rel='noopener'>OpenAI, Dots 소개</a></p><p class='ph'><a href='https://learn.chatgpt.com/docs/dots' target='_blank' rel='noopener'>OpenAI, Dots 문서</a></p><p class='ph'><a href='https://about.fb.com/news/2026/09/introducing-muse-small-business/' target='_blank' rel='noopener'>Meta, Muse for Small Business</a></p><p class='ph'><a href='https://docs.x.ai/grok-bot/approvals-security-and-privacy' target='_blank' rel='noopener'>Grok Bot 문서, 승인·보안</a></p><p class='ph'><a href='https://www.reuters.com/business/meta-launches-ai-agent-that-can-access-other-apps-send-emails-make-payments-2026-09-08/' target='_blank' rel='noopener'>Reuters, Meta 에이전트 출시 (2026-09-08)</a></p><p class='ph'><a href='https://www.reuters.com/business/openai-shelves-new-ai-model-after-internal-safety-tests-wsj-reports-2026-09-28/' target='_blank' rel='noopener'>Reuters, OpenAI 신규 모델 출시 취소 (2026-09-28)</a></p></div><div class='rl-sec'><h3>특수효과</h3><p>없음<br><span class="rsub">스크롤이 전부입니다</span></p></div><div class='rl-sec'><h3>삭제된 장면</h3><p>쓰이지 않던 이미지와 렌더러<br><span class="rsub">“쓰이지 않으면 삭제”라는 한마디에 편집실을 떠났습니다</span></p></div><div class='rl-sec'><h3>제작 중 사고</h3><p>1.5초를 못 기다리고 기계 목소리로 갈아탄 오프닝<br><span class="rsub">느린 노트북에서 드러날 뻔한 결함이 발표 당일에 발견되어 고쳐졌습니다.<br>‘그록’을 ‘그룹’으로 받아 적은 음성 인식은 범인을 아직 확인 중입니다.</span></p></div><div class='rl-sec'><h3>협찬</h3><p>이 PC의 CPU 8코어<br><span class="rsub">GPU는 끝내 구경하지 못했습니다</span></p></div><div class='rl-sec'><h3>출연 동물</h3><p>없음<br><span class="rsub">다만 제작자는 강아지로 알려져 있습니다</span></p></div><div class='rl-sec'><h3>최종 작성자</h3><p>삐꾸강아쥐 by 딸깍</p></div><div class='rl-end'>— 끝 —<small>다음 발표는 아직 쓰이지 않았습니다</small></div></div></div>
+      <div class="roll-view"><div class="roll-track"><div class='rl-title'>AI 대항해 시대, 사람들은 왜 AI Bot에 열광하는가<small>엔딩 크레딧 · BotStory Education track · 2026.10.01</small></div><div class='rl-sec'><h3>기획 · 총괄 · 최종 승인</h3><p>계속 “진행해줘”라고 말한 분</p></div><div class='rl-sec'><h3>원고 작성</h3><p>Claude<br><span class="rsub">AI가 쓴 AI Bot 이야기입니다.<br>이해충돌은 미리 고지합니다 — 필자의 제작사 이야기가 나오는 7장, 8장, 9장②, 24장은 그래서 더 꼼꼼히 출처를 달았습니다.</span></p></div><div class='rl-sec'><h3>팩트체크</h3><p>또 다른 Claude 여러 명과 웹 검색<br><span class="rsub">공식 페이지 몇 곳은 직접 열리지 않아 검색 요약으로 대조했고, 그 한계도 적어 두었습니다.</span></p></div><div class='rl-sec'><h3>적대적 리뷰</h3><p>Codex<br><span class="rsub">칭찬 대신 ‘실패하는 엣지 케이스 3개 이상’을 요구받았고, 성실하게 열아홉 건을 가져왔습니다.</span></p></div><div class='rl-sec'><h3>종합 평가</h3><p>Claude Opus<br><span class="rsub">2026-09-30 당시 28클립을 빠짐없이 읽고 Critical 1건, Major 12건을 짚었습니다.<br>그중 하나가 “동시에 응답했죠”였습니다.</span></p></div><div class='rl-sec'><h3>낭독</h3><p>OmniVoice<br><span class="rsub">사람 목소리가 아니라 AI가 합성한 음성입니다.<br>이 PC의 CPU로 만들었고, 38분 낭독에 렌더링은 몇 시간이 걸렸습니다.<br>완성본은 음성 인식(Whisper 두 종류)이 다시 받아 적어 대조했습니다.</span></p></div><div class='rl-sec'><h3>촬영 협조 · 사진</h3><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Umland,_Sonnenaufgang_--_2012_--_8069.jpg' target='_blank' rel='noopener'>Dülmen, Umland, Sonnenaufgang -- 2012 -- 8069</a>” — Dietmar Rabich, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Leuste,_B%C3%A4ume_im_Nebel_--_2020_--_5042_(bw).jpg' target='_blank' rel='noopener'>Dülmen, Leuste, Bäume im Nebel -- 2020 -- 5042 (bw)</a>” — Dietmar Rabich, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Echafaudage_Tour_de_la_Lanterne_La_Rochelle.jpg' target='_blank' rel='noopener'>Echafaudage Tour de la Lanterne La Rochelle</a>” — Jebulon, <a href='https://creativecommons.org/publicdomain/zero/1.0' target='_blank' rel='noopener'>CC0 1.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Desk_with_notebook_pens_and_glasses.jpg' target='_blank' rel='noopener'>Desk with notebook pens and glasses</a>” — Shixart1985, <a href='https://creativecommons.org/licenses/by/2.0' target='_blank' rel='noopener'>CC BY 2.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Servers_in_a_Rack.jpg' target='_blank' rel='noopener'>Servers in a Rack</a>” — Abigor, <a href='https://creativecommons.org/licenses/by-sa/3.0' target='_blank' rel='noopener'>CC BY-SA 3.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Iron_maiden_turnstile_and_gate_at_the_entrance_of_Uddevalla_port.jpg' target='_blank' rel='noopener'>Iron maiden turnstile and gate at the entrance of Uddevalla port</a>” — W.carter, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:BE_SERAI_Different_valve_fittings_in_an_abandoned_fabric.jpg' target='_blank' rel='noopener'>BE SERAI Different valve fittings in an abandoned fabric</a>” — Grunpfnul, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Duisburg,_Landschaftspark_Duisburg-Nord_--_2020_--_7803-5.jpg' target='_blank' rel='noopener'>Duisburg, Landschaftspark Duisburg-Nord -- 2020 -- 7803-5</a>” — Dietmar Rabich, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph'>“<a href='https://commons.wikimedia.org/wiki/File:Morning_fog_in_Upper_Silesia.jpg' target='_blank' rel='noopener'>Morning fog in Upper Silesia</a>” — Pudelek, <a href='https://creativecommons.org/licenses/by-sa/4.0' target='_blank' rel='noopener'>CC BY-SA 4.0</a>, Wikimedia Commons</p><p class='ph rsub'>모든 사진은 크기를 줄이고 일부를 잘라 표시했으며, 색보정은 하지 않았습니다.</p></div><div class='rl-sec'><h3>편집 원칙</h3><p>확인하지 못한 것은 쓰지 않는다<br><span class="rsub">근거가 없으면 ‘확인 불가’라고 적었습니다.<br>(그래도 나레이션은 여러 번 고쳐 쓰였습니다)</span></p></div><div class='rl-sec'><h3>면책</h3><p>이 자료는 공개된 발표문과 문서를 바탕으로 재구성했습니다.<br><span class="rsub">날짜·요금·출시 상태는 2026-09-30~10-02 기준이며 바뀔 수 있습니다.<br>우리말 이름과 독음은 이 자료의 번역·해석이며 공식 명칭이 아닙니다.</span></p></div><div class='rl-sec'><h3>주요 출처</h3><p class='ph rsub'>변동이 잦은 사항과 핵심 근거는 아래 자료로 확인했습니다.</p><p class='ph'><a href='https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/' target='_blank' rel='noopener'>Meta, Introducing Muse</a></p><p class='ph'><a href='https://x.ai/news/introducing-grok-bot' target='_blank' rel='noopener'>x.ai, Introducing Grok Bot</a></p><p class='ph'><a href='https://x.ai/news/grok-bot-for-enterprise' target='_blank' rel='noopener'>x.ai, Grok Bot for Enterprise</a></p><p class='ph'><a href='https://cursor.com/docs/grok-bot/work' target='_blank' rel='noopener'>Cursor 문서, Grok Bot</a></p><p class='ph'><a href='https://www.anthropic.com/news/3-5-models-and-computer-use' target='_blank' rel='noopener'>Anthropic, Computer use 공개</a></p><p class='ph'><a href='https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/' target='_blank' rel='noopener'>MCP, Agentic AI Foundation 합류</a></p><p class='ph'><a href='https://a2a-protocol.org/latest/blog/2026/08/27/a-new-chapter-for-a2a-joining-the-agentic-ai-foundation/' target='_blank' rel='noopener'>A2A, Agentic AI Foundation 합류</a></p><p class='ph'><a href='https://openai.com/index/function-calling-and-other-api-updates/' target='_blank' rel='noopener'>OpenAI, Function calling</a></p><p class='ph'><a href='https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/' target='_blank' rel='noopener'>OWASP, Top 10 for Agentic Applications 2026</a></p><p class='ph'><a href='https://www.rfc-editor.org/info/rfc439/' target='_blank' rel='noopener'>RFC 439</a></p><p class='ph'><a href='https://chatgpt.com/features/dots/' target='_blank' rel='noopener'>OpenAI, Dots 소개</a></p><p class='ph'><a href='https://learn.chatgpt.com/docs/dots' target='_blank' rel='noopener'>OpenAI, Dots 문서</a></p><p class='ph'><a href='https://about.fb.com/news/2026/09/introducing-muse-small-business/' target='_blank' rel='noopener'>Meta, Muse for Small Business</a></p><p class='ph'><a href='https://docs.x.ai/grok-bot/approvals-security-and-privacy' target='_blank' rel='noopener'>Grok Bot 문서, 승인·보안</a></p><p class='ph'><a href='https://www.reuters.com/business/meta-launches-ai-agent-that-can-access-other-apps-send-emails-make-payments-2026-09-08/' target='_blank' rel='noopener'>Reuters, Meta 에이전트 출시 (2026-09-08)</a></p><p class='ph'><a href='https://www.reuters.com/business/openai-shelves-new-ai-model-after-internal-safety-tests-wsj-reports-2026-09-28/' target='_blank' rel='noopener'>Reuters, OpenAI 신규 모델 출시 취소 (2026-09-28)</a></p></div><div class='rl-sec'><h3>특수효과</h3><p>없음<br><span class="rsub">스크롤이 전부입니다</span></p></div><div class='rl-sec'><h3>삭제된 장면</h3><p>쓰이지 않던 이미지와 렌더러<br><span class="rsub">“쓰이지 않으면 삭제”라는 한마디에 편집실을 떠났습니다</span></p></div><div class='rl-sec'><h3>제작 중 사고</h3><p>1.5초를 못 기다리고 기계 목소리로 갈아탄 오프닝<br><span class="rsub">느린 노트북에서 드러날 뻔한 결함이 발표 당일에 발견되어 고쳐졌습니다.<br>‘그록’을 ‘그룹’으로 받아 적은 음성 인식은 범인을 아직 확인 중입니다.</span></p></div><div class='rl-sec'><h3>협찬</h3><p>이 PC의 CPU 8코어<br><span class="rsub">GPU는 끝내 구경하지 못했습니다</span></p></div><div class='rl-sec'><h3>출연 동물</h3><p>없음<br><span class="rsub">다만 제작자는 강아지로 알려져 있습니다</span></p></div><div class='rl-sec'><h3>최종 작성자</h3><p>삐꾸강아쥐 by 딸깍</p></div><div class='rl-end'>— 끝 —<small>다음 발표는 아직 쓰이지 않았습니다</small></div></div></div>
       <button id="rollReplay" type="button">크레딧 다시 보기</button>
     </div>
   </div>
@@ -1504,7 +1504,7 @@ const SCENES = [
     message: '같은 “봇”이라도 실행·지속·권한이 다르다',
     visual: {
         type: 'stack',
-        aria: '용어 도해. 챗봇, 코파일럿, 에이전트, 지속형 봇 네 카드를 실행, 지속성, 권한, 결과 네 항목으로 비교한다. 챗봇은 답변, 세션, 낮은 권한, 텍스트. 코파일럿은 제안과 보조, 문서 또는 IDE, 편집, 초안. 에이전트는 목표 실행, 작업, 도구 호출, 완료 작업. 지속형 봇은 역할과 기억, 장기, 환경과 승인, 산출물과 로그. 오늘 열광의 대상은 에이전트와 지속형 봇이다. 챗봇은 안내 데스크, 에이전트는 일을 맡아 끝내는 동료라는 비유를 곁들인다.',
+        aria: '용어 도해. 챗봇, 코파일럿, 에이전트, 지속형 봇 네 카드를 실행, 지속성, 권한, 결과 네 항목으로 비교한다. 챗봇은 답변, 세션, 낮은 권한, 텍스트. 코파일럿은 제안과 보조, 문서 또는 IDE, 편집, 초안. 에이전트는 목표 실행, 작업, 도구 호출, 완료 작업. 지속형 봇은 역할과 기억, 장기, 환경과 승인, 산출물과 로그. 오늘 열광의 대상은 에이전트와 지속형 봇이다. 챗봇은 안내 데스크, 에이전트는 맡긴 일을 실행해 보는 담당자라는 비유를 곁들인다.',
         parts: [
           {
             type: 'speccards',
@@ -1590,7 +1590,7 @@ const SCENES = [
       }
   ,
     lines: [
-      '열광은 미완의 위임에서 출발해요. 조사와 초안까지는 됐죠. 그런데 업무 도구에 반영하고 끝내는 일은 사람 몫으로 남았어요. 대화가 새로 시작되면 맥락도 끊겼고요. 어제 맡긴 일을 오늘 또 설명해야 했어요. 도와준다와 맡긴다 사이의 틈이 쌓였고, 그 틈을 메울 도구를 찾는 움직임이 이어졌다고 볼 수 있죠. 문제는 실행과 권한과 지속성이 한 패키지로 오지 않았다는 점이에요. 뒤의 자가호스팅과 클라우드 이야기도 여기서 출발해요. 배경 네 장으로 먼저 볼게요.'
+      '열광은 미완의 위임에서 출발해요. 조사와 초안까지는 됐죠. 그런데 업무 도구에 반영하고 끝내는 일은 사람 몫으로 남았어요. 대화가 새로 시작되면 맥락도 끊겼고요. 어제 맡긴 일을 오늘 또 설명해야 했어요. 도와준다와 맡긴다 사이의 틈이 쌓였고, 그 틈을 메울 도구를 찾는 움직임이 이어졌다고 볼 수 있죠. 문제는 실행과 권한과 지속성이 한 패키지로 오지 않았다는 점이에요. 뒤의 자가호스팅과 에이전트 소셜, 클라우드 이야기도 여기서 출발해요. 배경 네 장으로 먼저 볼게요.'
     ]
   },
   {
@@ -1747,7 +1747,7 @@ const SCENES = [
     message: 'BOT 수요 반응이 하나의 발전사가 아니라 세 경로로 병행됐다',
     visual: {
         type: 'stack',
-        aria: '병행 세 경로 도해. 미완의 위임이라는 하나의 출발점에서 자가호스팅, 에이전트 소셜, 클라우드 제품 세 갈래가 동시에 열렸다. 세 갈래 사이에는 순서도 화살표도 없다. 자가호스팅은 OpenClaw, Hermes Agent, 이후 NanoClaw와 Rakazo 등이며 격리는 내 서버가 맡고 승인은 직접 구현한다. OpenClaw 공식 자기평가는 완벽한 경계가 아니며 피해 범위 축소가 목표라는 것이다. 에이전트 소셜은 Moltbook으로 게시와 투표를 표방하고 2026년 3월 Meta가 인수했다. 클라우드 제품은 Grok Bot, Muse, Dots로 환경이 제품화된 현재형이며 뒤 장에서 증거로 본다.',
+        aria: '병행 세 경로 도해. 미완의 위임이라는 하나의 출발점에서 자가호스팅, 에이전트 소셜, 클라우드 제품 세 갈래가 순서 없이 나란히 놓였다. 세 갈래 사이에는 순서도 화살표도 없다. 자가호스팅은 OpenClaw, Hermes Agent, 이후 NanoClaw와 Rakazo 등이며 격리는 내 서버가 맡고 승인은 직접 구현한다. OpenClaw 공식 자기평가는 완벽한 경계가 아니며 피해 범위 축소가 목표라는 것이다. 에이전트 소셜은 Moltbook으로 게시와 투표를 표방하고 2026년 3월 Meta가 인수했다. 클라우드 제품은 Grok Bot, Muse, Dots로 환경이 제품화된 현재형이며 뒤 장에서 증거로 본다.',
         parts: [
           {
             type: 'fan',
@@ -1785,7 +1785,7 @@ const SCENES = [
       }
   ,
     lines: [
-      '앞에서 본 봇 수요에 대한 반응은 하나의 발전사가 아니라 세 경로로 병행됐어요. 한 갈래는 자가호스팅이에요. OpenClaw나 누스 리서치의 헤르메스처럼 봇이 일하는 바탕을 스스로 쥐는 길이죠. 다른 것과 떼어 놓는 격리는 내 서버가 맡고, 사람이 허락하는 승인은 직접 만들어야 해요. 또 한 갈래는 Moltbook 같은 에이전트 소셜입니다. 에이전트가 게시하고 투표하는 방식을 내세웠어요. 이천이십육년 삼월 십일에 Meta가 인수했고, 팀은 메타 슈퍼인텔리전스 랩스로 옮겨 갔어요. 이 갈래는 뒤의 리스크 장에서 다시 나와요. 나머지는 그록 봇, Muse, 닷츠 같은 클라우드 제품이에요. 일하는 바탕 자체가 제품이 된 현재형이죠. OpenClaw는 이 흐름의 초기 사례 가운데 하나예요. 공식 문서에 따르면 샌드박스는 기본적으로 꺼져 있고, 완벽한 보안 경계도 아니라고 해요. 샌드박스는 바깥과 분리된 작업 공간이고, 목적은 피해 범위를 줄이는 것이라고 해요. 그 뒤로 OpenClaw의 경량 대안인 NanoClaw가 나왔죠. 그록 봇의 비공식 오픈소스 대안 Rakazo, 오픈마우스봇, 오픈그록봇도 이어졌고요. 세 길은 한 줄이 아니라 순서 없이 나란히 놓여 있어요.'
+      '앞에서 본 봇 수요에 대한 반응은 하나의 발전사가 아니라 세 경로로 병행됐어요. 한 갈래는 자가호스팅이에요. OpenClaw나 누스 리서치의 헤르메스 에이전트처럼 봇이 일하는 바탕을 스스로 쥐는 길이죠. 다른 것과 떼어 놓는 격리는 내 서버가 맡고, 사람이 허락하는 승인은 직접 만들어야 해요. 또 한 갈래는 Moltbook 같은 에이전트 소셜입니다. 에이전트가 게시하고 투표하는 방식을 내세웠어요. 이천이십육년 삼월 십일에 Meta가 인수했고, 팀은 메타 슈퍼인텔리전스 랩스로 옮겨 갔어요. 이 갈래는 뒤의 리스크 장에서 다시 나와요. 나머지는 그록 봇, Muse, 닷츠 같은 클라우드 제품이에요. 일하는 바탕 자체가 제품이 된 현재형이죠. OpenClaw는 이 흐름의 초기 사례 가운데 하나예요. 공식 문서에 따르면 샌드박스는 기본적으로 꺼져 있고, 완벽한 보안 경계도 아니라고 해요. 샌드박스는 바깥과 분리된 작업 공간이고, 목적은 피해 범위를 줄이는 것이라고 해요. 그 뒤로 OpenClaw의 경량 대안인 NanoClaw가 나왔죠. 그록 봇의 비공식 오픈소스 대안 Rakazo, 오픈마우스봇, 오픈그록봇도 이어졌고요. 세 길은 한 줄이 아니라 순서 없이 나란히 놓여 있어요.'
     ]
   },
   {
@@ -1846,7 +1846,7 @@ const SCENES = [
                 type: 'iconrow',
                 look: 'compact',
                 dir: 'col',
-                items: [ { ic: 'sprout', t: '저위험 업무부터', s: '예: 환불 처리 봇은 정책 범위 안이면 스스로 끝냄' }, { vs: '→' }, { ic: 'gate', t: '사람 승인 게이트', s: '범위를 벗어나면 사람에게 넘김', tone: 'human' } ]
+                items: [ { ic: 'sprout', t: '저위험 업무부터', s: '예: 환불 처리 봇은 정책 범위 안이면 스스로 끝냄' }, { vs: '+' }, { ic: 'gate', t: '사람 승인 게이트', s: '범위를 벗어나면 사람에게 넘김', tone: 'human' } ]
               }
             ]
           },
@@ -1942,7 +1942,7 @@ const SCENES = [
                   edge: 'Sentinel · 인터넷 접근(egress) 통제',
                   out: '인터넷'
                 },
-                bar: [ '로컬 실행: 데스크톱 앱 → 실제 PC', '클라우드 Auto Review와 별도 통제', '제품 기본 Ask · 본 자료 권고 Never' ]
+                bar: [ '로컬 실행: 데스크톱 앱 → 실제 PC', '클라우드 Auto Review와 별도 통제', '기본값 팀 Always allow · 개인 Ask · 본 자료 권고 Never' ]
               }
             }
           ]
@@ -1984,7 +1984,7 @@ const SCENES = [
     year: '14장 · Grok 개요',
     title: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
     message: 'Grok Bot은 위임을 클라우드 computer 위에 올린 현재형이다',
-    foot: '출처: x.ai/news/grok-bot-for-enterprise · x.ai/news/grok-bot-more-plans · 게시일 2026-09-03 / 2026-08-26',
+    foot: '출처: x.ai/news (introducing-grok-bot · grok-bot-for-enterprise · grok-bot-more-plans) · 2026-08-11 / 08-26 / 09-03',
     visual: {
         type: 'stack',
         aria: 'Grok Bot 개요 도해. 2026-08-11 beta 공개, 2026-08-26 포함 플랜 확대, 2026-09-03 Enterprise 출시 순의 날짜 타임라인이며 마지막 항목에는 출시 당시 제공된 2주 무료 사용과 조직 초대가 적혀 있다. 제품과 발표는 SpaceXAI, 실행은 Cursor 클라우드의 사용자별 computer다. 접근은 SuperGrok과 Cursor 유료 플랜 등과 번들이고 요금은 플랜 안내 기준이다.',
@@ -2049,7 +2049,7 @@ const SCENES = [
                 t: '로컬 실행',
                 tone: 'risk',
                 s: '데스크톱 앱 → 실제 PC',
-                lines: [ 'Auto Review와 별도 통제', '제품 기본 Ask · 본 자료 권고 Never' ]
+                lines: [ 'Auto Review와 별도 통제', '기본값 팀 Always allow · 개인 Ask · 본 자료 권고 Never' ]
               }
             ]
           },
@@ -2106,7 +2106,7 @@ const SCENES = [
     message: 'Muse는 개인 agent를 Secure VM 위에 둔 미국 롤아웃이다',
     visual: {
         type: 'stack',
-        aria: 'Muse 개요 도해. 2026-09-08 발표, 미국 롤아웃이며 채널은 iOS, Android, muse.ai, WhatsApp이다. 요금은 무료 한도, Power 20달러, Maximum 100달러의 세 단계이고 공식 Help 기준이며 지역과 계정별로 다르다. Muse의 AI 안경(글라스) 탑재는 Meta가 앞으로 몇 달 안이라고 밝혔고 출시일은 없으며, 사내 배포 방식은 발표문에 없다.',
+        aria: 'Muse 개요 도해. 2026-09-08 발표, 미국 롤아웃이며 롤아웃 채널은 iOS, Android, muse.ai이고 WhatsApp에서도 대화할 수 있다. 요금은 무료 한도, Power 20달러, Maximum 100달러의 세 단계이고 공식 Help 기준이며 지역과 계정별로 다르다. Muse의 AI 안경(글라스) 탑재는 Meta가 앞으로 몇 달 안이라고 밝혔고 출시일은 없으며, 사내 배포 방식은 발표문에 없다.',
         parts: [
           {
             type: 'row',
@@ -2120,7 +2120,7 @@ const SCENES = [
                   { g: 'phone', t: 'iOS' },
                   { g: 'phone', t: 'Android' },
                   { g: 'browser', t: 'muse.ai' },
-                  { g: 'chat', t: 'WhatsApp' }
+                  { g: 'chat', t: 'WhatsApp 대화' }
                 ]
               },
               { type: 'stairs', items: [ { t: '무료 한도', v: 0 }, { t: 'Power $20', v: 20 }, { t: 'Maximum $100', v: 100 } ], caption: '공식 Help 기준 · 지역·계정별 상이 · 막대 높이는 금액에 비례' }
@@ -2140,7 +2140,7 @@ const SCENES = [
       }
   ,
     lines: [
-      '이번엔 다른 축의 증거, Muse예요. Muse를 움직이는 모델은 뮤즈 스파크입니다. 메타에 따르면 지금까지 낸 것 중 가장 뛰어난 모델이라고 하죠. 구월 팔일 발표와 함께 미국부터 롤아웃, 곧 차례로 내놓기 시작했어요. 공식 채널은 iOS와 안드로이드, 뮤즈 닷 에이아이, 왓츠앱이에요. 요금은 공식 Help 기준으로 무료 한도가 있고, Power는 한 달 이십 달러, Maximum은 한 달 백 달러예요. 지역과 계정마다 달라요. 글라스는 레이밴 메타 같은 메타의 AI 안경이에요. 안경 자체는 이미 판매되고 있고, Meta는 구월 이십삼일 커넥트에서, 앞으로 몇 달 안에 자사 AI 안경에서 Muse를 쓰게 하겠다고 밝혔어요. 어느 안경인지와 출시일은 아직 없습니다. 사내 배포 방식은 발표문에 없고, Muse의 국내 출시 일정도 확인되지 않았어요. 결제는 Stripe가 만든 Link로 해요. 실제 카드 번호 대신 일회용 카드를 쓰는 방식이죠. 파손·분실 보상, 가격 하락 보전, 무료 반품 같은 구매 보호도 적격 구매에 한해 Link 기준으로 적용돼요. 구월 이십구일에 나온 소규모 사업자용 Muse는 미국과 캐나다에서 제공돼요. 국내 출시나 사내 배포까지 넓혀 보지는 않겠습니다.'
+      '이번엔 다른 축의 증거, Muse예요. Muse를 움직이는 모델은 뮤즈 스파크입니다. 메타에 따르면 지금까지 낸 것 중 가장 뛰어난 모델이라고 하죠. 구월 팔일 발표와 함께 미국부터 롤아웃, 곧 차례로 내놓기 시작했어요. 롤아웃 채널은 iOS와 안드로이드, 뮤즈 닷 에이아이예요. 왓츠앱에서도 메시지처럼 대화할 수 있다고 해요. 요금은 공식 Help 기준으로 무료 한도가 있고, Power는 한 달 이십 달러, Maximum은 한 달 백 달러예요. 지역과 계정마다 달라요. 글라스는 레이밴 메타 같은 메타의 AI 안경이에요. 안경 자체는 이미 판매되고 있고, Meta는 구월 이십삼일 커넥트에서, 앞으로 몇 달 안에 자사 AI 안경에서 Muse를 쓰게 하겠다고 밝혔어요. 어느 안경인지와 출시일은 아직 없습니다. 사내 배포 방식은 발표문에 없고, Muse의 국내 출시 일정도 확인되지 않았어요. 결제는 Stripe가 만든 Link로 해요. 실제 카드 번호 대신 일회용 카드를 쓰는 방식이죠. 파손·분실 보상, 가격 하락 보전, 무료 반품 같은 구매 보호도 적격 구매에 한해 Link 기준으로 적용돼요. 구월 이십구일에 나온 소규모 사업자용 Muse는 미국과 캐나다에서 제공돼요. 국내 출시나 사내 배포까지 넓혀 보지는 않겠습니다.'
     ]
   },
   {
@@ -2285,7 +2285,7 @@ const SCENES = [
       }
   ,
     lines: [
-      '닷츠는 오픈에이아이가 개발자 행사에서 발표했어요. 미국 날짜로 구월 이십구일이에요. 에이전트 하나를 닷 하나라고 부르고, 기반 모델은 지피티 식스 아스트라예요. 닷마다 클라우드에 자기 컴퓨터와 브라우저가 있어서, 내 기기가 꺼져도 클라우드 작업은 이어져요. 일이 내 눈앞이 아닌 곳에서 계속된다는 뜻이라, 어디까지 맡길지 승인 경계를 먼저 정해야 해요. 접근은 개인은 프로 요금제에서, 기업 플랜은 차례로 열려요. 유럽경제지역과 영국, 스위스는 빠지고 만 열여덟 살이 넘어야 해요. 한국은 계정마다 제공 여부를 확인해야 해요. 모두 문서 기준입니다. 이어서 닷츠의 통제를 볼게요.'
+      '닷츠는 오픈에이아이가 개발자 행사에서 발표했어요. 미국 날짜로 구월 이십구일이에요. 에이전트 하나를 닷 하나라고 부르고, 기반 모델은 지피티 식스 아스트라예요. 닷마다 클라우드에 자기 컴퓨터와 브라우저가 있어서, 내 기기가 꺼져도 클라우드 작업은 이어져요. 일이 내 눈앞이 아닌 곳에서 계속된다는 뜻이라, 어디까지 맡길지 승인 경계를 먼저 정해야 해요. 접근은 개인은 프로 요금제에서 쓸 수 있고, 기업 플랜은 차례로 열려요. 유럽경제지역과 영국, 스위스는 빠지고 만 열여덟 살이 넘어야 해요. 한국은 계정마다 제공 여부를 확인해야 해요. 모두 문서 기준입니다. 이어서 닷츠의 통제를 볼게요.'
     ]
   },
   {
@@ -2344,7 +2344,7 @@ const SCENES = [
                 hi: true,
                 ne: '≠',
                 cells: [
-                  'Auto Review (모델 기반 · 최소권한 대체 금지)',
+                  'Auto Review (모델 기반 · 최소 권한을 대체하지 않음)',
                   'Sentinel (인터넷/egress 중개)',
                   '자동 심사 + Custom Rules (핵심 안전 요건은 못 끔)'
                 ]
@@ -2394,7 +2394,7 @@ const SCENES = [
       }
   ,
     lines: [
-      '세 제품을 같은 네 칸에 나란히 놓고 읽어 볼게요. 칸은 실행 환경, 자동 통제, 사람 승인, 운영 주의예요. 그록 봇은 사용자마다 주어지는 클라우드 컴퓨터에서, 뮤즈는 개인별 시큐어 브이엠에서, 닷츠는 각자 클라우드의 컴퓨터와 브라우저에서 일해요. 자동 통제 칸에는 오토 리뷰, 센티널, 닷츠의 자동 심사가 나란히 있지만 서로 같은 장치로 읽으면 안 돼요. 사람 승인도 제품마다 조건이 달라요. 그록 봇은 결제와 로그인 같은 민감한 행동, 뮤즈는 메일 발송과 구매, 닷츠는 비밀번호 변경이나 영구 삭제에서 확인을 받아요. 운영 주의는 제품마다 달라요. 그록 봇은 봇 사이 공유, 뮤즈는 오프보딩을 보고, 닷츠는 연결한 컴퓨터가 켜져 있어야 이어지는 점을 봐요. 같은 칸에 놓아야 빠진 조건이 보이고, 새 제품도 이 네 질문으로 읽을 수 있어요.'
+      '세 제품을 같은 네 칸에 나란히 놓고 읽어 볼게요. 칸은 실행 환경, 자동 통제, 사람 승인, 운영 주의예요. 그록 봇은 사용자마다 주어지는 클라우드 컴퓨터에서, 뮤즈는 개인별 시큐어 브이엠에서, 닷츠는 각자 클라우드의 컴퓨터와 브라우저에서 일해요. 자동 통제 칸에는 오토 리뷰, 센티널, 닷츠의 자동 심사가 나란히 있지만 서로 같은 장치로 읽으면 안 돼요. 사람 승인도 제품마다 조건이 달라요. 그록 봇은 결제와 로그인 같은 민감한 행동, 뮤즈는 메일 발송과 구매, 닷츠는 비밀번호 변경이나 영구 삭제에서 확인을 받아요. 운영 주의는 제품마다 달라요. 그록 봇은 봇 사이 공유와 오프보딩, 뮤즈는 컨피덴셜 브이엠 미출시와 미국 롤아웃 범위를 보고, 닷츠는 연결한 컴퓨터가 켜져 있어야 이어지는 점을 봐요. 같은 칸에 놓아야 빠진 조건이 보이고, 새 제품도 이 네 질문으로 읽을 수 있어요.'
     ]
   },
   {
@@ -2403,14 +2403,14 @@ const SCENES = [
     message: '제품 이름 전에 다섯 뼈대를 본다',
     visual: {
         type: 'stack',
-        aria: '공통 뼈대 도해. 아래에서 위로 실행 환경, 커넥터, 기억, 루틴, 사람 승인의 다섯 층이 쌓여 있고, 그중 실행 환경과 사람 승인만 자가호스팅, Grok Bot, Muse 세 열로 대조한다.',
+        aria: '공통 뼈대 도해. 아래에서 위로 실행 환경, 커넥터, 기억, 루틴, 사람 승인의 다섯 층이 쌓여 있고, 그중 실행 환경과 사람 승인만 자가호스팅, Grok Bot, Muse 세 열로 대조한다. Dots는 20장에서 22장을 참고한다.',
         parts: [
           {
             type: 'v',
             w: 8,
             visual: {
               type: 'skeleton',
-              aria: '공통 뼈대 도해. 아래에서 위로 실행 환경, 커넥터, 기억, 루틴, 사람 승인의 다섯 층이 쌓여 있고, 그중 실행 환경과 사람 승인만 자가호스팅, Grok Bot, Muse 세 열로 대조한다.',
+              aria: '공통 뼈대 도해. 아래에서 위로 실행 환경, 커넥터, 기억, 루틴, 사람 승인의 다섯 층이 쌓여 있고, 그중 실행 환경과 사람 승인만 자가호스팅, Grok Bot, Muse 세 열로 대조한다. Dots는 20장에서 22장을 참고한다.',
               layers: [
                 { t: '실행 환경', q: '무엇을 어디서 돌리나', link: 'blue' },
                 { t: '커넥터', q: '무엇에 연결하나' },
@@ -2423,7 +2423,7 @@ const SCENES = [
                 { t: '사람 승인', tone: 'human', link: 'human', cells: [ '직접 구현', '민감 · 로그인 · 2FA · 결제', '메일 · 구매 등' ] },
                 { t: '실행 환경', link: 'blue', cells: [ '내 서버', '사용자당 cloud computer', '개인별 Secure VM' ] }
               ],
-              caption: '자가호스팅은 격리가 내 서버, 승인은 직접 구현'
+              caption: '자가호스팅은 격리가 내 서버, 승인은 직접 구현 · Dots는 20~22장 참고'
             }
           },
         ]
@@ -2497,6 +2497,7 @@ const SCENES = [
     year: '25장 · 리스크',
     title: '위임이 커질수록 리스크도 커진다 · 완화 한 줄을 붙인다',
     message: '위임이 커질수록 리스크도 커진다 · 완화 한 줄을 붙인다',
+    foot: '출처: Moltbook 사건 수치(토큰 약 150만 · 이메일 약 3.5만)는 Wiz 2026-02-02 보도 기준',
     visual: {
         type: 'split',
         photo: {
@@ -2510,7 +2511,7 @@ const SCENES = [
         },
         main: {
           type: 'stack',
-          aria: '리스크와 완화 도해. 다섯 리스크마다 완화 한 줄을 짝지었다. 자격증명과 잔존 로그인은 최소 권한, 봇 삭제는 자격증명 회수가 아님, 오프보딩 순서. 오작동과 과도 위임은 저위험부터, 사람 승인 게이트, Auto Review는 최소권한과 명시 경계를 대체하지 않음. 프라이버시와 접근 간극은 연결 범위와 옵트아웃, Muse는 Secure VM에서 Meta 운영 접근을 기술적으로 막지 않으며 Confidential VM은 그 간극을 메우려는 미출시 예정. 네트워크와 비용은 Enterprise 전용 Network Controls와 없으면 allow-all, 요금은 플랜과 Help 안내 기준, 한도 모니터링. 로컬 실행과 책임은 클라우드 Auto Review와 별도, 본 자료 권고: Never, 감사 로그.',
+          aria: '리스크와 완화 도해. 다섯 리스크마다 완화 한 줄을 짝지었다. 자격증명과 잔존 로그인은 최소 권한, 봇 삭제는 자격증명 회수가 아님, 오프보딩 순서. 오작동과 과도 위임은 저위험부터, 사람 승인 게이트, Auto Review는 최소 권한과 명시 경계를 대체하지 않음. 프라이버시와 접근 간극은 연결 범위와 옵트아웃, Muse는 Secure VM에서 Meta 운영 접근을 기술적으로 막지 않으며 Confidential VM은 그 간극을 메우려는 미출시 예정. 네트워크와 비용은 Enterprise 전용 Network Controls와 없으면 allow-all, 요금은 플랜과 Help 안내 기준, 한도 모니터링. 로컬 실행과 책임은 클라우드 Auto Review와 별도, 본 자료 권고: Never, 감사 로그.',
           parts: [
             {
               type: 'riskrows',
@@ -2532,7 +2533,7 @@ const SCENES = [
                   ic: 'warn',
                   k: '오작동 · 과도 위임',
                   hi: true,
-                  cells: [ '저위험부터', '사람 승인 게이트', { t: 'Auto Review는 최소권한·명시 경계 대체 금지', chip: true, tone: 'risk' } ]
+                  cells: [ '저위험부터', '사람 승인 게이트', { t: 'Auto Review는 최소 권한·명시 경계를 대체하지 않음', chip: true, tone: 'risk' } ]
                 },
                 {
                   ic: 'eye',
@@ -2891,7 +2892,7 @@ function dgFill(n, text) {
 function dgEl(tag, cls, text) { return dgFill(el(tag, cls), text); }
 function dgRoot(v, cls) {
   const d = el('div', 'dg ' + cls);
-  d.setAttribute('role', 'group'); d.setAttribute('aria-label', v.aria);
+  if (v.aria) { d.setAttribute('role', 'group'); d.setAttribute('aria-label', v.aria); }
   return d;
 }
 function dgBox(text, tone, sub) {
@@ -3346,7 +3347,7 @@ const IC = {
 function icon(name, tone) {
   const s = el('span', 'ic' + (tone ? ' t-' + tone : ''));
   s.setAttribute('aria-hidden', 'true');
-  s.innerHTML = '<svg viewBox="0 0 64 64" focusable="false">' + (IC[name] || IC.check) + '</svg>';
+  s.innerHTML = '<svg viewBox="0 0 64 64" focusable="false">' + (IC[name] || (console.warn('unknown icon: ' + name), IC.check)) + '</svg>';
   return s;
 }
 function disc(name, tone, size) {
@@ -3676,6 +3677,7 @@ function showScene(n) {
     closing.classList.add('show');
     meta.textContent = '엔딩';
   } else if (n === sceneCount + 2) {
+    stopAudio();
     credits.classList.add('show');
     meta.textContent = '크레딧';
     startRoll();
@@ -3742,11 +3744,14 @@ async function speakText(id, text, onDone) {
     engineEl.textContent = '고품질 음성';
     audio = clip;
     audio.onended = finish;
-    audio.play().catch(() => {
+    const toTTS = () => {
       if (gen !== playGen) return;
       audio = null;
+      engineEl.textContent = '브라우저 음성';
       browserTTS(text, gen, finish);
-    });
+    };
+    audio.onerror = toTTS;
+    audio.play().catch(toTTS);
   } else {
     engineEl.textContent = '브라우저 음성';
     browserTTS(text, gen, finish);
@@ -3771,6 +3776,7 @@ function startRoll() {
   const view = document.querySelector('#credits .roll-view');
   const track = document.querySelector('#credits .roll-track');
   credits.classList.remove('in');
+  view.scrollTop = 0;
   track.style.setProperty('--rv', view.clientHeight + 'px');
   void track.offsetWidth;
   credits.classList.add('in');
@@ -3809,7 +3815,8 @@ function playEnding() {
   showScene(idx);
   speakText(clipName(idx), ENDING_TEXT, () => {
     // after the ending narration, move on to the credits (unless the viewer already navigated)
-    setTimeout(() => { if (idx === sceneCount + 1) { idx = sceneCount + 2; showScene(idx); } }, 1200);
+    const g = playGen;
+    setTimeout(() => { if (idx === sceneCount + 1 && g === playGen) { idx = sceneCount + 2; showScene(idx); } }, 1200);
   });
 }
 
@@ -3846,8 +3853,9 @@ document.getElementById('op-route').appendChild(buildRoute({}));
 (function qaJump() {
   const raw = new URLSearchParams(location.search).get('scene');
   if (raw === null) return;
+  if (!/^\d+$/.test(raw)) return;
   const n = parseInt(raw, 10);
-  if (Number.isNaN(n) || n < 0 || n > sceneCount + 2) return;
+  if (n < 0 || n > sceneCount + 2) return;
   document.getElementById('intro').style.display = 'none';
   player.hidden = false;
   idx = n;

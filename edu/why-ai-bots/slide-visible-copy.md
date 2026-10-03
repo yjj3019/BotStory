@@ -382,7 +382,7 @@
 ## 19장 · Muse 전망
 - **메시지** 기업 발언·사실·해석을 표로 가른다
 - 기업 발언
-- personal superintelligence 등 장기 방향
+- personal superintelligence: '일생 가장 변혁적인 기술 중 하나' · Muse는 그 '첫걸음'
 - 안경에서 Muse: 앞으로 몇 달 안 (출시일 없음)
 - 사실
 - 2026-09-08 미국 롤아웃

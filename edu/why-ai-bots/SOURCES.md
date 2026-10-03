@@ -585,3 +585,12 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 - **사용(날짜순 나열, 순서·우열 표현 금지)**: Operator 2025-01-23, Claude Code 연구 프리뷰 2025-02-24, Responses API·Agents SDK 2025-03-11, ChatGPT agent 2025-07-17, Gemini 2.5 Computer Use 2025-10-07. 전부 VERIFIED(공식 1차 페이지 발췌, 요약기·Exa 경유, 전문 아님). 날짜는 현지 발표일이며 시간대는 미확인 [unverified].
 - **쓰지 않음**: Manus(공식 1차 미확보, 2차만 → 미확인), Deep research·Claude Code GA·Agent Skills(검증됐으나 장 분량상 제외), MCP 2025-12-09(24장 연결 표준에서 다룸), 벤치마크·성능·채택 수치, "최초" 표현.
 - 화면 용어 풀이(프리뷰, API·SDK)는 일반 설명이며 새 사실 주장이 아님.
+
+---
+
+## 2026-10-04 Dots 표방 문구 근거 (Dots 개요 나레이션 보강)
+
+- 열람: https://chatgpt.com/features/dots/ (2026-10-04 직접 열람)
+- 표방 문구 (원문): "Remarkably capable, always-on agents built to handle everything" / "Give it a responsibility to own — Your dot proactively figures out the next steps and keeps making progress between conversations" / "Dots help you fit more of what matters into your life"
+- 사용: Dots 개요 나레이션(21-scene)에 '오픈에이아이의 소개 문구'로 귀속해 1문장만 사용. "미래상·비전 선언"으로 부풀리는 표현은 공식 페이지에도 없어 쓰지 않음.
+- 성격: 제품 표방(기업이 한 말). 제품 사실(동작·통제)과 분리 표기 유지.

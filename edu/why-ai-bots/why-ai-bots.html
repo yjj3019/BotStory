@@ -1157,8 +1157,8 @@
 
   /* axes: product columns x comparison rows, icon per axis, chips instead of sentences */
   .dg-axes { display: grid; grid-template-columns: minmax(0, 19fr) minmax(0, 41fr) minmax(0, 40fr); gap: .45rem .6rem; }
-  .ax-c { position: relative; }
-  .ax-ne { position: absolute; right: -.3rem; top: 50%; z-index: 3; transform: translate(50%, -50%); width: 2.3em; height: 2.3em; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 2.5px solid var(--s-blue); color: var(--s-blue-deep); font-size: var(--f1); font-weight: 800; line-height: 1; }
+  .ax-k .ax-diff { margin-left: auto; padding: .1rem .55rem; border-radius: 999px; background: var(--s-blue-deep); color: #fff; font-size: .64em; font-weight: 800; white-space: nowrap; }
+  .ax-k:has(.ax-diff) { flex-wrap: wrap; row-gap: .25rem; }
   .ax-h { display: flex; align-items: center; justify-content: center; gap: .6rem; padding: .25rem .8rem; border-radius: 12px; background: var(--s-blue); color: #fff; font-size: var(--f3); font-weight: 800; }
   .ax-h.b { background: var(--s-blue); }
   .ax-h .ic { --ic-s: max(32px, 5vh); --ic-c: #fff; --ic-b: rgba(255,255,255,.2); }
@@ -1168,9 +1168,6 @@
   .ax-k.t-human { background: color-mix(in srgb, var(--human) 8%, #fff); border-color: var(--human); color: var(--human); }
   .ax-c { min-height: 0; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; align-content: center; gap: .3rem .4rem; padding: .25rem .7rem; border: 2px solid var(--line); border-radius: 12px; background: #fff; font-size: var(--f1); font-weight: 700; color: var(--ink); line-height: 1.25; }
   .ax-c.hi { background: var(--s-blue-soft); border-color: var(--s-blue); }
-  /* the ≠ badge straddles the column gap; keep it clear of the text on both sides */
-  .ax-c.before-ne { padding-right: 1.9rem; }
-  .ax-c.after-ne { padding-left: 1.9rem; }
   .ax-c.t-risk { background: var(--risk-bg); border-color: var(--risk); }
   .ax-sep { grid-column: 1 / 4; }
   .ax-mid { grid-column: 1 / 4; display: flex; align-items: center; justify-content: center; gap: .9rem; padding: .15rem .8rem; border-radius: 999px; background: var(--s-blue-deep); color: #fff; font-size: var(--f2); font-weight: 800; text-align: center; }
@@ -1321,12 +1318,6 @@
   #story [data-sk="29"] .sub-chips { flex: 1 1 100%; justify-content: flex-start; }
   #story [data-sk="29"] .dg-icard .chip { font-size: max(12.5px, 1.9vh); }
 
-/* 검증 라운드 3: ≠ 배지를 띄우지 않고 셀 안 글자 흐름의 마지막 자리(고정 칸)로 둔다.
-   덮어쓰기(absolute)를 버려 화면 폭·글자 크기가 달라져도 겹침이 구조적으로 불가능하게 한다. */
-  #story [data-sk="22"] .ax-c.after-ne { padding-left: .7rem; }
-  #story [data-sk="22"] .ax-c.before-ne { flex-wrap: nowrap; }
-  #story [data-sk="22"] .ax-c.before-ne > span:not(.ax-ne) { min-width: 0; }
-  #story [data-sk="22"] .ax-ne { position: static; transform: none; order: 2; flex: 0 0 auto; align-self: center; margin: 0 0 0 .2rem; width: 1.7em; height: 1.7em; }
 </style>
 </head>
 <body>
@@ -2392,7 +2383,7 @@ const SCENES = [
                 ic: 'shield',
                 k: '자동 통제',
                 hi: true,
-                ne: '≠',
+                diff: true,
                 cells: [
                   'Auto Review (모델 기반 · 최소권한 대체 금지)',
                   'Sentinel (인터넷/egress 중개)',
@@ -3507,10 +3498,9 @@ function buildAxes(v) {
   w.appendChild(dgEl('div', 'ax-h', '구분'));
   v.cols.forEach((c, i) => { const h = el('div', 'ax-h' + (i && v.cols.length < 3 ? ' b' : '')); h.appendChild(icon(c.ic)); h.appendChild(dgEl('span', '', c.t)); w.appendChild(h); });
   v.rows.forEach(r => {
-    const k = el('div', 'ax-k' + (r.tone ? ' t-' + r.tone : '')); k.appendChild(icon(r.ic, r.tone)); k.appendChild(dgEl('span', '', r.k)); w.appendChild(k);
+    const k = el('div', 'ax-k' + (r.tone ? ' t-' + r.tone : '')); k.appendChild(icon(r.ic, r.tone)); k.appendChild(dgEl('span', '', r.k)); if (r.diff) k.appendChild(el('span', 'ax-diff', '방식 다름')); w.appendChild(k);
     r.cells.forEach((cell, ci) => {
-      const c = el('div', 'ax-c' + (r.hi ? ' hi' : '') + (r.tone === 'risk' ? ' t-risk' : '') + (r.ne ? (ci === 1 ? ' after-ne' : ci === 0 ? ' before-ne' : '') : ''));
-      if (r.ne && ci === 0) c.appendChild(el('span', 'ax-ne', r.ne));
+      const c = el('div', 'ax-c' + (r.hi ? ' hi' : '') + (r.tone === 'risk' ? ' t-risk' : ''));
       (Array.isArray(cell) ? cell : [cell]).forEach(x => {
         const it = typeof x === 'string' ? { t: x } : x;
         if (it.chip) c.appendChild(dgEl('span', 'ax-chip' + (it.tone ? ' c-' + it.tone : ''), it.t)); else c.appendChild(dgEl('span', '', it.t));

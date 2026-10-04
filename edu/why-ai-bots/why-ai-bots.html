@@ -1321,10 +1321,12 @@
   #story [data-sk="29"] .sub-chips { flex: 1 1 100%; justify-content: flex-start; }
   #story [data-sk="29"] .dg-icard .chip { font-size: max(12.5px, 1.9vh); }
 
-/* 검증 라운드 2: ≠ 배지를 Grok 셀 흐름 안 오른쪽 끝에 두어 옆 셀 텍스트와 겹치지 않게 한다 */
-  #story [data-sk="22"] .ax-c.after-ne { padding-left: 1.9rem; }
-  #story [data-sk="22"] .ax-ne { position: absolute; right: .55rem; top: 50%; transform: translateY(-50%); margin: 0; width: 1.7em; height: 1.7em; }
-  #story [data-sk="22"] .ax-c:has(.ax-ne) { padding-right: 2.7rem; }
+/* 검증 라운드 3: ≠ 배지를 띄우지 않고 셀 안 글자 흐름의 마지막 자리(고정 칸)로 둔다.
+   덮어쓰기(absolute)를 버려 화면 폭·글자 크기가 달라져도 겹침이 구조적으로 불가능하게 한다. */
+  #story [data-sk="22"] .ax-c.after-ne { padding-left: .7rem; }
+  #story [data-sk="22"] .ax-c.before-ne { flex-wrap: nowrap; }
+  #story [data-sk="22"] .ax-c.before-ne > span:not(.ax-ne) { min-width: 0; }
+  #story [data-sk="22"] .ax-ne { position: static; transform: none; order: 2; flex: 0 0 auto; align-self: center; margin: 0 0 0 .2rem; width: 1.7em; height: 1.7em; }
 </style>
 </head>
 <body>

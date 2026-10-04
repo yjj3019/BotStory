@@ -433,7 +433,7 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 | 6 | OpenAI가 2023-06-13 API에 function calling 공개(모델이 부를 함수를 JSON 형식으로 알려 줌) — 6장 타임라인 한 점·나레이션 한 문장 | https://openai.com/index/function-calling-and-other-api-updates/ | 2026-09-30 | VERIFIED(검색 요약). 새 화면 항목은 이 한 줄뿐 |
 | 5 | RFC 439 문서 발행 1973-01-21, 기록된 대화는 1972-09-18(BBN의 PARRY, 스탠퍼드의 DOCTOR) — 출처 줄을 "RFC 439(1973-01 발행 · 대화 1972-09-18)"로 정정 | https://www.rfc-editor.org/info/rfc439/ | 2026-09-30 | VERIFIED(검색 요약) |
 | 21 | A2A는 2025-06-23 Linux Foundation으로 이관(Google Cloud 기증) — 이전 "일자 미확인" 해소. 화면·나레이션에는 쓰지 않음(현재 서술은 "첫 재단 이전"이라고 하지 않음) | https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents | 2026-09-30 | VERIFIED(검색 요약), 미사용 |
-- 이번 반영으로 바뀐 낭독의 근거(위 표 이전 행에 이미 있음): OpenClaw 샌드박스 기본 꺼짐(182행), Auto Review는 사람 승인을 대체하지 않음(141행), Muse 요금 월 단위(재확인 절), 로컬 실행 기본값 팀 Always allow·개인 Ask every time(143행).
+- 이번 반영으로 바뀐 낭독의 근거(위 표 이전 행에 이미 있음): OpenClaw 샌드박스 기본 꺼짐(182행), Auto Review는 사람 승인을 대체하지 않음(141행), Muse 요금 월 단위(재확인 절), 로컬 실행 — 2026-10-04 공식 문서 재확인: 기본값 Ask every time, "특별한 이유 없으면 Never allow" 권고, 팀 관리자는 상한 설정 가능하고 더 엄격한 팀 정책이 우선 (docs.x.ai/grok-bot/approvals-security-and-privacy). 종전 기록의 "팀 Always allow"는 첫 실행 대화상자의 선택지를 기본값으로 오독한 것이라 정정.
 
 ## 2026-10-02 외부 종합 분석 리포트(Muse·Grok Bot·dots) 대조 반영
 사용자가 전달한 외부 리포트의 신규 주장을 공식·1차 출처로 확인한 뒤, 덱의 주제(격리·승인)와 기존 서술에 직접 걸리는 두 곳만 반영했다. 열람은 Exa 추출 기준이며 대부분 발췌다(전문은 Meta Help 2건).
@@ -594,3 +594,9 @@ Grok Bot 최초 발표문(2026-08-11) 전체를 사용자가 제공했다. 확�
 - 표방 문구 (원문): "Remarkably capable, always-on agents built to handle everything" / "Give it a responsibility to own — Your dot proactively figures out the next steps and keeps making progress between conversations" / "Dots help you fit more of what matters into your life"
 - 사용: Dots 개요 나레이션(21-scene)에 '오픈에이아이의 소개 문구'로 귀속해 1문장만 사용. "미래상·비전 선언"으로 부풀리는 표현은 공식 페이지에도 없어 쓰지 않음.
 - 성격: 제품 표방(기업이 한 말). 제품 사실(동작·통제)과 분리 표기 유지.
+
+
+## 2026-10-04 검토 반영 메모
+- Grok 로컬 실행: 기본 Ask · 팀 관리자 상한 · 공식 권고 Never로 본문·슬라이드 정정 (위 재확인 근거).
+- Muse 요금 출처: 공식 Help URL을 직접 확보하지 못해 크레딧에는 링크 없이 "Meta 구독 안내 (공식 Help 기준)" 텍스트로 등재. 슬라이드는 기존 "공식 Help 기준 · 지역·계정별 상이" 유지.
+- GPT-6.1 Astra: 2026-09-28 Reuters "출시 취소(shelved)" 보도 근거로 28장 전망에 기반 모델 변수 문장 추가.

@@ -555,6 +555,7 @@
   .nb { white-space: nowrap; }
   .dg h3, .dg dl, .dg dd, .dg dt, .dg p, .dg ol, .dg li { margin: 0; padding: 0; }
   .dg ol, .dg ul { list-style: none; }
+  .dg .lane li { padding: .5rem 1rem; }
   .dg-box {
     display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 0;
     padding: .4rem .8rem; border: 2.5px solid var(--s-blue); border-radius: 12px; background: #fff;
@@ -2856,7 +2857,7 @@ function buildMatrix(v) {
     const th = el('th', tones[ci] ? 'tone-' + tones[ci] : '');
     th.scope = 'col';
     if (h) th.textContent = h;
-    else th.appendChild(el('span', 'sr-only', '구분'));
+    else th.textContent = '구분';
     hr.appendChild(th);
   });
   thead.appendChild(hr); table.appendChild(thead);
@@ -3047,7 +3048,7 @@ function buildSkeleton(v) {
   ['20%', '26.66%', '26.67%', '26.67%'].forEach(w => { const c = document.createElement('col'); c.style.width = w; cg.appendChild(c); });
   table.appendChild(cg);
   const thead = document.createElement('thead'), hr = document.createElement('tr');
-  const corner = el('th'); corner.scope = 'col'; corner.appendChild(el('span', 'sr-only', '구분')); hr.appendChild(corner);
+  const corner = el('th'); corner.scope = 'col'; corner.textContent = '구분'; hr.appendChild(corner);
   v.cols.forEach(c => { const th = dgEl('th', '', c); th.scope = 'col'; hr.appendChild(th); });
   thead.appendChild(hr); table.appendChild(thead);
   const tb = document.createElement('tbody');

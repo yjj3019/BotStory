@@ -2857,7 +2857,7 @@ function buildMatrix(v) {
     const th = el('th', tones[ci] ? 'tone-' + tones[ci] : '');
     th.scope = 'col';
     if (h) th.textContent = h;
-    else th.textContent = '구분';
+    else th.appendChild(el('span', 'sr-only', '구분'));
     hr.appendChild(th);
   });
   thead.appendChild(hr); table.appendChild(thead);
@@ -3515,7 +3515,7 @@ function buildRmap(v) {
 function buildAxes(v) {
   const w = dgRoot(v, 'dg-axes'); w.style.gridTemplateRows = 'auto ' + v.rows.map(r => 'minmax(0, ' + (r.w || 1) + 'fr)').join(' ');
   if (v.cols.length > 2) w.style.gridTemplateColumns = 'minmax(0, 14fr) ' + v.cols.map(() => 'minmax(0, 29fr)').join(' ');
-  w.appendChild(el('div'));
+  w.appendChild(dgEl('div', 'ax-h', '구분'));
   v.cols.forEach((c, i) => { const h = el('div', 'ax-h' + (i && v.cols.length < 3 ? ' b' : '')); h.appendChild(icon(c.ic)); h.appendChild(dgEl('span', '', c.t)); w.appendChild(h); });
   v.rows.forEach(r => {
     const k = el('div', 'ax-k' + (r.tone ? ' t-' + r.tone : '')); k.appendChild(icon(r.ic, r.tone)); k.appendChild(dgEl('span', '', r.k)); w.appendChild(k);

@@ -1,5 +1,34 @@
 # 출처 — AI 대항해 시대, 사람들은 왜 AI Bot에 열광하는가 (2026-10-01)
 
+## 2026-10-05 개정 확인 범위
+
+아래 기존 기록은 당시 자료이며, 모두 오늘 재확인했다는 뜻이 아닙니다. 이번에는 학습 개념과 잘못 일반화된 안전 설명을 다음 1차 자료와 대조했습니다. 제품 가격·이용 지역·향후 일정은 실제 이용 시 재확인해야 합니다. 낭독 표기를 통일한 원고32클립을 제공합니다. 음성은 사용자가 별도로 렌더링하며, 기존 녹음이나 브라우저 음성으로 대체하지 않습니다.
+
+| 반영 위치 | 확인·수정 내용 | 1차 출처 |
+|---|---|---|
+| 3장·학습 가이드 | 제품 이름은 엄격한 분류가 아니며 워크플로와 에이전트를 작업 경로로 구분 | [Anthropic: Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) |
+| 9장① | 자가호스팅만으로 격리가 보장되지 않음. OpenClaw 샌드박스는 기본 비활성, 별도 실행 승인 기능 제공 | [Sandboxing](https://docs.openclaw.ai/gateway/sandboxing), [Exec approvals](https://docs.openclaw.ai/tools/exec-approvals) |
+| 21·22장 | Dots 비밀번호 변경은 사용자 직접 처리, 영구 삭제 승인과 구분. 자동 심사 범위는 계정·정보 공유에 영향을 주는 행동 | [Dots controls](https://learn.chatgpt.com/docs/dots/controls) |
+| 학습 가이드 | 모델의 도구 호출 제안과 실제 프로그램 실행 구분, 외부 도구 출력의 지시 오용 위험 | [OpenAI: Function calling](https://openai.com/index/function-calling-and-other-api-updates/) |
+| 학습 가이드 | 기억·요약의 한계, 실제 결과와 반복 수행·비용·지연 평가 | [Context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), [Agent evals](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) |
+
+최종 나레이션 검토에서는 다음도 바로잡았습니다. Meta의 [안전 설계](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)는 Sentinel이 커넥터·네트워크의 권한을 판단하고 필요한 사람 승인을 요청한다고 설명합니다. 따라서 이 문서의 과거 기록 중 “사람 승인은 Sentinel과 별개”라는 해석은 최종 원고·화면에서 사용하지 않습니다. Dots [시작 안내](https://help.openai.com/en/articles/20001530-getting-started-with-your-dot)의 지역 제한은 개인 Pro와 Business Premium의 범위를 구분해 반영했습니다. 이번에 직접 확인하지 못한 이용 연령 숫자는 삭제했습니다.
+
+추가로 Muse의 9월 29일 [공식 소규모 사업자 기능 발표](https://about.fb.com/news/2026/09/introducing-muse-small-business/)는 개인 에이전트의 이용 범위를 미국·캐나다로 소개합니다. 9월 8일 미국 롤아웃이라는 역사적 사실과 구분해 17·19·22장에 날짜를 붙였습니다. Muse 요금(Power $20 / Maximum $100)은 기존 안내 요약에서 재인용한 값이며, [공식 요금 안내](https://www.meta.com/help/subscriptions/1021145227643680/) 본문은 이번에도 시간 초과로 재확인하지 못했습니다. 화면·원고에 이 한계를 표시했습니다.
+
+25장 Moltbook 사고는 [Wiz 원조사](https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys)와 대조해 원인을 공개 데이터베이스 키 자체가 아닌 RLS 접근 제어 설정 누락으로 바로잡았습니다. 공개 클라이언트 키와 비밀 인증 토큰을 같은 것으로 가르치지 않도록 구분했습니다.
+
+이번 검토에서 직접 열어 대조한 제품 1차 자료:
+
+- Grok Bot: [소개·Roman 인용](https://x.ai/news/introducing-grok-bot), [8월 26일 플랜 확대](https://x.ai/news/grok-bot-more-plans), [Enterprise](https://x.ai/news/grok-bot-for-enterprise), [승인·보안·프라이버시](https://docs.x.ai/grok-bot/approvals-security-and-privacy), [Cursor 보안 문서](https://cursor.com/docs/grok-bot/security)
+- Muse: [개인 에이전트 소개](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/), [사업자 기능과 미국·캐나다 안내](https://about.fb.com/news/2026/09/introducing-muse-small-business/), [Meta의 안전·보안 설계](https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse)
+- Dots: [제품 소개](https://chatgpt.com/features/dots/), [문서](https://learn.chatgpt.com/docs/dots), [통제](https://learn.chatgpt.com/docs/dots/controls), [컴퓨터·앱](https://learn.chatgpt.com/docs/dots/computers-and-apps), [시작 안내](https://help.openai.com/en/articles/20001530-getting-started-with-your-dot)
+
+공식 문서의 제품 설계 설명을 대조한 것이며 실제 서비스에서 기능을 실행한 검증은 아닙니다. 초기 챗봇의 일부 논문 원문과 과거의 다운로드·스타 수는 이번에 다시 검증하지 않았습니다.
+
+원고의 위임 예제와 점검표는 교육용으로 작성했으며 특정 제품의 실행 실적이나 공식 점수표가 아닙니다. 음성 파일 길이는 ffprobe로 측정했고, 발화 내용은 청취·전사 검증하지 않았습니다.
+
+
 신규 배경·연결 표준·리스크 이름 장(5·6·7·21·23장)에 쓰인 사실의 1차 출처. 열람일은 모두 2026-09-21. 장 번호는 25장 구성 기준이다.
 
 | 장 | 사실 | 1차 출처 URL | 열람일 | 상태 |

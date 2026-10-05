@@ -12,7 +12,7 @@
     --s-blue-wash: #F3F7FF;
     --ink: #0F172A;
     --ink-2: #334155;
-    --muted: #64748B;
+    --muted: #526176;
     --line: #D6E2F5;
     --paper: #FFFFFF;
     --risk: #E03131;
@@ -135,7 +135,7 @@
   }
   .slide-head .chap {
     flex: 0 0 auto;
-    background: rgba(255,255,255,.18);
+    background: var(--s-blue-deep);
     border: 1px solid rgba(255,255,255,.28);
     border-radius: 999px;
     padding: .18rem .7rem;
@@ -1373,6 +1373,121 @@
   #learning button { float: right; padding: .4rem .8rem; font: inherit; cursor: pointer; }
   #learning .note { padding: .7rem; background: #f1f4fa; }
   .in-note a { color: inherit; text-decoration: underline; }
+  #story .dg-scrollable:focus-visible { outline: 3px solid var(--s-blue); outline-offset: -3px; }
+
+  /* Narrow-screen reading layout. Desktop slide geometry stays unchanged.
+     Cards stack; relationship matrices retain columns and can scroll sideways. */
+  @media (max-width: 820px) {
+    :root { --player-h: 11rem; }
+    html, body { height: auto; min-height: 100%; }
+    body { overflow: auto; }
+    #intro { height: auto; min-height: 100dvh; overflow: visible; display: flex; flex-direction: column; padding: 1rem; gap: 1.25rem; }
+    #intro .in-main { display: block; }
+    #intro .in-art { display: none; }
+    #intro h1 { font-size: clamp(1.8rem, 7vw, 3rem); }
+    #intro h1 .nb { white-space: normal; }
+    #intro .in-lede { max-width: 100%; }
+    #intro .in-copy { gap: 1rem; }
+    #intro .in-chips { display: grid; grid-template-columns: 1fr; }
+    #intro .in-top, #intro .in-foot { flex-wrap: wrap; }
+    #intro .in-foot { margin-top: auto; }
+    #story, #opening-slide, #closing { height: auto; min-height: 100dvh; padding: .5rem .5rem calc(var(--player-h) + 1rem); }
+    .page, #opening-slide .op-slide, #closing .end-slide { height: auto; overflow: visible; }
+    .slide-head { flex-direction: column; gap: .5rem; padding: .85rem; border-radius: 16px 16px 0 0; }
+    .slide-head h2 { font-size: 1.45rem; line-height: 1.4; }
+    .slide-body, .slide-body.has-foot { display: block; padding: .8rem; }
+    .slide-foot { display: block; -webkit-line-clamp: unset; overflow: visible; margin-top: 1rem; font-size: 1rem; }
+    #story .visual, #story .visual > *, #story .dg { height: auto; min-width: 0; }
+    #story .visual { display: block; }
+    #story .dg { --f1: 18px; --f2: 16px; --f3: 22px; --g: .8rem; }
+    #story .dg-comp > * { flex: 0 0 auto !important; }
+    #story .dg-comp > * + * { margin-top: .15rem; }
+    #story .v-split, #story .v-split.side-right, #story .v-split.side-top { display: flex; flex-direction: column; height: auto; }
+    #story .split-main { flex: 0 0 auto; }
+    #story .split-photo, #opening-slide .split-photo, #closing .end-photo { flex: 0 0 auto; height: 160px; min-height: 160px; width: 100%; }
+    #story .cover-body { height: auto; display: flex; flex-direction: column; padding: 0; }
+    #story .cv-axes { grid-template-columns: 1fr; grid-template-rows: auto; }
+    #story .cv-axes li { min-height: 96px; }
+    #story .shell-foot, #opening-slide .shell-foot { position: static; padding: .75rem 1rem; }
+    #story :is(.dg-cols2, .dg-spec, .dg-irow, .dg-tl, .dg-stacks, .dg-roster-row, .dg-cards, .dg-miss, .dg-pair, .dg-dates, .dg-strip, .dg-prow, .dg-fan, .dg-bd) {
+      grid-template-columns: minmax(0, 1fr) !important; grid-template-rows: auto !important; height: auto;
+    }
+    #story :is(.dg-spec, .dg-tl, .dg-stacks, .dg-dates, .dg-bd) { gap: 1rem; }
+    #story .dg-irow > .dg-vs { transform: rotate(90deg); }
+    #story .sp-br, #story .dg-bd > *, #story .dg-fan > * { grid-column: auto !important; grid-row: auto !important; }
+    #story .sp-card { gap: .75rem; }
+    #story .sp-rows { flex: 0 0 auto; gap: .6rem; }
+    #story .sp-head { flex-direction: row; }
+    #story .dg-icard { min-height: 110px; }
+    #story .dg-irow.compact .dg-icard { flex-wrap: wrap; }
+    #story .dg-irow.compact .tx { flex: 1 1 160px; }
+    #story .dg-irow.compact .sub-chips { flex: 1 1 100%; }
+    #story .tl-it { align-items: flex-start; padding: .8rem; border-left: 3px solid var(--s-blue); }
+    #story .tl-it .tl-top, #story .tl-it .tl-line { display: none; }
+    #story .tl-it .tl-txt { align-items: flex-start; text-align: left; }
+    #story .tl-it .tl-y { font-size: 24px; }
+    #story .tl-it .tl-t { font-size: 22px; }
+    #story .tl-it .tl-s { font-size: 18px; }
+    #story .fan-origin { height: auto; padding: 1rem; }
+    #story .dg-fan > div:nth-child(2) { display: none; }
+    #story .fan-br { grid-template-rows: auto !important; margin-top: 1rem; }
+    #story .fan-b { display: block; padding: 1rem; }
+    #story .fan-b .ic-disc { display: none; }
+    #story .v-lanes { height: auto; grid-template-columns: 1fr; }
+    #story .lane { overflow: visible; }
+    #story .lane ul { flex: 0 0 auto; }
+    #story .lane li { flex: 0 0 auto; max-height: none; font-size: 18px; }
+    #story .dg-frame, #story .dg-layers { flex: 0 0 auto; min-height: 120px; }
+    #story .dg-bots { min-height: 70px; }
+    #story .dg-layer { min-height: 48px; }
+    #story .dg-bar { grid-template-columns: 1fr; overflow: visible; }
+    #story .dg-bar > span + span { border-left: 0; border-top: 2px solid var(--risk); }
+    #story .dg-zone { min-height: 110px; }
+    #story .dg-cross { min-height: 72px; }
+    #story .dg-cross::before, #story .dg-human::before { display: none; }
+    #story .dg-arrow { align-self: center; width: 48px; transform: rotate(90deg); }
+    #story .dg-human { margin-right: 0; }
+    #story .dg-stack5 { overflow: visible; }
+    #story .dg-stack5 li { flex: 0 0 auto; min-height: 85px; }
+    #story .dg-steps, #story .dg-segs { min-height: 75px; }
+    #story .dg-steps li { padding: .5rem .2rem; margin: 0; clip-path: none; font-size: 18px; flex-direction: column; border-right: 1px solid #fff; }
+    #story .dg-stbr > div { font-size: 18px; margin: 0 .1rem; padding: .35rem .1rem; }
+    #story .dg-flow { flex-wrap: wrap; gap: .4rem; }
+    #story .dg-flow .dg-box { min-width: 70px; }
+    #story .dg-hand { flex-basis: 1rem; }
+    #story .dg-broken { flex-wrap: wrap; gap: .4rem; }
+    #story .dg-broken .dg-box { flex: 1 1 100px; font-size: 18px; padding: .5rem; }
+    #story .dg-broken .gap { flex-basis: 2rem; }
+    #story .pr-chain { overflow-x: auto; padding-bottom: 1rem; }
+    #story .dg-bub { font-size: 18px; padding: .4rem; }
+    #story .dg-easy { flex-wrap: wrap; padding: .6rem; gap: .5rem; }
+    #story .dg-easy .e-t { flex: 1 1 200px; font-size: 18px; }
+    #story .dg-tag { white-space: normal; }
+    #story .st-steps { min-height: 180px; }
+    #story .st-lab { font-size: 18px; }
+    #story .dg-tiles { min-height: 180px; }
+    /* Keep comparison relationships intact; only these regions scroll sideways. */
+    #story .dg-axes { grid-template-columns: 110px repeat(3, minmax(190px, 1fr)) !important; }
+    #story .dg-rr { grid-template-columns: 105px minmax(225px, 1fr); }
+    #story .dg-rmap { grid-template-columns: 145px 230px 210px; }
+    #story :is(.dg-axes, .dg-rr, .dg-rmap) { overflow: auto; max-width: 100%; grid-template-rows: none !important; grid-auto-rows: minmax(min-content, auto); }
+    #story .rm-note, #story .rm-foot { min-height: 60px; }
+    #story .ax-k, #story .rr-k { flex-wrap: wrap; }
+    #story .dg-readable { scrollbar-gutter: auto; }
+    #opening-slide .op-body, #closing .end-body { display: flex; flex-direction: column; height: auto; padding: .8rem; gap: 1rem; overflow: visible; }
+    #opening-slide .op-panel, #closing .end-card { width: 100%; padding: 1rem; }
+    #opening-slide .op-route { flex: 0 0 auto; }
+    .dg-route li { flex: 0 0 auto; min-height: 90px; }
+    #closing .recap li { font-size: 20px; }
+    #closing .check li { font-size: 18px; }
+    #credits { padding: .5rem .5rem calc(var(--player-h) + .5rem); min-height: 100dvh; height: auto; }
+    #credits .cr-slide { height: auto; overflow: visible; }
+    #credits .roll-view { overflow: auto; mask-image: none; -webkit-mask-image: none; }
+    #credits.in .roll-track { animation: none; transform: none; padding-top: 0; }
+    #credits .cr-body { padding: 1rem; }
+    #player { bottom: .5rem; }
+    #narration-fallback { bottom: calc(var(--player-h) + .5rem); }
+  }
 </style>
 </head>
 <body>
@@ -4160,6 +4275,10 @@ function buildPages() {
     // one message line under chap bar (writer message, else title)
     sec.querySelector('h2').textContent = s.message || s.title;
     buildVisual(s, sec.querySelector('.visual'));
+    sec.querySelectorAll('.dg-axes, .dg-rr, .dg-rmap, .pr-chain').forEach(region => {
+      region.classList.add('dg-scrollable');
+      region.tabIndex = 0;
+    });
     if (SK_KEYS[i] === '12') {
       const runtime = sec.querySelector('.dg-runtime');
       runtime.classList.add('dg-scrollable');
@@ -4178,6 +4297,7 @@ function buildPages() {
 }
 
 function showScene(n) {
+  if (window.matchMedia && matchMedia('(max-width: 820px)').matches && window.scrollTo) window.scrollTo(0, 0);
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   closing.classList.remove('show');
   credits.classList.remove('show', 'in', 'paused');
@@ -4426,7 +4546,7 @@ function startRoll() {
 document.getElementById('rollReplay').addEventListener('click', startRoll);
 // In reduced-motion mode there is no animation end; the reader can scroll the static credits.
 bgm.addEventListener('ended', () => {
-  if (playback && playback.kind === 'credits' && window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) stopAudio();
+  if (playback && playback.kind === 'credits' && window.matchMedia && (matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('(max-width: 820px)').matches)) stopAudio();
 });
 document.querySelector('#credits .roll-track').addEventListener('animationend', (event) => {
   if (event.animationName === 'rollUp' && playback && playback.kind === 'credits') stopAudio();

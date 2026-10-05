@@ -94,7 +94,7 @@ function fixture(options = {}) {
   const context = vm.createContext({
     document: doc, Audio: AudioMock,
     window: { matchMedia: true },
-    matchMedia: () => ({ matches: !!options.reducedMotion }),
+    matchMedia: query => ({ matches: query.includes('max-width') ? !!options.narrowScreen : !!options.reducedMotion }),
     performance: { now: () => now },
     setTimeout: (fn, delay) => setTimer(fn, delay), clearTimeout: id => timers.delete(id),
     setInterval: (fn, delay) => setTimer(fn, delay, true), clearInterval: id => timers.delete(id), console
@@ -308,6 +308,12 @@ test('Credits completion stops playback; replay starts at the beginning', async 
 });
 test('Reduced-motion credits stop on music end', async () => {
   const f = fixture({ reducedMotion: true }); await f.jump(32); f.bgm.emit('ended'); assert.equal(f.run('speaking'), false);
+});
+test('Static narrow-screen credits stop music without leaving the manually readable credits', async () => {
+  const f = fixture({ narrowScreen: true }); await f.jump(32);
+  f.bgm.emit('ended'); assert.equal(f.run('speaking'), false);
+  assert.equal(f.run('idx'), 32); assert.equal(f.elements.get('credits').classList.contains('show'), true);
+  await f.advance(180000); assert.equal(f.run('idx'), 32);
 });
 test('Keyboard shortcuts work on page, but not controls, editable content or modal dialogs', async () => {
   const f = fixture({ verifiedRecordings: true }); await f.jump(1); assert.equal(f.key('ArrowRight').prevented, true); assert.equal(f.run('idx'), 2);

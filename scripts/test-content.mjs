@@ -66,3 +66,22 @@ assert.ok(html.includes('#story [data-sk="12"] .dg-frame > .dg-box:only-of-type 
 assert.ok(html.includes('class="end-body dg-scrollable" tabindex="0" role="region"'));
 assert.ok(html.includes("runtime.classList.add('dg-scrollable')"));
 console.log('PASS: agent intrinsic height and separate ending-footer space.');
+
+// Contrast on the actual pale surfaces, rather than white alone.
+const rgb = hex => hex.match(/[a-f0-9]{2}/gi).map(x => parseInt(x, 16));
+const luminance = channels => channels.map(x => x / 255).map(x => x <= .04045 ? x / 12.92 : ((x + .055) / 1.055) ** 2.4).reduce((sum, x, i) => sum + x * [.2126, .7152, .0722][i], 0);
+const contrast = (a, b) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05);
+const muted = rgb(html.match(/--muted: (#[a-f0-9]{6})/i)[1]);
+const pale = ['#FFFFFF', '#E8F0FF', '#F3F7FF', '#E9EEF8', '#FFF5F5'].map(rgb);
+pale.push(muted.map(x => x * .08 + 255 * .92));
+for (const background of pale) assert.ok(contrast(muted, background) >= 4.5, 'Muted text must contrast against pale cards');
+const deepBlue = rgb(html.match(/--s-blue-deep: (#[a-f0-9]{6})/i)[1]);
+assert.ok(contrast(rgb('#FFFFFF'), deepBlue) >= 4.5);
+assert.match(html, /\.slide-head \.chap \{[^}]*background: var\(--s-blue-deep\)/);
+assert.ok(html.includes('Narrow-screen reading layout. Desktop slide geometry stays unchanged.'));
+assert.ok(html.includes('body { overflow: auto; }'));
+assert.ok(html.includes('#intro h1 .nb { white-space: normal; }'));
+assert.ok(html.includes('grid-template-columns: minmax(0, 1fr) !important; grid-template-rows: auto !important; height: auto;'));
+assert.ok(html.includes('region.tabIndex = 0;'));
+assert.ok(html.includes('#credits.in .roll-track { animation: none; transform: none; padding-top: 0; }'));
+console.log('PASS: chapter/muted contrast >=4.5:1 on pale surfaces and narrow-screen reading fallback guards.');

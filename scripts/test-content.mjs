@@ -106,3 +106,7 @@ const glossaryRule = html.match(/\.dg-gloss \.g-k \{([^}]+)\}/)[1];
 const glossaryBackground = rgb(glossaryRule.match(/background: (#[a-f0-9]{6})/i)[1]);
 assert.ok(contrast(rgb('#FFFFFF'), glossaryBackground) >= 4.5, '18px glossary badge must meet normal-text contrast');
 console.log('PASS: shared narrow intrinsic-height families, quote/nowrap wrapping and glossary badge contrast. Actual visual QA remains separate.');
+
+assert.ok(mobileContract.includes('.dg-read.has-ic .rtx { flex: 1 1 0 !important; min-width: 0; max-width: 100%; }'), 'Horizontal text beside an icon must shrink even when vertical containers cannot');
+assert.ok(mobileContract.includes(':is(.rk, .ax-chip, .chip, .tone-badge, .e-tag, .g-k) { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }'));
+console.log('PASS: horizontal text shrink and narrow title/chip wrapping guards.');

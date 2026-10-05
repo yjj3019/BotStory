@@ -1523,6 +1523,11 @@
     #story .dg-quote blockquote { font-size: clamp(28px, 8vw, 32px); white-space: normal; overflow-wrap: anywhere; padding-top: 2rem; }
     #story .nb { white-space: normal; overflow-wrap: anywhere; }
     #story :is(.ax-c, .rr-v, .rm-code, .rm-how) > span { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+    /* Intrinsic vertical sizing must not disable horizontal text shrink beside icons. */
+    #story .dg-read.has-ic .rtx { flex: 1 1 0 !important; min-width: 0; max-width: 100%; }
+    #story :is(.rtx, .rt, .tx, .gd-t, .rt-txt, .rm-code .nm) { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+    #story :is(.rk, .ax-chip, .chip, .tone-badge, .e-tag, .g-k) { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+
   }
 </style>
 </head>

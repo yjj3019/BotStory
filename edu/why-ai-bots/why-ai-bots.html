@@ -314,32 +314,38 @@
 
   /* Player */
   #player {
-    position: fixed; left: 50%; transform: translateX(-50%); bottom: .85rem;
-    display: flex; gap: .5rem; align-items: center; padding: .55rem .8rem;
-    background: #fff;
-    border: 1px solid rgba(1,86,252,.15); border-radius: 999px; z-index: 20;
-    box-shadow: 0 8px 28px rgba(15,23,42,.12);
+    position: fixed; left: 50%; transform: translateX(-50%); bottom: clamp(.8rem, 2.4vh, 1.6rem);
+    display: flex; gap: .6rem; align-items: center; padding: .5rem .9rem;
+    background: rgba(255,255,255,.78);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border: 1px solid var(--line); border-radius: 999px; z-index: 20;
+    box-shadow: 0 8px 28px rgba(15,23,42,.14);
+    font-size: .85rem; white-space: nowrap;
     pointer-events: none;
   }
   #player[hidden] { display: none; }
   #player button {
     pointer-events: auto; border: 0; cursor: pointer; width: 2.4rem; height: 2.4rem;
-    border-radius: 50%; background: var(--s-blue); color: #fff; font-weight: 700;
+    border-radius: 10px; background: transparent; color: var(--ink); font-weight: 800; flex-shrink: 0;
+    transition: background .2s;
   }
-  #player button:hover { background: var(--s-blue-deep); }
+  #player button:hover { background: var(--s-blue-soft); }
   #player button:disabled { opacity: .4; cursor: default; }
   #player button:focus-visible, #rollReplay:focus-visible, #credits .roll-view:focus-visible, #credits a:focus-visible { outline: 3px solid #A65300; outline-offset: 3px; }
-  #player #study-open { width: auto; padding: 0 .8rem; border-radius: 999px; white-space: nowrap; }
-  #player { max-width: calc(100vw - 1.5rem); }
-  #player button { flex-shrink: 0; }
+  #player #play { width: auto; padding: 0 1.1rem; border-radius: 10px; background: var(--s-blue); color: #fff; }
+  #player #play:hover { background: var(--s-blue-deep); }
+  #player #study-open { width: auto; padding: 0 .8rem; border-radius: 999px; white-space: nowrap; font-weight: 700; }
+  #player .sep { width: 1px; height: 1.3rem; background: var(--line); flex-shrink: 0; }
+  #player { max-width: calc(100vw - 1rem); }
+  #player #meta { font-weight: 700; color: var(--s-blue); pointer-events: none; }
+  #player #timer { font-variant-numeric: tabular-nums; color: var(--ink-2); pointer-events: none; }
+  #engine { color: var(--human); font-size: .82rem; font-weight: 600; pointer-events: none; }
   @media (max-width: 640px) {
     #player { border-radius: 1rem; flex-wrap: wrap; justify-content: center; width: calc(100vw - 1.5rem); }
-    #player #meta { min-width: 0; }
-    #player #engine { font-size: .75rem; }
+    #player .sep { display: none; }
+    #player #engine { flex-basis: 100%; text-align: center; }
   }
-  #player #meta { color: var(--muted); font-size: .875rem; min-width: 9rem; pointer-events: none; }
-  #player #engine { font-size: .82rem; }
-  #engine { color: var(--s-blue); font-size: .75rem; margin-left: .25rem; font-weight: 600; }
+  @media (max-height: 640px) { #player #timer, #player #timer + .sep { display: none; } }
 
   /* Opening overlay slide (spoken before scenes) */
   #opening-slide {
@@ -1665,9 +1671,13 @@
 
 <div id="player" role="group" aria-label="발표 재생 제어" hidden>
   <button id="prev" type="button" aria-label="이전 화면" title="이전 화면 (←)">‹</button>
-  <button id="play" type="button" aria-label="재생" title="재생 (Space)">▶</button>
+  <button id="play" type="button" aria-label="재생" title="재생 (Space)">들려주기</button>
   <button id="next" type="button" aria-label="다음 화면" title="다음 화면 (→)">›</button>
+  <span class="sep"></span>
   <span id="meta" role="status" aria-live="polite" aria-atomic="true">—</span>
+  <span class="sep"></span>
+  <span id="timer" title="현재 음성의 실제 재생 위치와 길이">0:00 / 0:00</span>
+  <span class="sep"></span>
   <span id="engine" role="status" aria-live="polite"></span>
   <button id="study-open" type="button" aria-haspopup="dialog">학습 보충</button>
 </div>
@@ -4412,10 +4422,20 @@ document.body.appendChild(narrationFallback);
 
 function setPlaying(on) {
   speaking = on;
-  playBtn.textContent = on ? '❚❚' : '▶';
+  playBtn.textContent = on ? '멈추기' : '들려주기';
   const label = on ? '일시정지' : playback && playback.paused ? '이어 재생' : '재생';
   playBtn.setAttribute('aria-label', label);
   playBtn.title = label + ' (Space)';
+}
+
+function fmtClock(t) {
+  if (!isFinite(t) || t < 0) t = 0;
+  const s = Math.floor(t);
+  return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+}
+function renderTimer(clip) {
+  const el = document.getElementById('timer');
+  if (el) el.textContent = fmtClock(clip ? clip.currentTime : 0) + ' / ' + fmtClock(clip ? clip.duration : 0);
 }
 
 function stopAudio() {
@@ -4423,7 +4443,8 @@ function stopAudio() {
   clearTimeout(endingTimer);
   endingTimer = null;
   if (cancelClipLoad) cancelClipLoad();
-  if (audio) { audio.onended = null; audio.onerror = null; audio.pause(); audio = null; }
+  if (audio) { audio.onended = null; audio.onerror = null; audio.ontimeupdate = null; audio.pause(); audio = null; }
+  renderTimer(null);
   stopBgm();
   credits.classList.add('paused');
   playback = null;
@@ -4521,9 +4542,11 @@ async function speakText(id, text, onDone) {
     return;
   }
   if (clip) {
-    engineEl.textContent = '클라우드 녹음';
+    engineEl.textContent = '고품질 음성';
     session.kind = 'audio';
     session.clip = audio = clip;
+    renderTimer(clip);
+    clip.ontimeupdate = () => { if (isCurrent(session)) renderTimer(clip); };
     clip.onended = session.finish;
     clip.onerror = () => {
       if (!isCurrent(session)) return;

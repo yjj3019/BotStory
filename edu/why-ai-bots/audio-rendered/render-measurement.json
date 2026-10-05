@@ -1,0 +1,244 @@
+{
+  "sourceJSONSHA256": "0852d19ff5fcbcc34c7774583486303d94b12d29aad5e5afde35d1e334825c3e",
+  "minimumNarrationSeconds": 1800,
+  "totalDurationSeconds": 2740.344,
+  "measurement": "ffprobe format.duration, exact microsecond sum of the 32 narration MP3s only",
+  "excludedFromFileSum": [
+    "credits BGM files",
+    "transition waits",
+    "other audio files"
+  ],
+  "humanReviewMustRuleOut": [
+    "artificial silence padding inside clips",
+    "music inside clips",
+    "speech mismatch"
+  ],
+  "speechReview": "required; duration and hashes alone do not prove speech content or absence of padding",
+  "clips": [
+    {
+      "id": "00-opening",
+      "textSHA256": "3b98008d2bd17e17848914ad0cdcf41dea1bee9f43574901f52d2dbc6683c7c0",
+      "audioSHA256": "7e6522eb8f53fbe3a030d36cf3299c9690fb60130ba793ad0238792ea0779c03",
+      "durationSeconds": 58.512,
+      "durationExact": "58.512000"
+    },
+    {
+      "id": "01-scene",
+      "textSHA256": "1908f4212185f0ce04c9152afcb8a6b67b697b76e44dbdea7ab489049ada8bb0",
+      "audioSHA256": "72b4765fa32dcb2cc00749753a56e7a88462f4239bbe9fa5f13bb2986933cda4",
+      "durationSeconds": 59.592,
+      "durationExact": "59.592000"
+    },
+    {
+      "id": "02-scene",
+      "textSHA256": "952da39b9425153475ff88509d2a21137162724e7911261c2efa4ae0592d08b6",
+      "audioSHA256": "ec035dbebed72f9740fea8d40dd4503dae7c2606e49028250de5e1e53072d6bb",
+      "durationSeconds": 63.672,
+      "durationExact": "63.672000"
+    },
+    {
+      "id": "03-scene",
+      "textSHA256": "f5cb3a1c055fa5a85050bed7f97485c40b7d18e84d91ef280651c2dad2e5456d",
+      "audioSHA256": "291bb4811743a375054a11b9466d65193e0b1788a5296c9534c25f217cfac630",
+      "durationSeconds": 105.816,
+      "durationExact": "105.816000"
+    },
+    {
+      "id": "04-scene",
+      "textSHA256": "b4e66a5e2ba15fa3277eae5be1643031b4021f620d6845e8a8d08580ee392417",
+      "audioSHA256": "d15bf8e874cd4fdf859a4d05ce86e6b18bec1ea3ae36e04c5d4ee58420cd07b1",
+      "durationSeconds": 48.216,
+      "durationExact": "48.216000"
+    },
+    {
+      "id": "05-scene",
+      "textSHA256": "c2939111f8783e534e73ddee3d57b0f137478ed7c15be8145911fffd9092bc0d",
+      "audioSHA256": "f75739afa4cd19ee6b09f6ae259b677366822d900f8553c949735f577fc47c31",
+      "durationSeconds": 85.92,
+      "durationExact": "85.920000"
+    },
+    {
+      "id": "06-scene",
+      "textSHA256": "d7507c0f98781e0f65f0e1bdfa1e44b82314855acbecdafc103fc680d39736e5",
+      "audioSHA256": "5032ac658107b1f59d4b1bf0c219b2c7e6360c3a6b8bf02ca13818bd80f62158",
+      "durationSeconds": 106.8,
+      "durationExact": "106.800000"
+    },
+    {
+      "id": "07-scene",
+      "textSHA256": "ea4a9c9d54bbc32fba7849d766c1c40145e4348c601a0cb85a382b9579dce45c",
+      "audioSHA256": "a936d7f7b92f164794af176c5e2f079acf099c8ea7e476ad124d17118358ce83",
+      "durationSeconds": 98.976,
+      "durationExact": "98.976000"
+    },
+    {
+      "id": "08-scene",
+      "textSHA256": "b75603704da47bb7e04ef02362ed80018fefa192c34945fb7f15a8ef31e95497",
+      "audioSHA256": "a33ee88e570844164ec23bdfe6390a0d299e2a11575613021a5d08a1d2743cbc",
+      "durationSeconds": 93.12,
+      "durationExact": "93.120000"
+    },
+    {
+      "id": "09-scene",
+      "textSHA256": "3cc1d4f8ec1a2ba11aebd13b6cdc4b967e2dcd92634324c1fe5561aca29ddf30",
+      "audioSHA256": "a9db5512df53ea7348692241bfdabdf562bd50948ff95e807a1509fc1c073c2e",
+      "durationSeconds": 121.488,
+      "durationExact": "121.488000"
+    },
+    {
+      "id": "10-scene",
+      "textSHA256": "cde428262cc47aff5769bffa83a2882991b873b646dccb961836d19aa2fde641",
+      "audioSHA256": "24a03afbc764a545de5aa9ee2c519a110e53b78296b05c67747c54ac7c040bbd",
+      "durationSeconds": 106.656,
+      "durationExact": "106.656000"
+    },
+    {
+      "id": "11-scene",
+      "textSHA256": "8817eaa746a9692e0e44ab803ed00772dad25a508bb63b1c28afaeff178967bc",
+      "audioSHA256": "ff2824216fc583ae954857b2ae7f9bb607ff4eb7f9e6f05edeed0e7b4a3f7334",
+      "durationSeconds": 79.968,
+      "durationExact": "79.968000"
+    },
+    {
+      "id": "12-scene",
+      "textSHA256": "77aca71ada719521d8aa3b92bbb3f1ee0cb6f2fede842d3acfc74b27d2588f96",
+      "audioSHA256": "f26f978847694d934d21435e5cd740064cb9d53996fc62da304ebb39eceda874",
+      "durationSeconds": 88.2,
+      "durationExact": "88.200000"
+    },
+    {
+      "id": "13-scene",
+      "textSHA256": "f52234a2ef3e7b9a814632adc801cbf45492748bb46faae8a952c6308256d39a",
+      "audioSHA256": "a655b3a1d241a04ae87196e496932419bb33ddb3b55fb8cf8d01f10554fffc9e",
+      "durationSeconds": 96.36,
+      "durationExact": "96.360000"
+    },
+    {
+      "id": "14-scene",
+      "textSHA256": "27fdc62acdcd674dcf634f28c987412a58bd68597331272c66a272c1388f06b2",
+      "audioSHA256": "ebc367a425292031ccbb4292530c424c7efde96b2415a8110294a8a7594e1972",
+      "durationSeconds": 48.768,
+      "durationExact": "48.768000"
+    },
+    {
+      "id": "15-scene",
+      "textSHA256": "13b78bfa1253616cbcbc228cea383fb64911edcad8502e3b7ff8a0fb8ce85e5a",
+      "audioSHA256": "78a0ac6933457ded87ef2f6e98ba52b2ba017590f796407a750ac2337e707d8a",
+      "durationSeconds": 68.16,
+      "durationExact": "68.160000"
+    },
+    {
+      "id": "16-scene",
+      "textSHA256": "5be8245ee03c3e6c59e441ebe31f4957621da7349cae5df798af37195f2bdfbb",
+      "audioSHA256": "c55614011e34a42d69351ae3ed45472a819bb29d96ca2048748f169ea0d16172",
+      "durationSeconds": 113.808,
+      "durationExact": "113.808000"
+    },
+    {
+      "id": "17-scene",
+      "textSHA256": "04056a651f70733bffabcfc94d9e46f7825e6258401254eaf4918ea30a88dc44",
+      "audioSHA256": "317fe1f81fdaafeb43168f377aae9308bcbd5a87598d88b0c1333e143af20bb5",
+      "durationSeconds": 76.56,
+      "durationExact": "76.560000"
+    },
+    {
+      "id": "18-scene",
+      "textSHA256": "36877e5268af76db067a5d473f87511a64d56aebdda08924622e3942875b01e6",
+      "audioSHA256": "4668ae1828667e9833c6e73a5cd8c0f59623d910a97196fd35e7e8fa05d7e5ce",
+      "durationSeconds": 121.68,
+      "durationExact": "121.680000"
+    },
+    {
+      "id": "19-scene",
+      "textSHA256": "64f88a7d703350fddd16bc6fc22b6e010dd4940765fd2ccfad382c4268c5adad",
+      "audioSHA256": "0bdc33f905ef1bc298fc0eb608b86ac976ca51de13e8f2b95f09dcd3355bb040",
+      "durationSeconds": 124.08,
+      "durationExact": "124.080000"
+    },
+    {
+      "id": "20-scene",
+      "textSHA256": "ae37f400066091b545a88b710cd4527744015bee3ff863da480cdcf597f89ef9",
+      "audioSHA256": "9062438fc0fb1ef0a03ce98290813989bfd64bb726f1f1b195f0bbc9d982acd1",
+      "durationSeconds": 72.048,
+      "durationExact": "72.048000"
+    },
+    {
+      "id": "21-scene",
+      "textSHA256": "8a1e4dc4e2d3fd32ea9a4828e2aa555e3af8c2b629acef797cf6a4f87d57a370",
+      "audioSHA256": "bd0d4bcc6693e83307531b3dead50e8b0ad8f959b6544d181636b0951421e753",
+      "durationSeconds": 93.456,
+      "durationExact": "93.456000"
+    },
+    {
+      "id": "22-scene",
+      "textSHA256": "139b21ec54c9988ba28be3426ef5aeca581802ca3fdaae5344c1df297e0936c6",
+      "audioSHA256": "7993c931fcfff84d1b5d5a8a856fa6a3fd09aeacc815627a0e096ead3a75aba9",
+      "durationSeconds": 81.6,
+      "durationExact": "81.600000"
+    },
+    {
+      "id": "23-scene",
+      "textSHA256": "0bb667ae2be806195cd90fe8cd52d926622e2fe829267cce951d1e0f6cff4b7d",
+      "audioSHA256": "f5091eff3daf8456b4adc792b464a650340b556baa5ca364de457b0b419aa311",
+      "durationSeconds": 101.856,
+      "durationExact": "101.856000"
+    },
+    {
+      "id": "24-scene",
+      "textSHA256": "96b7a5fbd053af09b874466ab548f77d947adff3b6b52b24cb0b2c0c64aafb13",
+      "audioSHA256": "621d6fc3a5b74d2c4f5f330324daecd076fc5cd3cc7224fdcb90f57229858851",
+      "durationSeconds": 39.024,
+      "durationExact": "39.024000"
+    },
+    {
+      "id": "25-scene",
+      "textSHA256": "6afa860065db962923b06536ddc717672da5711149509f5b9426d54adcf1ad6f",
+      "audioSHA256": "197a80ea53ffcd99c11c3c4289e088006a822532c3533d3ce97ce332d803b7b6",
+      "durationSeconds": 92.736,
+      "durationExact": "92.736000"
+    },
+    {
+      "id": "26-scene",
+      "textSHA256": "14acb27a4569a1e9adeec64cc82d8f36d632e6e84200e692993d0bb7e6deba69",
+      "audioSHA256": "00a3b40bcea2060fbe821cb8931cdd73e83bc2e0d6bc8d9c824b5047eaa39910",
+      "durationSeconds": 100.344,
+      "durationExact": "100.344000"
+    },
+    {
+      "id": "27-scene",
+      "textSHA256": "bdc9ad4288c0ea5b66818547624c6c747bfb3ea13d6f9c5cd6a76825266fe864",
+      "audioSHA256": "9c70533cbbc115da94218f039d5bd5cfd7df8a6d8ffa74fad2f98b686169d05f",
+      "durationSeconds": 77.16,
+      "durationExact": "77.160000"
+    },
+    {
+      "id": "28-scene",
+      "textSHA256": "dab943cf0e88390a71c026be0dcdcda56fb8532da56373f31bd201ac3136e80e",
+      "audioSHA256": "ae30cda050786ee4bba842bb889765fce68063f56d294dacbb222d09b2ebca2c",
+      "durationSeconds": 98.952,
+      "durationExact": "98.952000"
+    },
+    {
+      "id": "29-scene",
+      "textSHA256": "4d1321bfdbc994945f96aef8fd622f0b8760272ad946a07073615d2196a21250",
+      "audioSHA256": "275749994d95f2e1d544c5ae86b5ced836452372c86c90974875c099ec4cd7af",
+      "durationSeconds": 81.168,
+      "durationExact": "81.168000"
+    },
+    {
+      "id": "30-scene",
+      "textSHA256": "efe2a53bbc4e1dbb61b1b3b100d484adc7544645770a477723510596cb0172d5",
+      "audioSHA256": "12ba1e9ba38d8ef8b48e592d89ba933276153e3b012ed64d0404db6bcbd90c2c",
+      "durationSeconds": 90.816,
+      "durationExact": "90.816000"
+    },
+    {
+      "id": "31-ending",
+      "textSHA256": "93b65a3925208f1e12f2cbe40f43f81d8d48bc16b5ddd036f0db7aa07c6bfbf4",
+      "audioSHA256": "e724a5c0ac7609b3e309787a7efbcb5ea8c4690151d4fa6f61959c49f287e1fd",
+      "durationSeconds": 44.832,
+      "durationExact": "44.832000"
+    }
+  ],
+  "acceptanceStatus": "NOT_CERTIFIED_SPEECH_REVIEW_REQUIRED"
+}

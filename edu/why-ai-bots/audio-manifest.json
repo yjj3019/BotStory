@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "audioStatus": "legacy-only; not the rendered audio for current narration",
+  "legacyAudioSourceCommit": "8547c1bc6e804403aec6df94ab2f31474f5340be",
+  "measurement": "ffprobe format.duration; narration only, excluding credits BGM and transition delay",
+  "speechTextAlignment": "not-listened-or-transcribed; hashes bind the reviewed files, not proof of spoken-text equivalence",
+  "totalDurationSeconds": 2611.272,
+  "clips": [
+    {
+      "id": "00-opening",
+      "durationSeconds": 74.88,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "d5c6fccaf2945062c648324792c5a5ceab649e3f1317128f782bdcd0d148b73e",
+      "scriptSha256": "3b98008d2bd17e17848914ad0cdcf41dea1bee9f43574901f52d2dbc6683c7c0"
+    },
+    {
+      "id": "01-scene",
+      "durationSeconds": 68.568,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "81afc8edd4db04c0e7c8965976fd068d3275a43d75e391fb9ae53cae09b09a8c",
+      "scriptSha256": "1908f4212185f0ce04c9152afcb8a6b67b697b76e44dbdea7ab489049ada8bb0"
+    },
+    {
+      "id": "02-scene",
+      "durationSeconds": 60.528,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "bc6508d0e1cf48aefe90604cab188bbc2a8c3da809dc6e2ee8c11675145a113a",
+      "scriptSha256": "952da39b9425153475ff88509d2a21137162724e7911261c2efa4ae0592d08b6"
+    },
+    {
+      "id": "03-scene",
+      "durationSeconds": 88.632,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "6dfd31e671f1b9afb2ca72ae0db77311acfd1bbc5080b25a9d43a0c11d3ababc",
+      "scriptSha256": "f5cb3a1c055fa5a85050bed7f97485c40b7d18e84d91ef280651c2dad2e5456d"
+    },
+    {
+      "id": "04-scene",
+      "durationSeconds": 51.768,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "f6f0e5a3b3b503121b023be0853f4ffe08b922c26e4682aef8e4fddcb8512961",
+      "scriptSha256": "b4e66a5e2ba15fa3277eae5be1643031b4021f620d6845e8a8d08580ee392417"
+    },
+    {
+      "id": "05-scene",
+      "durationSeconds": 88.128,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "d2bdd97d2210178dd1e838c0c934821d99f358599244de934616f52b63772e44",
+      "scriptSha256": "c2939111f8783e534e73ddee3d57b0f137478ed7c15be8145911fffd9092bc0d"
+    },
+    {
+      "id": "06-scene",
+      "durationSeconds": 91.92,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "26ccdc4ad23a81783e3e903920af74a9b93252cc75064e159be8e63d4c10b102",
+      "scriptSha256": "d7507c0f98781e0f65f0e1bdfa1e44b82314855acbecdafc103fc680d39736e5"
+    },
+    {
+      "id": "07-scene",
+      "durationSeconds": 99.12,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "d528a0bc1e9fffc4252007b67cc78c72a125dad3d53dcc5ef1a132433356bae8",
+      "scriptSha256": "ea4a9c9d54bbc32fba7849d766c1c40145e4348c601a0cb85a382b9579dce45c"
+    },
+    {
+      "id": "08-scene",
+      "durationSeconds": 93.024,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "383996b691f065fb2625c87d21a503a0d3b2a226644d5fa29cd300253e25d0fc",
+      "scriptSha256": "b75603704da47bb7e04ef02362ed80018fefa192c34945fb7f15a8ef31e95497"
+    },
+    {
+      "id": "09-scene",
+      "durationSeconds": 110.472,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "f7a93a08d556cfaeba22324e5a21fc14aa004fbc0eda7cc30d4e1fe239e74024",
+      "scriptSha256": "3cc1d4f8ec1a2ba11aebd13b6cdc4b967e2dcd92634324c1fe5561aca29ddf30"
+    },
+    {
+      "id": "10-scene",
+      "durationSeconds": 100.824,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "2672ab09f9ef51ee4e587830e0511b389d923a4bfb2ea5993074c0d83774a709",
+      "scriptSha256": "cde428262cc47aff5769bffa83a2882991b873b646dccb961836d19aa2fde641"
+    },
+    {
+      "id": "11-scene",
+      "durationSeconds": 82.08,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "3ec3e0610471b9e69a31b1d5e9afec6743768bb53547ecca673f31cbc960458c",
+      "scriptSha256": "8817eaa746a9692e0e44ab803ed00772dad25a508bb63b1c28afaeff178967bc"
+    },
+    {
+      "id": "12-scene",
+      "durationSeconds": 78.072,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "43447158ba9b5e54e64cb0e6b66ee3f7b74563f91b32f910bbda85ef0ad2e0ec",
+      "scriptSha256": "77aca71ada719521d8aa3b92bbb3f1ee0cb6f2fede842d3acfc74b27d2588f96"
+    },
+    {
+      "id": "13-scene",
+      "durationSeconds": 102.48,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "f8a3daeed4bafcede5369e57c1cd060cd4ba15aaa6ab66c663d404f93ce7145a",
+      "scriptSha256": "f52234a2ef3e7b9a814632adc801cbf45492748bb46faae8a952c6308256d39a"
+    },
+    {
+      "id": "14-scene",
+      "durationSeconds": 51.888,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "9403e5a5e44e563c0c870f61d0735f3b966ad3c00fdbaa5cf22675b0eb94e622",
+      "scriptSha256": "27fdc62acdcd674dcf634f28c987412a58bd68597331272c66a272c1388f06b2"
+    },
+    {
+      "id": "15-scene",
+      "durationSeconds": 62.784,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "000344dc730e1b36691d9bc8afa50d7899ac6a87531a7e191caf862808716afb",
+      "scriptSha256": "13b78bfa1253616cbcbc228cea383fb64911edcad8502e3b7ff8a0fb8ce85e5a"
+    },
+    {
+      "id": "16-scene",
+      "durationSeconds": 113.232,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "f904153b61544e77df3bb1422dc9c8111376be659682f5d43039223c4fc27efc",
+      "scriptSha256": "5be8245ee03c3e6c59e441ebe31f4957621da7349cae5df798af37195f2bdfbb"
+    },
+    {
+      "id": "17-scene",
+      "durationSeconds": 75.12,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "e4948cbf9ff75298a3d46c97ce985b7ec8894ebac3054e2893f04a42d8a99661",
+      "scriptSha256": "04056a651f70733bffabcfc94d9e46f7825e6258401254eaf4918ea30a88dc44"
+    },
+    {
+      "id": "18-scene",
+      "durationSeconds": 104.976,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "728eadebca59a7dfacb62135891e9eef79dc3d9071437532aa8f52c6b2da3dee",
+      "scriptSha256": "36877e5268af76db067a5d473f87511a64d56aebdda08924622e3942875b01e6"
+    },
+    {
+      "id": "19-scene",
+      "durationSeconds": 106.536,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "f714d8725d2bc183fcd4610eb6a5f408db79de64bc686f693d1bb417e982ab1a",
+      "scriptSha256": "64f88a7d703350fddd16bc6fc22b6e010dd4940765fd2ccfad382c4268c5adad"
+    },
+    {
+      "id": "20-scene",
+      "durationSeconds": 59.184,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "d1013dd4c754b1728e1196628e2112e74bf295a593c8a639f1f6ea72c8ea540e",
+      "scriptSha256": "ae37f400066091b545a88b710cd4527744015bee3ff863da480cdcf597f89ef9"
+    },
+    {
+      "id": "21-scene",
+      "durationSeconds": 78.888,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "21892c73936fc1f22bfdfa60523992ca0fe18bf04efa166c6db850801f77f439",
+      "scriptSha256": "8a1e4dc4e2d3fd32ea9a4828e2aa555e3af8c2b629acef797cf6a4f87d57a370"
+    },
+    {
+      "id": "22-scene",
+      "durationSeconds": 82.272,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "7f6c21d36be80cd0ff7ef3d6d4d902d4d908f17f1f8712585cda74a325241099",
+      "scriptSha256": "139b21ec54c9988ba28be3426ef5aeca581802ca3fdaae5344c1df297e0936c6"
+    },
+    {
+      "id": "23-scene",
+      "durationSeconds": 77.52,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "9fa3b246a886ec09a88f71714e86b0219802a18f52018b0d0be73132e063b086",
+      "scriptSha256": "0bb667ae2be806195cd90fe8cd52d926622e2fe829267cce951d1e0f6cff4b7d"
+    },
+    {
+      "id": "24-scene",
+      "durationSeconds": 39.168,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "c92c2a584602e0aa28bfe2679ef49c63d4a00f8a53e4274af7509a2e6daf456b",
+      "scriptSha256": "96b7a5fbd053af09b874466ab548f77d947adff3b6b52b24cb0b2c0c64aafb13"
+    },
+    {
+      "id": "25-scene",
+      "durationSeconds": 98.28,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "47d03b514a0f0d20c3185ef7e9d2be6c04df5e3db00ab2ef53da831c27b6b15e",
+      "scriptSha256": "6afa860065db962923b06536ddc717672da5711149509f5b9426d54adcf1ad6f"
+    },
+    {
+      "id": "26-scene",
+      "durationSeconds": 87.936,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "02add4f21f447472de47f7b431392f65cb1f8b8e36c7adcf70bee0975ff9053c",
+      "scriptSha256": "14acb27a4569a1e9adeec64cc82d8f36d632e6e84200e692993d0bb7e6deba69"
+    },
+    {
+      "id": "27-scene",
+      "durationSeconds": 73.8,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "b8764fa032527b3f7ab9c5300f2fcb1ae000e608de931f8e433cc70112cf2adc",
+      "scriptSha256": "bdc9ad4288c0ea5b66818547624c6c747bfb3ea13d6f9c5cd6a76825266fe864"
+    },
+    {
+      "id": "28-scene",
+      "durationSeconds": 113.52,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "6565ce389e65eb5f12987f7318b1b8433552b31cb7c066dddc15a7308200820b",
+      "scriptSha256": "dab943cf0e88390a71c026be0dcdcda56fb8532da56373f31bd201ac3136e80e"
+    },
+    {
+      "id": "29-scene",
+      "durationSeconds": 80.376,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "18ffaaa25ed6bad7d3c497ce2710f3a4a91c3685f49f2e3e621d3a1c42fc3b50",
+      "scriptSha256": "4d1321bfdbc994945f96aef8fd622f0b8760272ad946a07073615d2196a21250"
+    },
+    {
+      "id": "30-scene",
+      "durationSeconds": 78.624,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "ecf044590b74ff75c1668d6eb4c407f9ffb522b7375d23c29cc93ff30c5db258",
+      "scriptSha256": "efe2a53bbc4e1dbb61b1b3b100d484adc7544645770a477723510596cb0172d5"
+    },
+    {
+      "id": "31-ending",
+      "durationSeconds": 36.672,
+      "playback": "legacy-recording-pending-user-render",
+      "audioSha256": "948ca4d920406606a7a0c19b27cb8f525490952a4e3887bb5a44790ccbe70492",
+      "scriptSha256": "93b65a3925208f1e12f2cbe40f43f81d8d48bc16b5ddd036f0db7aa07c6bfbf4"
+    }
+  ]
+}

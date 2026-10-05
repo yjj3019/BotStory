@@ -20,3 +20,6 @@ Thumbs.db
 # 완성본 나레이션 예외 허용 (중간 산출물 wav 등은 계속 제외)
 !edu/why-ai-bots/audio/
 !edu/why-ai-bots/audio/*.mp3
+
+# Development dependencies
+node_modules/

@@ -5,8 +5,9 @@
     "sync": "node scripts/sync-content.mjs --write && node scripts/export-visible-copy.mjs --write && node scripts/build-learning-guide.mjs --write && node scripts/export-narration.mjs --write",
     "check:content": "node scripts/sync-content.mjs && node scripts/export-visible-copy.mjs && node scripts/build-learning-guide.mjs && node scripts/export-narration.mjs",
     "check:audio": "python3 scripts/audio-manifest.py",
-    "test": "npm run check:content && npm run check:audio && node scripts/test-content.mjs && node scripts/test-player.mjs && node scripts/test-narration.mjs",
-    "test:browser": "node scripts/test-player.mjs --browser"
+    "test": "npm run check:content && npm run check:audio && node scripts/test-content.mjs && node scripts/test-player.mjs && node scripts/test-narration.mjs && node scripts/test-rendered-audio.mjs",
+    "test:browser": "node scripts/test-player.mjs --browser",
+    "verify:rendered-audio": "node scripts/verify-rendered-audio.mjs"
   },
   "devDependencies": {
     "playwright": "1.62.1",

@@ -100,6 +100,16 @@ export function buildNarrationDelivery(sourceBytes) {
     },
     renderingStatus: 'unrendered',
     totalDurationSeconds: null,
+    durationRequirement: {
+      minimumNarrationSeconds: 1800,
+      suggestedPlanningRangeMinutes: [32, 35],
+      planningRangeIsGuarantee: false,
+      acceptanceStatus: 'unrendered-not-certified',
+      countedContent: 'Exactly the 32 newly rendered narration MP3 clips matching the canonical script.',
+      excludedContent: ['credits BGM', 'transition waits', 'artificial silence padding', 'music padding', 'legacy recordings'],
+      verification: 'ffprobe actual duration sum >=1800 seconds plus exact script/audio hashes and human speech review; character count is not certification.',
+      shortRecordingAction: 'Revise educational substance or re-render at a natural understandable pace, then remeasure. Never pad or claim duration from an estimate.',
+    },
     durationPolicy: 'No audio is generated, measured or reused by this export. Every actual duration remains null until the matching new recordings are rendered and measured.',
     clips,
   };

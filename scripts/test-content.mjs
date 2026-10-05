@@ -42,3 +42,20 @@ assert.equal(vm.runInContext("dgRoot({}, 'test').attrs['aria-label']", dgContext
 assert.equal(vm.runInContext("dgRoot({aria: '설명'}, 'test').attrs['aria-label']", dgContext), '설명');
 assert.ok(scenes[27].lines.join(' ').includes('로컬 실행 자체가 곧 사고라는 뜻은 아니에요.'));
 console.log('PASS: absent diagram aria labels and local-execution risk distinction.');
+
+// Dense comparison slides keep readable sizes without removing narration detail.
+const dotsControl = scenes.find(s => s.year.startsWith('21장'));
+const productComparison = scenes.find(s => s.year.startsWith('22장'));
+for (const scene of [dotsControl, productComparison]) {
+  assert.equal(scene.visual.parts[0].readable, true);
+  assert.equal(scene.visual.parts[0].rows.length, 4);
+  assert.ok(!scene.visual.parts.some(p => p.type === 'gloss'), 'Move secondary definitions to the guide');
+}
+assert.ok(html.includes('minmax(min-content, '), 'Readable grids must retain intrinsic content height');
+assert.ok(html.includes('w.tabIndex = 0'), 'Scrollable comparison must be keyboard focusable');
+assert.ok(html.includes('.roll-view, .dg-readable,'), 'Arrow keys in comparison must stay native for scrolling');
+assert.ok(html.includes('font-size: max(18px, 2.5vh)'));
+assert.ok(html.includes('scrollbar-gutter: stable'));
+const guide = readFileSync(resolve(packageDir, 'LEARNING-GUIDE.md'), 'utf8');
+for (const detail of ['백그라운드 에이전트', '클라우드 브라우저 로그인', '안전 문제', 'Enterprise 워크스페이스', 'Custom Rules', '명시 동의']) assert.ok(guide.includes(detail), detail);
+console.log('PASS: four-group comparison structure, readable sizing, keyboard scroll and preserved guide detail.');

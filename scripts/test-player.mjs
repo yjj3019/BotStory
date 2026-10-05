@@ -323,6 +323,15 @@ test('Arrow shortcuts work from focused toolbar while native Space remains a sin
   assert.equal(f.key(' ', f.doc.activeElement).prevented, false); assert.equal(f.run('speaking'), false);
   await f.click('play'); assert.equal(f.run('speaking'), true);
 });
+test('Scrollable comparison keeps native Space and arrow keys without navigating slides', async () => {
+  const f = fixture(); await f.jump(22);
+  const comparison = { closest: selectors => selectors.split(',').some(s => s.trim() === '.dg-readable') ? comparison : null };
+  for (const key of ['ArrowLeft', 'ArrowRight', 'ArrowDown', ' ']) {
+    assert.equal(f.key(key, comparison).prevented, false);
+    assert.equal(f.run('idx'), 22);
+    assert.equal(f.run('speaking'), false);
+  }
+});
 test('Toolbar and credits expose names, live status, focus styles and study dialog access', () => {
   assert.match(html, /id="player" role="group" aria-label="발표 재생 제어"/);
   assert.match(html, /id="meta" role="status" aria-live="polite"/);

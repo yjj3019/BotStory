@@ -1309,20 +1309,32 @@
   #story [data-sk="20"] .dg-irow.compact .tx > b { font-size: max(17px, 2.7vh); line-height: 1.15; }
   #story [data-sk="20"] .dg-irow.compact .tx > .s { font-size: max(13px, 2vh); line-height: 1.2; }
 
-  #story [data-sk="21"] .rm-h { font-size: max(13px, 2vh); padding-top: .1rem; padding-bottom: .1rem; }
-  #story [data-sk="21"] .rr-k, #story [data-sk="21"] .rr-v { font-size: max(13.5px, 2.2vh); line-height: 1.2; padding-top: .1rem; padding-bottom: .1rem; }
-  #story [data-sk="21"] .rr-k { gap: .45rem; padding-left: .6rem; padding-right: .6rem; }
-  #story [data-sk="21"] .rr-k .ic { --ic-s: clamp(18px, 3.4vh, 30px); }
-  #story [data-sk="21"] .rr-v { gap: .15rem .3rem; padding-left: .6rem; padding-right: .6rem; }
-  #story [data-sk="21"] .rr-v .ax-chip { font-size: max(12.5px, 1.85vh); padding: 0 .45rem; line-height: 1.25; }
-  #story [data-sk="21"] .dg-gloss { font-size: max(13px, 2vh); padding-top: .15rem; padding-bottom: .15rem; }
-
-  #story [data-sk="22"] .ax-h { font-size: max(17px, 2.9vh); padding-top: .15rem; padding-bottom: .15rem; }
-  #story [data-sk="22"] .ax-k { font-size: max(13.5px, 2.2vh); line-height: 1.15; padding: .1rem .5rem; gap: .4rem; }
-  #story [data-sk="22"] .ax-k .ic { --ic-s: clamp(20px, 3.6vh, 32px); }
-  #story [data-sk="22"] .ax-c { font-size: max(13.5px, 2.2vh); line-height: 1.2; padding: .12rem .55rem; gap: .2rem .3rem; }
-  #story [data-sk="22"] .ax-chip { font-size: max(12.5px, 1.85vh); padding: 0 .45rem; line-height: 1.25; }
-  #story [data-sk="22"] .dg-gloss { font-size: max(13px, 2vh); }
+  /* Dense comparisons: readable type, intrinsic row heights and a scroll fallback.
+     Detail lives in the linked guide; never shrink essential caveats to fit. */
+  #story :is([data-sk="21"], [data-sk="22"]) .dg-readable {
+    overflow: auto; overscroll-behavior: contain; scrollbar-gutter: stable;
+    align-content: start; padding: .15rem .3rem .3rem .15rem;
+  }
+  #story .dg-readable:focus-visible { outline: 3px solid var(--s-blue); outline-offset: -3px; }
+  #story [data-sk="21"] .rm-h { font-size: max(18px, 2.5vh); }
+  #story [data-sk="21"] .rr-k, #story [data-sk="21"] .rr-v {
+    font-size: max(18px, 2.5vh); line-height: 1.3; padding: .4rem .6rem;
+  }
+  #story [data-sk="21"] .rr-k { gap: .45rem; }
+  #story [data-sk="21"] .rr-k .ic { --ic-s: 26px; }
+  #story [data-sk="21"] .rr-v { display: block; }
+  #story [data-sk="21"] .rr-v > span:not(.rr-dot) { display: block; }
+  #story [data-sk="21"] .rr-dot { display: none; }
+  #story [data-sk="21"] .rr-v .ax-chip { font-size: inherit; border: 0; padding: 0; background: transparent; }
+  #story [data-sk="22"] .ax-h { font-size: max(20px, 2.8vh); padding: .3rem .5rem; }
+  #story [data-sk="22"] .ax-h .ic { --ic-s: 28px; }
+  #story [data-sk="22"] .ax-k, #story [data-sk="22"] .ax-c {
+    font-size: max(18px, 2.5vh); line-height: 1.3; padding: .4rem .5rem; gap: .35rem;
+  }
+  #story [data-sk="22"] .ax-k .ic { --ic-s: 24px; }
+  #story [data-sk="22"] .ax-diff { font-size: 16px; }
+  #story [data-sk="22"] .ax-chip { font-size: max(16px, 2.25vh); line-height: 1.3; padding: .1rem .35rem; border-radius: 8px; }
+  #story :is([data-sk="21"], [data-sk="22"]) .dg-easy .e-t { font-size: max(18px, 2.5vh); }
 
   #story [data-sk="24"] .dg-icard > b { font-size: max(20px, 3.1vh); }
   #story [data-sk="24"] .dg-icard .ln { line-height: 1.45; }
@@ -2675,30 +2687,26 @@ const SCENES = [
   {
     year: '21장 · Dots 구조',
     title: 'Dots의 통제는 클라우드와 로컬 연결을 나눠 보고, 자동 심사와 내 규칙이 함께 걸린다',
-    message: 'Dots의 통제는 클라우드와 로컬 연결을 나눠 보고, 자동 심사와 내 규칙이 함께 걸린다',
+    message: 'Dots의 실행 조건과 통제: 어디서 돌고, 누가 확인하나',
     foot: '출처: learn.chatgpt.com/docs/dots (computers-and-apps · controls) · OpenAI 도움말 (문서 기준)',
     visual: {
         type: 'stack',
-        aria: 'Dots 통제 도해. 여덟 상황마다 통제를 짝지었다. 클라우드 작업은 기기가 꺼져도 이어진다. 연결한 내 컴퓨터를 쓰는 작업은 그 컴퓨터가 켜져 있고 ChatGPT 앱이 열려 있어야 한다. 자동 심사는 계정·정보 공유에 영향을 주는 행동을 지시, 권한, 사용자 규칙, 기본 안전 요건에 대해 확인하고, 사용자 Custom Rules로도 핵심 안전 요건은 끌 수 없다. 비밀번호 변경은 사용자가 직접 처리하고 영구 삭제는 명시 승인, 저장 카드 구매는 승인 필요, 안전 문제가 감지되면 일시 정지될 수 있다. 사용자의 일시 정지는 주 작업만 멈추고 위임 작업 중단과 예약 취소는 따로 해야 한다. 한 dot은 백그라운드 에이전트들에게 일을 나눠 병렬로 진행한다. 연결한 앱은 사용자 계정과 권한 안에서 쓰이고 클라우드 브라우저의 로그인은 내 컴퓨터 브라우저와 별개다. 완료로 표시돼도 요청한 결과의 달성이나 전달이 확인된 것은 아니므로 결과를 검토해야 한다. Enterprise는 기본 비활성이며 관리자가 켠다. Grok Bot, Muse와는 구조가 다른 병렬 사례이며 같은 장치가 아니다.',
+        aria: 'Dots 통제 도해. 네 묶음으로 실행 조건, 계정과 규칙, 사람 확인, 중단과 결과를 정리했다. 클라우드 작업은 기기가 꺼져도 이어진다. 연결한 내 컴퓨터를 쓰는 작업은 그 컴퓨터가 켜져 있고 ChatGPT 앱이 열려 있어야 한다. 자동 심사는 계정·정보 공유에 영향을 주는 행동을 지시, 권한, 사용자 규칙, 기본 안전 요건에 대해 확인하고, 사용자 Custom Rules로도 핵심 안전 요건은 끌 수 없다. 비밀번호 변경은 사용자가 직접 처리하고 영구 삭제는 명시 승인, 저장 카드 구매는 승인 필요, 안전 문제가 감지되면 일시 정지될 수 있다. 사용자의 일시 정지는 주 작업만 멈추고 위임 작업 중단과 예약 취소는 따로 해야 한다. 한 dot은 백그라운드 에이전트들에게 일을 나눠 병렬로 진행한다. 연결한 앱은 사용자 계정과 권한 안에서 쓰이고 클라우드 브라우저의 로그인은 내 컴퓨터 브라우저와 별개다. 완료로 표시돼도 요청한 결과의 달성이나 전달이 확인된 것은 아니므로 결과를 검토해야 한다. Enterprise는 기본 비활성이며 관리자가 켠다. Grok Bot, Muse와는 구조가 다른 병렬 사례이며 같은 장치가 아니다.',
         parts: [
           {
             type: 'riskrows',
+            readable: true,
             w: 8,
             aria: 'Dots 상황별 통제',
             heads: [ '상황', '통제' ],
             rows: [
-              { ic: 'cloud', k: '클라우드에서 하는 일', cells: [ { t: '기기가 꺼져도 이어짐', chip: true }, '한 dot이 백그라운드 에이전트들에게 일을 나눠 병렬로 진행' ] },
-              { ic: 'monitor', k: '연결한 내 컴퓨터를 쓰는 일', cells: [ '그 컴퓨터가 켜져 있어야 함', { t: 'ChatGPT 앱도 열려 있어야 함', chip: true, tone: 'risk' } ] },
-              { ic: 'key', k: '연결한 앱 · 로그인', cells: [ '내가 연결한 앱의 계정·권한 안에서 일함', { t: '클라우드 브라우저 로그인은 내 컴퓨터와 따로', chip: true } ] },
-              { ic: 'magnify', k: '계정·정보 공유 행동', hi: true, cells: [ '자동 심사: 지시 · 권한 · 내 규칙 · 기본 안전 요건 대조', { t: 'Custom Rules로도 핵심 안전 요건은 못 끔', chip: true, tone: 'risk' } ] },
-              { ic: 'warn', k: '고위험 행동', cells: [ '비밀번호 변경은 직접 처리 · 영구 삭제는 명시 승인', '카드 구매는 승인', '안전 문제 감지 시 정지' ] },
-              { ic: 'hand', k: '일시 정지', cells: [ { t: '주 작업만 멈춤', chip: true }, '위임 작업 중단·예약 취소는 따로' ] },
-              { ic: 'check', k: '작업 완료 표시', cells: [ { t: '완료 ≠ 요청한 결과 달성·전달 확인', chip: true, tone: 'risk' }, '결과와 오류를 직접 검토' ] },
-              { ic: 'shield', k: 'Enterprise 워크스페이스', cells: [ { t: '기본 비활성', chip: true, tone: 'risk' }, '관리자가 켬' ] }
+              { ic: 'cloud', k: '실행 조건', cells: [ '클라우드: 내 기기가 꺼져도 계속', '내 컴퓨터: 켜짐 + ChatGPT 앱 열림 필요' ] },
+              { ic: 'key', k: '계정·규칙', hi: true, cells: [ '연결한 앱의 계정·권한 안에서 실행', '자동 심사 + 내 규칙 · 핵심 안전 요건은 못 끔' ] },
+              { ic: 'person', k: '사람 확인', cells: [ '비밀번호 변경: 직접 처리', '영구 삭제: 명시 승인 · 저장 카드 구매: 승인' ] },
+              { ic: 'check', k: '중단·결과', cells: [ '일시 정지는 주 작업만 · 위임·예약은 따로 중단', '완료 표시 뒤에도 결과·전달 확인' ] }
             ]
           },
-          { type: 'gloss', w: 0, items: [ { k: '자동 심사', v: '행동이 규칙에 맞는지 시스템이 확인하는 단계' }, { k: 'Custom Rules', v: '사용자가 직접 정하는 규칙' }, { k: '명시 동의', v: '사용자가 분명하게 허락함' } ] },
-          { type: 'easy', w: 0, look: 'bar', ic: 'list', t: '어디서 도는지, 어떤 규칙이 걸리는지 나눠 본다. 다른 제품과 구조가 달라 같은 장치로 읽지 않는다' }
+          { type: 'easy', w: 0, look: 'bar', ic: 'list', t: '같은 통제 장치로 묶지 않는다 · 세부 조건과 용어는 학습 보충 참고' }
         ]
       }
   ,
@@ -2726,31 +2734,32 @@ const SCENES = [
     foot: '근거: Grok Bot·Muse는 기존 장과 같음 · Dots는 OpenAI 도움말(learn.chatgpt.com/docs/dots) 문서 기준 · 세 제품은 순서 없는 병렬 비교',
     visual: {
         type: 'stack',
-        aria: 'Grok Bot, Muse, Dots 세 제품 비교 도해. 실행 환경, 자동 통제, 사람 승인, 운영 주의 네 축을 세 제품 열로 나란히 비교한다. 순서나 순위는 없다. 실행 환경은 Grok Bot이 사용자당 클라우드 컴퓨터, Muse가 개인별 Secure VM, Dots가 dot마다 클라우드의 자기 컴퓨터와 브라우저. 자동 통제는 Grok Bot의 모델 기반 Auto Review, Muse의 인터넷 egress를 중개하는 Sentinel, Dots의 자동 심사와 Custom Rules로 서로 같은 장치가 아니다. 사람 승인은 Grok Bot이 민감 행동, 로그인, 2FA, 결제, Muse가 메일과 구매 등, Dots가 비밀번호 변경의 사용자 직접 처리와 영구 삭제·저장 카드 구매 승인. 운영 주의는 Grok Bot이 Bot 간 공유, 오프보딩, Enterprise 전용 Network Controls와 없으면 allow-all, 로컬 실행은 공식 문서가 사용 안 함을 권고, Muse가 Confidential VM 출시 완료 미확인과 9월 8일 미국 롤아웃, 9월 29일 미국·캐나다 안내, Dots가 로컬 연결 작업의 컴퓨터 켜짐과 ChatGPT 앱 열림 조건, 클라우드 작업은 기기가 꺼져도 계속, Enterprise 기본 비활성과 관리자 활성화.',
+        aria: 'Grok Bot, Muse, Dots 세 제품 비교 도해. 실행 환경, 자동 통제, 사람 승인, 운영 주의 네 축을 세 제품 열로 나란히 비교한다. 순서나 순위는 없다. 실행 환경은 Grok Bot이 사용자당 클라우드 컴퓨터, Muse가 개인별 Secure VM, Dots가 dot마다 클라우드의 자기 컴퓨터와 브라우저. 자동 통제는 Grok Bot의 모델 기반 Auto Review, Muse의 인터넷 egress를 중개하는 Sentinel, Dots의 자동 심사와 Custom Rules로 서로 같은 장치가 아니다. 사람 승인은 Grok Bot이 민감 행동, 로그인, 2FA, 결제, Muse가 메일과 구매 등, Dots가 비밀번호 변경의 사용자 직접 처리와 영구 삭제·저장 카드 구매 승인. 운영 주의는 Grok Bot이 Bot 간 공유, 오프보딩, Enterprise 전용 Network Controls와 없으면 allow-all, 로컬 실행은 공식 문서가 사용 안 함을 권고, Muse가 Confidential VM 출시 완료 미확인과 9월 8일 미국 롤아웃, 9월 29일 미국·캐나다 안내, Dots가 로컬 연결 작업의 컴퓨터 켜짐과 ChatGPT 앱 열림 조건, 클라우드: 기기 꺼져도 계속, Enterprise 기본 비활성과 관리자 활성화.',
         parts: [
           {
             type: 'axes',
+            readable: true,
             w: 9,
             aria: '세 제품 비교. 축은 순서나 계층이 아니라 나란한 항목',
             cols: [ { t: 'Grok Bot', ic: 'monitor' }, { t: 'Muse', ic: 'room' }, { t: 'Dots', ic: 'cloud' } ],
             rows: [
-              { ic: 'server', k: '실행 환경', cells: [ '사용자당 클라우드 컴퓨터', '개인별 Secure VM', 'dot마다 클라우드의 자기 컴퓨터·브라우저' ] },
+              { ic: 'server', k: '실행 환경', cells: [ '사용자당 클라우드 컴퓨터', '개인별 Secure VM', 'dot별 클라우드 컴퓨터·브라우저' ] },
               {
                 ic: 'shield',
                 k: '자동 통제',
                 hi: true,
                 diff: true,
                 cells: [
-                  'Auto Review (모델 기반 · 최소권한 대체 금지)',
-                  'Sentinel (인터넷/egress 중개)',
-                  '자동 심사 + Custom Rules (핵심 안전 요건은 못 끔)'
+                  'Auto Review · 최소권한 대체 금지',
+                  'Sentinel · 외부 통신 중개',
+                  '자동 심사 + 내 규칙 · 핵심 안전 요건 유지'
                 ]
               },
               {
                 ic: 'person',
                 k: '사람 승인',
                 tone: 'human',
-                cells: [ '민감 · 로그인 · 2FA · 결제', '메일 · 구매 등', '비밀번호 변경은 직접 처리 · 영구 삭제·저장 카드 구매는 승인' ]
+                cells: [ '민감 · 로그인 · 2FA · 결제', '메일 · 구매 등', '비밀번호: 직접 변경 · 영구 삭제·저장 카드 구매: 승인' ]
               },
               {
                 ic: 'warn',
@@ -2759,34 +2768,24 @@ const SCENES = [
                 w: 2.1,
                 cells: [
                   [
-                    { t: 'Bot 간 공유', chip: true, tone: 'risk' },
-                    { t: '오프보딩', chip: true, tone: 'risk' },
-                    { t: '로컬: 공식 권고 사용 안 함', chip: true, tone: 'risk' },
-                    { t: 'Network Controls = Enterprise 전용 · 없으면 allow-all', chip: true, tone: 'risk' }
+                    { t: 'Bot 간 공유 · 오프보딩', chip: true, tone: 'risk' },
+                    { t: '로컬 실행: 사용 안 함 권고', chip: true, tone: 'risk' },
+                    { t: 'Network Controls: Enterprise 전용 · 없으면 전체 허용', chip: true, tone: 'risk' }
                   ],
                   [
-                    { t: 'Confidential VM 출시 완료 미확인(신뢰 간극)', chip: true, tone: 'risk' },
+                    { t: 'Confidential VM 출시 미확인', chip: true, tone: 'risk' },
                     { t: '9/29 안내: 미국·캐나다', chip: true, tone: 'risk' }
                   ],
                   [
-                    { t: '로컬 연결 작업: 컴퓨터 켜짐 + ChatGPT 앱 열림 필요', chip: true, tone: 'risk' },
-                    { t: '클라우드 작업은 기기가 꺼져도 계속', chip: true, tone: 'risk' },
-                    { t: 'Enterprise는 기본 비활성 · 관리자가 켬', chip: true, tone: 'risk' }
+                    { t: '로컬: 컴퓨터 켜짐 + 앱 열림', chip: true, tone: 'risk' },
+                    { t: '클라우드: 기기 꺼져도 계속', chip: true, tone: 'risk' },
+                    { t: 'Enterprise: 기본 꺼짐 · 관리자가 켬', chip: true, tone: 'risk' }
                   ]
                 ]
               }
             ]
           },
-          {
-            type: 'gloss',
-            w: 0,
-            items: [
-              { k: 'Auto Review · 자동 심사', v: '실행 전에 모델이나 규칙이 행동을 확인하는 단계' },
-              { k: 'Sentinel', v: '인터넷으로 나가는 길목을 중개하는 통제 계층' },
-              { k: 'Custom Rules', v: '사용자가 정하는 규칙' }
-            ]
-          },
-          { type: 'easy', w: 0, look: 'bar', ic: 'scope', t: '세 제품을 같은 네 질문으로 읽는 표다. 어느 쪽이 낫다는 뜻은 아니다' }
+          { type: 'easy', w: 0, look: 'bar', ic: 'scope', t: '순위가 아닌 네 질문의 비교 · 세부 조건과 용어는 학습 보충 참고' }
         ]
       }
   ,
@@ -3950,7 +3949,9 @@ function buildRmap(v) {
 
 // axes: { aria, cols: [{ t, ic }] x2|x3, rows: [{ ic, k, tone?, cells: [[chip]|text] x2, hi? }] } — two products side by side on parallel axes (no layering, no order)
 function buildAxes(v) {
-  const w = dgRoot(v, 'dg-axes'); w.style.gridTemplateRows = 'auto ' + v.rows.map(r => 'minmax(0, ' + (r.w || 1) + 'fr)').join(' ');
+  const w = dgRoot(v, 'dg-axes' + (v.readable ? ' dg-readable' : ''));
+  w.style.gridTemplateRows = 'auto ' + v.rows.map(r => v.readable ? 'minmax(min-content, ' + (r.w || 1) + 'fr)' : 'minmax(0, ' + (r.w || 1) + 'fr)').join(' ');
+  if (v.readable) { w.tabIndex = 0; w.setAttribute('aria-label', (v.aria || '비교 내용') + ' · 내용이 길면 스크롤하여 읽기'); }
   if (v.cols.length > 2) w.style.gridTemplateColumns = 'minmax(0, 14fr) ' + v.cols.map(() => 'minmax(0, 29fr)').join(' ');
   w.appendChild(dgEl('div', 'ax-h', '구분'));
   v.cols.forEach((c, i) => { const h = el('div', 'ax-h' + (i && v.cols.length < 3 ? ' b' : '')); h.appendChild(icon(c.ic)); h.appendChild(dgEl('span', '', c.t)); w.appendChild(h); });
@@ -3992,7 +3993,9 @@ function buildSpeccards(v) {
 
 // riskrows: { aria, heads: [2], rows: [{ ic, k, cells: [chip|text], hi? }] } — risk on the left, plain mitigation on the right (chips = key phrases)
 function buildRiskrows(v) {
-  const w = dgRoot(v, 'dg-rr'); w.style.gridTemplateRows = 'auto ' + v.rows.map(r => 'minmax(0, ' + (r.w || 1) + 'fr)').join(' ');
+  const w = dgRoot(v, 'dg-rr' + (v.readable ? ' dg-readable' : ''));
+  w.style.gridTemplateRows = 'auto ' + v.rows.map(r => v.readable ? 'minmax(min-content, ' + (r.w || 1) + 'fr)' : 'minmax(0, ' + (r.w || 1) + 'fr)').join(' ');
+  if (v.readable) { w.tabIndex = 0; w.setAttribute('aria-label', (v.aria || '비교 내용') + ' · 내용이 길면 스크롤하여 읽기'); }
   v.heads.forEach((h, i) => w.appendChild(dgEl('div', 'rm-h' + (i === 0 ? ' r' : ''), h)));
   v.rows.forEach(r => {
     const k = el('div', 'rr-k'); k.appendChild(icon(r.ic, 'risk')); k.appendChild(dgEl('span', '', r.k)); w.appendChild(k);
@@ -4509,7 +4512,7 @@ nextBtn.addEventListener('click', () => navigateScene(1));
 document.addEventListener('keydown', (event) => {
   if (player.hidden || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.repeat || document.querySelector('dialog[open]')) return;
   // Space stays native on buttons. Arrow navigation also works while a player button is focused.
-  if (event.target.closest('input, textarea, select, [contenteditable], .roll-view, [role="slider"]')) return;
+  if (event.target.closest('input, textarea, select, [contenteditable], .roll-view, .dg-readable, [role="slider"]')) return;
   if (event.target.closest('button, a')) {
     const toolbarArrow = (event.key === 'ArrowLeft' || event.key === 'ArrowRight') && event.target.closest('#player');
     if (!toolbarArrow) return;

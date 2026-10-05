@@ -334,7 +334,6 @@
   #player button:focus-visible, #rollReplay:focus-visible, #credits .roll-view:focus-visible, #credits a:focus-visible { outline: 3px solid #A65300; outline-offset: 3px; }
   #player #play { width: auto; padding: 0 1.1rem; border-radius: 10px; background: var(--s-blue); color: #fff; }
   #player #play:hover { background: var(--s-blue-deep); }
-  #player #study-open { width: auto; padding: 0 .8rem; border-radius: 999px; white-space: nowrap; font-weight: 700; }
   #player .sep { width: 1px; height: 1.3rem; background: var(--line); flex-shrink: 0; }
   #player { max-width: calc(100vw - 1rem); }
   #player #meta { font-weight: 700; color: var(--s-blue); pointer-events: none; }
@@ -346,6 +345,38 @@
     #player #engine { flex-basis: 100%; text-align: center; }
   }
   @media (max-height: 640px) { #player #timer, #player #timer + .sep { display: none; } }
+
+  /* Slide footer: sources + narration caption */
+  #opening-slide { position: relative; }
+  #opening-slide .shell-foot, #story .page .shell-foot { display: none; }
+  .src-list { flex: none; max-height: 7rem; overflow: auto; padding: .35rem clamp(.8rem,1.6vw,1.4rem); border-top: 1px solid var(--line); background: #F6F9FF; position: relative; z-index: 2; }
+  .src-list summary { cursor: pointer; color: var(--s-blue-deep); font-size: .78rem; font-weight: 700; }
+  .src-list .src { text-align: left; overflow-wrap: anywhere; padding-top: .25rem; font-size: .8rem; color: var(--ink-2); line-height: 1.5; }
+  .cap { flex: none; padding: .55rem clamp(.8rem,1.6vw,1.4rem) clamp(.6rem,1.6vh,1rem); border-top: 1px solid var(--line); background: linear-gradient(180deg,#F6F9FF,var(--paper)); position: relative; z-index: 2; }
+  .segs { display: flex; gap: 3px; height: 6px; margin-bottom: .55rem; }
+  .seg { flex: 1 1 0; min-width: 2px; border-radius: 3px; background: var(--line); transition: background .3s, transform .2s; }
+  .seg.done { background: color-mix(in srgb, var(--s-blue) 55%, var(--line)); }
+  .seg.active { background: var(--s-blue); transform: scaleY(1.7); }
+  .cap-row { display: flex; align-items: center; gap: .6rem; }
+  .cap-text { flex: 1; min-width: 0; margin: 0; padding: .2rem 0 .2rem 1rem; border-left: 5px solid var(--s-blue); font-size: max(18px, min(3vh, 1.9vw)); font-weight: 700; line-height: 1.45; color: var(--ink); min-height: calc(2 * 1.45em + .4rem); display: flex; align-items: center; }
+  .cap-text span { animation: capIn .35s ease; }
+  @keyframes capIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .cn { flex: none; width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); font-weight: 800; color: var(--s-blue); cursor: pointer; transition: background .2s; }
+  .cn:hover { background: var(--s-blue-soft); }
+  .btn-script { flex: none; padding: .45rem .9rem; border-radius: 999px; border: 1.5px solid var(--s-blue); color: var(--s-blue); font-weight: 700; font-size: .85rem; background: var(--paper); cursor: pointer; transition: background .2s, color .2s; }
+  .btn-script:hover, .btn-script[aria-expanded="true"] { background: var(--s-blue); color: #fff; }
+  .script { position: absolute; inset: 0; z-index: 6; display: none; flex-direction: column; background: var(--paper); }
+  .script.open { display: flex; }
+  .script-head { flex: none; display: flex; justify-content: space-between; align-items: center; padding: .8rem 1.4rem; border-bottom: 1px solid var(--line); font-weight: 800; }
+  .script ol { flex: 1; overflow: auto; margin: 0; padding: 1rem 1.4rem 1.4rem 2.6rem; line-height: 1.7; }
+  .script .line-select { display: block; width: 100%; text-align: left; background: none; border: 0; font: inherit; color: inherit; cursor: pointer; padding: .15rem .3rem; border-radius: 6px; }
+  .script .line-select:hover { background: var(--s-blue-soft); }
+  .script li.now .line-select { background: var(--s-blue-soft); font-weight: 700; }
+  @media (max-width: 640px) {
+    .cap-text { font-size: 1rem; min-height: 0; }
+    .cap-row { gap: .4rem; }
+    .src-list { max-height: 6rem; }
+  }
 
   /* Opening overlay slide (spoken before scenes) */
   #opening-slide {
@@ -1372,12 +1403,6 @@
   #story [data-sk="29"] .dg-icard .chip { font-size: max(12.5px, 1.9vh); }
 
 
-  #learning { width: min(760px, 90vw); max-height: 82vh; border: 2px solid #032178; border-radius: 14px; padding: 1.4rem; color: #17243c; background: #fff; font-size: 1rem; line-height: 1.65; }
-  #learning::backdrop { background: rgb(0 0 0 / .5); }
-  #learning h2 { font-size: 1.5rem; margin: 0 0 .7rem; }
-  #learning a { color: #0645ad; text-decoration: underline; }
-  #learning button { float: right; padding: .4rem .8rem; font: inherit; cursor: pointer; }
-  #learning .note { padding: .7rem; background: #f1f4fa; }
   .in-note a { color: inherit; text-decoration: underline; }
   #story .dg-scrollable:focus-visible { outline: 3px solid var(--s-blue); outline-offset: -3px; }
 
@@ -1679,22 +1704,8 @@
   <span id="timer" title="현재 음성의 실제 재생 위치와 길이">0:00 / 0:00</span>
   <span class="sep"></span>
   <span id="engine" role="status" aria-live="polite"></span>
-  <button id="study-open" type="button" aria-haspopup="dialog">학습 보충</button>
 </div>
 
-<dialog id="learning" aria-labelledby="learning-title">
-  <button type="button" id="study-close" aria-label="학습 보충 닫기">닫기</button>
-  <h2 id="learning-title">학습 보충과 개정 안내</h2>
-  <p>원래 장표의 흐름은 유지했습니다. 모델이 도구를 실행하고 결과를 확인하는 과정, 기억의 한계, 안전하게 맡기는 예제와 확인 문제를 보충했습니다.</p>
-  <p><a href="learning-guide.html" target="_blank" rel="noopener">학습 가이드 전체 읽기 (새 탭)</a></p>
-  <p class="note">이번 개정본은 원고 32클립을 제공합니다. 음성은 별도로 렌더링하며, 기존 녹음은 모두 보관용으로 분리했습니다. 새 녹음이 검증될 때까지 원고를 표시하고 자동 진행을 멈춥니다. 브라우저 음성은 사용하지 않습니다.</p>
-  <ul>
-    <li>챗봇·에이전트는 학습용 구분입니다. 실제 기능은 겹치며 이름만으로 권한이나 성공을 보장하지 않습니다.</li>
-    <li>자가호스팅만으로 격리되지는 않습니다. OpenClaw에도 실행 승인 기능이 있으며 운영자가 정책을 설정하고 확인해야 합니다.</li>
-    <li>제품 날짜·가격·지역은 원자료 확인 당시의 기록입니다. 개념 보충을 추가했다고 제품 전체를 오늘 기준으로 재검증한 것은 아닙니다.</li>
-  </ul>
-  <p>원고만으로 재생 시간을 확정하지 않습니다. 새 녹음이 완료되면 길이를 측정합니다. 크레딧·전환은 별도이므로 현재 전체 시간을 확정값으로 표시하지 않습니다. 장표는 1280×720 이상을 권장하며 작은 화면에서는 학습 가이드를 이용하세요.</p>
-</dialog>
 <script>
 // HTML이 원본이다. npm run sync로 narration.json과 화면 카피를 생성한다.
 const OPENING_TEXT = "사람들은 왜 에이아이 봇에게 일을 맡기기 시작했을까요? 이 발표는 그 질문을 따라가요. 제목의 대항해 시대는 저마다 다른 길로 낯선 바다에 나선 시기를 빗댄 말이에요. 출발점은 답은 얻었지만 일은 끝나지 않던 한계예요. 배경을 짚은 뒤에는 자가호스팅, 에이전트 소셜, 클라우드라는 세 경로를 나란히 볼 거예요. 그록 봇, 뮤즈, 닷츠는 클라우드 경로를 살펴볼 사례예요. 제품별 날짜와 조건은 확인 시점을 붙여 읽고, 출처를 다시 확인하지 못한 부분은 따로 구분할게요. 마지막에는 격리와 승인, 접근을 거두는 절차를 살펴봐요. 위임은 일을 맡기는 것이에요. 무엇을 맡길 수 있는지와 함께, 어디에서 사람의 판단이 필요한지를 봐 주세요.";
@@ -4315,6 +4326,59 @@ const SK_KEYS = (() => {
   });
 })();
 
+function buildCap(sec, lines) {
+  lines = lines || [];
+  const cap = el('footer', 'cap');
+  const segs = el('div', 'segs');
+  segs.setAttribute('aria-hidden', 'true');
+  lines.forEach(() => segs.appendChild(el('i', 'seg')));
+  cap.appendChild(segs);
+  const row = el('div', 'cap-row');
+  const prev = el('button', 'cn');
+  prev.type = 'button'; prev.textContent = '‹'; prev.setAttribute('aria-label', '이전 문장');
+  const text = el('p', 'cap-text');
+  const span = document.createElement('span');
+  span.textContent = lines[0] || '';
+  text.appendChild(span);
+  const next = el('button', 'cn');
+  next.type = 'button'; next.textContent = '›'; next.setAttribute('aria-label', '다음 문장');
+  const scriptBtn = el('button', 'btn-script');
+  scriptBtn.type = 'button'; scriptBtn.textContent = '대본'; scriptBtn.setAttribute('aria-expanded', 'false');
+  row.append(prev, text, next, scriptBtn);
+  cap.appendChild(row);
+  sec.appendChild(cap);
+  const aside = el('aside', 'script');
+  aside.setAttribute('aria-label', '전체 대본');
+  const head = el('div', 'script-head');
+  const hspan = document.createElement('span');
+  hspan.textContent = '전체 대본';
+  const close = el('button', 'cn');
+  close.type = 'button'; close.textContent = '×'; close.setAttribute('aria-label', '대본 닫기');
+  head.append(hspan, close);
+  const ol = document.createElement('ol');
+  lines.forEach((line, li) => {
+    const item = document.createElement('li');
+    const b = el('button', 'line-select');
+    b.type = 'button'; b.textContent = line;
+    b.addEventListener('click', () => seekLine(li));
+    item.appendChild(b);
+    ol.appendChild(item);
+  });
+  aside.append(head, ol);
+  sec.appendChild(aside);
+  scriptBtn.addEventListener('click', () => {
+    const open = aside.classList.toggle('open');
+    scriptBtn.setAttribute('aria-expanded', String(open));
+  });
+  close.addEventListener('click', () => {
+    aside.classList.remove('open');
+    scriptBtn.setAttribute('aria-expanded', 'false');
+    scriptBtn.focus();
+  });
+  prev.addEventListener('click', () => stepLine(-1));
+  next.addEventListener('click', () => stepLine(1));
+}
+
 function buildPages() {
   SCENES.forEach((s, i) => {
     const sec = document.createElement('section');
@@ -4336,12 +4400,21 @@ function buildPages() {
       runtime.tabIndex = 0;
     }
     if (s.foot) {
-      const foot = el('div', 'slide-foot');
-      foot.textContent = s.foot;
-      const body = sec.querySelector('.slide-body');
-      body.classList.add('has-foot');
-      body.appendChild(foot);
+      const entries = s.foot.replace(/^출처:\s*/, '').split('·').map(t => t.trim()).filter(Boolean);
+      const det = el('details', 'src-list');
+      const sum = document.createElement('summary');
+      sum.textContent = '출처 ' + entries.length + '개 보기';
+      det.appendChild(sum);
+      const srcBox = el('div', 'src');
+      entries.forEach(t => {
+        const d = document.createElement('div');
+        d.textContent = t;
+        srcBox.appendChild(d);
+      });
+      det.appendChild(srcBox);
+      sec.appendChild(det);
     }
+    buildCap(sec, s.lines);
     story.appendChild(sec);
     if (s.cover) ensureStoryFoot(sec);
   });
@@ -4365,6 +4438,7 @@ function showScene(n) {
   if (n === 0) {
     openingSlide.classList.add('show');
     meta.textContent = '오프닝';
+    setCap(OPENING_LINES, openingSlide);
     return;
   }
   if (n >= 1 && n <= sceneCount) {
@@ -4373,12 +4447,15 @@ function showScene(n) {
     const elp = document.getElementById('scene-' + n);
     if (elp) elp.classList.add('active');
     meta.textContent = n + '쪽 / ' + sceneCount + '쪽 · ' + (SCENES[n - 1].year || ''); // 쪽 = 화면 순번, 장 = 장 번호
+    setCap(SCENES[n - 1].lines, elp);
   } else if (n === sceneCount + 1) {
     closing.classList.add('show');
     meta.textContent = '엔딩';
+    setCap([], null);
   } else if (n === sceneCount + 2) {
     credits.classList.add('show');
     meta.textContent = '크레딧';
+    setCap([], null);
     startRoll();
   }
 }
@@ -4436,6 +4513,56 @@ function fmtClock(t) {
 function renderTimer(clip) {
   const el = document.getElementById('timer');
   if (el) el.textContent = fmtClock(clip ? clip.currentTime : 0) + ' / ' + fmtClock(clip ? clip.duration : 0);
+}
+
+const OPENING_LINES = OPENING_TEXT.split(/(?<=[.?])\s+/).map(s => s.trim()).filter(Boolean);
+let capLines = [];
+let capIdx = 0;
+let capPage = null;
+function setCap(lines, pageEl) {
+  capLines = lines || [];
+  capIdx = 0;
+  capPage = pageEl || null;
+  paintCap();
+}
+function paintCap() {
+  if (!capPage || typeof capPage.querySelector !== 'function') return;
+  const span = capPage.querySelector('.cap-text span');
+  if (span && span.textContent !== (capLines[capIdx] || '')) span.textContent = capLines[capIdx] || '';
+  capPage.querySelectorAll('.seg').forEach((seg, k) => {
+    seg.classList.toggle('active', k === capIdx);
+    seg.classList.toggle('done', k < capIdx);
+  });
+  capPage.querySelectorAll('.script li').forEach((li, k) => li.classList.toggle('now', k === capIdx));
+}
+function capStartRatio(idx) {
+  const total = capLines.reduce((a, l) => a + l.length, 0) || 1;
+  let c = 0;
+  for (let k = 0; k < idx; k++) c += capLines[k].length;
+  return c / total;
+}
+function seekLine(idx) {
+  if (!capLines.length) return;
+  capIdx = Math.max(0, Math.min(capLines.length - 1, idx));
+  paintCap();
+  const clip = playback && playback.clip;
+  if (clip && isFinite(clip.duration) && clip.duration > 0) {
+    clip.currentTime = Math.min(capStartRatio(capIdx) * clip.duration + 0.02, Math.max(0, clip.duration - 0.05));
+    renderTimer(clip);
+  }
+}
+function stepLine(d) { seekLine(capIdx + d); }
+function syncCap(clip) {
+  if (!capLines.length || !isFinite(clip.duration) || !clip.duration) return;
+  const r = clip.currentTime / clip.duration;
+  const total = capLines.reduce((a, l) => a + l.length, 0) || 1;
+  let acc = 0;
+  let idx = capLines.length - 1;
+  for (let k = 0; k < capLines.length; k++) {
+    acc += capLines[k].length / total;
+    if (r < acc) { idx = k; break; }
+  }
+  if (idx !== capIdx) { capIdx = idx; paintCap(); }
 }
 
 function stopAudio() {
@@ -4546,7 +4673,7 @@ async function speakText(id, text, onDone) {
     session.kind = 'audio';
     session.clip = audio = clip;
     renderTimer(clip);
-    clip.ontimeupdate = () => { if (isCurrent(session)) renderTimer(clip); };
+    clip.ontimeupdate = () => { if (isCurrent(session)) { renderTimer(clip); syncCap(clip); } };
     clip.onended = session.finish;
     clip.onerror = () => {
       if (!isCurrent(session)) return;
@@ -4733,6 +4860,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 buildPages();
+buildCap(document.querySelector('#opening-slide .op-slide'), OPENING_LINES);
 if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { const ia = document.getElementById('in-art'); if (ia && ia.pauseAnimations) ia.pauseAnimations(); }
 document.getElementById('op-route').appendChild(buildRoute({}));
 if (window.ResizeObserver) new ResizeObserver(updatePlayerReserve).observe(player);
@@ -4749,17 +4877,6 @@ updatePlayerReserve();
   player.hidden = false;
   idx = n;
   showScene(n);
-})();
-</script>
-<script>
-(() => {
-  const dialog = document.getElementById('learning');
-  const button = document.getElementById('study-open');
-  if (button) button.addEventListener('click', () => {
-    if (typeof pauseCurrent === 'function') pauseCurrent();
-    dialog.showModal();
-  });
-  document.getElementById('study-close').addEventListener('click', () => dialog.close());
 })();
 </script>
 </body>

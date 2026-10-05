@@ -1,7 +1,7 @@
 {
   "sourceJSONSHA256": "0852d19ff5fcbcc34c7774583486303d94b12d29aad5e5afde35d1e334825c3e",
   "minimumNarrationSeconds": 1800,
-  "totalDurationSeconds": 2740.344,
+  "totalDurationSeconds": 2726.76,
   "measurement": "ffprobe format.duration, exact microsecond sum of the 32 narration MP3s only",
   "excludedFromFileSum": [
     "credits BGM files",
@@ -60,9 +60,9 @@
     {
       "id": "06-scene",
       "textSHA256": "d7507c0f98781e0f65f0e1bdfa1e44b82314855acbecdafc103fc680d39736e5",
-      "audioSHA256": "5032ac658107b1f59d4b1bf0c219b2c7e6360c3a6b8bf02ca13818bd80f62158",
-      "durationSeconds": 106.8,
-      "durationExact": "106.800000"
+      "audioSHA256": "48631d6196cea41fa11df84941fc0416d104b564a5e394af8aa3614abe2af562",
+      "durationSeconds": 93.216,
+      "durationExact": "93.216000"
     },
     {
       "id": "07-scene",

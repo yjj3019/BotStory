@@ -332,6 +332,14 @@ test('Scrollable comparison keeps native Space and arrow keys without navigating
     assert.equal(f.run('speaking'), false);
   }
 });
+test('Runtime and ending scroll areas keep native keys without advancing the presentation', async () => {
+  const f = fixture(); await f.jump(13);
+  const region = { closest: selectors => selectors.split(',').some(s => s.trim() === '.dg-scrollable') ? region : null };
+  for (const key of ['ArrowLeft', 'ArrowRight', 'ArrowDown', ' ']) {
+    assert.equal(f.key(key, region).prevented, false);
+    assert.equal(f.run('idx'), 13);
+  }
+});
 test('Toolbar and credits expose names, live status, focus styles and study dialog access', () => {
   assert.match(html, /id="player" role="group" aria-label="발표 재생 제어"/);
   assert.match(html, /id="meta" role="status" aria-live="polite"/);

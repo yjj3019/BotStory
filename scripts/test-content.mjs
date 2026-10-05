@@ -59,3 +59,10 @@ assert.ok(html.includes('scrollbar-gutter: stable'));
 const guide = readFileSync(resolve(packageDir, 'LEARNING-GUIDE.md'), 'utf8');
 for (const detail of ['백그라운드 에이전트', '클라우드 브라우저 로그인', '안전 문제', 'Enterprise 워크스페이스', 'Custom Rules', '명시 동의']) assert.ok(guide.includes(detail), detail);
 console.log('PASS: four-group comparison structure, readable sizing, keyboard scroll and preserved guide detail.');
+
+// Actual 720p QA regressions: intrinsic agent box and reserved ending footer.
+assert.ok(html.includes('#closing .shell-foot { position: static; flex: 0 0 auto;'));
+assert.ok(html.includes('#story [data-sk="12"] .dg-frame > .dg-box:only-of-type { flex: 0 0 auto; min-height: min-content; }'));
+assert.ok(html.includes('class="end-body dg-scrollable" tabindex="0" role="region"'));
+assert.ok(html.includes("runtime.classList.add('dg-scrollable')"));
+console.log('PASS: agent intrinsic height and separate ending-footer space.');

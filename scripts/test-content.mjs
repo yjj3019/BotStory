@@ -92,3 +92,17 @@ assert.ok(html.includes('scroll-padding-bottom: calc(var(--player-h)'));
 assert.ok(html.includes('new ResizeObserver(updatePlayerReserve).observe(player)'));
 assert.ok(html.includes('--player-h: max(11rem, var(--player-measured-h, 0px))'));
 console.log('PASS: mobile route intrinsic height and document-level measured player reserve.');
+
+// Actual 390px QA exposed these nested zero-basis families; guard the shared contract.
+const mobileContract = html.slice(html.indexOf('/* Mobile layout contract:'), html.indexOf('</style>'));
+for (const family of ['.cv-axes', '.dg-goals > li', '.dg-read', '.dg-sbars', '.dg-sbar', '.dg-persist', '.dg-prow', '.dg-roster-row', '.dg-bd', '.dg-sk', '.dg-stack5 > li']) {
+  assert.ok(mobileContract.includes(family), `Missing intrinsic mobile sizing for ${family}`);
+}
+assert.ok(mobileContract.includes('@media (max-width: 820px)'));
+for (const rule of ['flex: 0 0 auto !important;', 'height: auto !important;', 'min-height: min-content !important;', 'grid-auto-rows: minmax(min-content, auto);']) assert.ok(mobileContract.includes(rule));
+assert.ok(mobileContract.includes('.dg-quote blockquote { font-size: clamp(28px, 8vw, 32px); white-space: normal;'));
+assert.ok(mobileContract.includes('.nb { white-space: normal; overflow-wrap: anywhere; }'));
+const glossaryRule = html.match(/\.dg-gloss \.g-k \{([^}]+)\}/)[1];
+const glossaryBackground = rgb(glossaryRule.match(/background: (#[a-f0-9]{6})/i)[1]);
+assert.ok(contrast(rgb('#FFFFFF'), glossaryBackground) >= 4.5, '18px glossary badge must meet normal-text contrast');
+console.log('PASS: shared narrow intrinsic-height families, quote/nowrap wrapping and glossary badge contrast. Actual visual QA remains separate.');

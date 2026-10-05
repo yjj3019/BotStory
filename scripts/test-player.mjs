@@ -315,6 +315,18 @@ test('Static narrow-screen credits stop music without leaving the manually reada
   assert.equal(f.run('idx'), 32); assert.equal(f.elements.get('credits').classList.contains('show'), true);
   await f.advance(180000); assert.equal(f.run('idx'), 32);
 });
+test('Narrow document reserve tracks actual toolbar height after wrapping', async () => {
+  const f = fixture({ narrowScreen: true });
+  const vars = {};
+  f.doc.documentElement = { style: { setProperty: (key, value) => { vars[key] = value; } } };
+  let height = 230.25;
+  f.elements.get('player').getBoundingClientRect = () => ({ height });
+  await f.jump(0);
+  assert.equal(vars['--player-measured-h'], '231px');
+  height = 310;
+  f.run('updatePlayerReserve()');
+  assert.equal(vars['--player-measured-h'], '310px');
+});
 test('Keyboard shortcuts work on page, but not controls, editable content or modal dialogs', async () => {
   const f = fixture({ verifiedRecordings: true }); await f.jump(1); assert.equal(f.key('ArrowRight').prevented, true); assert.equal(f.run('idx'), 2);
   assert.equal(f.key('ArrowRight', f.elements.get('rollReplay')).prevented, false); assert.equal(f.run('idx'), 2);

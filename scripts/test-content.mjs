@@ -79,9 +79,16 @@ const deepBlue = rgb(html.match(/--s-blue-deep: (#[a-f0-9]{6})/i)[1]);
 assert.ok(contrast(rgb('#FFFFFF'), deepBlue) >= 4.5);
 assert.match(html, /\.slide-head \.chap \{[^}]*background: var\(--s-blue-deep\)/);
 assert.ok(html.includes('Narrow-screen reading layout. Desktop slide geometry stays unchanged.'));
-assert.ok(html.includes('body { overflow: auto; }'));
+assert.ok(html.includes('body { overflow: auto; padding-bottom: calc(var(--player-h)'));
 assert.ok(html.includes('#intro h1 .nb { white-space: normal; }'));
 assert.ok(html.includes('grid-template-columns: minmax(0, 1fr) !important; grid-template-rows: auto !important; height: auto;'));
 assert.ok(html.includes('region.tabIndex = 0;'));
 assert.ok(html.includes('#credits.in .roll-track { animation: none; transform: none; padding-top: 0; }'));
 console.log('PASS: chapter/muted contrast >=4.5:1 on pale surfaces and narrow-screen reading fallback guards.');
+
+assert.ok(html.includes('#opening-slide .op-route, #opening-slide .op-route > .dg-route, #story .dg-route'));
+assert.ok(html.includes('height: auto; min-height: min-content; flex: 0 0 auto;'));
+assert.ok(html.includes('scroll-padding-bottom: calc(var(--player-h)'));
+assert.ok(html.includes('new ResizeObserver(updatePlayerReserve).observe(player)'));
+assert.ok(html.includes('--player-h: max(11rem, var(--player-measured-h, 0px))'));
+console.log('PASS: mobile route intrinsic height and document-level measured player reserve.');

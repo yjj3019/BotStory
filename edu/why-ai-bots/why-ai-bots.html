@@ -1378,9 +1378,10 @@
   /* Narrow-screen reading layout. Desktop slide geometry stays unchanged.
      Cards stack; relationship matrices retain columns and can scroll sideways. */
   @media (max-width: 820px) {
-    :root { --player-h: 11rem; }
+    :root { --player-h: max(11rem, var(--player-measured-h, 0px)); }
     html, body { height: auto; min-height: 100%; }
-    body { overflow: auto; }
+    html { scroll-padding-bottom: calc(var(--player-h) + 1rem + env(safe-area-inset-bottom)); }
+    body { overflow: auto; padding-bottom: calc(var(--player-h) + 1rem + env(safe-area-inset-bottom)); }
     #intro { height: auto; min-height: 100dvh; overflow: visible; display: flex; flex-direction: column; padding: 1rem; gap: 1.25rem; }
     #intro .in-main { display: block; }
     #intro .in-art { display: none; }
@@ -1391,7 +1392,7 @@
     #intro .in-chips { display: grid; grid-template-columns: 1fr; }
     #intro .in-top, #intro .in-foot { flex-wrap: wrap; }
     #intro .in-foot { margin-top: auto; }
-    #story, #opening-slide, #closing { height: auto; min-height: 100dvh; padding: .5rem .5rem calc(var(--player-h) + 1rem); }
+    #story, #opening-slide, #closing { height: auto; min-height: 100dvh; padding: .5rem .5rem 1rem; }
     .page, #opening-slide .op-slide, #closing .end-slide { height: auto; overflow: visible; }
     .slide-head { flex-direction: column; gap: .5rem; padding: .85rem; border-radius: 16px 16px 0 0; }
     .slide-head h2 { font-size: 1.45rem; line-height: 1.4; }
@@ -1476,16 +1477,18 @@
     #story .dg-readable { scrollbar-gutter: auto; }
     #opening-slide .op-body, #closing .end-body { display: flex; flex-direction: column; height: auto; padding: .8rem; gap: 1rem; overflow: visible; }
     #opening-slide .op-panel, #closing .end-card { width: 100%; padding: 1rem; }
-    #opening-slide .op-route { flex: 0 0 auto; }
+    #opening-slide .op-route, #opening-slide .op-route > .dg-route, #story .dg-route {
+      height: auto; min-height: min-content; flex: 0 0 auto;
+    }
     .dg-route li { flex: 0 0 auto; min-height: 90px; }
     #closing .recap li { font-size: 20px; }
     #closing .check li { font-size: 18px; }
-    #credits { padding: .5rem .5rem calc(var(--player-h) + .5rem); min-height: 100dvh; height: auto; }
+    #credits { padding: .5rem .5rem 1rem; min-height: 100dvh; height: auto; }
     #credits .cr-slide { height: auto; overflow: visible; }
     #credits .roll-view { overflow: auto; mask-image: none; -webkit-mask-image: none; }
     #credits.in .roll-track { animation: none; transform: none; padding-top: 0; }
     #credits .cr-body { padding: 1rem; }
-    #player { bottom: .5rem; }
+    #player { bottom: max(.5rem, env(safe-area-inset-bottom)); }
     #narration-fallback { bottom: calc(var(--player-h) + .5rem); }
   }
 </style>
@@ -4297,6 +4300,7 @@ function buildPages() {
 }
 
 function showScene(n) {
+  updatePlayerReserve();
   if (window.matchMedia && matchMedia('(max-width: 820px)').matches && window.scrollTo) window.scrollTo(0, 0);
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   closing.classList.remove('show');
@@ -4329,6 +4333,14 @@ function showScene(n) {
     meta.textContent = '크레딧';
     startRoll();
   }
+}
+
+// The fixed toolbar wraps as labels or viewport width change. Reserve its real height.
+function updatePlayerReserve() {
+  if (!document.documentElement || !player.getBoundingClientRect || player.hidden) return;
+  if (!window.matchMedia || !matchMedia('(max-width: 820px)').matches) return;
+  const height = Math.ceil(player.getBoundingClientRect().height);
+  if (height > 0) document.documentElement.style.setProperty('--player-measured-h', height + 'px');
 }
 
 const playBtn = document.getElementById('play');
@@ -4669,6 +4681,9 @@ document.addEventListener('keydown', (event) => {
 buildPages();
 if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) { const ia = document.getElementById('in-art'); if (ia && ia.pauseAnimations) ia.pauseAnimations(); }
 document.getElementById('op-route').appendChild(buildRoute({}));
+if (window.ResizeObserver) new ResizeObserver(updatePlayerReserve).observe(player);
+window.addEventListener('resize', updatePlayerReserve);
+updatePlayerReserve();
 
 // QA: ?scene=0 opening, 1..30 scenes, 31 ending, 32 credits — skip intro for screenshots
 (function qaJump() {

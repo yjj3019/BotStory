@@ -24,3 +24,5 @@ python3 -m http.server 8765
 
 ## 문서
 - 서사 잠금: 병행 세 경로 · 22장 4행 비교 · 설정값 세 개 — 상세는 `edu/why-ai-bots/README.md`
+
+검증 기록: [34상태 × 3해상도 화면별 결과와 남은 음성 검증](edu/why-ai-bots/PER-SLIDE-QA-2026-10-05.md)

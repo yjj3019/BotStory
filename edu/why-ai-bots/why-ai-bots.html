@@ -4390,14 +4390,7 @@ let cancelClipLoad = null;
 let endingTimer = null;
 // Remove an ID only after its cloud-generated recording matches the current narration.
 // Pending revised clips must never play an older, contradictory recording.
-const PENDING_RECORDING_CLIPS = new Set([
-  '00-opening', '01-scene', '02-scene', '03-scene', '04-scene', '05-scene',
-  '06-scene', '07-scene', '08-scene', '09-scene', '10-scene', '11-scene',
-  '12-scene', '13-scene', '14-scene', '15-scene', '16-scene', '17-scene',
-  '18-scene', '19-scene', '20-scene', '21-scene', '22-scene', '23-scene',
-  '24-scene', '25-scene', '26-scene', '27-scene', '28-scene', '29-scene',
-  '30-scene', '31-ending'
-]);
+const PENDING_RECORDING_CLIPS = new Set([]);
 
 const narrationFallback = document.createElement('aside');
 narrationFallback.id = 'narration-fallback';
